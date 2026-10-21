@@ -1,0 +1,15 @@
+[
+  {
+    "id": "color-contrast",
+    "impact": "serious",
+    "nodes": [
+      {
+        "target": [
+          ".example > code"
+        ],
+        "html": "<code tabindex=\"0\">✅ feat: add user authentication ✅ fix: resolve login redirect\n                issue ✅ docs: update README with install guide ❌ fixed stuff\n                ❌ changes ❌ asdfgh</code>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.62 (foreground color: #4b35a3, background color: #25292e, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+      }
+    ]
+  }
+]

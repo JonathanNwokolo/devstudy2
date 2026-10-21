@@ -1,0 +1,211 @@
+[
+  {
+    "id": "color-contrast",
+    "impact": "serious",
+    "nodes": [
+      {
+        "target": [
+          ".type-card:nth-child(1) > .type-desc"
+        ],
+        "html": "<div class=\"type-desc\">Texto</div>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.34 (foreground color: #d7d8e5, background color: #f7fafc, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".type-card:nth-child(2) > .type-desc"
+        ],
+        "html": "<div class=\"type-desc\">Números</div>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.34 (foreground color: #d7d8e5, background color: #f7fafc, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".type-card:nth-child(3) > .type-desc"
+        ],
+        "html": "<div class=\"type-desc\">Verdadeiro/Falso</div>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.34 (foreground color: #d7d8e5, background color: #f7fafc, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".type-card:nth-child(4) > .type-desc"
+        ],
+        "html": "<div class=\"type-desc\">Não definido</div>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.34 (foreground color: #d7d8e5, background color: #f7fafc, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".type-card:nth-child(5) > .type-desc"
+        ],
+        "html": "<div class=\"type-desc\">Vazio intencional</div>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.34 (foreground color: #d7d8e5, background color: #f7fafc, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".type-card:nth-child(6) > .type-desc"
+        ],
+        "html": "<div class=\"type-desc\">Lista ordenada</div>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.34 (foreground color: #d7d8e5, background color: #f7fafc, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".type-card:nth-child(7) > .type-desc"
+        ],
+        "html": "<div class=\"type-desc\">Coleção de dados</div>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.34 (foreground color: #d7d8e5, background color: #f7fafc, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".type-card:nth-child(8) > .type-desc"
+        ],
+        "html": "<div class=\"type-desc\">Identificador único</div>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.34 (foreground color: #d7d8e5, background color: #f7fafc, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".loop-type:nth-child(1) > p"
+        ],
+        "html": "<p>Quando sabe quantas vezes repetir</p>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.34 (foreground color: #d7d8e5, background color: #f7fafc, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".loop-type:nth-child(2) > p"
+        ],
+        "html": "<p>Para iterar arrays (valores)</p>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.34 (foreground color: #d7d8e5, background color: #f7fafc, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".loop-type:nth-child(3) > p"
+        ],
+        "html": "<p>Para iterar objetos (chaves)</p>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.34 (foreground color: #d7d8e5, background color: #f7fafc, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".loop-type:nth-child(4) > p"
+        ],
+        "html": "<p>Enquanto condição for verdadeira</p>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.34 (foreground color: #d7d8e5, background color: #f7fafc, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".method-card:nth-child(1) > code"
+        ],
+        "html": "<code>[1,2,3].map(x =&gt; x * 2)</code>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.52 (foreground color: #cbbdff, background color: #edf2f7, font size: 9.6pt (12.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".method-card:nth-child(2) > code"
+        ],
+        "html": "<code>[1,2,3,4].filter(x =&gt; x &gt; 2)</code>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.52 (foreground color: #cbbdff, background color: #edf2f7, font size: 9.6pt (12.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".method-card:nth-child(3) > code"
+        ],
+        "html": "<code>[1,2,3].reduce((a,b) =&gt; a+b, 0)</code>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.52 (foreground color: #cbbdff, background color: #edf2f7, font size: 9.6pt (12.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".method-card:nth-child(4) > code"
+        ],
+        "html": "<code>[1,2,3].find(x =&gt; x &gt; 1)</code>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.52 (foreground color: #cbbdff, background color: #edf2f7, font size: 9.6pt (12.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".method-card:nth-child(5) > code"
+        ],
+        "html": "<code>[1,2,3].some(x =&gt; x &gt; 2)</code>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.52 (foreground color: #cbbdff, background color: #edf2f7, font size: 9.6pt (12.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".method-card:nth-child(6) > code"
+        ],
+        "html": "<code>[1,2,3].every(x =&gt; x &gt; 0)</code>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.52 (foreground color: #cbbdff, background color: #edf2f7, font size: 9.6pt (12.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          "#demoOutput"
+        ],
+        "html": "<p id=\"demoOutput\" style=\"margin-top: 15px; color: var(--text-muted)\">\n                Resultado aparece aqui...\n              </p>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.12 (foreground color: #e8ecfa, background color: #f7fafc, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".tip-card:nth-child(1) > p > code:nth-child(1)"
+        ],
+        "html": "<code>const</code>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.53 (foreground color: #cbbdff, background color: #f0f2fd, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".tip-card:nth-child(1) > p > code:nth-child(2)"
+        ],
+        "html": "<code>let</code>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.53 (foreground color: #cbbdff, background color: #f0f2fd, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".tip-card:nth-child(3) > p > code:nth-child(1)"
+        ],
+        "html": "<code>usuarioAtivo</code>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.53 (foreground color: #cbbdff, background color: #f0f2fd, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".tip-card:nth-child(3) > p > code:nth-child(2)"
+        ],
+        "html": "<code>ua</code>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.53 (foreground color: #cbbdff, background color: #f0f2fd, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".tip-card:nth-child(5) > p > code:nth-child(1)"
+        ],
+        "html": "<code>var</code>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.53 (foreground color: #cbbdff, background color: #f0f2fd, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".tip-card:nth-child(5) > p > code:nth-child(2)"
+        ],
+        "html": "<code>let</code>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.53 (foreground color: #cbbdff, background color: #f0f2fd, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".tip-card:nth-child(5) > p > code:nth-child(3)"
+        ],
+        "html": "<code>const</code>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.53 (foreground color: #cbbdff, background color: #f0f2fd, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".tip-card:nth-child(6) > p > code:nth-child(1)"
+        ],
+        "html": "<code>console.log()</code>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.53 (foreground color: #cbbdff, background color: #f0f2fd, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".tip-card:nth-child(6) > p > code:nth-child(2)"
+        ],
+        "html": "<code>console.table()</code>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.53 (foreground color: #cbbdff, background color: #f0f2fd, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "target": [
+          ".tip-card:nth-child(6) > p > code:nth-child(3)"
+        ],
+        "html": "<code>console.dir()</code>",
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.53 (foreground color: #cbbdff, background color: #f0f2fd, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      }
+    ]
+  }
+]
