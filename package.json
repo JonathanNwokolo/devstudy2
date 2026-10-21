@@ -1,0 +1,30 @@
+{
+  "name": "devstudy",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DevStudy — plataforma de estudos de desenvolvimento web em português (site estático: HTML/CSS/JS Vanilla + Eleventy para build).",
+  "license": "MIT",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve --port=5500",
+    "serve": "node scripts/serve.js",
+    "pretest:static": "npm run build",
+    "test:static": "node --test tests/static/html.test.js tests/static/js.test.js tests/static/architecture.test.js tests/static/search.test.js",
+    "pretest:e2e": "npm run build",
+    "test:e2e": "playwright test",
+    "pretest:a11y": "npm run build",
+    "test:a11y": "playwright test tests/e2e/a11y.spec.js",
+    "test": "npm run test:static && npm run test:e2e",
+    "metrics": "node scripts/metrics.js",
+    "clean": "node -e \"require('fs').rmSync('_site',{recursive:true,force:true})\""
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "@axe-core/playwright": "^4.10.0",
+    "@playwright/test": "^1.50.0"
+  }
+}
