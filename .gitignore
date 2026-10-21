@@ -1,0 +1,13 @@
+node_modules/
+test-results/
+test-results-local/
+playwright-report/
+.DS_Store
+_site/
+.env
+.env.*
+*.log
+npm-debug.log*
+.claude/
+.idea/
+Thumbs.db
