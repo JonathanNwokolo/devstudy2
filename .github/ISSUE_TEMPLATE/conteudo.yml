@@ -1,0 +1,23 @@
+name: Erro ou melhoria de conteúdo
+description: Informação incorreta, desatualizada ou que pode ser explicada melhor
+labels: [conteúdo]
+body:
+  - type: input
+    id: pagina
+    attributes:
+      label: Página e seção
+      placeholder: "javascript.html — seção Arrays"
+    validations: {required: true}
+  - type: textarea
+    id: problema
+    attributes:
+      label: O que está errado ou confuso?
+    validations: {required: true}
+  - type: textarea
+    id: sugestao
+    attributes:
+      label: Sugestão de correção
+  - type: input
+    id: fonte
+    attributes:
+      label: Fonte (documentação oficial, MDN etc.)

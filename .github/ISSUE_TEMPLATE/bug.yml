@@ -1,0 +1,25 @@
+name: Bug
+description: Algo no site não funciona como esperado
+labels: [bug]
+body:
+  - type: textarea
+    id: o-que
+    attributes:
+      label: O que aconteceu?
+      description: Descreva o problema e o que você esperava.
+    validations: {required: true}
+  - type: textarea
+    id: passos
+    attributes:
+      label: Passos para reproduzir
+      placeholder: "1. Abra index.html\n2. Clique em...\n3. ..."
+    validations: {required: true}
+  - type: input
+    id: ambiente
+    attributes:
+      label: Navegador e dispositivo
+      placeholder: "Chrome 130, Windows 11 / Safari, iPhone 13"
+  - type: textarea
+    id: extra
+    attributes:
+      label: Capturas de tela ou mensagens do console
