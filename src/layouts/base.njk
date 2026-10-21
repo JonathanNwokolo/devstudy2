@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR" class="{{ 'page-home' if home else 'page-study' }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}" />
+    {%- if keywords %}
+    <meta name="keywords" content="{{ keywords }}" />
+    {%- endif %}
+    {%- if og %}
+    <meta property="og:title" content="{{ og.title }}" />
+    <meta property="og:description" content="{{ og.description }}" />
+    <meta property="og:type" content="{{ og.type }}" />
+    {%- endif %}
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/advanced-navigation.css" />
+    <link rel="stylesheet" href="css/mobile-enhanced.css" />
+    {%- for style in styles %}
+    <link rel="stylesheet" href="css/{{ style }}" />
+    {%- endfor %}
+    <link rel="stylesheet" href="css/playground.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-to-content">Pular para o conteúdo principal</a>
+    {% include "header.njk" %}
+    {%- if not home %}
+    <aside class="study-rail study-rail-left" aria-label="Navegue pelo código">
+      <p class="rail-label">✳ NAVEGUE PELO CÓDIGO</p>
+      <a href="index.html">⌂ &nbsp; Visão geral</a>
+      <p class="rail-label">01 / FUNDAMENTOS</p>
+      <a href="index.html#html">◇ &nbsp; HTML</a>
+      <a href="css.html">◈ &nbsp; CSS</a>
+      <a href="javascript.html">✳ &nbsp; JavaScript</a>
+      <p class="rail-label">02 / RECURSOS</p>
+      <a href="topicos.html">⌘ &nbsp; Explorar conteúdos</a>
+      <a href="cheatsheets.html">✦ &nbsp; Ferramentas</a>
+      <div class="rail-note"><strong>✳ código aberto, mente aberta.</strong><p>Quer melhorar algum conteúdo? Contribua pelo GitHub.</p><a href="https://github.com/JonathanNwokolo/-DevStudy-" target="_blank" rel="noopener noreferrer">CONTRIBUIR ↗</a></div>
+    </aside>
+    <aside class="study-rail study-rail-right" aria-label="Nesta página"><p class="rail-label">NESTA PÁGINA</p><nav id="studyToc" aria-label="Tópicos da página"></nav><div class="rail-note rail-note-right"><strong>✳ DEV MODE: ON</strong><p>Aprender é melhor quando você experimenta.</p></div></aside>
+    {%- endif %}
+{{ content | safe }}
+
+    {% include "footer.njk" %}
+    {%- if home %}
+
+    {% include "quick-access.njk" %}
+    {%- endif %}
+
+    <!-- Scripts: main.js inicializa todos os recursos compartilhados uma única vez -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+    {%- for script in scripts %}
+    <script type="module" src="js/pages/{{ script }}"></script>
+    {%- endfor %}
+    {% include "prism.njk" %}
+  </body>
+</html>

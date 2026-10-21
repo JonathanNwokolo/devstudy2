@@ -1,0 +1,2472 @@
+---
+title: "DevStudy - Aprenda HTML, CSS & JavaScript"
+description: "DevStudy: plataforma gratuita e interativa para aprender desenvolvimento web do zero — HTML, CSS, JavaScript, TypeScript, React, Vue, Node.js, Git e mais."
+permalink: "index.html"
+og: {"title":"DevStudy - Plataforma de Estudos para Devs","description":"Estude desenvolvimento web em português com exemplos práticos e uma trilha de estudos.","type":"website"}
+styles: ["animations.css"]
+footer: {"variant":"logo"}
+home: true
+---
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+
+    <!-- Hero Section -->
+    <main>
+    <section id="home" class="hero">
+      <div id="main-content" class="hero-content">
+        <div class="hero-badge"><span class="badge-spark" aria-hidden="true"></span> CODE. BREAK. REPEAT. ✦</div>
+        <h1 class="hero-title">
+          <span class="hero-line">Seu próximo</span> <span class="hero-line"><span class="highlight">level</span> começa</span> <span class="hero-line">aqui<span class="hero-period">.</span> <span class="hero-asterisk" aria-hidden="true">✳</span></span>
+        </h1>
+        <p class="hero-description">
+          Aprenda desenvolvimento no seu ritmo, explore assuntos que despertam
+          sua curiosidade e transforme teoria em código. Sem enrolação, sem pagar nada.
+        </p>
+        <div class="hero-buttons">
+          <a href="#html" class="btn btn-primary">Bora explorar ↗</a>
+          <a href="topicos.html" class="btn btn-secondary">Ver conteúdos →</a>
+        </div>
+        <p class="hero-proof"><span aria-hidden="true">👾 🚀 🧠</span> feito para quem curte aprender construindo</p>
+      </div>
+      <div class="hero-visual">
+        <span class="orbit-chip chip-html" aria-hidden="true">&lt;HTML&gt;<small>ESTRUTURA!</small></span>
+        <span class="orbit-chip chip-css" aria-hidden="true">#CSS { WOW }</span>
+        <span class="orbit-chip chip-js" aria-hidden="true">JS✳<small>POWER UP</small></span>
+        <div class="code-window">
+          <div class="code-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="file-name">playground.js</span>
+          </div>
+          <pre class="code-content"><code><span class="js-keyword">const</span> dev = {
+  name: <span class="js-string">'você'</span>,
+  energy: <span class="js-string">100</span>,
+  skills: []
+};
+dev.skills.push(<span class="js-string">'✨'</span>);</code></pre>
+        </div>
+        <span class="scene-level" aria-hidden="true">+ 1 LEVEL ↗<small>keep learning!</small></span>
+      </div>
+    </section>
+    <div class="playground-ticker" aria-hidden="true"><span>✳ &nbsp; HTML &amp; CSS &nbsp; ✳ &nbsp; JAVASCRIPT &nbsp; ✳ &nbsp; GIT &amp; GITHUB &nbsp; ✳ &nbsp; DESAFIOS &nbsp; ✳ &nbsp; EXPERIMENTE &nbsp; ✳ &nbsp; EXPLORE &nbsp; ✳ &nbsp; HTML &amp; CSS &nbsp; ✳ &nbsp; JAVASCRIPT &nbsp; ✳</span></div>
+
+    <section class="adventure-section" aria-labelledby="adventure-title">
+      <div class="container">
+        <span class="adventure-eyebrow">01 / ESCOLHA SUA AVENTURA ↗</span>
+        <h2 id="adventure-title">Qual código a gente<br>vai destravar hoje?</h2>
+        <div class="adventure-grid">
+          <a class="adventure-card adventure-html" href="#html"><span class="adventure-number">01 / ESTRUTURA</span><span class="adventure-art" aria-hidden="true">🧱</span><strong>HTML</strong><span>Construa a estrutura de tudo.</span><span class="adventure-arrow" aria-hidden="true">↗</span></a>
+          <a class="adventure-card adventure-css" href="css.html"><span class="adventure-number">02 / ESTILO</span><span class="adventure-art" aria-hidden="true">🎨</span><strong>CSS</strong><span>Deixe cada pixel no lugar.</span><span class="adventure-arrow" aria-hidden="true">↗</span></a>
+          <a class="adventure-card adventure-javascript" href="javascript.html"><span class="adventure-number">03 / LÓGICA</span><span class="adventure-art" aria-hidden="true">⚡</span><strong>JavaScript</strong><span>Faça tudo ganhar vida.</span><span class="adventure-arrow" aria-hidden="true">↗</span></a>
+          <a class="adventure-card adventure-git" href="git.html"><span class="adventure-number">04 / VERSIONAR</span><span class="adventure-art" aria-hidden="true">🪐</span><strong>Git &amp; GitHub</strong><span>Seu código, sua jornada.</span><span class="adventure-arrow" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="adventure-more"><a href="javascript.html">Aprender JavaScript ↗</a><span>50+ tags HTML · 80+ propriedades CSS</span></div>
+      </div>
+    </section>
+
+    <!-- HTML Section -->
+    <section id="html" class="section html-section">
+      <div class="container">
+        <!-- HTML Hero -->
+        <div class="section-hero html-hero">
+          <div class="section-hero-content">
+            <span class="section-badge html-badge">HTML5</span>
+            <h2 class="section-hero-title">
+              <span class="hero-icon">📄</span>
+              Hypertext Markup Language
+            </h2>
+            <p class="section-hero-description">
+              HTML é a linguagem de marcação padrão para criar páginas web. Ele
+              descreve a estrutura de uma página usando elementos e tags que os
+              navegadores interpretam para exibir conteúdo.
+            </p>
+            <div class="section-hero-stats">
+              <div class="mini-stat">
+                <span class="mini-stat-number">118</span>
+                <span class="mini-stat-label">Tags</span>
+              </div>
+              <div class="mini-stat">
+                <span class="mini-stat-number">1993</span>
+                <span class="mini-stat-label">Criado</span>
+              </div>
+              <div class="mini-stat">
+                <span class="mini-stat-number">HTML5</span>
+                <span class="mini-stat-label">Versão Atual</span>
+              </div>
+            </div>
+          </div>
+          <div class="section-hero-visual">
+            <div class="floating-tags">
+              <span class="float-tag">&lt;html&gt;</span>
+              <span class="float-tag">&lt;head&gt;</span>
+              <span class="float-tag">&lt;body&gt;</span>
+              <span class="float-tag">&lt;div&gt;</span>
+              <span class="float-tag">&lt;p&gt;</span>
+              <span class="float-tag">&lt;a&gt;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- O que é HTML -->
+        <div class="info-card">
+          <div class="info-icon">📄</div>
+          <div class="info-content">
+            <h3>O que é HTML?</h3>
+            <p>
+              HTML (HyperText Markup Language) é a linguagem base de toda página
+              web. Ele define a <strong>estrutura</strong> e o
+              <strong>conteúdo</strong> do site através de elementos chamados
+              <strong>tags</strong>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Estrutura Básica -->
+        <div class="topic-card" id="html-estrutura">
+          <h3 class="topic-title">
+            <span class="topic-icon">🏗️</span>
+            Estrutura Básica do HTML
+          </h3>
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Exemplo</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;        <span class="comment">← Define o tipo do documento (HTML5)</span>
+&lt;html lang="pt-BR"&gt;    <span class="comment">← Elemento raiz, define o idioma</span>
+&lt;head&gt;                 <span class="comment">← Contém metadados (não visível)</span>
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Título da Página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;                 <span class="comment">← Conteúdo visível da página</span>
+    &lt;h1&gt;Olá, Mundo!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Tags de Texto -->
+        <div class="topic-card" id="html-texto">
+          <h3 class="topic-title">
+            <span class="topic-icon">📝</span>
+            Tags de Texto
+          </h3>
+          <p class="topic-description">
+            Tags usadas para formatar e estruturar textos na página.
+          </p>
+
+          <div class="tags-grid">
+            <div class="tag-item" onclick="showTagDemo('h1-h6')">
+              <code>&lt;h1&gt; - &lt;h6&gt;</code>
+              <span class="tag-desc">Títulos (h1 maior, h6 menor)</span>
+            </div>
+            <div class="tag-item" onclick="showTagDemo('p')">
+              <code>&lt;p&gt;</code>
+              <span class="tag-desc">Parágrafo de texto</span>
+            </div>
+            <div class="tag-item" onclick="showTagDemo('strong')">
+              <code>&lt;strong&gt;</code>
+              <span class="tag-desc"
+                >Texto em <strong>negrito</strong> (importante)</span
+              >
+            </div>
+            <div class="tag-item" onclick="showTagDemo('em')">
+              <code>&lt;em&gt;</code>
+              <span class="tag-desc">Texto em <em>itálico</em> (ênfase)</span>
+            </div>
+            <div class="tag-item" onclick="showTagDemo('mark')">
+              <code>&lt;mark&gt;</code>
+              <span class="tag-desc">Texto <mark>destacado</mark></span>
+            </div>
+            <div class="tag-item" onclick="showTagDemo('small')">
+              <code>&lt;small&gt;</code>
+              <span class="tag-desc">Texto <small>menor</small></span>
+            </div>
+            <div class="tag-item" onclick="showTagDemo('del')">
+              <code>&lt;del&gt;</code>
+              <span class="tag-desc">Texto <del>riscado</del></span>
+            </div>
+            <div class="tag-item" onclick="showTagDemo('ins')">
+              <code>&lt;ins&gt;</code>
+              <span class="tag-desc">Texto <ins>inserido/sublinhado</ins></span>
+            </div>
+            <div class="tag-item" onclick="showTagDemo('sub')">
+              <code>&lt;sub&gt;</code>
+              <span class="tag-desc">Texto<sub>subscrito</sub> (H₂O)</span>
+            </div>
+            <div class="tag-item" onclick="showTagDemo('sup')">
+              <code>&lt;sup&gt;</code>
+              <span class="tag-desc">Texto<sup>sobrescrito</sup> (x²)</span>
+            </div>
+            <div class="tag-item" onclick="showTagDemo('blockquote')">
+              <code>&lt;blockquote&gt;</code>
+              <span class="tag-desc">Citação em bloco</span>
+            </div>
+            <div class="tag-item" onclick="showTagDemo('code')">
+              <code>&lt;code&gt;</code>
+              <span class="tag-desc">Código inline</span>
+            </div>
+            <div class="tag-item" onclick="showTagDemo('pre')">
+              <code>&lt;pre&gt;</code>
+              <span class="tag-desc">Texto pré-formatado</span>
+            </div>
+            <div class="tag-item" onclick="showTagDemo('br')">
+              <code>&lt;br&gt;</code>
+              <span class="tag-desc">Quebra de linha</span>
+            </div>
+            <div class="tag-item" onclick="showTagDemo('hr')">
+              <code>&lt;hr&gt;</code>
+              <span class="tag-desc">Linha horizontal</span>
+            </div>
+            <div class="tag-item" onclick="showTagDemo('abbr')">
+              <code>&lt;abbr&gt;</code>
+              <span class="tag-desc"
+                ><abbr title="HyperText Markup Language">Abreviação</abbr></span
+              >
+            </div>
+          </div>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Exemplos de Uso</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-html">&lt;h1&gt;Título Principal&lt;/h1&gt;   <span class="comment">← Maior título da página (use só 1 por página)</span>
+&lt;h2&gt;Subtítulo&lt;/h2&gt;          <span class="comment">← Subtítulo (nível 2)</span>
+&lt;h3&gt;Título de Seção&lt;/h3&gt;    <span class="comment">← Título de seção (nível 3, h4-h6 seguem a mesma lógica)</span>
+
+&lt;p&gt;Este é um parágrafo com &lt;strong&gt;texto importante&lt;/strong&gt;   <span class="comment">← strong = negrito semântico</span>
+   e &lt;em&gt;texto com ênfase&lt;/em&gt;.&lt;/p&gt;                           <span class="comment">← em = itálico semântico</span>
+
+&lt;p&gt;Fórmula da água: H&lt;sub&gt;2&lt;/sub&gt;O&lt;/p&gt;                       <span class="comment">← sub = subscrito (abaixo)</span>
+&lt;p&gt;Matemática: x&lt;sup&gt;2&lt;/sup&gt; + y&lt;sup&gt;2&lt;/sup&gt; = z&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt; <span class="comment">← sup = sobrescrito (acima)</span>
+
+&lt;blockquote&gt;                  <span class="comment">← Citação longa com destaque visual</span>
+    "A única maneira de fazer um ótimo trabalho é amar o que você faz."
+    &lt;cite&gt;— Steve Jobs&lt;/cite&gt; <span class="comment">← cite = fonte/autor da citação</span>
+&lt;/blockquote&gt;</code></pre>
+          </div>
+
+          <!-- Preview ao vivo -->
+          <div class="live-preview">
+            <h4>👁️ Visualização:</h4>
+            <div class="preview-content">
+              <h1 style="font-size: 1.5rem">Título Principal</h1>
+              <h2 style="font-size: 1.2rem">Subtítulo</h2>
+              <p>
+                Este é um parágrafo com <strong>texto importante</strong> e
+                <em>texto com ênfase</em>.
+              </p>
+              <p>Fórmula da água: H<sub>2</sub>O</p>
+              <blockquote
+                style="
+                  border-left: 3px solid #667eea;
+                  padding-left: 1rem;
+                  margin: 1rem 0;
+                  color: #666;
+                "
+              >
+                "A única maneira de fazer um ótimo trabalho é amar o que você
+                faz."
+                <cite>— Steve Jobs</cite>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tags Semânticas -->
+        <div class="topic-card highlight-card" id="html-semantica">
+          <h3 class="topic-title">
+            <span class="topic-icon">🎯</span>
+            Tags Semânticas (HTML5)
+          </h3>
+          <p class="topic-description">
+            Tags semânticas dão <strong>significado</strong> ao conteúdo.
+            Melhoram a acessibilidade, SEO e tornam o código mais legível.
+          </p>
+
+          <div class="semantic-visual">
+            <div class="semantic-layout">
+              <div class="sem-header">&lt;header&gt;</div>
+              <div class="sem-nav">&lt;nav&gt;</div>
+              <div class="sem-main-area">
+                <div class="sem-main">
+                  &lt;main&gt;
+                  <div class="sem-article">&lt;article&gt;</div>
+                  <div class="sem-section">&lt;section&gt;</div>
+                </div>
+                <div class="sem-aside">&lt;aside&gt;</div>
+              </div>
+              <div class="sem-footer">&lt;footer&gt;</div>
+            </div>
+          </div>
+
+          <div class="tags-grid semantic-grid">
+            <div class="tag-item semantic">
+              <code>&lt;header&gt;</code>
+              <span class="tag-desc"
+                >Cabeçalho da página ou seção. Contém logo, navegação,
+                título.</span
+              >
+            </div>
+            <div class="tag-item semantic">
+              <code>&lt;nav&gt;</code>
+              <span class="tag-desc"
+                >Navegação principal com links do site.</span
+              >
+            </div>
+            <div class="tag-item semantic">
+              <code>&lt;main&gt;</code>
+              <span class="tag-desc"
+                >Conteúdo principal da página. Único por página!</span
+              >
+            </div>
+            <div class="tag-item semantic">
+              <code>&lt;article&gt;</code>
+              <span class="tag-desc"
+                >Conteúdo independente (post, artigo, comentário).</span
+              >
+            </div>
+            <div class="tag-item semantic">
+              <code>&lt;section&gt;</code>
+              <span class="tag-desc">Seção temática do documento.</span>
+            </div>
+            <div class="tag-item semantic">
+              <code>&lt;aside&gt;</code>
+              <span class="tag-desc"
+                >Conteúdo relacionado (sidebar, anúncios).</span
+              >
+            </div>
+            <div class="tag-item semantic">
+              <code>&lt;footer&gt;</code>
+              <span class="tag-desc">Rodapé da página ou seção.</span>
+            </div>
+            <div class="tag-item semantic">
+              <code>&lt;figure&gt;</code>
+              <span class="tag-desc"
+                >Conteúdo ilustrativo (imagem, diagrama).</span
+              >
+            </div>
+            <div class="tag-item semantic">
+              <code>&lt;figcaption&gt;</code>
+              <span class="tag-desc">Legenda para &lt;figure&gt;.</span>
+            </div>
+            <div class="tag-item semantic">
+              <code>&lt;details&gt;</code>
+              <span class="tag-desc">Widget expansível/colapsável.</span>
+            </div>
+            <div class="tag-item semantic">
+              <code>&lt;summary&gt;</code>
+              <span class="tag-desc">Título visível do &lt;details&gt;.</span>
+            </div>
+            <div class="tag-item semantic">
+              <code>&lt;time&gt;</code>
+              <span class="tag-desc">Data/hora legível por máquinas.</span>
+            </div>
+          </div>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Estrutura Semântica Completa</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-html">&lt;header&gt;                            <span class="comment">← Cabeçalho: logo, navegação, busca</span>
+    &lt;nav&gt;                           <span class="comment">← nav = bloco de navegação principal</span>
+        &lt;a href="#"&gt;Logo&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Início&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Sobre&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Contato&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;                              <span class="comment">← main = conteúdo principal (único na página)</span>
+    &lt;article&gt;                       <span class="comment">← article = conteúdo autônomo (blog, notícia)</span>
+        &lt;h1&gt;Título do Artigo&lt;/h1&gt;
+        &lt;time datetime="2026-02-17"&gt;17 de Fevereiro, 2026&lt;/time&gt;  <span class="comment">← datetime = formato legível por máquina</span>
+
+        &lt;section&gt;                   <span class="comment">← section = seção temática do artigo</span>
+            &lt;h2&gt;Introdução&lt;/h2&gt;
+            &lt;p&gt;Conteúdo da seção...&lt;/p&gt;
+        &lt;/section&gt;
+
+        &lt;figure&gt;                    <span class="comment">← figure = agrupa imagem + legenda</span>
+            &lt;img src="imagem.jpg" alt="Descrição"&gt;  <span class="comment">← alt obrigatório para acessibilidade</span>
+            &lt;figcaption&gt;Legenda da imagem&lt;/figcaption&gt;  <span class="comment">← legenda visível da figura</span>
+        &lt;/figure&gt;
+    &lt;/article&gt;
+
+    &lt;aside&gt;                         <span class="comment">← aside = conteúdo lateral/relacionado</span>
+        &lt;h3&gt;Artigos Relacionados&lt;/h3&gt;
+        &lt;ul&gt;...&lt;/ul&gt;
+    &lt;/aside&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;                            <span class="comment">← footer = rodapé: copyright, links, contato</span>
+    &lt;p&gt;&copy; 2026 Meu Site. Todos os direitos reservados.&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+          </div>
+
+          <!-- Details demo -->
+          <div class="live-preview">
+            <h4>👁️ Exemplo Interativo - &lt;details&gt;:</h4>
+            <details class="demo-details">
+              <summary>Clique para expandir</summary>
+              <p>
+                Este conteúdo fica escondido até você clicar! Muito útil para
+                FAQs e menus.
+              </p>
+            </details>
+          </div>
+        </div>
+
+        <!-- Tags de Links e Mídia -->
+        <div class="topic-card" id="html-links">
+          <h3 class="topic-title">
+            <span class="topic-icon">🔗</span>
+            Links, Imagens e Mídia
+          </h3>
+
+          <div class="tags-grid">
+            <div class="tag-item">
+              <code>&lt;a href=""&gt;</code>
+              <span class="tag-desc"
+                >Link/âncora para outra página ou seção</span
+              >
+            </div>
+            <div class="tag-item">
+              <code>&lt;img src="" alt=""&gt;</code>
+              <span class="tag-desc">Imagem (src=caminho, alt=descrição)</span>
+            </div>
+            <div class="tag-item">
+              <code>&lt;video&gt;</code>
+              <span class="tag-desc">Vídeo incorporado</span>
+            </div>
+            <div class="tag-item">
+              <code>&lt;audio&gt;</code>
+              <span class="tag-desc">Áudio incorporado</span>
+            </div>
+            <div class="tag-item">
+              <code>&lt;iframe&gt;</code>
+              <span class="tag-desc"
+                >Incorpora outra página (YouTube, mapas)</span
+              >
+            </div>
+            <div class="tag-item">
+              <code>&lt;source&gt;</code>
+              <span class="tag-desc">Fonte de mídia para video/audio</span>
+            </div>
+          </div>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Exemplos</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-html"><span class="comment">&lt;!-- Link externo abre em nova aba --&gt;</span>
+&lt;a href="https://google.com" target="_blank"&gt;Ir para Google&lt;/a&gt;
+
+<span class="comment">&lt;!-- Link interno (âncora) --&gt;</span>
+&lt;a href="#secao"&gt;Ir para Seção&lt;/a&gt;
+
+<span class="comment">&lt;!-- Link para email --&gt;</span>
+&lt;a href="mailto:email@exemplo.com"&gt;Enviar Email&lt;/a&gt;
+
+<span class="comment">&lt;!-- Imagem com texto alternativo (acessibilidade!) --&gt;</span>
+&lt;img src="foto.jpg" alt="Descrição da imagem" width="300"&gt;
+
+<span class="comment">&lt;!-- Vídeo com controles --&gt;</span>
+&lt;video controls width="400"&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+    Seu navegador não suporta vídeo.
+&lt;/video&gt;
+
+<span class="comment">&lt;!-- Áudio --&gt;</span>
+&lt;audio controls&gt;
+    &lt;source src="musica.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Listas -->
+        <div class="topic-card" id="html-listas">
+          <h3 class="topic-title">
+            <span class="topic-icon">📋</span>
+            Listas
+          </h3>
+
+          <div class="lists-demo">
+            <div class="list-type">
+              <h4>Lista Não Ordenada (&lt;ul&gt;)</h4>
+              <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+              </ul>
+              <code>&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code>
+            </div>
+            <div class="list-type">
+              <h4>Lista Ordenada (&lt;ol&gt;)</h4>
+              <ol>
+                <li>Primeiro</li>
+                <li>Segundo</li>
+                <li>Terceiro</li>
+              </ol>
+              <code>&lt;ol&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ol&gt;</code>
+            </div>
+            <div class="list-type">
+              <h4>Lista de Definição (&lt;dl&gt;)</h4>
+              <dl>
+                <dt>HTML</dt>
+                <dd>Linguagem de marcação</dd>
+                <dt>CSS</dt>
+                <dd>Folhas de estilo</dd>
+              </dl>
+              <code
+                >&lt;dl&gt;&lt;dt&gt;Termo&lt;/dt&gt;&lt;dd&gt;Definição&lt;/dd&gt;&lt;/dl&gt;</code
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabelas -->
+        <div class="topic-card">
+          <h3 class="topic-title">
+            <span class="topic-icon">📊</span>
+            Tabelas
+          </h3>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Estrutura de Tabela</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;thead&gt;                    <span class="comment">← Cabeçalho da tabela</span>
+        &lt;tr&gt;                   <span class="comment">← Linha (table row)</span>
+            &lt;th&gt;Nome&lt;/th&gt;      <span class="comment">← Célula de cabeçalho</span>
+            &lt;th&gt;Idade&lt;/th&gt;
+            &lt;th&gt;Cidade&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;                    <span class="comment">← Corpo da tabela</span>
+        &lt;tr&gt;
+            &lt;td&gt;João&lt;/td&gt;      <span class="comment">← Célula de dados</span>
+            &lt;td&gt;25&lt;/td&gt;
+            &lt;td&gt;São Paulo&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Maria&lt;/td&gt;
+            &lt;td&gt;30&lt;/td&gt;
+            &lt;td&gt;Rio de Janeiro&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;                    <span class="comment">← Rodapé da tabela</span>
+        &lt;tr&gt;
+            &lt;td colspan="3"&gt;Total: 2 pessoas&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+          </div>
+
+          <div class="live-preview">
+            <h4>👁️ Visualização:</h4>
+            <table class="demo-table">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Idade</th>
+                  <th>Cidade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>João</td>
+                  <td>25</td>
+                  <td>São Paulo</td>
+                </tr>
+                <tr>
+                  <td>Maria</td>
+                  <td>30</td>
+                  <td>Rio de Janeiro</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Formulários -->
+        <div class="topic-card" id="html-formularios">
+          <h3 class="topic-title">
+            <span class="topic-icon">📝</span>
+            Formulários
+          </h3>
+          <p class="topic-description">
+            Formulários permitem coletar dados do usuário.
+          </p>
+
+          <div class="tags-grid">
+            <div class="tag-item">
+              <code>&lt;form&gt;</code>
+              <span class="tag-desc">Container do formulário</span>
+            </div>
+            <div class="tag-item">
+              <code>&lt;input&gt;</code>
+              <span class="tag-desc"
+                >Campo de entrada (texto, email, senha...)</span
+              >
+            </div>
+            <div class="tag-item">
+              <code>&lt;textarea&gt;</code>
+              <span class="tag-desc">Área de texto multilinha</span>
+            </div>
+            <div class="tag-item">
+              <code>&lt;select&gt;</code>
+              <span class="tag-desc">Lista suspensa</span>
+            </div>
+            <div class="tag-item">
+              <code>&lt;option&gt;</code>
+              <span class="tag-desc">Opção dentro do select</span>
+            </div>
+            <div class="tag-item">
+              <code>&lt;label&gt;</code>
+              <span class="tag-desc">Rótulo para campo (acessibilidade)</span>
+            </div>
+            <div class="tag-item">
+              <code>&lt;button&gt;</code>
+              <span class="tag-desc">Botão clicável</span>
+            </div>
+            <div class="tag-item">
+              <code>&lt;fieldset&gt;</code>
+              <span class="tag-desc">Agrupa campos relacionados</span>
+            </div>
+            <div class="tag-item">
+              <code>&lt;legend&gt;</code>
+              <span class="tag-desc">Título do fieldset</span>
+            </div>
+          </div>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Formulário Completo</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-html">&lt;form action="/enviar" method="POST"&gt;  <span class="comment">← action=URL destino, method=GET ou POST</span>
+    &lt;fieldset&gt;                          <span class="comment">← agrupa campos relacionados visualmente</span>
+        &lt;legend&gt;Dados Pessoais&lt;/legend&gt; <span class="comment">← título do grupo de campos</span>
+
+        &lt;label for="nome"&gt;Nome:&lt;/label&gt; <span class="comment">← for="id" vincula o label ao input</span>
+        &lt;input type="text" id="nome" name="nome" required&gt;  <span class="comment">← required = obrigatório</span>
+
+        &lt;label for="email"&gt;Email:&lt;/label&gt;
+        &lt;input type="email" id="email" name="email" required&gt;  <span class="comment">← valida formato de e-mail</span>
+
+        &lt;label for="senha"&gt;Senha:&lt;/label&gt;
+        &lt;input type="password" id="senha" name="senha" minlength="8"&gt;  <span class="comment">← esconde o texto, mín. 8 chars</span>
+
+        &lt;label for="data"&gt;Data de Nascimento:&lt;/label&gt;
+        &lt;input type="date" id="data" name="data"&gt;  <span class="comment">← abre seletor de data nativo</span>
+
+        &lt;label for="cidade"&gt;Cidade:&lt;/label&gt;
+        &lt;select id="cidade" name="cidade"&gt;           <span class="comment">← lista suspensa (dropdown)</span>
+            &lt;option value=""&gt;Selecione...&lt;/option&gt;   <span class="comment">← value="" = opção padrão vazia</span>
+            &lt;option value="sp"&gt;São Paulo&lt;/option&gt;
+            &lt;option value="rj"&gt;Rio de Janeiro&lt;/option&gt;
+        &lt;/select&gt;
+
+        &lt;label&gt;
+            &lt;input type="checkbox" name="termos"&gt;    <span class="comment">← checkbox = caixa de marcação</span>
+            Aceito os termos de uso
+        &lt;/label&gt;
+
+        &lt;label for="bio"&gt;Biografia:&lt;/label&gt;
+        &lt;textarea id="bio" name="bio" rows="4"&gt;&lt;/textarea&gt;  <span class="comment">← rows = linhas visíveis</span>
+    &lt;/fieldset&gt;
+
+    &lt;button type="submit"&gt;Enviar&lt;/button&gt;  <span class="comment">← envia os dados do formulário</span>
+    &lt;button type="reset"&gt;Limpar&lt;/button&gt;   <span class="comment">← apaga todos os campos</span>
+&lt;/form&gt;</code></pre>
+          </div>
+
+          <div class="live-preview">
+            <h4>👁️ Tipos de Input:</h4>
+            <div class="input-types-demo">
+              <div class="input-demo">
+                <label>text:</label>
+                <input type="text" placeholder="Digite texto" />
+              </div>
+              <div class="input-demo">
+                <label>email:</label>
+                <input type="email" placeholder="email@exemplo.com" />
+              </div>
+              <div class="input-demo">
+                <label>password:</label>
+                <input type="password" placeholder="Senha" />
+              </div>
+              <div class="input-demo">
+                <label>number:</label>
+                <input type="number" placeholder="123" />
+              </div>
+              <div class="input-demo">
+                <label>date:</label>
+                <input type="date" aria-label="Exemplo de campo de data" />
+              </div>
+              <div class="input-demo">
+                <label>color:</label>
+                <input type="color" value="#667eea" aria-label="Exemplo de campo de cor" />
+              </div>
+              <div class="input-demo">
+                <label>range:</label>
+                <input type="range" min="0" max="100" aria-label="Exemplo de controle deslizante" />
+              </div>
+              <div class="input-demo">
+                <label>checkbox:</label>
+                <input type="checkbox" aria-label="Opção" /> Opção
+              </div>
+              <div class="input-demo">
+                <label>radio:</label>
+                <input type="radio" name="opcao" aria-label="Opção A" /> A
+                <input type="radio" name="opcao" aria-label="Opção B" /> B
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tags de Container -->
+        <div class="topic-card">
+          <h3 class="topic-title">
+            <span class="topic-icon">📦</span>
+            Tags de Container (Divisão)
+          </h3>
+
+          <div class="comparison-box">
+            <div class="comp-item">
+              <code>&lt;div&gt;</code>
+              <p>
+                <strong>Elemento de bloco</strong> - Ocupa toda a largura
+                disponível. Usado para agrupar elementos e criar layouts.
+              </p>
+              <div class="visual-demo div-demo">
+                <div>DIV 1</div>
+                <div>DIV 2</div>
+              </div>
+            </div>
+            <div class="comp-item">
+              <code>&lt;span&gt;</code>
+              <p>
+                <strong>Elemento inline</strong> - Ocupa apenas o espaço
+                necessário. Usado para estilizar partes de texto.
+              </p>
+              <div class="visual-demo span-demo">
+                <span>SPAN 1</span>
+                <span>SPAN 2</span>
+                <span>SPAN 3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CSS Section -->
+    <section id="css" class="section css-section">
+      <div class="container">
+        <!-- CSS Hero -->
+        <div class="section-hero css-hero">
+          <div class="section-hero-content">
+            <span class="section-badge css-badge">CSS3</span>
+            <h2 class="section-hero-title">
+              <span class="hero-icon">🎨</span>
+              Cascading Style Sheets
+            </h2>
+            <p class="section-hero-description">
+              CSS é responsável pela aparência visual do site: cores, tamanhos,
+              posições, animações e muito mais! Transforme HTML simples em
+              designs incríveis.
+            </p>
+            <div class="section-hero-stats">
+              <div class="mini-stat">
+                <span class="mini-stat-number">500+</span>
+                <span class="mini-stat-label">Propriedades</span>
+              </div>
+              <div class="mini-stat">
+                <span class="mini-stat-number">1996</span>
+                <span class="mini-stat-label">Criado</span>
+              </div>
+              <div class="mini-stat">
+                <span class="mini-stat-number">CSS3</span>
+                <span class="mini-stat-label">Versão Atual</span>
+              </div>
+            </div>
+          </div>
+          <div class="section-hero-visual">
+            <div class="css-preview-box">
+              <div
+                class="preview-element"
+                style="
+                  background: linear-gradient(135deg, #667eea, #764ba2);
+                  border-radius: 12px;
+                  padding: 1rem;
+                  color: white;
+                  text-align: center;
+                "
+              >
+                <span style="font-size: 2rem">✨</span>
+                <p style="margin: 0.5rem 0 0; font-weight: 600">
+                  Estilizado com CSS
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- O que é CSS -->
+        <div class="info-card css-info">
+          <div class="info-icon">🎨</div>
+          <div class="info-content">
+            <h3>O que é CSS?</h3>
+            <p>
+              CSS (Cascading Style Sheets) define o
+              <strong>estilo visual</strong> dos elementos HTML. Enquanto HTML
+              estrutura o conteúdo, CSS o embeleza!
+            </p>
+          </div>
+        </div>
+
+        <!-- Sintaxe CSS -->
+        <div class="topic-card" id="css-sintaxe">
+          <h3 class="topic-title">
+            <span class="topic-icon">✍️</span>
+            Sintaxe do CSS
+          </h3>
+
+          <div class="css-syntax-visual">
+            <div class="syntax-diagram">
+              <span class="syntax-selector">seletor</span>
+              <span class="syntax-bracket">{</span>
+              <div class="syntax-declaration">
+                <span class="syntax-property">propriedade</span>
+                <span class="syntax-colon">:</span>
+                <span class="syntax-value">valor</span>
+                <span class="syntax-semicolon">;</span>
+              </div>
+              <span class="syntax-bracket">}</span>
+            </div>
+          </div>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Exemplo de CSS</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-css">h1 {                        <span class="comment">/* Seletor: elemento h1 */</span>
+    color: blue;            <span class="comment">/* Propriedade: valor */</span>
+    font-size: 24px;
+    text-align: center;
+}
+
+.classe {                   <span class="comment">/* Seletor de classe (.) */</span>
+    background-color: #f0f0f0;
+}
+
+#id {                       <span class="comment">/* Seletor de ID (#) */</span>
+    border: 1px solid black;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- Formas de Incluir CSS -->
+        <div class="topic-card">
+          <h3 class="topic-title">
+            <span class="topic-icon">📎</span>
+            3 Formas de Incluir CSS
+          </h3>
+
+          <div class="css-methods">
+            <div class="method-card">
+              <div class="method-number">1</div>
+              <h4>CSS Externo (Recomendado)</h4>
+              <p>Arquivo .css separado, linkado no HTML</p>
+              <pre><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></pre>
+              <span class="method-badge good">✓ Melhor prática</span>
+            </div>
+            <div class="method-card">
+              <div class="method-number">2</div>
+              <h4>CSS Interno</h4>
+              <p>Dentro da tag &lt;style&gt; no &lt;head&gt;</p>
+              <pre><code>&lt;style&gt;
+  h1 { color: red; }
+&lt;/style&gt;</code></pre>
+              <span class="method-badge medium">Útil para testes</span>
+            </div>
+            <div class="method-card">
+              <div class="method-number">3</div>
+              <h4>CSS Inline</h4>
+              <p>Direto no atributo style do elemento</p>
+              <pre><code>&lt;h1 style="color: red;"&gt;Título&lt;/h1&gt;</code></pre>
+              <span class="method-badge bad">✗ Evitar</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seletores -->
+        <div class="topic-card">
+          <h3 class="topic-title">
+            <span class="topic-icon">🎯</span>
+            Seletores CSS
+          </h3>
+          <p class="topic-description">
+            Seletores definem QUAIS elementos serão estilizados.
+          </p>
+
+          <div class="selectors-table">
+            <table class="demo-table css-table">
+              <thead>
+                <tr>
+                  <th>Seletor</th>
+                  <th>Exemplo</th>
+                  <th>Seleciona</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>elemento</code></td>
+                  <td><code>p { }</code></td>
+                  <td>Todos os parágrafos</td>
+                </tr>
+                <tr>
+                  <td><code>.classe</code></td>
+                  <td><code>.destaque { }</code></td>
+                  <td>Elementos com class="destaque"</td>
+                </tr>
+                <tr>
+                  <td><code>#id</code></td>
+                  <td><code>#header { }</code></td>
+                  <td>Elemento com id="header"</td>
+                </tr>
+                <tr>
+                  <td><code>*</code></td>
+                  <td><code>* { }</code></td>
+                  <td>Todos os elementos</td>
+                </tr>
+                <tr>
+                  <td><code>elemento, elemento</code></td>
+                  <td><code>h1, h2 { }</code></td>
+                  <td>h1 E h2</td>
+                </tr>
+                <tr>
+                  <td><code>elemento elemento</code></td>
+                  <td><code>div p { }</code></td>
+                  <td>p dentro de div (descendente)</td>
+                </tr>
+                <tr>
+                  <td><code>elemento > elemento</code></td>
+                  <td><code>div > p { }</code></td>
+                  <td>p filho direto de div</td>
+                </tr>
+                <tr>
+                  <td><code>elemento + elemento</code></td>
+                  <td><code>h1 + p { }</code></td>
+                  <td>p imediatamente após h1</td>
+                </tr>
+                <tr>
+                  <td><code>[atributo]</code></td>
+                  <td><code>[required] { }</code></td>
+                  <td>Elementos com atributo required</td>
+                </tr>
+                <tr>
+                  <td><code>:hover</code></td>
+                  <td><code>a:hover { }</code></td>
+                  <td>Link quando mouse passa</td>
+                </tr>
+                <tr>
+                  <td><code>:first-child</code></td>
+                  <td><code>li:first-child { }</code></td>
+                  <td>Primeiro li</td>
+                </tr>
+                <tr>
+                  <td><code>::before</code></td>
+                  <td><code>p::before { }</code></td>
+                  <td>Pseudo-elemento antes de p</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Classes e IDs -->
+        <div class="topic-card highlight-card css-highlight" id="css-seletores">
+          <h3 class="topic-title">
+            <span class="topic-icon">🏷️</span>
+            Classes vs IDs
+          </h3>
+
+          <div class="comparison-box">
+            <div class="comp-item class-box">
+              <h4>Classe (.)</h4>
+              <p>
+                <strong>Reutilizável!</strong> Pode ser usada em vários
+                elementos. O mesmo elemento pode ter múltiplas classes.
+              </p>
+              <div class="code-example small">
+                <pre><code>&lt;!-- HTML --&gt;
+&lt;p class="destaque grande"&gt;Texto&lt;/p&gt;
+&lt;span class="destaque"&gt;Outro&lt;/span&gt;
+
+/* CSS */
+.destaque {
+    background: yellow;
+}
+.grande {
+    font-size: 20px;
+}</code></pre>
+              </div>
+            </div>
+            <div class="comp-item id-box">
+              <h4>ID (#)</h4>
+              <p>
+                <strong>Único!</strong> Só pode ser usado em UM elemento por
+                página. Maior especificidade.
+              </p>
+              <div class="code-example small">
+                <pre><code>&lt;!-- HTML --&gt;
+&lt;header id="cabecalho"&gt;...&lt;/header&gt;
+
+/* CSS */
+#cabecalho {
+    background: navy;
+    color: white;
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cores -->
+        <div class="topic-card" id="css-cores">
+          <h3 class="topic-title">
+            <span class="topic-icon">🌈</span>
+            Cores no CSS
+          </h3>
+
+          <div class="colors-demo">
+            <div class="color-method">
+              <h4>Nome da Cor</h4>
+              <code>color: red;</code>
+              <div class="color-preview" style="background: red"></div>
+            </div>
+            <div class="color-method">
+              <h4>Hexadecimal</h4>
+              <code>color: #ff5733;</code>
+              <div class="color-preview" style="background: #ff5733"></div>
+            </div>
+            <div class="color-method">
+              <h4>RGB</h4>
+              <code>color: rgb(102, 126, 234);</code>
+              <div
+                class="color-preview"
+                style="background: rgb(102, 126, 234)"
+              ></div>
+            </div>
+            <div class="color-method">
+              <h4>RGBA (com transparência)</h4>
+              <code>color: rgba(102, 126, 234, 0.5);</code>
+              <div
+                class="color-preview"
+                style="background: rgba(102, 126, 234, 0.5)"
+              ></div>
+            </div>
+            <div class="color-method">
+              <h4>HSL</h4>
+              <code>color: hsl(231, 77%, 66%);</code>
+              <div
+                class="color-preview"
+                style="background: hsl(231, 77%, 66%)"
+              ></div>
+            </div>
+          </div>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Propriedades de Cor</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-css">/* Cor do texto */
+color: #333333;
+
+/* Cor de fundo */
+background-color: #f5f5f5;
+
+/* Gradiente linear */
+background: linear-gradient(to right, #667eea, #764ba2);
+
+/* Gradiente radial */
+background: radial-gradient(circle, #fff, #ddd);
+
+/* Cor da borda */
+border-color: #dee2e6;</code></pre>
+          </div>
+
+          <div class="interactive-demo">
+            <h4>🎨 Experimente:</h4>
+            <div class="color-picker-demo">
+              <label for="colorPicker">Escolha uma cor:</label>
+              <input type="color" id="colorPicker" value="#667eea" />
+              <div class="color-result" id="colorResult">
+                <p>Texto de exemplo</p>
+              </div>
+              <div class="color-codes" id="colorCodes">
+                <code>HEX: #667eea</code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Background -->
+        <div class="topic-card">
+          <h3 class="topic-title">
+            <span class="topic-icon">🖼️</span>
+            Background (Fundo)
+          </h3>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Propriedades de Background</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-css">/* Cor de fundo sólida */
+background-color: #f0f0f0;         <span class="comment">/* Muda a cor de fundo */</span>
+
+/* Imagem de fundo */
+background-image: url('imagem.jpg');
+
+/* Repetição da imagem */
+background-repeat: no-repeat;       <span class="comment">/* no-repeat, repeat, repeat-x, repeat-y */</span>
+
+/* Posição da imagem */
+background-position: center;        <span class="comment">/* center, top, left, right, bottom */</span>
+
+/* Tamanho da imagem */
+background-size: cover;             <span class="comment">/* cover (cobre tudo), contain, auto */</span>
+
+/* Fixar imagem ao rolar */
+background-attachment: fixed;       <span class="comment">/* fixed, scroll, local */</span>
+
+/* Shorthand (tudo junto) */
+background: #f0f0f0 url('img.jpg') no-repeat center/cover;</code></pre>
+          </div>
+
+          <div class="background-demos">
+            <div class="bg-demo" style="background-color: #667eea">
+              <span>background-color: #667eea</span>
+            </div>
+            <div
+              class="bg-demo"
+              style="background: linear-gradient(135deg, #667eea, #764ba2)"
+            >
+              <span>linear-gradient</span>
+            </div>
+            <div
+              class="bg-demo"
+              style="
+                background: repeating-linear-gradient(
+                  45deg,
+                  #667eea,
+                  #667eea 10px,
+                  #764ba2 10px,
+                  #764ba2 20px
+                );
+              "
+            >
+              <span>repeating-gradient</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto -->
+        <div class="topic-card">
+          <h3 class="topic-title">
+            <span class="topic-icon">🔤</span>
+            Propriedades de Texto
+          </h3>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Estilizando Textos</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-css">/* Família da fonte */
+font-family: 'Arial', sans-serif;   <span class="comment">/* Define a fonte */</span>
+
+/* Tamanho da fonte */
+font-size: 16px;                    <span class="comment">/* px, em, rem, %, vw */</span>
+
+/* Peso da fonte */
+font-weight: bold;                  <span class="comment">/* normal, bold, 100-900 */</span>
+
+/* Estilo da fonte */
+font-style: italic;                 <span class="comment">/* normal, italic, oblique */</span>
+
+/* Cor do texto */
+color: #333;
+
+/* Alinhamento */
+text-align: center;                 <span class="comment">/* left, right, center, justify */</span>
+
+/* Decoração */
+text-decoration: underline;         <span class="comment">/* none, underline, line-through */</span>
+
+/* Transformação */
+text-transform: uppercase;          <span class="comment">/* uppercase, lowercase, capitalize */</span>
+
+/* Espaçamento entre letras */
+letter-spacing: 2px;
+
+/* Espaçamento entre palavras */
+word-spacing: 5px;
+
+/* Altura da linha */
+line-height: 1.6;                   <span class="comment">/* Melhora legibilidade */</span>
+
+/* Sombra no texto */
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);</code></pre>
+          </div>
+
+          <div class="text-demos">
+            <p style="font-weight: bold">font-weight: bold</p>
+            <p style="font-style: italic">font-style: italic</p>
+            <p style="text-decoration: underline">text-decoration: underline</p>
+            <p style="text-transform: uppercase">text-transform: uppercase</p>
+            <p style="letter-spacing: 5px">letter-spacing: 5px</p>
+            <p style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3)">
+              text-shadow
+            </p>
+          </div>
+        </div>
+
+        <!-- Box Model -->
+        <div class="topic-card highlight-card css-highlight" id="css-boxmodel">
+          <h3 class="topic-title">
+            <span class="topic-icon">📦</span>
+            Box Model (Modelo de Caixa)
+          </h3>
+          <p class="topic-description">
+            Todo elemento HTML é uma "caixa" com 4 partes: conteúdo, padding,
+            border e margin.
+          </p>
+
+          <div class="box-model-visual">
+            <div class="box-margin">
+              <span class="box-label">margin</span>
+              <div class="box-border">
+                <span class="box-label">border</span>
+                <div class="box-padding">
+                  <span class="box-label">padding</span>
+                  <div class="box-content">
+                    <span>content</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Box Model Properties</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-css">/* MARGIN - Espaço EXTERNO (fora da borda) */
+margin: 20px;                       <span class="comment">/* Todos os lados */</span>
+margin: 10px 20px;                  <span class="comment">/* Vertical | Horizontal */</span>
+margin: 10px 20px 15px 25px;        <span class="comment">/* Top | Right | Bottom | Left */</span>
+margin-top: 10px;
+margin-right: 20px;
+margin-bottom: 15px;
+margin-left: 25px;
+margin: 0 auto;                     <span class="comment">/* Centraliza horizontalmente */</span>
+
+/* PADDING - Espaço INTERNO (entre borda e conteúdo) */
+padding: 20px;
+padding: 10px 20px 15px 25px;       <span class="comment">/* Top | Right | Bottom | Left */</span>
+padding-top: 10px;
+
+/* BORDER - Borda do elemento */
+border: 1px solid black;            <span class="comment">/* Largura | Estilo | Cor */</span>
+border-width: 2px;
+border-style: solid;                <span class="comment">/* solid, dashed, dotted, double, none */</span>
+border-color: #333;
+border-radius: 10px;                <span class="comment">/* Arredonda cantos */</span>
+border-radius: 50%;                 <span class="comment">/* Círculo perfeito */</span>
+
+/* WIDTH e HEIGHT */
+width: 300px;
+height: 200px;
+max-width: 100%;                    <span class="comment">/* Responsivo */</span>
+min-height: 50px;
+
+/* BOX-SIZING (importante!) */
+box-sizing: border-box;             <span class="comment">/* Inclui padding/border no width */</span></code></pre>
+          </div>
+
+          <div class="box-sizing-demo">
+            <h4>box-sizing:</h4>
+            <div class="sizing-comparison">
+              <div class="sizing-box content-box">
+                <span>content-box</span>
+                <small>width: 200px + padding + border</small>
+              </div>
+              <div class="sizing-box border-box">
+                <span>border-box</span>
+                <small>width: 200px (inclui tudo)</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Display -->
+        <div class="topic-card highlight-card css-highlight" id="css-display">
+          <h3 class="topic-title">
+            <span class="topic-icon">📐</span>
+            Display - Comportamento do Elemento
+          </h3>
+          <p class="topic-description">
+            A propriedade <code>display</code> define como o elemento se
+            comporta na página.
+          </p>
+
+          <div class="display-demos">
+            <div class="display-type">
+              <h4>display: block</h4>
+              <p>Ocupa toda a largura. Quebra linha antes e depois.</p>
+              <div class="display-visual">
+                <div class="d-block">BLOCK</div>
+                <div class="d-block">BLOCK</div>
+              </div>
+              <code>div, p, h1-h6, header, section...</code>
+            </div>
+            <div class="display-type">
+              <h4>display: inline</h4>
+              <p>Ocupa apenas o espaço necessário. Não aceita width/height.</p>
+              <div class="display-visual">
+                <span class="d-inline">INLINE</span>
+                <span class="d-inline">INLINE</span>
+                <span class="d-inline">INLINE</span>
+              </div>
+              <code>span, a, strong, em...</code>
+            </div>
+            <div class="display-type">
+              <h4>display: inline-block</h4>
+              <p>Combina ambos: inline + aceita width/height.</p>
+              <div class="display-visual">
+                <span class="d-inline-block">IN-BLOCK</span>
+                <span class="d-inline-block">IN-BLOCK</span>
+              </div>
+            </div>
+            <div class="display-type">
+              <h4>display: none</h4>
+              <p>Remove o elemento da página completamente.</p>
+              <code>Usado para esconder elementos</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flexbox -->
+        <div class="topic-card highlight-card css-highlight" id="css-flexbox">
+          <h3 class="topic-title">
+            <span class="topic-icon">🧩</span>
+            Display: Flex (Flexbox)
+          </h3>
+          <p class="topic-description">
+            <strong>Flexbox</strong> é um sistema de layout poderoso para
+            alinhar e distribuir elementos em uma dimensão (linha OU coluna).
+          </p>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Propriedades do Container (pai)</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-css">.container {
+    display: flex;                  <span class="comment">/* Ativa o Flexbox */</span>
+    
+    /* Direção dos itens */
+    flex-direction: row;            <span class="comment">/* row, row-reverse, column, column-reverse */</span>
+    
+    /* Quebra de linha */
+    flex-wrap: wrap;                <span class="comment">/* nowrap, wrap, wrap-reverse */</span>
+    
+    /* Alinhamento no eixo principal (horizontal em row) */
+    justify-content: center;        <span class="comment">/* flex-start, flex-end, center, 
+                                       space-between, space-around, space-evenly */</span>
+    
+    /* Alinhamento no eixo cruzado (vertical em row) */
+    align-items: center;            <span class="comment">/* flex-start, flex-end, center, 
+                                       stretch, baseline */</span>
+    
+    /* Espaço entre itens */
+    gap: 20px;                      <span class="comment">/* Espaçamento entre items */</span>
+}</code></pre>
+          </div>
+
+          <h4 style="margin-top: 2rem">🎮 Playground Interativo:</h4>
+
+          <div class="flex-playground">
+            <div class="flex-controls">
+              <div class="control-group">
+                <label for="justifyContent">justify-content:</label>
+                <select id="justifyContent" onchange="updateFlexDemo()">
+                  <option value="flex-start">flex-start</option>
+                  <option value="flex-end">flex-end</option>
+                  <option value="center" selected>center</option>
+                  <option value="space-between">space-between</option>
+                  <option value="space-around">space-around</option>
+                  <option value="space-evenly">space-evenly</option>
+                </select>
+              </div>
+              <div class="control-group">
+                <label for="alignItems">align-items:</label>
+                <select id="alignItems" onchange="updateFlexDemo()">
+                  <option value="flex-start">flex-start</option>
+                  <option value="flex-end">flex-end</option>
+                  <option value="center" selected>center</option>
+                  <option value="stretch">stretch</option>
+                </select>
+              </div>
+              <div class="control-group">
+                <label for="flexDirection">flex-direction:</label>
+                <select id="flexDirection" onchange="updateFlexDemo()">
+                  <option value="row" selected>row</option>
+                  <option value="row-reverse">row-reverse</option>
+                  <option value="column">column</option>
+                  <option value="column-reverse">column-reverse</option>
+                </select>
+              </div>
+              <div class="control-group">
+                <label for="flexGap">gap:</label>
+                <input
+                  type="range"
+                  id="flexGap"
+                  min="0"
+                  max="40"
+                  value="10"
+                  onchange="updateFlexDemo()"
+                />
+                <span id="gapValue">10px</span>
+              </div>
+            </div>
+            <div class="flex-demo-container" id="flexDemoContainer">
+              <div class="flex-item">1</div>
+              <div class="flex-item">2</div>
+              <div class="flex-item">3</div>
+            </div>
+            <div class="flex-code-output" id="flexCodeOutput">
+              <pre><code>.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Propriedades dos Itens (filhos)</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-css">.item {
+    /* Crescimento proporcional */
+    flex-grow: 1;                   <span class="comment">/* 0 = não cresce, 1+ = cresce */</span>
+    
+    /* Encolhimento proporcional */
+    flex-shrink: 1;                 <span class="comment">/* 0 = não encolhe */</span>
+    
+    /* Tamanho base */
+    flex-basis: 200px;              <span class="comment">/* Tamanho inicial antes de crescer/encolher */</span>
+    
+    /* Shorthand */
+    flex: 1;                        <span class="comment">/* flex-grow: 1, flex-shrink: 1, flex-basis: 0 */</span>
+    flex: 0 0 200px;                <span class="comment">/* Não cresce, não encolhe, 200px fixo */</span>
+    
+    /* Ordem do item */
+    order: 2;                       <span class="comment">/* Muda a ordem visual */</span>
+    
+    /* Alinhamento individual */
+    align-self: flex-end;           <span class="comment">/* Sobrescreve align-items do pai */</span>
+}</code></pre>
+          </div>
+
+          <div class="flex-examples">
+            <div class="flex-example-item">
+              <h5>Centralizar perfeitamente:</h5>
+              <div class="flex-ex center-demo">
+                <div class="centered-box">😊</div>
+              </div>
+              <code>justify-content: center; align-items: center;</code>
+            </div>
+            <div class="flex-example-item">
+              <h5>Space between:</h5>
+              <div class="flex-ex space-between-demo">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+              </div>
+              <code>justify-content: space-between;</code>
+            </div>
+            <div class="flex-example-item">
+              <h5>Itens que crescem:</h5>
+              <div class="flex-ex grow-demo">
+                <div style="flex: 1">flex: 1</div>
+                <div style="flex: 2">flex: 2</div>
+                <div style="flex: 1">flex: 1</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS Grid -->
+        <div class="topic-card highlight-card css-highlight" id="css-grid">
+          <h3 class="topic-title">
+            <span class="topic-icon">🔲</span>
+            Display: Grid (CSS Grid)
+          </h3>
+          <p class="topic-description">
+            <strong>CSS Grid</strong> é um sistema de layout bidimensional -
+            trabalha com linhas E colunas ao mesmo tempo!
+          </p>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Propriedades do Container Grid</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-css">.grid-container {
+    display: grid;                  <span class="comment">/* Ativa o Grid */</span>
+    
+    /* Define colunas */
+    grid-template-columns: 200px 200px 200px;   <span class="comment">/* 3 colunas fixas */</span>
+    grid-template-columns: 1fr 1fr 1fr;         <span class="comment">/* 3 colunas iguais */</span>
+    grid-template-columns: repeat(3, 1fr);      <span class="comment">/* Mesmo que acima */</span>
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  <span class="comment">/* Responsivo! */</span>
+    
+    /* Define linhas */
+    grid-template-rows: 100px 200px;
+    grid-template-rows: auto;                   <span class="comment">/* Altura automática */</span>
+    
+    /* Espaçamento */
+    gap: 20px;                      <span class="comment">/* Entre linhas e colunas */</span>
+    row-gap: 20px;                  <span class="comment">/* Apenas entre linhas */</span>
+    column-gap: 10px;               <span class="comment">/* Apenas entre colunas */</span>
+    
+    /* Alinhamento dos itens */
+    justify-items: center;          <span class="comment">/* Horizontal dentro da célula */</span>
+    align-items: center;            <span class="comment">/* Vertical dentro da célula */</span>
+    place-items: center;            <span class="comment">/* Shorthand: align-items + justify-items */</span>
+}</code></pre>
+          </div>
+
+          <div class="grid-visual-demo">
+            <h4>Exemplo Visual:</h4>
+            <div class="grid-demo">
+              <div class="grid-item gi-1">1</div>
+              <div class="grid-item gi-2">2</div>
+              <div class="grid-item gi-3">3</div>
+              <div class="grid-item gi-4">4</div>
+              <div class="grid-item gi-5">5</div>
+              <div class="grid-item gi-6">6</div>
+            </div>
+            <code>grid-template-columns: repeat(3, 1fr); gap: 10px;</code>
+          </div>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Posicionando Itens no Grid</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-css">.item {
+    /* Posição por linha/coluna */
+    grid-column: 1 / 3;             <span class="comment">/* Da coluna 1 até a 3 (ocupa 2) */</span>
+    grid-row: 1 / 2;                <span class="comment">/* Da linha 1 até a 2 */</span>
+    
+    /* Shorthand */
+    grid-column: span 2;            <span class="comment">/* Ocupa 2 colunas */</span>
+    grid-row: span 3;               <span class="comment">/* Ocupa 3 linhas */</span>
+    
+    /* Área nomeada */
+    grid-area: header;              <span class="comment">/* Usa área definida no container */</span>
+}</code></pre>
+          </div>
+
+          <div class="grid-layout-demo">
+            <h4>Layout com Grid Areas:</h4>
+            <div class="grid-areas-demo">
+              <div class="ga-header">header</div>
+              <div class="ga-nav">nav</div>
+              <div class="ga-main">main</div>
+              <div class="ga-aside">aside</div>
+              <div class="ga-footer">footer</div>
+            </div>
+            <div class="code-example small">
+              <pre><code>.container {
+    display: grid;
+    grid-template-columns: 200px 1fr 150px;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header header"
+        "nav    main   aside"
+        "footer footer footer";
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Position -->
+        <div class="topic-card" id="css-position">
+          <h3 class="topic-title">
+            <span class="topic-icon">📍</span>
+            Position - Posicionamento
+          </h3>
+
+          <div class="position-demos">
+            <div class="position-type">
+              <h4>static (padrão)</h4>
+              <p>Posição normal no fluxo do documento.</p>
+            </div>
+            <div class="position-type">
+              <h4>relative</h4>
+              <p>
+                Posicionado relativo à sua posição original. Usa top, right,
+                bottom, left.
+              </p>
+              <div class="pos-demo relative-demo">
+                <div class="pos-box">Normal</div>
+                <div class="pos-box moved">
+                  Relative (top: 10px, left: 20px)
+                </div>
+              </div>
+            </div>
+            <div class="position-type">
+              <h4>absolute</h4>
+              <p>
+                Posicionado em relação ao ancestral posicionado mais próximo
+                (não-static).
+              </p>
+              <div class="pos-demo absolute-demo">
+                <div class="pos-parent">
+                  Pai (relative)
+                  <div class="pos-absolute">Absolute</div>
+                </div>
+              </div>
+            </div>
+            <div class="position-type">
+              <h4>fixed</h4>
+              <p>Fixo na viewport. Não se move ao rolar a página.</p>
+              <code>Exemplo: menu fixo no topo</code>
+            </div>
+            <div class="position-type">
+              <h4>sticky</h4>
+              <p>
+                Combina relative e fixed. "Gruda" quando atinge uma posição.
+              </p>
+              <code>Exemplo: cabeçalho que gruda ao rolar</code>
+            </div>
+          </div>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Exemplos de Position</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-css">/* Relative - move em relação à posição original sem sair do fluxo */
+.relative {
+    position: relative;
+    top: 20px;                   <span class="comment">/* Desloca 20px para baixo */</span>
+    left: 10px;                  <span class="comment">/* Desloca 10px para direita */</span>
+}
+
+/* Absolute - posição exata dentro do pai */
+.parent {
+    position: relative;     <span class="comment">/* Pai precisa ter position */</span>
+}
+.absolute {
+    position: absolute;
+    top: 0;
+    right: 0;              <span class="comment">/* Canto superior direito */</span>
+}
+
+/* Fixed - fixo na tela */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;         <span class="comment">/* Fica acima de tudo */</span>
+}
+
+/* Sticky - gruda ao rolar */
+.sticky-nav {
+    position: sticky;
+    top: 0;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- Unidades CSS -->
+        <div class="topic-card" id="css-unidades">
+          <h3 class="topic-title">
+            <span class="topic-icon">📏</span>
+            Unidades de Medida
+          </h3>
+
+          <div class="units-table">
+            <table class="demo-table">
+              <thead>
+                <tr>
+                  <th>Unidade</th>
+                  <th>Tipo</th>
+                  <th>Descrição</th>
+                  <th>Uso Comum</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>px</code></td>
+                  <td>Absoluta</td>
+                  <td>Pixels</td>
+                  <td>Bordas, sombras</td>
+                </tr>
+                <tr>
+                  <td><code>%</code></td>
+                  <td>Relativa</td>
+                  <td>Porcentagem do pai</td>
+                  <td>Larguras responsivas</td>
+                </tr>
+                <tr>
+                  <td><code>em</code></td>
+                  <td>Relativa</td>
+                  <td>Relativo ao font-size do elemento</td>
+                  <td>Padding, margin</td>
+                </tr>
+                <tr>
+                  <td><code>rem</code></td>
+                  <td>Relativa</td>
+                  <td>Relativo ao font-size do &lt;html&gt;</td>
+                  <td>Font-size, spacing</td>
+                </tr>
+                <tr>
+                  <td><code>vw</code></td>
+                  <td>Viewport</td>
+                  <td>1% da largura da viewport</td>
+                  <td>Seções full-width</td>
+                </tr>
+                <tr>
+                  <td><code>vh</code></td>
+                  <td>Viewport</td>
+                  <td>1% da altura da viewport</td>
+                  <td>Seções full-height</td>
+                </tr>
+                <tr>
+                  <td><code>fr</code></td>
+                  <td>Flexível</td>
+                  <td>Fração do espaço disponível</td>
+                  <td>CSS Grid</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Exemplos de Unidades</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-css">html {
+    font-size: 16px;        <span class="comment">/* Base para rem */</span>
+}
+
+.container {
+    width: 100%;            <span class="comment">/* 100% do pai */</span>
+    max-width: 1200px;      <span class="comment">/* Máximo de 1200px */</span>
+    padding: 2rem;          <span class="comment">/* 32px (2 × 16px) */</span>
+}
+
+.hero {
+    height: 100vh;          <span class="comment">/* Altura total da tela */</span>
+    width: 100vw;           <span class="comment">/* Largura total da tela */</span>
+}
+
+.text {
+    font-size: 1.5rem;      <span class="comment">/* 24px */</span>
+    margin-bottom: 1em;     <span class="comment">/* Relativo ao próprio font-size */</span>
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- Pseudo-classes e Pseudo-elementos -->
+        <div class="topic-card">
+          <h3 class="topic-title">
+            <span class="topic-icon">✨</span>
+            Pseudo-classes e Pseudo-elementos
+          </h3>
+
+          <div class="pseudo-section">
+            <h4>Pseudo-classes (estado do elemento)</h4>
+            <div class="code-example">
+              <pre><code class="language-css">/* Interação */
+a:hover { }           <span class="comment">/* Mouse sobre o elemento */</span>
+a:active { }          <span class="comment">/* Clicando no elemento */</span>
+a:visited { }         <span class="comment">/* Link já visitado */</span>
+input:focus { }       <span class="comment">/* Elemento focado */</span>
+
+/* Formulário */
+input:checked { }     <span class="comment">/* Checkbox/radio marcado */</span>
+input:disabled { }    <span class="comment">/* Campo desabilitado */</span>
+input:required { }    <span class="comment">/* Campo obrigatório */</span>
+input:valid { }       <span class="comment">/* Validação OK */</span>
+input:invalid { }     <span class="comment">/* Validação falhou */</span>
+
+/* Posição */
+li:first-child { }    <span class="comment">/* Primeiro filho */</span>
+li:last-child { }     <span class="comment">/* Último filho */</span>
+li:nth-child(2) { }   <span class="comment">/* Segundo filho */</span>
+li:nth-child(odd) { } <span class="comment">/* Filhos ímpares */</span>
+li:nth-child(even) { }<span class="comment">/* Filhos pares */</span>
+p:first-of-type { }   <span class="comment">/* Primeiro &lt;p&gt; */</span>
+:not(.classe) { }     <span class="comment">/* Exceto .classe */</span></code></pre>
+            </div>
+
+            <div class="pseudo-demo">
+              <button class="hover-demo-btn">Passe o mouse aqui!</button>
+              <style>
+                .hover-demo-btn {
+                  padding: 1rem 2rem;
+                  background: #667eea;
+                  color: white;
+                  border: none;
+                  border-radius: 8px;
+                  cursor: pointer;
+                  transition: all 0.3s;
+                }
+                .hover-demo-btn:hover {
+                  background: #764ba2;
+                  transform: scale(1.1);
+                }
+              </style>
+            </div>
+          </div>
+
+          <div class="pseudo-section">
+            <h4>Pseudo-elementos (partes do elemento)</h4>
+            <div class="code-example">
+              <pre><code class="language-css">/* Conteúdo antes/depois */
+p::before {
+    content: "→ ";       <span class="comment">/* Adiciona antes */</span>
+}
+p::after {
+    content: " ←";       <span class="comment">/* Adiciona depois */</span>
+}
+
+/* Seleção de texto */
+::selection {
+    background: yellow;  <span class="comment">/* Cor ao selecionar texto */</span>
+    color: black;
+}
+
+/* Primeira letra/linha */
+p::first-letter {
+    font-size: 2em;      <span class="comment">/* Letra capitular */</span>
+}
+p::first-line {
+    font-weight: bold;   <span class="comment">/* Primeira linha */</span>
+}
+
+/* Placeholder */
+input::placeholder {
+    color: #aaa;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Transitions e Animations -->
+        <div class="topic-card" id="css-animacoes">
+          <h3 class="topic-title">
+            <span class="topic-icon">🎬</span>
+            Transições e Animações
+          </h3>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Transitions (Suaves)</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-css">.button {
+    background: blue;               <span class="comment">/* Cor inicial */</span>
+    transition: all 0.3s ease;      <span class="comment">/* Shorthand: propriedade, duração, curva */</span>
+
+    /* Ou propriedades separadas */
+    transition-property: background, transform;  <span class="comment">/* Quais props animar */</span>
+    transition-duration: 0.3s;      <span class="comment">/* Duração da transição */</span>
+    transition-timing-function: ease-in-out;     <span class="comment">/* Curva: ease, linear, cubic-bezier */</span>
+    transition-delay: 0s;           <span class="comment">/* Espera antes de iniciar */</span>
+}
+
+.button:hover {
+    background: purple;             <span class="comment">/* Animado pelo transition */</span>
+    transform: scale(1.1);          <span class="comment">/* Aumenta 10% com transição suave */</span>
+}</code></pre>
+          </div>
+
+          <div class="transition-demos">
+            <div class="trans-box t1">Hover</div>
+            <div class="trans-box t2">Scale</div>
+            <div class="trans-box t3">Rotate</div>
+            <div class="trans-box t4">Color</div>
+          </div>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Animations (Keyframes)</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-css">/* Definir a animação com @keyframes */
+@keyframes pulse {
+    0% {
+        transform: scale(1);        /* Tamanho normal no início */
+    }
+    50% {
+        transform: scale(1.1);      /* 110% no meio */
+    }
+    100% {
+        transform: scale(1);        /* Volta ao normal no fim */
+    }
+}
+
+/* Aplicar a animação ao elemento */
+.element {
+    animation: pulse 2s ease-in-out infinite;  /* Shorthand completo */
+
+    /* Ou propriedades separadas */
+    animation-name: pulse;              /* Nome do @keyframes */
+    animation-duration: 2s;            /* Duração de um ciclo */
+    animation-timing-function: ease-in-out; /* Curva de aceleração */
+    animation-iteration-count: infinite;    /* Repetições: número ou infinite */
+    animation-direction: alternate;     /* alternate = vai e volta */
+    animation-fill-mode: forwards;      /* Mantém o estado final após terminar */
+}</code></pre>
+          </div>
+
+          <div class="animation-demos">
+            <div class="anim-box bounce">Bounce</div>
+            <div class="anim-box pulse">Pulse</div>
+            <div class="anim-box spin">Spin</div>
+            <div class="anim-box shake">Shake</div>
+          </div>
+        </div>
+
+        <!-- Transform -->
+        <div class="topic-card">
+          <h3 class="topic-title">
+            <span class="topic-icon">🔄</span>
+            Transform - Transformações
+          </h3>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Propriedades Transform</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-css">/* Mover */
+transform: translateX(50px);        <span class="comment">/* Move horizontalmente */</span>
+transform: translateY(-20px);       <span class="comment">/* Move verticalmente */</span>
+transform: translate(50px, 20px);   <span class="comment">/* Move X e Y */</span>
+
+/* Escalar */
+transform: scale(1.5);              <span class="comment">/* Aumenta 150% */</span>
+transform: scale(0.5);              <span class="comment">/* Diminui 50% */</span>
+transform: scaleX(2);               <span class="comment">/* Estica horizontalmente */</span>
+
+/* Rotacionar */
+transform: rotate(45deg);           <span class="comment">/* Gira 45 graus */</span>
+transform: rotate(-90deg);          <span class="comment">/* Gira contra-relógio */</span>
+
+/* Inclinar */
+transform: skewX(10deg);            <span class="comment">/* Inclina horizontalmente */</span>
+transform: skew(10deg, 5deg);       <span class="comment">/* Inclina X e Y */</span>
+
+/* Múltiplas transformações (aplicadas da direita para esquerda) */
+transform: translate(50px, 0) rotate(45deg) scale(1.2);  <span class="comment">/* Move → Gira → Escala */</span>
+
+/* Ponto de origem */
+transform-origin: center;           <span class="comment">/* center, top left, 50% 50% */</span></code></pre>
+          </div>
+
+          <div class="transform-demos">
+            <div class="tf-box">Original</div>
+            <div class="tf-box tf-translate">Translate</div>
+            <div class="tf-box tf-scale">Scale</div>
+            <div class="tf-box tf-rotate">Rotate</div>
+            <div class="tf-box tf-skew">Skew</div>
+          </div>
+        </div>
+
+        <!-- Media Queries -->
+        <div class="topic-card highlight-card css-highlight" id="css-responsivo">
+          <h3 class="topic-title">
+            <span class="topic-icon">📱</span>
+            Media Queries (Responsividade)
+          </h3>
+          <p class="topic-description">
+            Media queries permitem aplicar estilos diferentes baseados no
+            tamanho da tela, orientação, etc.
+          </p>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Breakpoints Comuns</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-css">/* Mobile First - Estilos base para mobile */
+.container {
+    width: 100%;
+    padding: 1rem;
+}
+
+/* Tablets (768px+) */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+        padding: 2rem;
+    }
+}
+
+/* Desktops (1024px+) */
+@media (min-width: 1024px) {
+    .container {
+        width: 960px;
+    }
+}
+
+/* Desktops grandes (1200px+) */
+@media (min-width: 1200px) {
+    .container {
+        width: 1140px;
+    }
+}
+
+/* Orientação */
+@media (orientation: landscape) {
+    /* Modo paisagem */
+}
+
+/* Print */
+@media print {
+    .no-print { display: none; }
+}</code></pre>
+          </div>
+
+          <div class="responsive-demo">
+            <h4>Redimensione a janela para ver:</h4>
+            <div class="responsive-box" id="responsiveBox">
+              <span class="screen-size"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Variáveis CSS -->
+        <div class="topic-card" id="css-variaveis">
+          <h3 class="topic-title">
+            <span class="topic-icon">🎛️</span>
+            Variáveis CSS (Custom Properties)
+          </h3>
+
+          <div class="code-example">
+            <div class="code-header">
+              <span class="code-label">Usando Variáveis CSS</span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+            </div>
+            <pre><code class="language-css">/* Definir variáveis no :root = disponível em toda a página */
+:root {
+    --cor-primaria: #667eea;        /* Cor principal do tema */
+    --cor-secundaria: #764ba2;      /* Cor de destaque/hover */
+    --cor-texto: #333;              /* Cor padrão de texto */
+    --espacamento: 1rem;            /* Espaçamento base (16px) */
+    --borda-radius: 8px;            /* Arredondamento padrão */
+    --sombra: 0 4px 6px rgba(0,0,0,0.1); /* Sombra sutil */
+}
+
+/* Usar variáveis com var() */
+.button {
+    background: var(--cor-primaria);     /* Referencia a variável */
+    color: white;
+    padding: var(--espacamento);         /* 1rem do :root */
+    border-radius: var(--borda-radius);  /* 8px do :root */
+    box-shadow: var(--sombra);
+}
+
+.button:hover {
+    background: var(--cor-secundaria);   /* Basta mudar o :root para recolorir tudo */
+}
+
+/* Variável com fallback */
+color: var(--cor-inexistente, black);  <span class="comment">/* Usa black se a variável não existir */</span></code></pre>
+          </div>
+
+          <div class="variables-demo">
+            <div class="var-box" style="--box-color: #667eea">
+              var(--box-color)
+            </div>
+            <div class="var-box" style="--box-color: #764ba2">
+              var(--box-color)
+            </div>
+            <div class="var-box" style="--box-color: #f093fb">
+              var(--box-color)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Practice Section -->
+    <section id="practice" class="section practice-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge practice-badge">Prática</span>
+          <h2 class="section-title">Editor de Código ao Vivo</h2>
+          <p class="section-description">
+            Experimente escrever HTML e CSS e veja o resultado em tempo real!
+          </p>
+        </div>
+
+        <div class="live-editor">
+          <div class="editor-panel">
+            <div class="editor-header">
+              <span class="editor-tab active" data-tab="html">HTML</span>
+              <span class="editor-tab" data-tab="css">CSS</span>
+            </div>
+            <textarea
+              id="htmlEditor"
+              class="code-editor"
+              placeholder="Digite seu HTML aqui..."
+            >
+<div class="card">
+    <h2>Meu Cartão</h2>
+    <p>Este é um exemplo interativo!</p>
+    <button>Clique aqui</button>
+</div></textarea
+            >
+            <textarea
+              id="cssEditor"
+              class="code-editor"
+              style="display: none"
+              placeholder="Digite seu CSS aqui..."
+            >
+.card {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
+
+button {
+    background: white;
+    color: #5145b5;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}</textarea
+            >
+          </div>
+          <div class="preview-panel">
+            <div class="preview-header">
+              <span>Visualização</span>
+              <button class="reset-btn" onclick="resetEditor()">
+                🔄 Resetar
+              </button>
+            </div>
+            <iframe id="previewFrame" class="preview-frame" title="Pré-visualização do código" sandbox="allow-scripts allow-modals"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Reference -->
+    <section class="section reference-section">
+      <div class="container">
+        <h2 class="section-title">📚 Referência Rápida</h2>
+
+        <div class="reference-grid">
+          <div class="ref-card">
+            <h3>🎨 Cores Populares</h3>
+            <div class="color-swatches">
+              <div
+                class="swatch"
+                style="background: #667eea"
+                title="#667eea"
+              ></div>
+              <div
+                class="swatch"
+                style="background: #764ba2"
+                title="#764ba2"
+              ></div>
+              <div
+                class="swatch"
+                style="background: #f093fb"
+                title="#f093fb"
+              ></div>
+              <div
+                class="swatch"
+                style="background: #4facfe"
+                title="#4facfe"
+              ></div>
+              <div
+                class="swatch"
+                style="background: #43e97b"
+                title="#43e97b"
+              ></div>
+              <div
+                class="swatch"
+                style="background: #fa709a"
+                title="#fa709a"
+              ></div>
+              <div
+                class="swatch"
+                style="background: #fee140"
+                title="#fee140"
+              ></div>
+              <div
+                class="swatch"
+                style="background: #30cfd0"
+                title="#30cfd0"
+              ></div>
+            </div>
+          </div>
+          <div class="ref-card">
+            <h3>📐 Breakpoints</h3>
+            <ul>
+              <li><code>320px</code> - Mobile S</li>
+              <li><code>375px</code> - Mobile M</li>
+              <li><code>425px</code> - Mobile L</li>
+              <li><code>768px</code> - Tablet</li>
+              <li><code>1024px</code> - Laptop</li>
+              <li><code>1440px</code> - Desktop</li>
+            </ul>
+          </div>
+          <div class="ref-card">
+            <h3>⌨️ Atalhos Úteis</h3>
+            <ul>
+              <li><code>Ctrl + S</code> - Salvar</li>
+              <li><code>Ctrl + /</code> - Comentar</li>
+              <li><code>Ctrl + D</code> - Duplicar linha</li>
+              <li><code>Alt + ↑/↓</code> - Mover linha</li>
+              <li><code>Ctrl + Shift + K</code> - Deletar linha</li>
+            </ul>
+          </div>
+          <div class="ref-card">
+            <h3>🔗 Links Úteis</h3>
+            <ul>
+              <li>
+                <a href="https://developer.mozilla.org/pt-BR/" target="_blank"
+                  >MDN Web Docs</a
+                >
+              </li>
+              <li>
+                <a href="https://css-tricks.com" target="_blank">CSS-Tricks</a>
+              </li>
+              <li>
+                <a href="https://flexboxfroggy.com" target="_blank"
+                  >Flexbox Froggy</a
+                >
+              </li>
+              <li>
+                <a href="https://cssgridgarden.com" target="_blank"
+                  >Grid Garden</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Frameworks e Bibliotecas -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">⚛️ Frameworks</span>
+          <h2 class="section-title">Aprenda Frameworks Populares</h2>
+          <p class="section-description">
+            Depois de dominar JavaScript, explore frameworks e bibliotecas
+            modernas para desenvolvimento frontend.
+          </p>
+        </div>
+
+        <div
+          class="frameworks-grid"
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+          "
+        >
+          <!-- React Card -->
+          <div
+            class="framework-card"
+            style="
+              background: linear-gradient(
+                135deg,
+                rgba(97, 218, 251, 0.1),
+                rgba(33, 161, 196, 0.05)
+              );
+              padding: 2rem;
+              border-radius: 12px;
+              border: 1px solid rgba(97, 218, 251, 0.3);
+              transition: all 0.3s ease;
+            "
+          >
+            <div style="font-size: 3rem; margin-bottom: 1rem">⚛️</div>
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #61dafb">
+              React
+            </h3>
+            <p style="margin-bottom: 1.5rem; line-height: 1.6">
+              Biblioteca JavaScript para construir interfaces de usuário com
+              componentes reutilizáveis e estado reativo.
+            </p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem">
+              <li style="padding: 0.5rem 0">✓ Componentes e Props</li>
+              <li style="padding: 0.5rem 0">✓ Hooks (useState, useEffect)</li>
+              <li style="padding: 0.5rem 0">✓ Virtual DOM</li>
+              <li style="padding: 0.5rem 0">✓ JSX</li>
+            </ul>
+            <a
+              href="react.html"
+              class="btn"
+              style="
+                display: inline-block;
+                padding: 0.75rem 1.5rem;
+                background: linear-gradient(135deg, #61dafb, #21a1c4);
+                color: #1a1a1a;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: all 0.3s ease;
+              "
+            >
+              Aprender React →
+            </a>
+          </div>
+
+          <!-- Vue.js Card -->
+          <div
+            class="framework-card"
+            style="
+              background: linear-gradient(
+                135deg,
+                rgba(66, 184, 131, 0.1),
+                rgba(53, 73, 94, 0.05)
+              );
+              padding: 2rem;
+              border-radius: 12px;
+              border: 1px solid rgba(66, 184, 131, 0.3);
+              transition: all 0.3s ease;
+            "
+          >
+            <div style="font-size: 3rem; margin-bottom: 1rem">💚</div>
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #42b883">
+              Vue.js
+            </h3>
+            <p style="margin-bottom: 1.5rem; line-height: 1.6">
+              Framework progressivo para construir interfaces de usuário de
+              forma incremental e intuitiva.
+            </p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem">
+              <li style="padding: 0.5rem 0">✓ Templates Declarativos</li>
+              <li style="padding: 0.5rem 0">✓ Composition API</li>
+              <li style="padding: 0.5rem 0">✓ Reatividade</li>
+              <li style="padding: 0.5rem 0">✓ Single File Components</li>
+            </ul>
+            <a
+              href="vuejs.html"
+              class="btn"
+              style="
+                display: inline-block;
+                padding: 0.75rem 1.5rem;
+                background: linear-gradient(135deg, #42b883, #35495e);
+                color: #ffffff;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: all 0.3s ease;
+              "
+            >
+              Aprender Vue.js →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    </main>
+
+    <!-- Footer -->

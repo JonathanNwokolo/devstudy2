@@ -1,0 +1,84 @@
+    <!-- Bookmarks Panel -->
+    <div class="bookmarks-panel" id="bookmarksPanel" role="dialog" aria-label="Painel de favoritos">
+      <div class="panel-overlay" id="panelOverlay"></div>
+      <div class="panel-content">
+        <div class="panel-header">
+          <h3>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M5 2h10a1 1 0 0 1 1 1v16l-6-4-6 4V3a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+            Meus Favoritos
+          </h3>
+          <button class="panel-close" id="panelClose" aria-label="Fechar painel">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="panel-body" id="panelBookmarksList"></div>
+      </div>
+    </div>
+
+    <!-- Breadcrumbs (added dynamically by JS) -->
+    <nav class="breadcrumbs-container" id="breadcrumbsContainer" aria-label="Caminho de navegação">
+      <div class="container">
+        <ol class="breadcrumbs" id="breadcrumbs"></ol>
+      </div>
+    </nav>
+
+    <!-- Keyboard Shortcuts Help -->
+    <div class="shortcuts-help" id="shortcutsHelp" role="dialog" aria-label="Atalhos de teclado">
+      <div class="shortcuts-overlay"></div>
+      <div class="shortcuts-content">
+        <div class="shortcuts-header">
+          <h3>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+              <path d="M6 8h.01M10 8h.01M14 8h.01M6 12h.01M10 12h.01M14 12h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            Atalhos de Teclado
+          </h3>
+          <button class="shortcuts-close" aria-label="Fechar atalhos">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="shortcuts-body">
+          <div class="shortcut-group">
+            <h4>Navegação</h4>
+            <div class="shortcut-item">
+              <kbd>Ctrl</kbd> + <kbd>K</kbd>
+              <span>Abrir busca</span>
+            </div>
+            <div class="shortcut-item">
+              <kbd>T</kbd>
+              <span>Alternar tema</span>
+            </div>
+            <div class="shortcut-item">
+              <kbd>B</kbd>
+              <span>Abrir favoritos</span>
+            </div>
+            <div class="shortcut-item">
+              <kbd>?</kbd>
+              <span>Mostrar atalhos</span>
+            </div>
+          </div>
+          <div class="shortcut-group">
+            <h4>Conteúdo</h4>
+            <div class="shortcut-item">
+              <kbd>↑</kbd> / <kbd>↓</kbd>
+              <span>Navegar seções</span>
+            </div>
+            <div class="shortcut-item">
+              <kbd>Home</kbd>
+              <span>Ir para início</span>
+            </div>
+            <div class="shortcut-item">
+              <kbd>End</kbd>
+              <span>Ir para fim</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

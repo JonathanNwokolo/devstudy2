@@ -1,0 +1,193 @@
+{# Cabeçalho + navegação principal (único para as 23 páginas). Na home, links para index.html#x viram âncoras locais (#x). #}
+{% set homeBase = "" if home else "index.html" %}
+<header class="header">
+      <div class="announcement"><strong>✳ DEVSTUDY</strong><span> // UM LUGAR PARA APRENDER, TESTAR E DESCOBRIR · 100% OPEN SOURCE</span></div>
+      <nav class="navbar" role="navigation" aria-label="Navegação principal">
+        <a href="{{ "#home" if home else "index.html" }}" class="logo" aria-label="DevStudy - Página inicial">
+          <span class="logo-icon" aria-hidden="true">&#60;/&#62;</span>
+          <span class="logo-text">DevStudy</span>
+        </a>
+
+        <div class="search-container">
+          <button class="search-toggle" id="searchToggle" aria-label="Abrir busca">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM18 18l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="search-panel" id="searchPanel">
+            <div class="search-box">
+              <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM18 18l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <input type="search" id="globalSearch" placeholder="Buscar conteúdo... (Ctrl+K)" aria-label="Campo de busca" autocomplete="off" />
+              <button class="search-close" id="searchClose" aria-label="Fechar busca">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+          </div>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="{{ "#home" if home else "index.html" }}" class="nav-link{{ " active" if home }}">Início</a></li>
+
+          <li class="nav-item-dropdown">
+            <a href="{{ homeBase }}#html" class="nav-link" aria-expanded="false">
+              HTML
+              <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <div class="mega-menu">
+              <div class="mega-menu-content">
+                <div class="mega-menu-column">
+                  <h4>Fundamentos</h4>
+                  <a href="{{ homeBase }}#html-estrutura">Estrutura Básica</a>
+                  <a href="{{ homeBase }}#html-texto">Tags de Texto</a>
+                  <a href="{{ homeBase }}#html-listas">Listas</a>
+                  <a href="{{ homeBase }}#html-links">Links e Imagens</a>
+                </div>
+                <div class="mega-menu-column">
+                  <h4>Formulários</h4>
+                  <a href="{{ homeBase }}#html-formularios">Inputs</a>
+                  <a href="{{ homeBase }}#html-formularios">Validação</a>
+                  <a href="{{ homeBase }}#html-formularios">Elementos de Formulário</a>
+                </div>
+                <div class="mega-menu-column">
+                  <h4>Semântica</h4>
+                  <a href="{{ homeBase }}#html-semantica">HTML5 Semântico</a>
+                  <a href="acessibilidade.html">Acessibilidade</a>
+                  <a href="{{ homeBase }}#html-semantica">SEO</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item-dropdown">
+            <a href="css.html" class="nav-link" aria-expanded="false">
+              CSS
+              <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <div class="mega-menu">
+              <div class="mega-menu-content">
+                <div class="mega-menu-column">
+                  <h4>Básico</h4>
+                  <a href="css.html#css-seletores">Seletores</a>
+                  <a href="css.html#css-boxmodel">Box Model</a>
+                  <a href="css.html#css-cores">Cores e Tipografia</a>
+                  <a href="css.html#css-unidades">Unidades</a>
+                </div>
+                <div class="mega-menu-column">
+                  <h4>Layout</h4>
+                  <a href="css.html#css-flexbox">Flexbox</a>
+                  <a href="css.html#css-grid">Grid</a>
+                  <a href="css.html#css-position">Position</a>
+                  <a href="css.html#css-display">Display</a>
+                </div>
+                <div class="mega-menu-column">
+                  <h4>Avançado</h4>
+                  <a href="css.html#css-animacoes">Animações</a>
+                  <a href="css.html#css-animacoes">Transitions</a>
+                  <a href="css.html#css-responsivo">Responsivo</a>
+                  <a href="css.html#css-variaveis">Variáveis CSS</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <a href="javascript.html" class="nav-link js-link">JavaScript</a>
+          </li>
+
+          <li class="nav-item-dropdown">
+            <a href="#" class="nav-link" aria-expanded="false">
+              Linguagens &amp; Frameworks
+              <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <div class="mega-menu">
+              <div class="mega-menu-content">
+                <div class="mega-menu-column">
+                  <h4>Linguagens</h4>
+                  <a href="javascript.html">&#x26A1; JavaScript</a>
+                  <a href="typescript.html">&#x1F537; TypeScript</a>
+                </div>
+                <div class="mega-menu-column">
+                  <h4>Front-end</h4>
+                  <a href="react.html">&#x269B;&#xFE0F; React</a>
+                  <a href="vuejs.html">&#x1F49A; Vue.js</a>
+                </div>
+                <div class="mega-menu-column">
+                  <h4>Back-end</h4>
+                  <a href="backend.html">&#x1F7E2; Node.js</a>
+                  <a href="postgresql.html">&#x1F418; PostgreSQL</a>
+                  <a href="sql.html">&#x1F42C; SQL &amp; MySQL</a>
+                  <a href="apis.html">&#x1F310; APIs &amp; Fetch</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="git.html" class="nav-link git-link">Git</a></li>
+
+          <li class="nav-item-dropdown">
+            <a href="#" class="nav-link" aria-expanded="false">
+              Recursos
+              <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <div class="mega-menu">
+              <div class="mega-menu-content">
+                <div class="mega-menu-column">
+                  <h4>Aprender</h4>
+                  <a href="roadmap.html">&#x1F5FA;&#xFE0F; Trilha de Estudos</a>
+                  <a href="glossario.html">&#x1F4D6; Glossário</a>
+                  <a href="terminal.html">&#x2328;&#xFE0F; Terminal &amp; npm</a>
+                  <a href="acessibilidade.html">&#x267F; Acessibilidade</a>
+                </div>
+                <div class="mega-menu-column">
+                  <h4>Ferramentas</h4>
+                  <a href="cheatsheets.html">&#x1F4CB; Cheat Sheets</a>
+                  <a href="erros-comuns.html">&#x1F41B; Erros Comuns</a>
+                  <a href="topicos.html">&#x1F4DA; Tópicos</a>
+                  <a href="http.html">&#x1F310; HTTP</a>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="nav-actions">
+          <a class="open-source-link" href="https://github.com/JonathanNwokolo/-DevStudy-" target="_blank" rel="noopener noreferrer">✦ OPEN SOURCE ↗</a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Alternar entre tema claro e escuro" title="Alternar tema (T)">
+            <span class="sun-icon" aria-hidden="true">&#x2600;&#xFE0F;</span>
+            <span class="moon-icon" aria-hidden="true">&#x1F319;</span>
+          </button>
+{%- if home %}
+          <button
+            class="bookmark-toggle"
+            id="bookmarkToggle"
+            aria-label="Meus favoritos"
+            title="Favoritos (B)"
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M5 2h10a1 1 0 0 1 1 1v16l-6-4-6 4V3a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+            <span class="bookmark-count" id="bookmarkCount">0</span>
+          </button>
+{%- endif %}
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu de navegação" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+      <!-- Progress Bar -->
+    </header>

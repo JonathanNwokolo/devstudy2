@@ -1,0 +1,469 @@
+---
+title: "PostgreSQL - DevStudy"
+description: "PostgreSQL para iniciantes: o que é banco de dados relacional, SELECT, INSERT, UPDATE, DELETE, WHERE, JOIN, SERIAL e dicas práticas com o banco open source mais avançado."
+permalink: "postgresql.html"
+styles: ["conteudos.css"]
+footer: {"variant":"simples"}
+---
+    <main id="main-content">
+      <section class="page-hero">
+        <div class="container">
+          <div class="hero-badge">🐘 Onde os dados moram</div>
+          <h1><span class="accent-sql">PostgreSQL</span></h1>
+          <p class="hero-description">
+            Toda aplicação séria guarda dados em algum lugar. O PostgreSQL é o
+            banco de dados relacional open source mais avançado do mundo — e você
+            conversa com ele usando a linguagem SQL, que é mais simples do que
+            parece.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="info-card">
+            <div class="info-icon">🐘</div>
+            <div>
+              <h3>O que é o PostgreSQL?</h3>
+              <p>
+                É um <strong>banco de dados relacional</strong> gratuito e open
+                source, conhecido por ser robusto e seguir os padrões. Pense em
+                planilhas conectadas: cada <strong>tabela</strong> tem colunas
+                (campos) e linhas (registros) — como uma tabela
+                <code>usuarios</code> com colunas <code>id</code>,
+                <code>nome</code> e <code>email</code>.
+              </p>
+            </div>
+          </div>
+
+          <div class="callout callout-info">
+            <span class="callout-icon">⚙️</span>
+            <div class="callout-body">
+              <strong>Como rodar</strong>
+              Instale o PostgreSQL e use o terminal <code>psql</code> para se
+              conectar: <code>psql -U postgres -d meu_banco</code>. Ferramentas
+              visuais como o <strong>pgAdmin</strong> ou o <strong>DBeaver</strong>
+              também ajudam quem está começando.
+            </div>
+          </div>
+
+          <!-- SELECT -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🔍</span> SELECT — consultar dados</h3>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">PostgreSQL</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>-- Todas as colunas de todos os usuários
+SELECT * FROM usuarios;
+
+-- Só nome e email
+SELECT nome, email FROM usuarios;
+
+-- Com filtro e ordenação
+SELECT nome FROM usuarios
+WHERE idade &gt;= 18
+ORDER BY nome ASC
+LIMIT 10;</code></pre>
+            </div>
+            <div class="callout callout-tip">
+              <span class="callout-icon">💡</span>
+              <div class="callout-body">
+                <strong>WHERE é seu melhor amigo</strong>
+                É a cláusula que filtra linhas. Combine com
+                <code>AND</code>, <code>OR</code> e <code>LIKE '%texto%'</code>
+                para buscas mais espertas.
+              </div>
+            </div>
+          </div>
+
+          <!-- INSERT/UPDATE/DELETE -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">✏️</span> INSERT, UPDATE &amp; DELETE</h3>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">PostgreSQL</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>-- Criar um registro
+INSERT INTO usuarios (nome, email)
+VALUES ('Ana', 'ana@email.com');
+
+-- Atualizar (SEMPRE com WHERE!)
+UPDATE usuarios SET email = 'novo@email.com'
+WHERE id = 1;
+
+-- Apagar (SEMPRE com WHERE!)
+DELETE FROM usuarios WHERE id = 1;</code></pre>
+            </div>
+            <div class="callout callout-danger">
+              <span class="callout-icon">⚠️</span>
+              <div class="callout-body">
+                <strong>O erro clássico</strong>
+                Esquecer o <code>WHERE</code> em um UPDATE ou DELETE altera/apaga
+                <em>todas</em> as linhas da tabela. Sempre confira antes de
+                executar!
+              </div>
+            </div>
+          </div>
+
+          <!-- CRUD mapping -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🔄</span> SQL é o CRUD</h3>
+            <p class="topic-description">
+              Os 4 comandos acima são as operações básicas de qualquer sistema.
+            </p>
+            <table class="ref-table">
+              <thead>
+                <tr><th>CRUD</th><th>SQL</th><th>HTTP</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Create</td><td><code>INSERT</code></td><td>POST</td></tr>
+                <tr><td>Read</td><td><code>SELECT</code></td><td>GET</td></tr>
+                <tr><td>Update</td><td><code>UPDATE</code></td><td>PUT/PATCH</td></tr>
+                <tr><td>Delete</td><td><code>DELETE</code></td><td>DELETE</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- JOIN -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🔗</span> JOIN — juntando tabelas</h3>
+            <p class="topic-description">
+              O "relacional" vem daqui: conectar dados de tabelas diferentes.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">PostgreSQL</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>-- Pedidos com o nome do usuário que fez
+SELECT pedidos.id, usuarios.nome, pedidos.total
+FROM pedidos
+JOIN usuarios ON pedidos.usuario_id = usuarios.id;</code></pre>
+            </div>
+          </div>
+
+          <!-- Tipos de JOIN -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🧬</span> Os tipos de JOIN</h3>
+            <p class="topic-description">
+              A diferença está em <em>quais</em> linhas aparecem quando não há
+              correspondência entre as tabelas.
+            </p>
+            <table class="ref-table">
+              <thead>
+                <tr><th>JOIN</th><th>Traz...</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>INNER JOIN</code></td><td>Só linhas com correspondência nas duas tabelas</td></tr>
+                <tr><td><code>LEFT JOIN</code></td><td>Todas da esquerda + as que casam da direita (resto vira <code>NULL</code>)</td></tr>
+                <tr><td><code>RIGHT JOIN</code></td><td>Todas da direita + as que casam da esquerda</td></tr>
+                <tr><td><code>FULL JOIN</code></td><td>Todas das duas, casando quando possível</td></tr>
+              </tbody>
+            </table>
+            <div class="callout callout-tip">
+              <span class="callout-icon">💡</span>
+              <div class="callout-body">
+                <strong>LEFT JOIN é o mais usado</strong>
+                Quer "todos os usuários, tenham eles pedidos ou não"? Use
+                <code>LEFT JOIN</code> — os sem pedido aparecem com colunas
+                <code>NULL</code>.
+              </div>
+            </div>
+          </div>
+
+          <!-- CREATE TABLE / chaves -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🏗️</span> Criar tabelas &amp; chaves</h3>
+            <p class="topic-description">
+              Antes de inserir dados, você define a estrutura. As
+              <strong>chaves</strong> são o que conecta as tabelas.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">PostgreSQL</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>CREATE TABLE usuarios (
+  id SERIAL PRIMARY KEY,        -- SERIAL: auto-incremento do PostgreSQL
+  nome VARCHAR(100) NOT NULL,   -- texto obrigatório
+  email VARCHAR(150) UNIQUE,    -- não pode repetir
+  criado_em TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE pedidos (
+  id SERIAL PRIMARY KEY,
+  total NUMERIC(10,2),          -- NUMERIC para valores monetários
+  usuario_id INTEGER REFERENCES usuarios(id) -- chave estrangeira
+);</code></pre>
+            </div>
+            <div class="callout callout-info">
+              <span class="callout-icon">🔑</span>
+              <div class="callout-body">
+                <strong>PK x FK</strong>
+                A <strong>chave primária (PK)</strong> identifica unicamente cada
+                linha. A <strong>chave estrangeira (FK)</strong> aponta para a PK
+                de outra tabela — é o que torna o banco "relacional".
+              </div>
+            </div>
+          </div>
+
+          <!-- GROUP BY / agregações -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">📊</span> Agrupar &amp; somar (GROUP BY)</h3>
+            <p class="topic-description">
+              Funções de agregação resumem várias linhas em um valor: total,
+              média, contagem...
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">PostgreSQL</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>-- Quantos usuários existem?
+SELECT COUNT(*) FROM usuarios;
+
+-- Valores únicos (sem repetir)
+SELECT DISTINCT cidade FROM usuarios;
+
+-- Total gasto por usuário
+SELECT usuario_id, SUM(total) AS gasto_total
+FROM pedidos
+GROUP BY usuario_id
+HAVING SUM(total) &gt; 100   -- filtra grupos (WHERE não funciona aqui)
+ORDER BY gasto_total DESC;</code></pre>
+            </div>
+            <table class="ref-table">
+              <thead>
+                <tr><th>Função</th><th>Retorna</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>COUNT()</code></td><td>Quantidade de linhas</td></tr>
+                <tr><td><code>SUM()</code></td><td>Soma dos valores</td></tr>
+                <tr><td><code>AVG()</code></td><td>Média</td></tr>
+                <tr><td><code>MAX()</code> / <code>MIN()</code></td><td>Maior / menor valor</td></tr>
+              </tbody>
+            </table>
+            <div class="callout callout-warning">
+              <span class="callout-icon">⚠️</span>
+              <div class="callout-body">
+                <strong>WHERE x HAVING</strong>
+                <code>WHERE</code> filtra linhas <em>antes</em> de agrupar;
+                <code>HAVING</code> filtra os grupos <em>depois</em> do
+                <code>GROUP BY</code>.
+              </div>
+            </div>
+          </div>
+
+          <!-- Recursos do PostgreSQL -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🐘</span> O que torna o PostgreSQL especial</h3>
+            <p class="topic-description">
+              Além do SQL padrão, o Postgres traz recursos poderosos que outros
+              bancos não têm de forma tão completa.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">PostgreSQL</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>-- Coluna JSONB: guarda JSON com índice e consulta rápida
+CREATE TABLE eventos (
+  id SERIAL PRIMARY KEY,
+  dados JSONB
+);
+
+INSERT INTO eventos (dados)
+VALUES ('{"tipo": "clique", "x": 10}');
+
+-- Consultar dentro do JSON
+SELECT dados-&gt;&gt;'tipo' FROM eventos
+WHERE dados-&gt;&gt;'tipo' = 'clique';
+
+-- RETURNING devolve a linha recém-criada (recurso do Postgres)
+INSERT INTO usuarios (nome) VALUES ('Ana') RETURNING id;</code></pre>
+            </div>
+            <table class="ref-table">
+              <thead>
+                <tr><th>Recurso</th><th>Para quê</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>JSONB</code></td><td>Guardar dados flexíveis (estilo NoSQL) dentro do SQL</td></tr>
+                <tr><td><code>SERIAL</code></td><td>Coluna auto-incrementada (IDs)</td></tr>
+                <tr><td><code>RETURNING</code></td><td>Obter os dados inseridos/atualizados na mesma query</td></tr>
+                <tr><td><code>ILIKE</code></td><td>Busca de texto ignorando maiúsculas/minúsculas</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Subconsultas e CTE -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🪆</span> Subconsultas &amp; CTE (WITH)</h3>
+            <p class="topic-description">
+              Quebre consultas grandes em partes legíveis. A <code>CTE</code> dá
+              nome a um resultado temporário.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">PostgreSQL</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>-- Subconsulta
+SELECT nome FROM usuarios
+WHERE id IN (SELECT usuario_id FROM pedidos WHERE total &gt; 100);
+
+-- CTE: mesmo resultado, mais legível
+WITH grandes_pedidos AS (
+  SELECT usuario_id FROM pedidos WHERE total &gt; 100
+)
+SELECT u.nome
+FROM usuarios u
+JOIN grandes_pedidos g ON g.usuario_id = u.id;</code></pre>
+            </div>
+          </div>
+
+          <!-- ALTER / DROP -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🛠️</span> Alterar &amp; apagar estrutura</h3>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">PostgreSQL</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>ALTER TABLE usuarios ADD COLUMN telefone VARCHAR(20);
+ALTER TABLE usuarios DROP COLUMN telefone;
+ALTER TABLE usuarios RENAME COLUMN nome TO nome_completo;
+
+TRUNCATE TABLE pedidos;        -- esvazia a tabela
+DROP TABLE IF EXISTS pedidos;  -- apaga a tabela</code></pre>
+            </div>
+            <div class="callout callout-danger">
+              <span class="callout-icon">🚨</span>
+              <div class="callout-body">
+                <strong>Sem volta</strong>
+                <code>DROP</code> e <code>TRUNCATE</code> apagam tudo de uma vez.
+                Faça backup (<code>pg_dump</code>) antes de rodar em produção.
+              </div>
+            </div>
+          </div>
+
+          <!-- Índices -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">⚡</span> Índices &amp; EXPLAIN</h3>
+            <p class="topic-description">
+              Índices aceleram buscas em tabelas grandes, como o índice de um
+              livro.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">PostgreSQL</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>CREATE INDEX idx_usuarios_email ON usuarios(email);
+
+-- Índice para colunas JSONB
+CREATE INDEX idx_eventos_dados ON eventos USING GIN (dados);
+
+-- Veja o plano de execução e o tempo real
+EXPLAIN ANALYZE SELECT * FROM usuarios WHERE email = 'ana@email.com';</code></pre>
+            </div>
+            <div class="callout callout-tip">
+              <span class="callout-icon">💡</span>
+              <div class="callout-body">
+                <strong>Seq Scan x Index Scan</strong>
+                No <code>EXPLAIN</code>, <em>Seq Scan</em> lê a tabela inteira;
+                <em>Index Scan</em> usa o índice. Indexe colunas de
+                <code>WHERE</code>, <code>JOIN</code> e <code>ORDER BY</code>.
+              </div>
+            </div>
+          </div>
+
+          <!-- Transações -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🔒</span> Transações (ACID)</h3>
+            <p class="topic-description">
+              Vários comandos viram uma operação só: ou todos funcionam, ou
+              nenhum.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">PostgreSQL</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>BEGIN;
+
+UPDATE contas SET saldo = saldo - 100 WHERE id = 1;
+UPDATE contas SET saldo = saldo + 100 WHERE id = 2;
+
+COMMIT;      -- confirma
+-- ROLLBACK; -- desfaz tudo</code></pre>
+            </div>
+          </div>
+
+          <!-- psql -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">⌨️</span> Comandos úteis do psql</h3>
+            <table class="ref-table">
+              <thead>
+                <tr><th>Comando</th><th>Faz</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>\l</code></td><td>Lista os bancos</td></tr>
+                <tr><td><code>\c meu_banco</code></td><td>Conecta a um banco</td></tr>
+                <tr><td><code>\dt</code></td><td>Lista as tabelas</td></tr>
+                <tr><td><code>\d usuarios</code></td><td>Mostra colunas e chaves da tabela</td></tr>
+                <tr><td><code>\q</code></td><td>Sai do psql</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout callout-danger">
+            <span class="callout-icon">🛡️</span>
+            <div class="callout-body">
+              <strong>SQL Injection</strong>
+              Nunca concatene texto do usuário na query. Use consultas
+              parametrizadas (<code>$1</code>, <code>$2</code>...) ou um ORM
+              como Prisma. Veja também <a href="sql.html">SQL &amp; MySQL</a>.
+            </div>
+          </div>
+
+          <div class="callout callout-info">
+            <span class="callout-icon">🧠</span>
+            <div class="callout-body">
+              <strong>SQL x NoSQL</strong>
+              Bancos <strong>SQL</strong> como o PostgreSQL usam tabelas e esquema
+              definido. Bancos <strong>NoSQL</strong> (MongoDB) guardam documentos
+              flexíveis tipo JSON. O bacana é que o Postgres faz os dois: com
+              <code>JSONB</code> você tem a flexibilidade do NoSQL sem abrir mão
+              do SQL.
+            </div>
+          </div>
+
+          <h2 class="section-title" style="margin-top: 3rem">Continue aprendendo</h2>
+          <div class="related-grid">
+            <a class="related-card" href="sql.html">
+              <span class="emoji">🐬</span>
+              <h4>SQL &amp; MySQL</h4>
+              <p>A linguagem SQL e as diferenças para o MySQL.</p>
+            </a>
+            <a class="related-card" href="backend.html">
+              <span class="emoji">🟢</span>
+              <h4>Backend</h4>
+              <p>Conecte o banco a uma API Node.js.</p>
+            </a>
+            <a class="related-card" href="glossario.html">
+              <span class="emoji">📖</span>
+              <h4>Glossário</h4>
+              <p>CRUD, REST, endpoint e mais termos.</p>
+            </a>
+            <a class="related-card" href="roadmap.html">
+              <span class="emoji">🗺️</span>
+              <h4>Trilha</h4>
+              <p>Veja onde o backend entra na jornada.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>

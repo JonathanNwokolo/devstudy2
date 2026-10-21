@@ -1,0 +1,168 @@
+/* ==========================================
+   Vue.js Page - Specific Styles
+   ========================================== */
+
+/* Vue.js Color Theme */
+.vue-hero {
+  background: linear-gradient(135deg, #42b883 0%, #35495e 100%);
+}
+
+.highlight-vue {
+  background: linear-gradient(135deg, #42b883, #35495e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.vue-badge,
+.section-badge.vue-badge {
+  background: rgba(66, 184, 131, 0.2);
+  color: #35495e;
+  border-color: #42b883;
+}
+
+.btn-vue {
+  background: linear-gradient(135deg, #42b883, #35495e);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.btn-vue:hover {
+  background: linear-gradient(135deg, #35495e, #2c3e50);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(66, 184, 131, 0.3);
+}
+
+.vue-window {
+  background: #2c3e50;
+}
+
+.vue-window .code-content {
+  color: #42b883;
+}
+
+/* Vue.js Syntax Highlighting */
+.vue-keyword {
+  color: #c678dd;
+}
+.vue-var {
+  color: #e5c07b;
+}
+.vue-string {
+  color: #98c379;
+}
+.vue-func {
+  color: #61afef;
+}
+.vue-method {
+  color: #56b6c2;
+}
+.vue-param {
+  color: #d19a66;
+}
+.vue-number {
+  color: #d19a66;
+}
+.vue-comment {
+  color: #5c6370;
+  font-style: italic;
+}
+.vue-tag {
+  color: #e06c75;
+}
+.vue-attr {
+  color: #42b883;
+}
+.vue-interp {
+  color: #e5c07b;
+}
+
+/* Vue Section Specific */
+.vue-section {
+  position: relative;
+}
+
+.vue-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #42b883, transparent);
+}
+
+/* Code Examples in Vue Page */
+.vue-section .code-example {
+  background: #2c3e50;
+  border-left: 3px solid #42b883;
+}
+
+.vue-section .code-example code {
+  color: #42b883;
+}
+
+/* Feature Cards */
+.vue-section .feature-card {
+  border-top: 3px solid #42b883;
+}
+
+.vue-section .feature-card:hover {
+  box-shadow: 0 8px 24px rgba(66, 184, 131, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Info Cards */
+.vue-section .info-card:hover {
+  border-color: #42b883;
+}
+
+.vue-section .info-icon {
+  background: linear-gradient(
+    135deg,
+    rgba(66, 184, 131, 0.2),
+    rgba(53, 73, 94, 0.1)
+  );
+}
+
+/* Concept Cards */
+.vue-section .concept-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.vue-section .concept-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #42b883, #35495e);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.vue-section .concept-card:hover::before {
+  opacity: 1;
+}
+
+.vue-section .concept-icon {
+  background: linear-gradient(135deg, #42b883, #35495e);
+}
+
+/* Composition API Section */
+.bg-alt .vue-badge {
+  background: rgba(66, 184, 131, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .vue-hero .hero-title {
+    font-size: 2rem;
+  }
+
+  .vue-window {
+    font-size: 0.85rem;
+  }
+}

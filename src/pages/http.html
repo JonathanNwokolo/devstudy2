@@ -1,0 +1,1032 @@
+---
+title: "HTTP Status Codes - DevStudy"
+description: "Entenda o protocolo HTTP: métodos (GET, POST, PUT, DELETE), códigos de status (200, 404, 500), headers e como funcionam as requisições web."
+permalink: "http.html"
+styles: ["http.css","conteudos.css","http-simulator.css"]
+scripts: ["http-simulator.js"]
+footer: {"variant":"marca"}
+---
+    <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="http-hero">
+      <div class="container">
+        <div class="hero-badge">🌐 Protocolo Web</div>
+        <h1>HTTP <span class="highlight-http">Status Codes</span></h1>
+        <p class="hero-description">
+          Entenda os códigos de status HTTP, como funcionam as requisições web e
+          o que cada código significa para suas aplicações.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">5</span>
+            <span class="stat-label">Categorias</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">30+</span>
+            <span class="stat-label">Códigos</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">HTTP/3</span>
+            <span class="stat-label">Versão Atual</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- O que é HTTP -->
+    <section class="content-section" id="intro">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="title-icon">📡</span>
+          O que é HTTP?
+        </h2>
+
+        <div class="intro-grid">
+          <div class="intro-card">
+            <div class="intro-icon">🔗</div>
+            <h3>Protocolo de Comunicação</h3>
+            <p>
+              HTTP (HyperText Transfer Protocol) é o protocolo usado para
+              transferir dados na web. Toda vez que você acessa um site, seu
+              navegador faz requisições HTTP.
+            </p>
+          </div>
+
+          <div class="intro-card">
+            <div class="intro-icon">📤📥</div>
+            <h3>Request & Response</h3>
+            <p>
+              A comunicação HTTP funciona em pares: o cliente faz uma
+              <strong>requisição (request)</strong> e o servidor retorna uma
+              <strong>resposta (response)</strong>.
+            </p>
+          </div>
+
+          <div class="intro-card">
+            <div class="intro-icon">🔢</div>
+            <h3>Status Codes</h3>
+            <p>
+              Cada resposta inclui um código de status de 3 dígitos que indica
+              se a requisição foi bem-sucedida, redirecionada, ou se houve erro.
+            </p>
+          </div>
+
+          <div class="intro-card">
+            <div class="intro-icon">🔒</div>
+            <h3>HTTPS</h3>
+            <p>
+              HTTPS é a versão segura do HTTP, usando criptografia SSL/TLS para
+              proteger os dados transferidos entre cliente e servidor.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Métodos HTTP -->
+    <section class="content-section alt-bg" id="methods">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="title-icon">🛠️</span>
+          Métodos HTTP
+        </h2>
+
+        <p class="section-description">
+          Os métodos HTTP indicam a ação desejada sobre um recurso. Cada método
+          tem uma semântica específica.
+        </p>
+
+        <!-- Simulador Visual Interativo HTTP -->
+        <div class="http-simulator-card" id="httpSimulator" aria-label="Simulador Interativo do Ciclo HTTP">
+          <!-- Header & Controls -->
+          <div class="sim-header">
+            <div class="sim-title-row">
+              <div class="sim-title-group">
+                <h3><span>📡</span> Simulador Visual: Ciclo de Vida HTTP</h3>
+                <p class="sim-subtitle">Veja como um método viaja do seu computador até o servidor e o que acontece no banco de dados.</p>
+              </div>
+              <div class="sim-badge-live">
+                <span class="sim-pulse-dot"></span>
+                <span>Interativo</span>
+              </div>
+            </div>
+
+            <div class="sim-controls-bar">
+              <div class="sim-methods-tabs" role="tablist" aria-label="Escolha o Método HTTP">
+                <button type="button" class="sim-method-btn m-get active" data-method="GET" role="tab" aria-selected="true">
+                  <span>📥</span> GET
+                </button>
+                <button type="button" class="sim-method-btn m-post" data-method="POST" role="tab" aria-selected="false">
+                  <span>📤</span> POST
+                </button>
+                <button type="button" class="sim-method-btn m-put" data-method="PUT" role="tab" aria-selected="false">
+                  <span>🔄</span> PUT
+                </button>
+                <button type="button" class="sim-method-btn m-patch" data-method="PATCH" role="tab" aria-selected="false">
+                  <span>🔧</span> PATCH
+                </button>
+                <button type="button" class="sim-method-btn m-delete" data-method="DELETE" role="tab" aria-selected="false">
+                  <span>🗑️</span> DELETE
+                </button>
+              </div>
+
+              <div class="sim-action-group">
+                <button type="button" class="sim-btn-speed" id="simBtnSpeed" title="Alterar velocidade da simulação">
+                  <span>⚡</span> 1x (Normal)
+                </button>
+                <button type="button" class="sim-btn-run" id="simBtnRun">
+                  <span>▶️</span> Disparar Requisição
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage (Visual Graphic) -->
+          <div class="sim-stage">
+            <div class="sim-nodes-row">
+              <!-- Client (Computador / Navegador) -->
+              <div class="sim-node" id="simClientNode">
+                <div class="sim-node-header">
+                  <span class="sim-node-role">💻 Seu Computador</span>
+                  <span class="sim-node-badge">Cliente</span>
+                </div>
+                <div class="sim-device-screen">
+                  <div class="sim-screen-bar">
+                    <span class="sim-screen-dot"></span>
+                    <span class="sim-screen-dot"></span>
+                    <span class="sim-screen-dot"></span>
+                  </div>
+                  <div class="sim-screen-url" id="simClientUrl">GET /api/usuarios/42</div>
+                  <div class="sim-screen-body-preview" id="simClientBodyPreview">(Sem body)</div>
+                </div>
+                <div class="sim-client-base"></div>
+                <div class="sim-node-footer-status" id="simClientStatus">Pronto para enviar</div>
+              </div>
+
+              <!-- Rede / Internet Pipe -->
+              <div class="sim-network-pipe">
+                <!-- Ida (Request) -->
+                <div class="sim-track-lane" id="simReqLane">
+                  <div class="sim-track-line"></div>
+                  <span class="sim-track-label">Requisição ➔</span>
+                  <div class="sim-packet req-packet" id="simReqPacket">📦 GET</div>
+                </div>
+
+                <!-- Volta (Response) -->
+                <div class="sim-track-lane" id="simResLane">
+                  <div class="sim-track-line"></div>
+                  <span class="sim-track-label">⬅ Resposta</span>
+                  <div class="sim-packet res-packet" id="simResPacket">↩️ 200 OK</div>
+                </div>
+              </div>
+
+              <!-- Servidor & Database -->
+              <div class="sim-node" id="simServerNode">
+                <div class="sim-node-header">
+                  <span class="sim-node-role">🖥️ Servidor &amp; DB</span>
+                  <span class="sim-node-badge">API REST</span>
+                </div>
+                <div class="sim-server-rack">
+                  <div class="sim-rack-unit">
+                    <span class="sim-rack-unit-label">API SERVER</span>
+                    <div class="sim-rack-leds">
+                      <span class="sim-led green"></span>
+                      <span class="sim-led blue"></span>
+                      <span class="sim-led orange"></span>
+                    </div>
+                  </div>
+                  <div class="sim-db-box">
+                    <span class="sim-db-cylinder" id="simDbCylinder">🗄️</span>
+                    <span>Database</span>
+                  </div>
+                </div>
+                <div class="sim-node-footer-status" id="simServerStatus">Aguardando requisição...</div>
+              </div>
+            </div>
+
+            <!-- Stepper de Progresso -->
+            <div class="sim-stepper">
+              <div class="sim-step-item active" data-step="1">
+                <span class="sim-step-num">1</span>
+                <span>Prepara Requisição</span>
+              </div>
+              <div class="sim-step-item" data-step="2">
+                <span class="sim-step-num">2</span>
+                <span>Viaja pela Rede</span>
+              </div>
+              <div class="sim-step-item" data-step="3">
+                <span class="sim-step-num">3</span>
+                <span>Servidor Processa</span>
+              </div>
+              <div class="sim-step-item" data-step="4">
+                <span class="sim-step-num">4</span>
+                <span>Resposta Retorna</span>
+              </div>
+              <div class="sim-step-item" data-step="5">
+                <span class="sim-step-num">5</span>
+                <span>Sucesso!</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inspector Panel (Request & Response) -->
+          <div class="sim-inspector">
+            <div class="sim-inspector-grid">
+              <!-- Request Details -->
+              <div class="sim-pane">
+                <div class="sim-pane-header">
+                  <span>📤 Requisição Enviada (HTTP Request)</span>
+                  <span class="sim-protocol-label">HTTP/1.1</span>
+                </div>
+                <div class="sim-pane-content" id="simReqInspector">
+                  <!-- Injetado via JS -->
+                </div>
+              </div>
+
+              <!-- Response Details -->
+              <div class="sim-pane">
+                <div class="sim-pane-header">
+                  <span>📥 Resposta da API (HTTP Response)</span>
+                  <span class="sim-live-label">Em tempo real</span>
+                </div>
+                <div class="sim-pane-content" id="simResInspector">
+                  <!-- Injetado via JS -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Didactic Explanations -->
+            <div class="sim-didactic-box" id="simDidacticBox">
+              <!-- Injetado via JS -->
+            </div>
+          </div>
+        </div>
+
+        <div class="methods-grid">
+          <div class="method-card get">
+            <div class="method-header">
+              <span class="method-name">GET</span>
+              <span class="method-safe">Seguro</span>
+            </div>
+            <p>Solicita dados de um recurso. Não deve modificar dados.</p>
+            <div class="code-block" tabindex="0" aria-label="Exemplo de requisição GET">
+              <code>GET /api/users/123</code>
+            </div>
+            <button type="button" class="btn-simulate-in-card" onclick="selectSimulatorMethod('GET')">
+              ⚡ Testar no Simulador
+            </button>
+          </div>
+
+          <div class="method-card post">
+            <div class="method-header">
+              <span class="method-name">POST</span>
+              <span class="method-unsafe">Modifica</span>
+            </div>
+            <p>Envia dados para criar um novo recurso no servidor.</p>
+            <div class="code-block" tabindex="0" aria-label="Exemplo de requisição POST">
+              <code
+                >POST /api/users { "name": "João", "email": "joao@email.com"
+                }</code
+              >
+            </div>
+            <button type="button" class="btn-simulate-in-card" onclick="selectSimulatorMethod('POST')">
+              ⚡ Testar no Simulador
+            </button>
+          </div>
+
+          <div class="method-card put">
+            <div class="method-header">
+              <span class="method-name">PUT</span>
+              <span class="method-unsafe">Modifica</span>
+            </div>
+            <p>Substitui completamente um recurso existente.</p>
+            <div class="code-block" tabindex="0" aria-label="Exemplo de requisição PUT">
+              <code
+                >PUT /api/users/123 { "name": "João Silva", "email":
+                "joao@email.com" }</code
+              >
+            </div>
+            <button type="button" class="btn-simulate-in-card" onclick="selectSimulatorMethod('PUT')">
+              ⚡ Testar no Simulador
+            </button>
+          </div>
+
+          <div class="method-card patch">
+            <div class="method-header">
+              <span class="method-name">PATCH</span>
+              <span class="method-unsafe">Modifica</span>
+            </div>
+            <p>Atualiza parcialmente um recurso existente.</p>
+            <div class="code-block" tabindex="0" aria-label="Exemplo de requisição PATCH">
+              <code>PATCH /api/users/123 { "name": "João Carlos" }</code>
+            </div>
+            <button type="button" class="btn-simulate-in-card" onclick="selectSimulatorMethod('PATCH')">
+              ⚡ Testar no Simulador
+            </button>
+          </div>
+
+          <div class="method-card delete">
+            <div class="method-header">
+              <span class="method-name">DELETE</span>
+              <span class="method-unsafe">Modifica</span>
+            </div>
+            <p>Remove um recurso do servidor.</p>
+            <div class="code-block" tabindex="0" aria-label="Exemplo de requisição DELETE">
+              <code>DELETE /api/users/123</code>
+            </div>
+            <button type="button" class="btn-simulate-in-card" onclick="selectSimulatorMethod('DELETE')">
+              ⚡ Testar no Simulador
+            </button>
+          </div>
+
+          <div class="method-card options">
+            <div class="method-header">
+              <span class="method-name">OPTIONS</span>
+              <span class="method-safe">Seguro</span>
+            </div>
+            <p>Retorna os métodos HTTP permitidos para um recurso.</p>
+            <div class="code-block" tabindex="0" aria-label="Exemplo de requisição OPTIONS">
+              <code>OPTIONS /api/users</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categorias de Status -->
+    <section class="content-section" id="categories">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="title-icon">📊</span>
+          Categorias de Status
+        </h2>
+
+        <div class="categories-overview">
+          <div class="category-card cat-1xx">
+            <div class="category-range">1XX</div>
+            <h3>Informacional</h3>
+            <p>Requisição recebida, processamento continua</p>
+          </div>
+
+          <div class="category-card cat-2xx">
+            <div class="category-range">2XX</div>
+            <h3>Sucesso</h3>
+            <p>Requisição recebida, entendida e aceita</p>
+          </div>
+
+          <div class="category-card cat-3xx">
+            <div class="category-range">3XX</div>
+            <h3>Redirecionamento</h3>
+            <p>Ação adicional necessária para completar</p>
+          </div>
+
+          <div class="category-card cat-4xx">
+            <div class="category-range">4XX</div>
+            <h3>Erro do Cliente</h3>
+            <p>Requisição contém erro de sintaxe ou não pode ser atendida</p>
+          </div>
+
+          <div class="category-card cat-5xx">
+            <div class="category-range">5XX</div>
+            <h3>Erro do Servidor</h3>
+            <p>Servidor falhou ao processar requisição válida</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1XX Informational -->
+    <section class="content-section alt-bg" id="1xx">
+      <div class="container">
+        <h2 class="section-title status-1xx">
+          <span class="status-badge badge-1xx">1XX</span>
+          Informacional
+        </h2>
+
+        <div class="status-grid">
+          <div class="status-card">
+            <div class="status-code">100</div>
+            <div class="status-info">
+              <h3>Continue</h3>
+              <p>
+                O servidor recebeu os headers e o cliente deve continuar
+                enviando o body da requisição.
+              </p>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div class="status-code">101</div>
+            <div class="status-info">
+              <h3>Switching Protocols</h3>
+              <p>
+                O servidor está mudando de protocolo conforme solicitado pelo
+                cliente (ex: HTTP para WebSocket).
+              </p>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div class="status-code">102</div>
+            <div class="status-info">
+              <h3>Processing</h3>
+              <p>
+                O servidor está processando a requisição, mas ainda não há
+                resposta disponível.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2XX Success -->
+    <section class="content-section" id="2xx">
+      <div class="container">
+        <h2 class="section-title status-2xx">
+          <span class="status-badge badge-2xx">2XX</span>
+          Sucesso
+        </h2>
+
+        <div class="status-grid">
+          <div class="status-card popular">
+            <div class="status-code">200</div>
+            <div class="status-info">
+              <h3>OK</h3>
+              <p>
+                Requisição bem-sucedida. O significado depende do método HTTP
+                usado.
+              </p>
+              <div class="status-usage">
+                <span class="usage-tag">GET</span>
+                <span class="usage-tag">POST</span>
+                <span class="usage-tag">PUT</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="status-card popular">
+            <div class="status-code">201</div>
+            <div class="status-info">
+              <h3>Created</h3>
+              <p>Requisição bem-sucedida e um novo recurso foi criado.</p>
+              <div class="status-usage">
+                <span class="usage-tag">POST</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div class="status-code">202</div>
+            <div class="status-info">
+              <h3>Accepted</h3>
+              <p>
+                Requisição aceita para processamento, mas ainda não concluída.
+              </p>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div class="status-code">203</div>
+            <div class="status-info">
+              <h3>Non-Authoritative Information</h3>
+              <p>
+                A resposta foi modificada por um proxy ou servidor
+                intermediário.
+              </p>
+            </div>
+          </div>
+
+          <div class="status-card popular">
+            <div class="status-code">204</div>
+            <div class="status-info">
+              <h3>No Content</h3>
+              <p>Requisição bem-sucedida, mas sem conteúdo para retornar.</p>
+              <div class="status-usage">
+                <span class="usage-tag">DELETE</span>
+                <span class="usage-tag">PUT</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div class="status-code">206</div>
+            <div class="status-info">
+              <h3>Partial Content</h3>
+              <p>
+                O servidor está entregando apenas parte do recurso (usado em
+                downloads resumíveis).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3XX Redirection -->
+    <section class="content-section alt-bg" id="3xx">
+      <div class="container">
+        <h2 class="section-title status-3xx">
+          <span class="status-badge badge-3xx">3XX</span>
+          Redirecionamento
+        </h2>
+
+        <div class="status-grid">
+          <div class="status-card">
+            <div class="status-code">300</div>
+            <div class="status-info">
+              <h3>Multiple Choices</h3>
+              <p>
+                Existem múltiplas opções de recurso que o cliente pode escolher.
+              </p>
+            </div>
+          </div>
+
+          <div class="status-card popular">
+            <div class="status-code">301</div>
+            <div class="status-info">
+              <h3>Moved Permanently</h3>
+              <p>
+                O recurso foi movido permanentemente para uma nova URL. Bom para
+                SEO.
+              </p>
+              <div class="status-example">
+                <code>Location: https://novo-site.com/pagina</code>
+              </div>
+            </div>
+          </div>
+
+          <div class="status-card popular">
+            <div class="status-code">302</div>
+            <div class="status-info">
+              <h3>Found (Temporary Redirect)</h3>
+              <p>O recurso está temporariamente em outra URL.</p>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div class="status-code">303</div>
+            <div class="status-info">
+              <h3>See Other</h3>
+              <p>O cliente deve fazer GET em outra URL para obter o recurso.</p>
+            </div>
+          </div>
+
+          <div class="status-card popular">
+            <div class="status-code">304</div>
+            <div class="status-info">
+              <h3>Not Modified</h3>
+              <p>
+                O recurso não foi modificado desde a última requisição. Use o
+                cache.
+              </p>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div class="status-code">307</div>
+            <div class="status-info">
+              <h3>Temporary Redirect</h3>
+              <p>Como 302, mas garante que o método HTTP não seja alterado.</p>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div class="status-code">308</div>
+            <div class="status-info">
+              <h3>Permanent Redirect</h3>
+              <p>Como 301, mas garante que o método HTTP não seja alterado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4XX Client Errors -->
+    <section class="content-section" id="4xx">
+      <div class="container">
+        <h2 class="section-title status-4xx">
+          <span class="status-badge badge-4xx">4XX</span>
+          Erro do Cliente
+        </h2>
+
+        <div class="status-grid">
+          <div class="status-card popular">
+            <div class="status-code">400</div>
+            <div class="status-info">
+              <h3>Bad Request</h3>
+              <p>
+                A requisição é inválida ou malformada. Verifique os dados
+                enviados.
+              </p>
+              <div class="status-cause">
+                <strong>Causas comuns:</strong> JSON inválido, parâmetros
+                faltando
+              </div>
+            </div>
+          </div>
+
+          <div class="status-card popular">
+            <div class="status-code">401</div>
+            <div class="status-info">
+              <h3>Unauthorized</h3>
+              <p>Autenticação é necessária. O cliente não está autenticado.</p>
+              <div class="status-cause">
+                <strong>Solução:</strong> Enviar token de autenticação válido
+              </div>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div class="status-code">402</div>
+            <div class="status-info">
+              <h3>Payment Required</h3>
+              <p>
+                Reservado para uso futuro. Usado por algumas APIs para indicar
+                pagamento necessário.
+              </p>
+            </div>
+          </div>
+
+          <div class="status-card popular">
+            <div class="status-code">403</div>
+            <div class="status-info">
+              <h3>Forbidden</h3>
+              <p>
+                O servidor entende a requisição, mas se recusa a autorizá-la.
+              </p>
+              <div class="status-cause">
+                <strong>Diferença do 401:</strong> Mesmo autenticado, você não
+                tem permissão
+              </div>
+            </div>
+          </div>
+
+          <div class="status-card popular">
+            <div class="status-code">404</div>
+            <div class="status-info">
+              <h3>Not Found</h3>
+              <p>O recurso solicitado não existe no servidor.</p>
+              <div class="status-cause">
+                <strong>Causas comuns:</strong> URL errada, recurso deletado
+              </div>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div class="status-code">405</div>
+            <div class="status-info">
+              <h3>Method Not Allowed</h3>
+              <p>O método HTTP usado não é permitido para este recurso.</p>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div class="status-code">408</div>
+            <div class="status-info">
+              <h3>Request Timeout</h3>
+              <p>
+                O servidor fechou a conexão porque a requisição demorou demais.
+              </p>
+            </div>
+          </div>
+
+          <div class="status-card popular">
+            <div class="status-code">409</div>
+            <div class="status-info">
+              <h3>Conflict</h3>
+              <p>
+                Conflito com o estado atual do recurso (ex: email já
+                cadastrado).
+              </p>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div class="status-code">410</div>
+            <div class="status-info">
+              <h3>Gone</h3>
+              <p>O recurso existiu, mas foi permanentemente removido.</p>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div class="status-code">415</div>
+            <div class="status-info">
+              <h3>Unsupported Media Type</h3>
+              <p>
+                O formato do payload não é suportado (ex: enviou XML, mas só
+                aceita JSON).
+              </p>
+            </div>
+          </div>
+
+          <div class="status-card popular">
+            <div class="status-code">422</div>
+            <div class="status-info">
+              <h3>Unprocessable Entity</h3>
+              <p>
+                A sintaxe está correta, mas os dados são semanticamente
+                inválidos.
+              </p>
+              <div class="status-cause">
+                <strong>Exemplo:</strong> Email com formato inválido
+              </div>
+            </div>
+          </div>
+
+          <div class="status-card popular">
+            <div class="status-code">429</div>
+            <div class="status-info">
+              <h3>Too Many Requests</h3>
+              <p>
+                O cliente enviou muitas requisições em pouco tempo (rate
+                limiting).
+              </p>
+              <div class="status-cause">
+                <strong>Solução:</strong> Aguarde antes de fazer novas
+                requisições
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5XX Server Errors -->
+    <section class="content-section alt-bg" id="5xx">
+      <div class="container">
+        <h2 class="section-title status-5xx">
+          <span class="status-badge badge-5xx">5XX</span>
+          Erro do Servidor
+        </h2>
+
+        <div class="status-grid">
+          <div class="status-card popular">
+            <div class="status-code">500</div>
+            <div class="status-info">
+              <h3>Internal Server Error</h3>
+              <p>
+                Erro genérico do servidor. Algo deu errado, mas não sabemos
+                exatamente o quê.
+              </p>
+              <div class="status-cause">
+                <strong>Causas comuns:</strong> Bug no código, exceção não
+                tratada
+              </div>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div class="status-code">501</div>
+            <div class="status-info">
+              <h3>Not Implemented</h3>
+              <p>
+                O servidor não suporta a funcionalidade necessária para atender
+                a requisição.
+              </p>
+            </div>
+          </div>
+
+          <div class="status-card popular">
+            <div class="status-code">502</div>
+            <div class="status-info">
+              <h3>Bad Gateway</h3>
+              <p>
+                O servidor, atuando como gateway/proxy, recebeu resposta
+                inválida do servidor upstream.
+              </p>
+            </div>
+          </div>
+
+          <div class="status-card popular">
+            <div class="status-code">503</div>
+            <div class="status-info">
+              <h3>Service Unavailable</h3>
+              <p>
+                O servidor está temporariamente indisponível (manutenção ou
+                sobrecarga).
+              </p>
+              <div class="status-cause">
+                <strong>Header comum:</strong> <code>Retry-After: 3600</code>
+              </div>
+            </div>
+          </div>
+
+          <div class="status-card popular">
+            <div class="status-code">504</div>
+            <div class="status-info">
+              <h3>Gateway Timeout</h3>
+              <p>
+                O servidor, atuando como gateway/proxy, não recebeu resposta a
+                tempo do servidor upstream.
+              </p>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div class="status-code">505</div>
+            <div class="status-info">
+              <h3>HTTP Version Not Supported</h3>
+              <p>O servidor não suporta a versão HTTP usada na requisição.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Headers Comuns -->
+    <section class="content-section" id="headers">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="title-icon">📋</span>
+          Headers HTTP Comuns
+        </h2>
+
+        <div class="headers-grid">
+          <div class="header-category">
+            <h3>📤 Request Headers</h3>
+            <table>
+              <tr>
+                <td><code>Authorization</code></td>
+                <td>Token de autenticação</td>
+              </tr>
+              <tr>
+                <td><code>Content-Type</code></td>
+                <td>Tipo de dado enviado (application/json)</td>
+              </tr>
+              <tr>
+                <td><code>Accept</code></td>
+                <td>Tipos de resposta aceitos</td>
+              </tr>
+              <tr>
+                <td><code>User-Agent</code></td>
+                <td>Informações do cliente/browser</td>
+              </tr>
+              <tr>
+                <td><code>Cache-Control</code></td>
+                <td>Diretivas de cache</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="header-category">
+            <h3>📥 Response Headers</h3>
+            <table>
+              <tr>
+                <td><code>Content-Type</code></td>
+                <td>Tipo do conteúdo retornado</td>
+              </tr>
+              <tr>
+                <td><code>Content-Length</code></td>
+                <td>Tamanho do body em bytes</td>
+              </tr>
+              <tr>
+                <td><code>Set-Cookie</code></td>
+                <td>Define cookies no cliente</td>
+              </tr>
+              <tr>
+                <td><code>Location</code></td>
+                <td>URL para redirecionamento</td>
+              </tr>
+              <tr>
+                <td><code>Access-Control-*</code></td>
+                <td>Headers CORS</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exemplos Práticos -->
+    <section class="content-section alt-bg" id="examples">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="title-icon">💻</span>
+          Exemplos Práticos
+        </h2>
+
+        <div class="examples-grid">
+          <div class="example-card">
+            <h3>Fetch API (JavaScript)</h3>
+            <div class="code-block">
+              <code
+                >// GET Request fetch('https://api.exemplo.com/users')
+                .then(response => { console.log(response.status); // 200 return
+                response.json(); }) .then(data => console.log(data))
+                .catch(error => console.error(error)); // POST Request
+                fetch('https://api.exemplo.com/users', { method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization':
+                'Bearer token123' }, body: JSON.stringify({ name: 'João', email:
+                'joao@email.com' }) });</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+
+          <div class="example-card">
+            <h3>Tratamento de Erros</h3>
+            <div class="code-block">
+              <code
+                >async function fetchData(url) { const response = await
+                fetch(url); if (response.status === 200) { return
+                response.json(); } if (response.status === 401) { throw new
+                Error('Não autorizado'); } if (response.status === 404) { throw
+                new Error('Recurso não encontrado'); } if (response.status >=
+                500) { throw new Error('Erro no servidor'); } }</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cheat Sheet -->
+    <section class="content-section" id="cheatsheet">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="title-icon">📋</span>
+          Cheat Sheet Rápido
+        </h2>
+
+        <div class="cheatsheet-compact">
+          <div class="cheat-row success">
+            <span class="cheat-code">200</span>
+            <span class="cheat-name">OK</span>
+            <span class="cheat-desc">Tudo certo!</span>
+          </div>
+          <div class="cheat-row success">
+            <span class="cheat-code">201</span>
+            <span class="cheat-name">Created</span>
+            <span class="cheat-desc">Recurso criado</span>
+          </div>
+          <div class="cheat-row success">
+            <span class="cheat-code">204</span>
+            <span class="cheat-name">No Content</span>
+            <span class="cheat-desc">Sucesso, sem body</span>
+          </div>
+          <div class="cheat-row redirect">
+            <span class="cheat-code">301</span>
+            <span class="cheat-name">Moved</span>
+            <span class="cheat-desc">Mudou permanente</span>
+          </div>
+          <div class="cheat-row redirect">
+            <span class="cheat-code">304</span>
+            <span class="cheat-name">Not Modified</span>
+            <span class="cheat-desc">Use o cache</span>
+          </div>
+          <div class="cheat-row error-client">
+            <span class="cheat-code">400</span>
+            <span class="cheat-name">Bad Request</span>
+            <span class="cheat-desc">Requisição inválida</span>
+          </div>
+          <div class="cheat-row error-client">
+            <span class="cheat-code">401</span>
+            <span class="cheat-name">Unauthorized</span>
+            <span class="cheat-desc">Precisa autenticar</span>
+          </div>
+          <div class="cheat-row error-client">
+            <span class="cheat-code">403</span>
+            <span class="cheat-name">Forbidden</span>
+            <span class="cheat-desc">Sem permissão</span>
+          </div>
+          <div class="cheat-row error-client">
+            <span class="cheat-code">404</span>
+            <span class="cheat-name">Not Found</span>
+            <span class="cheat-desc">Não existe</span>
+          </div>
+          <div class="cheat-row error-client">
+            <span class="cheat-code">422</span>
+            <span class="cheat-name">Unprocessable</span>
+            <span class="cheat-desc">Dados inválidos</span>
+          </div>
+          <div class="cheat-row error-client">
+            <span class="cheat-code">429</span>
+            <span class="cheat-name">Too Many</span>
+            <span class="cheat-desc">Rate limit</span>
+          </div>
+          <div class="cheat-row error-server">
+            <span class="cheat-code">500</span>
+            <span class="cheat-name">Server Error</span>
+            <span class="cheat-desc">Bug no servidor</span>
+          </div>
+          <div class="cheat-row error-server">
+            <span class="cheat-code">502</span>
+            <span class="cheat-name">Bad Gateway</span>
+            <span class="cheat-desc">Proxy falhou</span>
+          </div>
+          <div class="cheat-row error-server">
+            <span class="cheat-code">503</span>
+            <span class="cheat-name">Unavailable</span>
+            <span class="cheat-desc">Fora do ar</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    </main>
+
+
+    <!-- Footer -->

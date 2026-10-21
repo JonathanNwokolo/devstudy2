@@ -1,0 +1,645 @@
+/* ============================================================
+   DevStudy - Master Responsive & Mobile Enhancement System
+   Solves responsiveness across ALL 23 pages (320px to 1440px+)
+   ============================================================ */
+
+/* ==========================================
+   1. GLOBAL ANTI-OVERFLOW & BASE RESET
+   ========================================== */
+html {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================
+   2. TABLES & CODE BLOCKS OVERFLOW FIXES
+   ========================================== */
+/* Prevents tables from forcing the whole page wider than screen */
+table {
+  max-width: 100%;
+}
+
+.table-responsive,
+.table-container,
+.cheatsheet-table,
+.error-table,
+.status-table,
+.cheat-category table,
+.header-category table,
+.content-section table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 1.5rem;
+}
+
+.table-responsive table,
+.table-container table {
+  width: 100%;
+  min-width: 500px; /* guarantees readable columns inside its own scrollable wrapper */
+}
+
+/* Code blocks inside pre */
+pre,
+code,
+pre[class*="language-"],
+code[class*="language-"],
+.code-block,
+.code-example pre,
+.code-example {
+  max-width: 100%;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+
+code {
+  word-break: break-word;
+}
+
+pre code {
+  word-break: normal;
+}
+
+/* ==========================================
+   3. CONTAINER & SECTION PADDING
+   ========================================== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* ==========================================
+   4. NAVIGATION BAR & MOBILE DRAWER (<= 968px)
+   ========================================== */
+@media (max-width: 968px) {
+  .header {
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .navbar {
+    padding: 0.75rem 1rem;
+    gap: 0.5rem;
+  }
+
+  /* Mobile menu button */
+  .mobile-menu-btn {
+    display: flex !important;
+    width: 42px;
+    height: 42px;
+    background: #f1f5f9;
+    border: none;
+    border-radius: 8px;
+    position: relative;
+    z-index: 1002;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  [data-theme="dark"] .mobile-menu-btn {
+    background: #242940;
+  }
+
+  .mobile-menu-btn span {
+    position: absolute;
+    left: 50%;
+    width: 22px;
+    height: 2px;
+    background: #334155;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+  }
+
+  [data-theme="dark"] .mobile-menu-btn span {
+    background: #cbd5e1;
+  }
+
+  .mobile-menu-btn span:nth-child(1) {
+    top: 13px;
+    transform: translateX(-50%);
+  }
+  .mobile-menu-btn span:nth-child(2) {
+    top: 20px;
+    transform: translateX(-50%);
+  }
+  .mobile-menu-btn span:nth-child(3) {
+    top: 27px;
+    transform: translateX(-50%);
+  }
+
+  .mobile-menu-btn.active span:nth-child(1) {
+    top: 20px;
+    transform: translateX(-50%) rotate(45deg);
+  }
+  .mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-50%) scale(0);
+  }
+  .mobile-menu-btn.active span:nth-child(3) {
+    top: 20px;
+    transform: translateX(-50%) rotate(-45deg);
+  }
+
+  /* Mobile Nav Drawer */
+  .nav-links {
+    position: fixed !important;
+    top: 0 !important;
+    right: -100% !important;
+    width: min(85vw, 340px) !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background: #ffffff !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 5rem 1.25rem 2rem !important;
+    gap: 0.35rem !important;
+    box-shadow: -8px 0 35px rgba(0, 0, 0, 0.2) !important;
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    z-index: 1001 !important;
+    margin: 0 !important;
+  }
+
+  [data-theme="dark"] .nav-links {
+    background: #181c2e !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: -8px 0 35px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .nav-links.active {
+    right: 0 !important;
+  }
+
+  .nav-link {
+    padding: 0.75rem 1rem !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+    background: #f8fafc !important;
+    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+    transition: all 0.2s ease !important;
+  }
+
+  [data-theme="dark"] .nav-link {
+    color: #cbd5e1 !important;
+    background: #20253e !important;
+    border-color: rgba(255, 255, 255, 0.04) !important;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: rgba(102, 126, 234, 0.12) !important;
+    color: #4f46e5 !important;
+  }
+
+  [data-theme="dark"] .nav-link:hover,
+  [data-theme="dark"] .nav-link.active {
+    background: rgba(129, 140, 248, 0.2) !important;
+    color: #a5b4fc !important;
+  }
+
+  .nav-link::after {
+    display: none !important;
+  }
+
+  /* Accordion Dropdowns in mobile drawer */
+  .nav-item-dropdown {
+    width: 100%;
+  }
+
+  .nav-item-dropdown .dropdown-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .nav-item-dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .nav-item-dropdown .mega-menu {
+    position: static !important;
+    width: 100% !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    transform: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #f1f5f9 !important;
+    border-radius: 8px !important;
+    border: 1px solid transparent !important;
+    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.25s ease !important;
+  }
+
+  [data-theme="dark"] .nav-item-dropdown .mega-menu {
+    background: #141727 !important;
+  }
+
+  .nav-item-dropdown.active .mega-menu {
+    max-height: 1200px !important;
+    opacity: 1 !important;
+    padding: 0.75rem 0.5rem !important;
+    margin-top: 0.3rem !important;
+    border-color: rgba(0, 0, 0, 0.05) !important;
+  }
+
+  [data-theme="dark"] .nav-item-dropdown.active .mega-menu {
+    border-color: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  .mega-menu-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    padding: 0 !important;
+  }
+
+  .mega-menu-column {
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  .mega-menu-column h4 {
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    color: #64748b !important;
+    padding: 0.2rem 0.5rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  [data-theme="dark"] .mega-menu-column h4 {
+    color: #94a3b8 !important;
+  }
+
+  .mega-menu-column a {
+    padding: 0.45rem 0.6rem !important;
+    font-size: 0.86rem !important;
+    display: block !important;
+    color: #475569 !important;
+    border-radius: 6px !important;
+  }
+
+  [data-theme="dark"] .mega-menu-column a {
+    color: #cbd5e1 !important;
+  }
+
+  .mega-menu-column a:hover {
+    background: rgba(102, 126, 234, 0.15) !important;
+    color: #4f46e5 !important;
+  }
+
+  /* Overlay */
+  .mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+
+  .mobile-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Search Panel in Mobile */
+  .search-panel {
+    position: fixed !important;
+    top: 65px !important;
+    left: 10px !important;
+    right: 10px !important;
+    width: calc(100vw - 20px) !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
+    border-radius: 14px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  /* Logo adjustment */
+  .logo-text {
+    font-size: 1.1rem;
+  }
+}
+
+/* Small screens header */
+@media (max-width: 400px) {
+  .logo-text {
+    display: none;
+  }
+  .navbar {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* ==========================================
+   5. HERO SECTIONS ACROSS ALL PAGES
+   ========================================= */
+@media (max-width: 768px) {
+  .hero,
+  .http-hero,
+  .git-hero,
+  .js-hero,
+  .react-hero,
+  .page-hero,
+  .section-hero {
+    padding: 5.5rem 1rem 2.5rem !important;
+    text-align: center !important;
+    min-height: auto !important;
+  }
+
+  h1,
+  .hero h1,
+  .hero-title,
+  .http-hero h1,
+  .git-hero h1,
+  .page-hero h1,
+  .section-title {
+    font-size: clamp(1.8rem, 6vw, 2.6rem) !important;
+    line-height: 1.25 !important;
+    word-break: break-word !important;
+  }
+
+  .hero-description,
+  .section-description {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 24px !important;
+  }
+
+  .hero-stats,
+  .section-hero-stats {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 1.2rem !important;
+  }
+
+  .hero-stats .stat,
+  .section-hero-stats .stat {
+    flex: 0 0 100px !important;
+  }
+
+  .hero-stats .stat-number,
+  .stat-number {
+    font-size: 1.5rem !important;
+  }
+
+  .hero-buttons {
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    gap: 0.75rem !important;
+  }
+
+  .hero-buttons .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .hero-visual {
+    display: none !important;
+  }
+}
+
+/* ==========================================
+   6. ALL MULTI-COLUMN GRIDS CONVERT TO 1 COL
+   ========================================= */
+@media (max-width: 768px) {
+  .intro-grid,
+  .methods-grid,
+  .categories-overview,
+  .status-grid,
+  .topics-grid,
+  .cards-grid,
+  .commands-grid,
+  .concept-grid,
+  .tools-grid,
+  .practice-grid,
+  .reference-grid,
+  .tags-grid,
+  .features-grid,
+  .cheat-grid,
+  .error-grid,
+  .roadmap-grid,
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .comparison-box,
+  .sem-main-area,
+  .live-editor {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .topic-card,
+  .method-card,
+  .status-card,
+  .intro-card,
+  .command-detail,
+  .concept-card,
+  .cheat-card,
+  .error-card {
+    padding: 16px !important;
+  }
+}
+
+/* Tablet adjustments (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .methods-grid,
+  .intro-grid,
+  .categories-overview,
+  .status-grid,
+  .commands-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 18px !important;
+  }
+}
+
+/* ==========================================
+   7. SIMULATORS MOBILE OPTIMIZATION
+   ========================================= */
+@media (max-width: 768px) {
+  .http-simulator-card,
+  .git-simulator-card,
+  .eventloop-simulator-card,
+  .sql-joins-card,
+  .react-simulator-card,
+  .middleware-simulator-card {
+    border-radius: 14px !important;
+    margin: 20px 0 !important;
+  }
+
+  /* Control bars wrap nicely */
+  .sim-controls-bar,
+  .git-sim-actions,
+  .el-controls,
+  .sql-tabs-bar,
+  .rsim-controls,
+  .mw-controls {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Simulators header */
+  .sim-header,
+  .git-sim-header,
+  .el-header,
+  .sql-header,
+  .rsim-header,
+  .mw-header {
+    padding: 16px 14px 12px !important;
+  }
+
+  .sim-title-group h3,
+  .git-sim-title-group h3,
+  .el-title-group h3,
+  .sql-title-group h3,
+  .rsim-title-group h3,
+  .mw-title-group h3 {
+    font-size: 1.1rem !important;
+  }
+
+  .sim-stage,
+  .git-sim-stage,
+  .el-stage,
+  .sql-stage,
+  .rsim-stage,
+  .mw-stage {
+    padding: 16px 12px !important;
+  }
+
+  /* HTTP Simulator Stage in mobile */
+  .sim-nodes-row {
+    flex-direction: column !important;
+    gap: 14px !important;
+    align-items: center !important;
+  }
+
+  .sim-node {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+  }
+
+  .sim-network-pipe {
+    width: 100% !important;
+    min-height: 90px !important;
+    gap: 12px !important;
+  }
+
+  /* Event Loop Stage in mobile */
+  .el-stage {
+    grid-template-columns: 1fr !important;
+  }
+
+  .el-top-row,
+  .el-queues-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* SQL Stage in mobile */
+  .sql-sources-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Middleware stage in mobile */
+  .mw-pipeline-track {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .mw-gate {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+
+  .mw-arrow-separator {
+    transform: rotate(90deg) !important;
+    margin: 2px 0 !important;
+  }
+}
+
+/* ==========================================
+   8. INPUTS, BUTTONS & TOUCH TARGETS
+   ========================================= */
+/* Prevents automatic zoom on input focus in iOS Safari */
+input,
+select,
+textarea {
+  font-size: 16px !important;
+}
+
+button,
+.nav-link,
+.btn,
+.copy-btn,
+.sim-method-btn,
+.git-cmd-btn,
+.el-btn,
+.sql-tab-btn,
+.rsim-btn,
+.mw-toggle-btn {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}

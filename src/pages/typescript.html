@@ -1,0 +1,287 @@
+---
+title: "TypeScript - DevStudy"
+description: "Aprenda TypeScript do zero: tipos, interfaces, funções tipadas, generics e por que TS evita bugs. Exemplos práticos e didáticos."
+permalink: "typescript.html"
+styles: ["conteudos.css"]
+footer: {"variant":"simples"}
+---
+    <main id="main-content">
+      <section class="page-hero">
+        <div class="container">
+          <div class="hero-badge">🔷 JavaScript com superpoderes</div>
+          <h1><span class="accent-ts">TypeScript</span></h1>
+          <p class="hero-description">
+            TypeScript é JavaScript com tipagem estática. Você escreve quase o
+            mesmo código, mas o compilador avisa sobre erros <em>antes</em> de
+            rodar — menos bugs, mais autocomplete, código mais fácil de manter.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="info-card">
+            <div class="info-icon">🤔</div>
+            <div>
+              <h3>Por que usar TypeScript?</h3>
+              <p>
+                Em JS, <code>"5" * 2</code> dá 10 mas <code>"5" + 2</code> dá
+                "52" — e você só descobre rodando. O TS pega esse tipo de
+                confusão na hora de escrever. É padrão em React, Angular, Vue e
+                back-end com Node.
+              </p>
+            </div>
+          </div>
+
+          <div class="callout callout-info">
+            <span class="callout-icon">⚙️</span>
+            <div class="callout-body">
+              <strong>Como rodar</strong>
+              Instale com <code>npm install -g typescript</code> e compile com
+              <code>tsc arquivo.ts</code>. O resultado é um <code>.js</code> que
+              roda em qualquer lugar. Veja mais em
+              <a href="terminal.html">Terminal &amp; npm</a>.
+            </div>
+          </div>
+
+          <!-- Tipos básicos -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🏷️</span> Tipos básicos</h3>
+            <p class="topic-description">
+              Anote o tipo depois do nome, com dois-pontos.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">TypeScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>let nome: string = "Ana";
+let idade: number = 30;
+let ativo: boolean = true;
+let tags: string[] = ["dev", "web"];   // array de strings
+let par: [string, number] = ["x", 10]; // tupla
+
+// 'any' desliga a checagem — evite!
+let qualquer: any = "pode virar qualquer coisa";</code></pre>
+            </div>
+          </div>
+
+          <!-- Interfaces -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">📐</span> Interfaces &amp; types</h3>
+            <p class="topic-description">
+              Descrevem a "forma" de um objeto — um contrato que o TS verifica.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">TypeScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>interface Usuario {
+  nome: string;
+  idade: number;
+  email?: string; // o '?' torna opcional
+}
+
+const u: Usuario = { nome: "Ana", idade: 30 };
+
+// 'type' faz algo parecido e ainda cria uniões:
+type Status = "ativo" | "inativo" | "banido";
+let s: Status = "ativo"; // só aceita esses 3 valores</code></pre>
+            </div>
+          </div>
+
+          <!-- Funções -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🔧</span> Funções tipadas</h3>
+            <p class="topic-description">
+              Tipe os parâmetros e o retorno para evitar surpresas.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">TypeScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>function somar(a: number, b: number): number {
+  return a + b;
+}
+
+somar(2, 3);     // ✅ 5
+somar(2, "3");   // ❌ Erro detectado pelo TS!
+
+// Arrow function com retorno void (não retorna nada)
+const log = (msg: string): void => console.log(msg);</code></pre>
+            </div>
+          </div>
+
+          <!-- Generics -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🎁</span> Generics</h3>
+            <p class="topic-description">
+              "Tipos parametrizados": funções/estruturas que funcionam com
+              qualquer tipo mantendo a segurança.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">TypeScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>function primeiro&lt;T&gt;(lista: T[]): T {
+  return lista[0];
+}
+
+primeiro&lt;number&gt;([1, 2, 3]); // retorna number
+primeiro(["a", "b"]);          // TS infere string</code></pre>
+            </div>
+          </div>
+
+          <!-- Narrowing -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🔎</span> Narrowing (estreitar tipos)</h3>
+            <p class="topic-description">
+              Quando um valor pode ser de vários tipos, o TS "entende" o tipo
+              dentro de cada <code>if</code>.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">TypeScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>function formatar(valor: string | number) {
+  if (typeof valor === "string") {
+    return valor.toUpperCase(); // aqui o TS sabe que é string
+  }
+  return valor.toFixed(2);       // aqui sabe que é number
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Enums -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🔢</span> Enums</h3>
+            <p class="topic-description">
+              Um conjunto de valores nomeados — bom para status, papéis,
+              direções.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">TypeScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>enum Papel {
+  Admin = "ADMIN",
+  Editor = "EDITOR",
+  Leitor = "LEITOR",
+}
+
+let meuPapel: Papel = Papel.Admin;
+console.log(meuPapel); // "ADMIN"</code></pre>
+            </div>
+          </div>
+
+          <!-- Classes -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🏛️</span> Classes tipadas</h3>
+            <p class="topic-description">
+              TS adiciona modificadores (<code>public</code>,
+              <code>private</code>, <code>readonly</code>) às classes do JS.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">TypeScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>class Conta {
+  private saldo = 0;                 // só acessível dentro da classe
+  constructor(public dono: string) {} // atalho: cria e atribui
+
+  depositar(valor: number): void {
+    this.saldo += valor;
+  }
+  get total(): number {
+    return this.saldo;
+  }
+}
+
+const c = new Conta("Ana");
+c.depositar(100);
+console.log(c.total); // 100</code></pre>
+            </div>
+          </div>
+
+          <!-- Utility Types -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🛠️</span> Utility Types</h3>
+            <p class="topic-description">
+              Tipos prontos que transformam outros tipos — economizam muito
+              código.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">TypeScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>interface Usuario { id: number; nome: string; email: string; }
+
+Partial&lt;Usuario&gt;            // todos os campos opcionais
+Required&lt;Usuario&gt;           // todos obrigatórios
+Pick&lt;Usuario, "id" | "nome"&gt; // só id e nome
+Omit&lt;Usuario, "email"&gt;       // tudo menos email
+Readonly&lt;Usuario&gt;            // não pode alterar</code></pre>
+            </div>
+            <div class="callout callout-tip">
+              <span class="callout-icon">💡</span>
+              <div class="callout-body">
+                <strong>Caso real</strong>
+                Ao atualizar um usuário você quase nunca manda todos os campos —
+                <code>Partial&lt;Usuario&gt;</code> descreve exatamente "alguns
+                campos do usuário".
+              </div>
+            </div>
+          </div>
+
+          <div class="do-dont">
+            <div class="card do">
+              <h4>✅ Faça</h4>
+              <pre>// Tipos explícitos em APIs públicas
+function getUser(id: number): Usuario { ... }
+
+// Use union types em vez de any
+let id: number | string;</pre>
+            </div>
+            <div class="card dont">
+              <h4>❌ Evite</h4>
+              <pre>// 'any' espalhado mata a vantagem do TS
+let dados: any;
+
+// Ignorar erros do compilador
+// @ts-ignore</pre>
+            </div>
+          </div>
+
+          <div class="callout callout-tip">
+            <span class="callout-icon">💡</span>
+            <div class="callout-body">
+              <strong>Dica</strong>
+              Já sabe JavaScript? Então você já sabe 80% de TypeScript. Comece
+              tipando funções e objetos; deixe generics e tipos avançados para
+              quando precisar.
+            </div>
+          </div>
+
+          <h2 class="section-title" style="margin-top: 3rem">Continue aprendendo</h2>
+          <div class="related-grid">
+            <a class="related-card" href="javascript.html">
+              <span class="emoji">⚡</span>
+              <h4>JavaScript</h4>
+              <p>Reforce a base antes de tipar tudo.</p>
+            </a>
+            <a class="related-card" href="react.html">
+              <span class="emoji">⚛️</span>
+              <h4>React</h4>
+              <p>TS brilha em componentes e props.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>

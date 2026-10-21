@@ -1,0 +1,261 @@
+---
+title: "APIs, Fetch & Async - DevStudy"
+description: "APIs, Fetch e código assíncrono em JavaScript: como consumir APIs REST, trabalhar com JSON, usar async/await e tratar erros."
+permalink: "apis.html"
+styles: ["conteudos.css"]
+footer: {"variant":"simples"}
+---
+    <main id="main-content">
+      <section class="page-hero">
+        <div class="container">
+          <div class="hero-badge">🌐 Conectando ao mundo</div>
+          <h1><span class="accent-api">APIs</span>, Fetch &amp; Async</h1>
+          <p class="hero-description">
+            Quase todo app moderno busca dados de um servidor: clima, produtos,
+            usuários... Aqui você aprende a consumir APIs com <code>fetch</code>,
+            entender JSON e dominar o código assíncrono.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="info-card">
+            <div class="info-icon">🔌</div>
+            <div>
+              <h3>O que é uma API?</h3>
+              <p>
+                É um "garçom" entre sistemas: seu código faz um pedido a uma URL
+                (o <em>endpoint</em>) e recebe uma resposta — normalmente em
+                JSON. Veja os
+                <a href="http.html">métodos e status HTTP</a> para entender o
+                que rola por baixo.
+              </p>
+            </div>
+          </div>
+
+          <!-- GET -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">📥</span> Buscar dados (GET) com fetch</h3>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>fetch("https://api.exemplo.com/usuarios")
+  .then((resposta) =&gt; resposta.json()) // converte o corpo em objeto JS
+  .then((dados) =&gt; console.log(dados))
+  .catch((erro) =&gt; console.error("Falhou:", erro));</code></pre>
+            </div>
+            <div class="callout callout-info">
+              <span class="callout-icon">🧩</span>
+              <div class="callout-body">
+                <strong>JSON</strong>
+                É o formato de troca de dados na web — texto no estilo
+                <code>{ "nome": "Ana" }</code>. <code>resposta.json()</code>
+                transforma esse texto em objeto JavaScript.
+              </div>
+            </div>
+          </div>
+
+          <!-- async/await -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">⏳</span> async / await (mais legível)</h3>
+            <p class="topic-description">
+              Mesma coisa do GET acima, mas escrito como se fosse código
+              "normal", de cima para baixo.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>async function carregarUsuarios() {
+  try {
+    const resposta = await fetch("https://api.exemplo.com/usuarios");
+
+    if (!resposta.ok) {
+      throw new Error("Erro HTTP: " + resposta.status);
+    }
+
+    const dados = await resposta.json();
+    console.log(dados);
+  } catch (erro) {
+    console.error("Algo deu errado:", erro);
+  }
+}
+
+carregarUsuarios();</code></pre>
+            </div>
+            <div class="callout callout-warning">
+              <span class="callout-icon">⚠️</span>
+              <div class="callout-body">
+                <strong>fetch não rejeita em erro 404/500!</strong>
+                Ele só falha em erro de rede. Sempre cheque
+                <code>resposta.ok</code> ou <code>resposta.status</code>.
+              </div>
+            </div>
+          </div>
+
+          <!-- POST -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">📤</span> Enviar dados (POST)</h3>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>async function criarUsuario() {
+  const resposta = await fetch("https://api.exemplo.com/usuarios", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ nome: "Ana", idade: 30 }),
+  });
+  const novo = await resposta.json();
+  console.log("Criado:", novo);
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- PUT / DELETE -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">♻️</span> Atualizar (PUT) e apagar (DELETE)</h3>
+            <p class="topic-description">
+              Mesmo padrão do POST, mudando só o <code>method</code>.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>// Atualizar o usuário 1
+await fetch("https://api.exemplo.com/usuarios/1", {
+  method: "PUT",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ nome: "Ana Maria" }),
+});
+
+// Apagar o usuário 1
+await fetch("https://api.exemplo.com/usuarios/1", {
+  method: "DELETE",
+});</code></pre>
+            </div>
+          </div>
+
+          <!-- Headers / Auth -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🔑</span> Headers &amp; autenticação</h3>
+            <p class="topic-description">
+              APIs privadas pedem um <em>token</em> no cabeçalho
+              <code>Authorization</code>.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>const resposta = await fetch("https://api.exemplo.com/perfil", {
+  headers: {
+    "Authorization": `Bearer ${meuToken}`,
+    "Content-Type": "application/json",
+  },
+});</code></pre>
+            </div>
+            <div class="callout callout-warning">
+              <span class="callout-icon">🔒</span>
+              <div class="callout-body">
+                <strong>Nunca exponha tokens secretos no front-end</strong>
+                Chaves sensíveis ficam no back-end. No navegador, qualquer um vê
+                o código — use só tokens públicos ou de sessão do usuário.
+              </div>
+            </div>
+          </div>
+
+          <!-- Query params -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🔎</span> Query params (filtros na URL)</h3>
+            <p class="topic-description">
+              Aquele <code>?chave=valor</code> no fim da URL é como APIs recebem
+              filtros, busca e paginação.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>// .../produtos?categoria=livros&amp;pagina=2
+const params = new URLSearchParams({ categoria: "livros", pagina: 2 });
+const resposta = await fetch(`https://api.exemplo.com/produtos?${params}`);</code></pre>
+            </div>
+          </div>
+
+          <!-- Promise.all -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">⚡</span> Várias requisições ao mesmo tempo</h3>
+            <p class="topic-description">
+              <code>Promise.all</code> dispara tudo em paralelo e espera todas —
+              muito mais rápido que uma de cada vez.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>const [usuarios, produtos] = await Promise.all([
+  fetch("/api/usuarios").then(r =&gt; r.json()),
+  fetch("/api/produtos").then(r =&gt; r.json()),
+]);
+// chega quando AS DUAS terminarem</code></pre>
+            </div>
+          </div>
+
+          <!-- Promises -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🤝</span> Promises: os 3 estados</h3>
+            <p class="topic-description">
+              Uma Promise representa um valor que chega no futuro.
+            </p>
+            <table class="ref-table">
+              <thead>
+                <tr><th>Estado</th><th>Significado</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>pending</code></td><td>Ainda esperando o resultado</td></tr>
+                <tr><td><code>fulfilled</code></td><td>Deu certo → <code>.then()</code> / <code>await</code></td></tr>
+                <tr><td><code>rejected</code></td><td>Deu erro → <code>.catch()</code> / <code>try/catch</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout callout-tip">
+            <span class="callout-icon">🧪</span>
+            <div class="callout-body">
+              <strong>Pratique de graça</strong>
+              Use APIs públicas como
+              <code>jsonplaceholder.typicode.com</code> (dados fake) ou
+              <code>viacep.com.br</code> (CEP) para treinar fetch sem precisar de
+              servidor próprio.
+            </div>
+          </div>
+
+          <h2 class="section-title" style="margin-top: 3rem">Continue aprendendo</h2>
+          <div class="related-grid">
+            <a class="related-card" href="javascript.html">
+              <span class="emoji">⚡</span>
+              <h4>JavaScript</h4>
+              <p>Funções, arrays e o básico do assíncrono.</p>
+            </a>
+            <a class="related-card" href="http.html">
+              <span class="emoji">🌐</span>
+              <h4>HTTP Status</h4>
+              <p>Entenda 200, 404, 500 e os métodos.</p>
+            </a>
+            <a class="related-card" href="backend.html">
+              <span class="emoji">🟢</span>
+              <h4>Backend</h4>
+              <p>Crie a sua própria API com Node.js.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>

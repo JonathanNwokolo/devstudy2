@@ -1,0 +1,422 @@
+/* =============================================
+   EVENT LOOP & ASYNC JAVASCRIPT SIMULATOR
+   DevStudy - Guia Didático Interativo
+   ============================================= */
+
+.eventloop-simulator-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  margin-bottom: 50px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .eventloop-simulator-card {
+  background: #181c2e;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.el-header {
+  padding: 24px 28px 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
+}
+
+[data-theme="dark"] .el-header {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, rgba(30, 35, 58, 0.6) 0%, rgba(24, 28, 46, 0.2) 100%);
+}
+
+.el-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.el-title-group h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 4px 0;
+}
+
+[data-theme="dark"] .el-title-group h3 {
+  color: #f8fafc;
+}
+
+.el-subtitle {
+  font-size: 0.92rem;
+  color: #64748b;
+  margin: 0;
+}
+
+[data-theme="dark"] .el-subtitle {
+  color: #94a3b8;
+}
+
+.el-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.el-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.el-btn-play {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.el-btn-step {
+  background: #f1f5f9;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #334155;
+}
+
+[data-theme="dark"] .el-btn-step {
+  background: #252a42;
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+}
+
+.el-btn-reset {
+  background: transparent;
+  color: #dc2626;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+[data-theme="dark"] .el-btn-reset {
+  color: #f87171;
+}
+
+.el-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+.el-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Event Loop Stage */
+.el-stage {
+  padding: 26px 24px;
+  display: grid;
+  grid-template-columns: 280px 1fr 240px;
+  gap: 20px;
+  background: #fbfcfe;
+}
+
+[data-theme="dark"] .el-stage {
+  background: #141727;
+}
+
+@media (max-width: 950px) {
+  .el-stage {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Code Snippet Box */
+.el-code-box {
+  background: #0f172a;
+  border-radius: 12px;
+  padding: 14px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  color: #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.el-code-title {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #94a3b8;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.el-code-line {
+  padding: 3px 6px;
+  border-radius: 4px;
+  margin: 1px 0;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+}
+
+.el-code-line.current-executing {
+  background: rgba(245, 158, 11, 0.3);
+  border-left: 3px solid #f59e0b;
+  color: #fef08a;
+  font-weight: 700;
+}
+
+/* Middle Zones: Call Stack, Web APIs, Queues */
+.el-middle-zones {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.el-top-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 600px) {
+  .el-top-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.el-box {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 12px 14px;
+  min-height: 130px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="dark"] .el-box {
+  background: #1f243b;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.el-box-header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+[data-theme="dark"] .el-box-header {
+  color: #94a3b8;
+}
+
+.el-box-tag {
+  font-size: 0.65rem;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #f1f5f9;
+  color: #475569;
+}
+[data-theme="dark"] .el-box-tag {
+  background: #2b314e;
+  color: #cbd5e1;
+}
+
+.el-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.el-item {
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.74rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: itemPop 0.3s ease;
+}
+
+@keyframes itemPop {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.el-item.callstack-item {
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #1d4ed8;
+}
+[data-theme="dark"] .el-item.callstack-item {
+  background: rgba(59, 130, 246, 0.22);
+  color: #93c5fd;
+}
+
+.el-item.webapi-item {
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #6d28d9;
+}
+[data-theme="dark"] .el-item.webapi-item {
+  background: rgba(139, 92, 246, 0.22);
+  color: #c4b5fd;
+}
+
+.el-item.microtask-item {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #047857;
+}
+[data-theme="dark"] .el-item.microtask-item {
+  background: rgba(16, 185, 129, 0.22);
+  color: #34d399;
+}
+
+.el-item.callback-item {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #b45309;
+}
+[data-theme="dark"] .el-item.callback-item {
+  background: rgba(245, 158, 11, 0.22);
+  color: #fbbf24;
+}
+
+.el-queues-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 600px) {
+  .el-queues-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Event Loop Visual Spinner & Console */
+.el-right-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.el-spinner-box {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="dark"] .el-spinner-box {
+  background: #1f243b;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.el-gear {
+  font-size: 2.2rem;
+  display: inline-block;
+  transition: transform 0.5s ease;
+}
+
+.el-gear.spinning {
+  animation: gearSpin 1s infinite linear;
+}
+
+@keyframes gearSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.el-gear-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+[data-theme="dark"] .el-gear-label {
+  color: #94a3b8;
+}
+
+.el-console-box {
+  background: #0f172a;
+  border-radius: 12px;
+  padding: 12px 14px;
+  flex: 1;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  color: #38bdf8;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.el-console-title {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.el-console-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.el-console-entry {
+  color: #a5f3fc;
+  animation: itemPop 0.25s ease;
+}
+
+/* Didactic Footer */
+.el-footer {
+  padding: 16px 24px;
+  background: #f8fafc;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 0.88rem;
+  color: #334155;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+[data-theme="dark"] .el-footer {
+  background: #181c2e;
+  border-top-color: rgba(255, 255, 255, 0.06);
+  color: #cbd5e1;
+}
+
+.el-footer-icon {
+  font-size: 1.4rem;
+}

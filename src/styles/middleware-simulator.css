@@ -1,0 +1,257 @@
+/* =============================================
+   EXPRESS MIDDLEWARE PIPELINE SIMULATOR
+   DevStudy - Guia Didático Interativo
+   ============================================= */
+
+.middleware-simulator-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 30px 0 40px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .middleware-simulator-card {
+  background: #181c2e;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.mw-header {
+  padding: 24px 28px 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
+}
+
+[data-theme="dark"] .mw-header {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, rgba(30, 35, 58, 0.6) 0%, rgba(24, 28, 46, 0.2) 100%);
+}
+
+.mw-title-group h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 6px 0;
+}
+
+[data-theme="dark"] .mw-title-group h3 {
+  color: #f8fafc;
+}
+
+.mw-subtitle {
+  font-size: 0.92rem;
+  color: #64748b;
+  margin: 0 0 16px 0;
+}
+
+[data-theme="dark"] .mw-subtitle {
+  color: #94a3b8;
+}
+
+.mw-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.mw-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid #cbd5e1;
+  background: #f8fafc;
+  color: #334155;
+  transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .mw-toggle-btn {
+  background: #252a42;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+}
+
+.mw-toggle-btn.active {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: #10b981;
+  color: #047857;
+}
+
+[data-theme="dark"] .mw-toggle-btn.active {
+  background: rgba(16, 185, 129, 0.22);
+  color: #34d399;
+}
+
+.mw-toggle-btn.active-denied {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #ef4444;
+  color: #dc2626;
+}
+
+[data-theme="dark"] .mw-toggle-btn.active-denied {
+  background: rgba(239, 68, 68, 0.22);
+  color: #f87171;
+}
+
+.mw-btn-run {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  transition: all 0.2s ease;
+}
+
+.mw-btn-run:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+.mw-btn-run:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Stage */
+.mw-stage {
+  padding: 30px 24px;
+  background: #fbfcfe;
+}
+
+[data-theme="dark"] .mw-stage {
+  background: #141727;
+}
+
+.mw-pipeline-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: relative;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.mw-gate {
+  flex: 1;
+  min-width: 140px;
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 14px 10px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .mw-gate {
+  background: #1f243b;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.mw-gate-icon {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+
+.mw-gate-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+[data-theme="dark"] .mw-gate-name {
+  color: #f1f5f9;
+}
+
+.mw-gate-status {
+  font-size: 0.68rem;
+  font-family: 'Fira Code', monospace;
+  font-weight: 600;
+  color: #64748b;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #f1f5f9;
+  display: inline-block;
+}
+
+[data-theme="dark"] .mw-gate-status {
+  background: #2b314e;
+  color: #cbd5e1;
+}
+
+/* Gate states during run */
+.mw-gate.gate-passed {
+  border-color: #10b981;
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.25);
+}
+.mw-gate.gate-passed .mw-gate-status {
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+}
+[data-theme="dark"] .mw-gate.gate-passed .mw-gate-status {
+  color: #34d399;
+}
+
+.mw-gate.gate-blocked {
+  border-color: #ef4444;
+  box-shadow: 0 0 16px rgba(239, 68, 68, 0.3);
+  animation: gateShake 0.4s ease;
+}
+.mw-gate.gate-blocked .mw-gate-status {
+  background: rgba(239, 68, 68, 0.15);
+  color: #dc2626;
+}
+[data-theme="dark"] .mw-gate.gate-blocked .mw-gate-status {
+  color: #f87171;
+}
+
+@keyframes gateShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.mw-arrow-separator {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  flex: 0 0 auto;
+}
+
+/* Footer / Logs */
+.mw-footer {
+  padding: 18px 24px;
+  background: #0f172a;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  color: #cbd5e1;
+}
+
+.mw-terminal-log {
+  margin-bottom: 8px;
+  color: #38bdf8;
+}
+
+.mw-didactic-text {
+  color: #94a3b8;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}

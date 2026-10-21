@@ -1,0 +1,190 @@
+---
+title: "Glossário Dev - DevStudy"
+description: "Glossário de desenvolvimento web: termos essenciais (API, DOM, HTTP, CRUD, responsivo e mais) explicados de forma simples e pesquisável."
+permalink: "glossario.html"
+styles: ["conteudos.css"]
+scripts: ["glossario.js"]
+footer: {"variant":"simples"}
+---
+    <main id="main-content">
+      <section class="page-hero">
+        <div class="container">
+          <div class="hero-badge">📖 Dicionário do Dev</div>
+          <h1>Glossário <span class="highlight">Dev</span></h1>
+          <p class="hero-description">
+            Aquele termo que todo mundo usa e ninguém explica? Está aqui.
+            Pesquise ou filtre por categoria.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="glossary-search">
+            <input
+              type="search"
+              id="glossarySearch"
+              placeholder="🔍 Buscar termo... (ex: API, DOM, CRUD)"
+              aria-label="Buscar termo no glossário"
+            />
+          </div>
+
+          <div class="glossary-filters" id="glossaryFilters">
+            <button class="glossary-filter active" data-cat="all">Todos</button>
+            <button class="glossary-filter" data-cat="web">Web</button>
+            <button class="glossary-filter" data-cat="frontend">Front-end</button>
+            <button class="glossary-filter" data-cat="backend">Back-end</button>
+            <button class="glossary-filter" data-cat="ferramentas">Ferramentas</button>
+          </div>
+
+          <div class="glossary-grid" id="glossaryGrid">
+            <div class="glossary-item" data-cat="web">
+              <h3>API <span class="cat-badge">Web</span></h3>
+              <p>
+                Application Programming Interface. Um "contrato" que permite dois
+                sistemas conversarem. Ex: seu site pede dados a um servidor via
+                API e recebe JSON de volta.
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="frontend">
+              <h3>DOM <span class="cat-badge">Front-end</span></h3>
+              <p>
+                Document Object Model. A representação em árvore da página que o
+                JavaScript manipula para mudar textos, estilos e elementos.
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="web">
+              <h3>HTTP <span class="cat-badge">Web</span></h3>
+              <p>
+                Protocolo que define como navegador e servidor trocam mensagens
+                (requisições e respostas) na web.
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="web">
+              <h3>JSON <span class="cat-badge">Web</span></h3>
+              <p>
+                JavaScript Object Notation. Formato leve de texto para trocar
+                dados entre sistemas. Ex: <code>{ "nome": "Ana" }</code>.
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="backend">
+              <h3>CRUD <span class="cat-badge">Back-end</span></h3>
+              <p>
+                Create, Read, Update, Delete — as quatro operações básicas sobre
+                dados. A base de quase todo sistema.
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="frontend">
+              <h3>Responsivo <span class="cat-badge">Front-end</span></h3>
+              <p>
+                Layout que se adapta a qualquer tamanho de tela (celular, tablet,
+                desktop), geralmente com Media Queries em CSS.
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="frontend">
+              <h3>Framework <span class="cat-badge">Front-end</span></h3>
+              <p>
+                Conjunto de ferramentas e regras que acelera o desenvolvimento.
+                Ex: React e Vue para interfaces.
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="frontend">
+              <h3>Componente <span class="cat-badge">Front-end</span></h3>
+              <p>
+                Pedaço reutilizável e independente de interface (ex: um botão ou
+                um card) que pode ser combinado para formar telas.
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="backend">
+              <h3>Backend <span class="cat-badge">Back-end</span></h3>
+              <p>
+                O "lado servidor" da aplicação: lógica de negócio, banco de dados
+                e APIs. Não é visível diretamente pelo usuário.
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="backend">
+              <h3>PostgreSQL <span class="cat-badge">Back-end</span></h3>
+              <p>
+                Banco de dados relacional open source. Você conversa com ele
+                usando <strong>SQL</strong> (Structured Query Language), a
+                linguagem para consultar e manipular dados em tabelas.
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="ferramentas">
+              <h3>Git <span class="cat-badge">Ferramentas</span></h3>
+              <p>
+                Sistema de controle de versão: guarda o histórico do seu código e
+                permite trabalhar em equipe sem sobrescrever o trabalho alheio.
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="ferramentas">
+              <h3>npm <span class="cat-badge">Ferramentas</span></h3>
+              <p>
+                Node Package Manager. Gerenciador de pacotes do Node.js, usado
+                para instalar bibliotecas e rodar scripts do projeto.
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="ferramentas">
+              <h3>CLI <span class="cat-badge">Ferramentas</span></h3>
+              <p>
+                Command Line Interface. Interface de texto onde você digita
+                comandos — o terminal. Rápida e poderosa.
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="frontend">
+              <h3>TypeScript <span class="cat-badge">Front-end</span></h3>
+              <p>
+                Superset do JavaScript que adiciona tipagem estática, ajudando a
+                pegar erros antes mesmo de rodar o código.
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="web">
+              <h3>localStorage <span class="cat-badge">Web</span></h3>
+              <p>
+                Armazenamento do navegador que guarda dados (como texto) mesmo
+                após fechar a página. Útil para preferências e estado simples.
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="frontend">
+              <h3>Promise <span class="cat-badge">Front-end</span></h3>
+              <p>
+                Objeto que representa um valor que estará disponível no futuro —
+                a base do código assíncrono em JavaScript.
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="web">
+              <h3>Endpoint <span class="cat-badge">Web</span></h3>
+              <p>
+                Uma URL específica de uma API que responde a um pedido. Ex:
+                <code>/api/usuarios</code> retorna a lista de usuários.
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="ferramentas">
+              <h3>Deploy <span class="cat-badge">Ferramentas</span></h3>
+              <p>
+                Publicar a aplicação em um servidor para que fique acessível na
+                internet (ex: Vercel, Netlify, Render).
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="frontend">
+              <h3>Acessibilidade (a11y) <span class="cat-badge">Front-end</span></h3>
+              <p>
+                Prática de tornar sites usáveis por todas as pessoas, incluindo
+                quem usa leitores de tela ou navega só pelo teclado.
+              </p>
+            </div>
+            <div class="glossary-item" data-cat="backend">
+              <h3>REST <span class="cat-badge">Back-end</span></h3>
+              <p>
+                Estilo de arquitetura para APIs que usa os métodos HTTP (GET,
+                POST, PUT, DELETE) sobre recursos identificados por URLs.
+              </p>
+            </div>
+          </div>
+
+          <p class="glossary-empty" id="glossaryEmpty">
+            Nenhum termo encontrado. Tente outra palavra. 🔍
+          </p>
+        </div>
+      </section>
+    </main>

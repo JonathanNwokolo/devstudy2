@@ -1,0 +1,1467 @@
+---
+title: "Tópicos Complementares - DevStudy"
+description: "Aprenda TypeScript, Acessibilidade, SEO, Performance, REST APIs e Deploy. Tópicos avançados para desenvolvedores completos."
+permalink: "topicos.html"
+keywords: "typescript, acessibilidade web, seo, web performance, rest api, deploy vercel, wcag"
+styles: ["topicos.css","enhancements.css","conteudos.css"]
+footer: {"variant":"colunas","tagline":"Evolua suas habilidades de desenvolvimento.","sections":[{"title":"Links Rápidos","links":[{"href":"index.html","label":"Início"},{"href":"erros-comuns.html","label":"Erros Comuns"},{"href":"cheatsheets.html","label":"Cheat Sheets"}]}],"bottom":"Nunca pare de aprender! 📚"}
+---
+    <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="hero topicos-hero">
+      <div class="hero-content">
+        <div class="hero-badge">🎯 Conhecimento Avançado</div>
+        <h1 class="hero-title">
+          <span class="highlight-topicos">Tópicos Complementares</span>
+        </h1>
+        <p class="hero-description">
+          Expanda seus conhecimentos além do básico. TypeScript, Acessibilidade,
+          SEO, Performance, APIs e muito mais para se tornar um dev completo.
+        </p>
+        <div class="topic-nav">
+          <a href="#typescript" class="topic-btn">TypeScript</a>
+          <a href="#acessibilidade" class="topic-btn">Acessibilidade</a>
+          <a href="#seo" class="topic-btn">SEO</a>
+          <a href="#performance" class="topic-btn">Performance</a>
+          <a href="#apis" class="topic-btn">REST APIs</a>
+          <a href="#deploy" class="topic-btn">Deploy</a>
+          <a href="#responsivo" class="topic-btn">Responsivo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Barra de Busca -->
+    <section class="section">
+      <div class="container">
+        <div class="search-container">
+          <div class="search-wrapper">
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <input 
+              type="text" 
+              id="searchInput" 
+              placeholder="Buscar tópicos... (Ctrl+K)"
+              autocomplete="off"
+            />
+            <button id="searchBtn">Buscar</button>
+          </div>
+          <p class="search-hint">Pressione <kbd>Esc</kbd> para limpar a busca</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TypeScript -->
+    <section id="typescript" class="section topic-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge ts-badge">🔷 TypeScript</span>
+          <h2 class="section-title">TypeScript Básico</h2>
+          <p class="section-description">
+            JavaScript com superpoderes: tipagem estática para código mais
+            seguro.
+          </p>
+        </div>
+
+        <div class="topic-grid">
+          <!-- Por que TypeScript -->
+          <div class="topic-card">
+            <h3>🎯 Por Que Usar TypeScript?</h3>
+            <ul class="benefit-list">
+              <li>
+                <strong>Erros em tempo de compilação:</strong> Pegue bugs antes
+                de rodar
+              </li>
+              <li>
+                <strong>IntelliSense:</strong> Autocompletar inteligente no
+                editor
+              </li>
+              <li>
+                <strong>Refatoração segura:</strong> Renomeie símbolos com
+                confiança
+              </li>
+              <li>
+                <strong>Documentação automática:</strong> Tipos servem como docs
+              </li>
+              <li>
+                <strong>Escala melhor:</strong> Projetos grandes são mais
+                gerenciáveis
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tipos Básicos -->
+          <div class="topic-card">
+            <h3>📦 Tipos Básicos</h3>
+            <div class="code-example">
+              <pre><code>// Primitivos
+let nome: string = "João";
+let idade: number = 25;
+let ativo: boolean = true;
+
+// Arrays
+let numeros: number[] = [1, 2, 3];
+let nomes: Array&lt;string&gt; = ["Ana", "Carlos"];
+
+// Tuple (tamanho e tipos fixos)
+let pessoa: [string, number] = ["Maria", 30];
+
+// Enum
+enum Status {
+  Pendente,
+  Aprovado,
+  Rejeitado
+}
+let status: Status = Status.Aprovado;
+
+// Any (evitar!)
+let dados: any = "qualquer coisa";
+
+// Unknown (mais seguro que any)
+let valor: unknown = 4;
+if (typeof valor === "number") {
+  console.log(valor * 2);
+}
+
+// Void (função sem retorno)
+function log(msg: string): void {
+  console.log(msg);
+}
+
+// Never (nunca retorna)
+function erro(msg: string): never {
+  throw new Error(msg);
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Interfaces e Types -->
+          <div class="topic-card wide">
+            <h3>📐 Interfaces e Types</h3>
+            <div class="code-example">
+              <pre><code>// Interface para objetos
+interface Usuario {
+  id: number;
+  nome: string;
+  email: string;
+  idade?: number;          // opcional
+  readonly criadoEm: Date; // só leitura
+}
+
+const user: Usuario = {
+  id: 1,
+  nome: "Ana",
+  email: "ana@email.com",
+  criadoEm: new Date()
+};
+
+// Type alias
+type ID = number | string;
+type Callback = (data: string) => void;
+
+// Union types
+type Resultado = "sucesso" | "erro" | "pendente";
+let status: Resultado = "sucesso";
+
+// Intersection types
+interface Pessoa {
+  nome: string;
+}
+interface Funcionario {
+  empresa: string;
+}
+type PessoaFuncionario = Pessoa & Funcionario;
+
+// Generics
+function primeiro&lt;T&gt;(arr: T[]): T {
+  return arr[0];
+}
+primeiro&lt;number&gt;([1, 2, 3]);    // retorna number
+primeiro&lt;string&gt;(["a", "b"]);   // retorna string
+
+// Interface com generics
+interface Resposta&lt;T&gt; {
+  data: T;
+  status: number;
+  message: string;
+}
+const resp: Resposta&lt;Usuario[]&gt; = {
+  data: [user],
+  status: 200,
+  message: "OK"
+};</code></pre>
+            </div>
+          </div>
+
+          <!-- Classes -->
+          <div class="topic-card">
+            <h3>🏗️ Classes Tipadas</h3>
+            <div class="code-example">
+              <pre><code>class Animal {
+  // Modificadores de acesso
+  public nome: string;
+  private idade: number;
+  protected especie: string;
+  readonly id: number;
+
+  constructor(nome: string, idade: number) {
+    this.nome = nome;
+    this.idade = idade;
+    this.especie = "Desconhecida";
+    this.id = Math.random();
+  }
+
+  // Método público
+  falar(): string {
+    return `${this.nome} faz um som`;
+  }
+
+  // Getter
+  get idadeAnimal(): number {
+    return this.idade;
+  }
+}
+
+class Cachorro extends Animal {
+  raca: string;
+
+  constructor(nome: string, idade: number, raca: string) {
+    super(nome, idade);
+    this.especie = "Canino";
+    this.raca = raca;
+  }
+
+  // Override
+  falar(): string {
+    return `${this.nome} late!`;
+  }
+}
+
+const dog = new Cachorro("Rex", 3, "Labrador");
+console.log(dog.falar()); // "Rex late!"</code></pre>
+            </div>
+          </div>
+
+          <!-- Utility Types -->
+          <div class="topic-card">
+            <h3>🛠️ Utility Types</h3>
+            <div class="code-example">
+              <pre><code>interface Todo {
+  titulo: string;
+  descricao: string;
+  completo: boolean;
+}
+
+// Partial - todos opcionais
+type TodoParcial = Partial&lt;Todo&gt;;
+
+// Required - todos obrigatórios
+type TodoObrigatorio = Required&lt;Todo&gt;;
+
+// Readonly - todos somente leitura
+type TodoReadonly = Readonly&lt;Todo&gt;;
+
+// Pick - selecionar propriedades
+type TodoPreview = Pick&lt;Todo, "titulo" | "completo"&gt;;
+
+// Omit - excluir propriedades
+type TodoSemDescricao = Omit&lt;Todo, "descricao"&gt;;
+
+// Record - objeto tipado
+type StatusMap = Record&lt;string, boolean&gt;;
+const status: StatusMap = {
+  "tarefa1": true,
+  "tarefa2": false
+};
+
+// ReturnType - tipo de retorno da função
+function getUser() {
+  return { nome: "Ana", idade: 25 };
+}
+type User = ReturnType&lt;typeof getUser&gt;;
+
+// Parameters - tipos dos parâmetros
+type GetUserParams = Parameters&lt;typeof getUser&gt;;</code></pre>
+            </div>
+          </div>
+
+          <!-- React com TypeScript -->
+          <div class="topic-card">
+            <h3>⚛️ React com TypeScript</h3>
+            <div class="code-example">
+              <pre><code>// Props tipadas
+interface ButtonProps {
+  label: string;
+  onClick: () => void;
+  disabled?: boolean;
+  variant?: "primary" | "secondary";
+}
+
+const Button: React.FC&lt;ButtonProps&gt; = ({ 
+  label, 
+  onClick, 
+  disabled = false,
+  variant = "primary"
+}) => (
+  &lt;button 
+    onClick={onClick} 
+    disabled={disabled}
+    className={variant}
+  &gt;
+    {label}
+  &lt;/button&gt;
+);
+
+// useState tipado
+const [user, setUser] = useState&lt;User | null&gt;(null);
+const [items, setItems] = useState&lt;string[]&gt;([]);
+
+// useRef tipado
+const inputRef = useRef&lt;HTMLInputElement&gt;(null);
+
+// Eventos tipados
+const handleChange = (e: React.ChangeEvent&lt;HTMLInputElement&gt;) => {
+  console.log(e.target.value);
+};
+
+const handleSubmit = (e: React.FormEvent&lt;HTMLFormElement&gt;) => {
+  e.preventDefault();
+};</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Acessibilidade -->
+    <section id="acessibilidade" class="section topic-section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge a11y-badge">♿ A11y</span>
+          <h2 class="section-title">Acessibilidade Web (WCAG)</h2>
+          <p class="section-description">
+            Construa sites que todos possam usar, independente de suas
+            capacidades.
+          </p>
+        </div>
+
+        <div class="topic-grid">
+          <!-- Princípios WCAG -->
+          <div class="topic-card">
+            <h3>📜 Princípios WCAG (POUR)</h3>
+            <div class="principle-list">
+              <div class="principle">
+                <h4>👁️ Perceptível</h4>
+                <p>
+                  Informação deve ser apresentada de formas que usuários possam
+                  perceber.
+                </p>
+                <ul>
+                  <li>Texto alternativo em imagens</li>
+                  <li>Legendas em vídeos</li>
+                  <li>Contraste de cores adequado</li>
+                </ul>
+              </div>
+              <div class="principle">
+                <h4>⌨️ Operável</h4>
+                <p>Interface deve ser navegável por todos.</p>
+                <ul>
+                  <li>Navegação por teclado</li>
+                  <li>Tempo suficiente para ler</li>
+                  <li>Não causar convulsões</li>
+                </ul>
+              </div>
+              <div class="principle">
+                <h4>📖 Compreensível</h4>
+                <p>Conteúdo deve ser entendível.</p>
+                <ul>
+                  <li>Texto legível</li>
+                  <li>Comportamento previsível</li>
+                  <li>Ajuda para erros</li>
+                </ul>
+              </div>
+              <div class="principle">
+                <h4>🔧 Robusto</h4>
+                <p>Funcionar com tecnologias assistivas.</p>
+                <ul>
+                  <li>HTML válido</li>
+                  <li>Nome, função, valor</li>
+                  <li>Compatibilidade</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- HTML Semântico -->
+          <div class="topic-card">
+            <h3>🏗️ HTML Semântico</h3>
+            <div class="code-example">
+              <pre><code>&lt;!-- ❌ Ruim --&gt;
+&lt;div class="header"&gt;...&lt;/div&gt;
+&lt;div class="nav"&gt;...&lt;/div&gt;
+&lt;div onclick="submit()"&gt;Enviar&lt;/div&gt;
+
+&lt;!-- ✅ Bom --&gt;
+&lt;header&gt;
+  &lt;nav aria-label="Menu principal"&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;h1&gt;Título Principal&lt;/h1&gt;
+    &lt;section aria-labelledby="intro"&gt;
+      &lt;h2 id="intro"&gt;Introdução&lt;/h2&gt;
+      &lt;p&gt;Conteúdo...&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/article&gt;
+  
+  &lt;aside aria-label="Artigos relacionados"&gt;
+    ...
+  &lt;/aside&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;...&lt;/footer&gt;</code></pre>
+            </div>
+          </div>
+
+          <!-- ARIA -->
+          <div class="topic-card wide">
+            <h3>🏷️ ARIA (Acessible Rich Internet Applications)</h3>
+            <div class="code-example">
+              <pre><code>&lt;!-- Roles --&gt;
+&lt;div role="alert"&gt;Mensagem importante!&lt;/div&gt;
+&lt;div role="dialog" aria-modal="true"&gt;Modal&lt;/div&gt;
+&lt;div role="tablist"&gt;
+  &lt;button role="tab" aria-selected="true"&gt;Tab 1&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Estados --&gt;
+&lt;button aria-expanded="false" aria-controls="menu"&gt;Menu&lt;/button&gt;
+&lt;nav id="menu" aria-hidden="true"&gt;...&lt;/nav&gt;
+
+&lt;button aria-pressed="false"&gt;Toggle&lt;/button&gt;
+&lt;input aria-invalid="true" aria-describedby="error-msg"&gt;
+&lt;span id="error-msg"&gt;Campo obrigatório&lt;/span&gt;
+
+&lt;!-- Labels --&gt;
+&lt;button aria-label="Fechar modal"&gt;×&lt;/button&gt;
+&lt;input aria-labelledby="label1 label2"&gt;
+&lt;div aria-describedby="tooltip"&gt;Hover me&lt;/div&gt;
+
+&lt;!-- Live Regions (atualizações dinâmicas) --&gt;
+&lt;div aria-live="polite"&gt;Carregando...&lt;/div&gt;    &lt;!-- anuncia quando conveniente --&gt;
+&lt;div aria-live="assertive"&gt;Erro!&lt;/div&gt;         &lt;!-- anuncia imediatamente --&gt;
+&lt;div role="status"&gt;5 resultados encontrados&lt;/div&gt;
+
+&lt;!-- Skip Link --&gt;
+&lt;a href="#main-content" class="skip-link"&gt;Pular para conteúdo&lt;/a&gt;</code></pre>
+            </div>
+          </div>
+
+          <!-- Formulários Acessíveis -->
+          <div class="topic-card">
+            <h3>📝 Formulários Acessíveis</h3>
+            <div class="code-example">
+              <pre><code>&lt;form&gt;
+  &lt;!-- Sempre use label --&gt;
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input 
+    type="email" 
+    id="email" 
+    name="email"
+    required
+    aria-required="true"
+    aria-describedby="email-hint"
+  &gt;
+  &lt;span id="email-hint"&gt;Ex: nome@email.com&lt;/span&gt;
+
+  &lt;!-- Grupo de radio/checkbox --&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Preferência de contato&lt;/legend&gt;
+    &lt;label&gt;
+      &lt;input type="radio" name="contato" value="email"&gt;
+      Email
+    &lt;/label&gt;
+    &lt;label&gt;
+      &lt;input type="radio" name="contato" value="tel"&gt;
+      Telefone
+    &lt;/label&gt;
+  &lt;/fieldset&gt;
+
+  &lt;!-- Erro de validação --&gt;
+  &lt;input 
+    type="text" 
+    aria-invalid="true"
+    aria-errormessage="nome-erro"
+  &gt;
+  &lt;span id="nome-erro" role="alert"&gt;
+    Nome é obrigatório
+  &lt;/span&gt;
+
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            </div>
+          </div>
+
+          <!-- Cores e Contraste -->
+          <div class="topic-card">
+            <h3>🎨 Cores e Contraste</h3>
+            <div class="contrast-demo">
+              <p><strong>Requisitos WCAG:</strong></p>
+              <ul>
+                <li>Texto normal: contraste mínimo <strong>4.5:1</strong></li>
+                <li>
+                  Texto grande (18pt+): contraste mínimo <strong>3:1</strong>
+                </li>
+                <li>AAA (ideal): <strong>7:1</strong></li>
+              </ul>
+
+              <div class="contrast-examples">
+                <div class="contrast-good">✅ Bom: #333 em #fff (12.6:1)</div>
+                <div class="contrast-bad">❌ Ruim: #aaa em #fff (2.3:1)</div>
+              </div>
+
+              <p><strong>Dicas:</strong></p>
+              <ul>
+                <li>Não use apenas cor para transmitir informação</li>
+                <li>Adicione ícones ou padrões junto com cores</li>
+                <li>Teste com simuladores de daltonismo</li>
+              </ul>
+
+              <p><strong>Ferramentas:</strong></p>
+              <ul>
+                <li>WebAIM Contrast Checker</li>
+                <li>Chrome DevTools (Lighthouse)</li>
+                <li>axe DevTools extension</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Checklist -->
+          <div class="topic-card">
+            <h3>✅ Checklist de Acessibilidade</h3>
+            <ul class="checklist">
+              <li>□ Todas imagens têm alt text descritivo</li>
+              <li>□ Vídeos têm legendas/transcrição</li>
+              <li>□ Site navegável apenas por teclado</li>
+              <li>□ Foco visível em elementos interativos</li>
+              <li>□ Hierarquia de headings correta (h1→h2→h3)</li>
+              <li>□ Formulários com labels associados</li>
+              <li>□ Links descritivos (não "clique aqui")</li>
+              <li>□ Contraste de cores adequado</li>
+              <li>□ Texto redimensionável até 200%</li>
+              <li>□ Skip link para conteúdo principal</li>
+              <li>□ Funciona com zoom de 400%</li>
+              <li>□ Nenhum conteúdo pisca mais que 3x/s</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO -->
+    <section id="seo" class="section topic-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge seo-badge">🔍 SEO</span>
+          <h2 class="section-title">SEO para Desenvolvedores</h2>
+          <p class="section-description">
+            Otimização técnica para mecanismos de busca que todo dev precisa
+            conhecer.
+          </p>
+        </div>
+
+        <div class="topic-grid">
+          <!-- Meta Tags -->
+          <div class="topic-card wide">
+            <h3>🏷️ Meta Tags Essenciais</h3>
+            <div class="code-example">
+              <pre><code>&lt;head&gt;
+  &lt;!-- Básico --&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Título da Página | Nome do Site&lt;/title&gt; &lt;!-- 50-60 caracteres --&gt;
+  &lt;meta name="description" content="Descrição da página em 150-160 caracteres."&gt;
+  
+  &lt;!-- Canonical (evita conteúdo duplicado) --&gt;
+  &lt;link rel="canonical" href="https://site.com/pagina"&gt;
+  
+  &lt;!-- Robots --&gt;
+  &lt;meta name="robots" content="index, follow"&gt;
+  &lt;!-- noindex, nofollow, noarchive, nosnippet --&gt;
+  
+  &lt;!-- Open Graph (Facebook, LinkedIn) --&gt;
+  &lt;meta property="og:type" content="website"&gt;
+  &lt;meta property="og:title" content="Título para Compartilhamento"&gt;
+  &lt;meta property="og:description" content="Descrição para redes sociais"&gt;
+  &lt;meta property="og:image" content="https://site.com/imagem.jpg"&gt; &lt;!-- 1200x630px --&gt;
+  &lt;meta property="og:url" content="https://site.com/pagina"&gt;
+  &lt;meta property="og:site_name" content="Nome do Site"&gt;
+  
+  &lt;!-- Twitter Card --&gt;
+  &lt;meta name="twitter:card" content="summary_large_image"&gt;
+  &lt;meta name="twitter:site" content="@username"&gt;
+  &lt;meta name="twitter:title" content="Título"&gt;
+  &lt;meta name="twitter:description" content="Descrição"&gt;
+  &lt;meta name="twitter:image" content="https://site.com/imagem.jpg"&gt;
+&lt;/head&gt;</code></pre>
+            </div>
+          </div>
+
+          <!-- Schema.org -->
+          <div class="topic-card">
+            <h3>📊 Dados Estruturados (Schema.org)</h3>
+            <div class="code-example">
+              <pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Título do Artigo",
+  "author": {
+    "@type": "Person",
+    "name": "Nome do Autor"
+  },
+  "datePublished": "2024-01-15",
+  "dateModified": "2024-01-20",
+  "image": "https://site.com/imagem.jpg",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nome do Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://site.com/logo.png"
+    }
+  }
+}
+&lt;/script&gt;
+
+&lt;!-- Para negócios locais --&gt;
+{
+  "@type": "LocalBusiness",
+  "name": "Nome da Empresa",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua X, 123",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP"
+  },
+  "telephone": "(11) 99999-9999"
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Performance e Core Web Vitals -->
+          <div class="topic-card">
+            <h3>⚡ Core Web Vitals</h3>
+            <div class="vitals-list">
+              <div class="vital">
+                <h4>LCP (Largest Contentful Paint)</h4>
+                <p>Tempo para carregar maior elemento visível</p>
+                <span class="target">Meta: &lt; 2.5s</span>
+              </div>
+              <div class="vital">
+                <h4>FID (First Input Delay)</h4>
+                <p>Tempo para responder à primeira interação</p>
+                <span class="target">Meta: &lt; 100ms</span>
+              </div>
+              <div class="vital">
+                <h4>CLS (Cumulative Layout Shift)</h4>
+                <p>Estabilidade visual da página</p>
+                <span class="target">Meta: &lt; 0.1</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Checklist SEO -->
+          <div class="topic-card">
+            <h3>✅ Checklist SEO Técnico</h3>
+            <ul class="checklist">
+              <li>□ HTTPS habilitado</li>
+              <li>□ Site mobile-friendly</li>
+              <li>□ Sitemap.xml configurado</li>
+              <li>□ Robots.txt configurado</li>
+              <li>□ URLs amigáveis e descritivas</li>
+              <li>□ Canonical URLs definidas</li>
+              <li>□ Imagens otimizadas com alt text</li>
+              <li>□ Carregamento rápido (&lt;3s)</li>
+              <li>□ Sem links quebrados (404)</li>
+              <li>□ Headings hierárquicos (h1-h6)</li>
+              <li>□ Meta descriptions únicas</li>
+              <li>□ Schema markup implementado</li>
+              <li>□ Core Web Vitals no verde</li>
+              <li>□ Configurado no Google Search Console</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Performance -->
+    <section id="performance" class="section topic-section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge perf-badge">🚀 Performance</span>
+          <h2 class="section-title">Web Performance</h2>
+          <p class="section-description">
+            Técnicas para criar sites rápidos e eficientes.
+          </p>
+        </div>
+
+        <div class="topic-grid">
+          <!-- Otimização de Imagens -->
+          <div class="topic-card">
+            <h3>🖼️ Otimização de Imagens</h3>
+            <div class="code-example">
+              <pre><code>&lt;!-- Lazy loading nativo --&gt;
+&lt;img 
+  src="imagem.jpg" 
+  alt="Descrição"
+  loading="lazy"
+  decoding="async"
+  width="800"
+  height="600"
+&gt;
+
+&lt;!-- Imagens responsivas --&gt;
+&lt;img 
+  srcset="
+    imagem-320.jpg 320w,
+    imagem-640.jpg 640w,
+    imagem-1280.jpg 1280w
+  "
+  sizes="(max-width: 640px) 100vw, 640px"
+  src="imagem-640.jpg"
+  alt="Descrição"
+&gt;
+
+&lt;!-- Picture para formatos modernos --&gt;
+&lt;picture&gt;
+  &lt;source srcset="imagem.avif" type="image/avif"&gt;
+  &lt;source srcset="imagem.webp" type="image/webp"&gt;
+  &lt;img src="imagem.jpg" alt="Descrição"&gt;
+&lt;/picture&gt;</code></pre>
+            </div>
+            <p class="tip">
+              Use WebP/AVIF, comprima imagens, defina width/height para evitar
+              CLS.
+            </p>
+          </div>
+
+          <!-- Loading de Recursos -->
+          <div class="topic-card">
+            <h3>📦 Loading de Recursos</h3>
+            <div class="code-example">
+              <pre><code>&lt;!-- Preload recursos críticos --&gt;
+&lt;link rel="preload" href="fonte.woff2" as="font" 
+      type="font/woff2" crossorigin&gt;
+&lt;link rel="preload" href="hero.jpg" as="image"&gt;
+
+&lt;!-- Preconnect para domínios externos --&gt;
+&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://api.exemplo.com"&gt;
+
+&lt;!-- DNS Prefetch --&gt;
+&lt;link rel="dns-prefetch" href="https://cdn.exemplo.com"&gt;
+
+&lt;!-- CSS crítico inline --&gt;
+&lt;style&gt;
+  /* CSS crítico para renderização inicial */
+  .hero { ... }
+&lt;/style&gt;
+
+&lt;!-- CSS não-crítico async --&gt;
+&lt;link rel="preload" href="style.css" as="style" 
+      onload="this.onload=null;this.rel='stylesheet'"&gt;
+
+&lt;!-- JS async/defer --&gt;
+&lt;script src="app.js" defer&gt;&lt;/script&gt;  &lt;!-- após HTML --&gt;
+&lt;script src="analytics.js" async&gt;&lt;/script&gt; &lt;!-- quando disponível --&gt;</code></pre>
+            </div>
+          </div>
+
+          <!-- JavaScript Performance -->
+          <div class="topic-card">
+            <h3>⚡ JavaScript Performance</h3>
+            <div class="code-example">
+              <pre><code>// Debounce - executa após parar de chamar
+function debounce(fn, delay) {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => fn(...args), delay);
+  };
+}
+
+const handleSearch = debounce((query) => {
+  fetch(`/api/search?q=${query}`);
+}, 300);
+
+// Throttle - executa no máximo 1x por intervalo
+function throttle(fn, limit) {
+  let inThrottle;
+  return (...args) => {
+    if (!inThrottle) {
+      fn(...args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+}
+
+const handleScroll = throttle(() => {
+  console.log('scroll');
+}, 100);
+
+// Intersection Observer (lazy load)
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.src = entry.target.dataset.src;
+      observer.unobserve(entry.target);
+    }
+  });
+});
+
+document.querySelectorAll('img[data-src]')
+  .forEach(img => observer.observe(img));</code></pre>
+            </div>
+          </div>
+
+          <!-- Caching -->
+          <div class="topic-card">
+            <h3>💾 Caching</h3>
+            <div class="code-example">
+              <pre><code>// Service Worker para cache offline
+// sw.js
+const CACHE_NAME = 'v1';
+const urlsToCache = ['/', '/style.css', '/app.js'];
+
+self.addEventListener('install', (e) => {
+  e.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(urlsToCache))
+  );
+});
+
+self.addEventListener('fetch', (e) => {
+  e.respondWith(
+    caches.match(e.request)
+      .then(response => response || fetch(e.request))
+  );
+});
+
+// Registrar no main.js
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js');
+}
+
+// HTTP Cache Headers (servidor)
+// Cache-Control: public, max-age=31536000 (assets)
+// Cache-Control: no-cache (HTML)
+// ETag: "abc123"</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REST APIs -->
+    <section id="apis" class="section topic-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge api-badge">🔌 APIs</span>
+          <h2 class="section-title">REST APIs</h2>
+          <p class="section-description">
+            Como consumir e entender APIs RESTful.
+          </p>
+        </div>
+
+        <div class="topic-grid">
+          <!-- HTTP Methods -->
+          <div class="topic-card">
+            <h3>📮 Métodos HTTP</h3>
+            <table class="methods-table">
+              <tr>
+                <td><code class="method get">GET</code></td>
+                <td>Buscar dados</td>
+                <td>GET /users</td>
+              </tr>
+              <tr>
+                <td><code class="method post">POST</code></td>
+                <td>Criar recurso</td>
+                <td>POST /users</td>
+              </tr>
+              <tr>
+                <td><code class="method put">PUT</code></td>
+                <td>Atualizar (completo)</td>
+                <td>PUT /users/1</td>
+              </tr>
+              <tr>
+                <td><code class="method patch">PATCH</code></td>
+                <td>Atualizar (parcial)</td>
+                <td>PATCH /users/1</td>
+              </tr>
+              <tr>
+                <td><code class="method delete">DELETE</code></td>
+                <td>Remover</td>
+                <td>DELETE /users/1</td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- Status Codes -->
+          <div class="topic-card">
+            <h3>📊 Status Codes</h3>
+            <div class="status-groups">
+              <div class="status-group success">
+                <h4>2xx Sucesso</h4>
+                <ul>
+                  <li><code>200</code> OK</li>
+                  <li><code>201</code> Criado</li>
+                  <li><code>204</code> Sem conteúdo</li>
+                </ul>
+              </div>
+              <div class="status-group redirect">
+                <h4>3xx Redirecionamento</h4>
+                <ul>
+                  <li><code>301</code> Movido permanente</li>
+                  <li><code>302</code> Encontrado</li>
+                  <li><code>304</code> Não modificado</li>
+                </ul>
+              </div>
+              <div class="status-group client-error">
+                <h4>4xx Erro Cliente</h4>
+                <ul>
+                  <li><code>400</code> Bad Request</li>
+                  <li><code>401</code> Não autorizado</li>
+                  <li><code>403</code> Proibido</li>
+                  <li><code>404</code> Não encontrado</li>
+                  <li><code>422</code> Entidade inválida</li>
+                  <li><code>429</code> Muitas requisições</li>
+                </ul>
+              </div>
+              <div class="status-group server-error">
+                <h4>5xx Erro Servidor</h4>
+                <ul>
+                  <li><code>500</code> Erro interno</li>
+                  <li><code>502</code> Bad Gateway</li>
+                  <li><code>503</code> Indisponível</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fetch API -->
+          <div class="topic-card wide">
+            <h3>🌐 Consumindo APIs com Fetch</h3>
+            <div class="code-example">
+              <pre><code>// GET - Buscar dados
+const getUsers = async () => {
+  const response = await fetch('https://api.exemplo.com/users');
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return response.json();
+};
+
+// POST - Criar
+const createUser = async (userData) => {
+  const response = await fetch('https://api.exemplo.com/users', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    },
+    body: JSON.stringify(userData)
+  });
+  return response.json();
+};
+
+// PUT - Atualizar
+const updateUser = async (id, userData) => {
+  const response = await fetch(`https://api.exemplo.com/users/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(userData)
+  });
+  return response.json();
+};
+
+// DELETE - Remover
+const deleteUser = async (id) => {
+  await fetch(`https://api.exemplo.com/users/${id}`, {
+    method: 'DELETE'
+  });
+};
+
+// Com tratamento de erros completo
+const fetchWithErrorHandling = async (url, options = {}) => {
+  try {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.message || `HTTP ${response.status}`);
+    }
+    return response.json();
+  } catch (error) {
+    console.error('Fetch error:', error);
+    throw error;
+  }
+};</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deploy -->
+    <section id="deploy" class="section topic-section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge deploy-badge">🚀 Deploy</span>
+          <h2 class="section-title">Deploy de Aplicações</h2>
+          <p class="section-description">
+            Como publicar seu site para o mundo ver.
+          </p>
+        </div>
+
+        <div class="topic-grid">
+          <!-- GitHub Pages -->
+          <div class="topic-card">
+            <h3>📦 GitHub Pages</h3>
+            <p class="deploy-desc">
+              Ideal para: Sites estáticos, portfólios, documentação
+            </p>
+            <div class="code-example">
+              <pre><code># 1. Crie repositório no GitHub
+
+# 2. Push do código
+git remote add origin https://github.com/user/repo
+git push -u origin main
+
+# 3. Configurar no GitHub:
+# Settings > Pages > Source: main branch
+
+# URL: https://username.github.io/repo-name
+
+# Para domínio customizado:
+# Crie arquivo CNAME com: meusite.com</code></pre>
+            </div>
+            <div class="deploy-pros">
+              <span class="pro">✅ Gratuito</span>
+              <span class="pro">✅ HTTPS automático</span>
+              <span class="pro">✅ Integrado ao Git</span>
+            </div>
+          </div>
+
+          <!-- Vercel -->
+          <div class="topic-card">
+            <h3>▲ Vercel</h3>
+            <p class="deploy-desc">
+              Ideal para: React, Next.js, Vue, Nuxt, SvelteKit
+            </p>
+            <div class="code-example">
+              <pre><code># Opção 1: Via CLI
+npm i -g vercel
+vercel
+
+# Opção 2: Via site
+# 1. Conecte conta GitHub em vercel.com
+# 2. Import repositório
+# 3. Deploy automático!
+
+# Variáveis de ambiente:
+# Dashboard > Project > Settings > Environment
+
+# Preview deployments:
+# Cada PR gera URL de preview automática
+
+# vercel.json (opcional)
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}</code></pre>
+            </div>
+            <div class="deploy-pros">
+              <span class="pro">✅ Deploy em segundos</span>
+              <span class="pro">✅ Preview por PR</span>
+              <span class="pro">✅ Edge Functions</span>
+            </div>
+          </div>
+
+          <!-- Netlify -->
+          <div class="topic-card">
+            <h3>🔷 Netlify</h3>
+            <p class="deploy-desc">
+              Ideal para: JAMstack, Gatsby, Hugo, sites estáticos
+            </p>
+            <div class="code-example">
+              <pre><code># Opção 1: Drag & Drop
+# Arraste pasta build para app.netlify.com
+
+# Opção 2: CLI
+npm i -g netlify-cli
+netlify deploy --prod
+
+# Opção 3: Git integration
+# 1. Conecte GitHub em netlify.com
+# 2. Configure build command: npm run build
+# 3. Publish directory: build/ ou dist/
+
+# netlify.toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Formulários (sem backend!)
+&lt;form name="contact" netlify&gt;
+  &lt;input name="email" type="email"&gt;
+  &lt;button&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            </div>
+            <div class="deploy-pros">
+              <span class="pro">✅ Forms built-in</span>
+              <span class="pro">✅ Serverless functions</span>
+              <span class="pro">✅ Split testing</span>
+            </div>
+          </div>
+
+          <!-- Comparação -->
+          <div class="topic-card">
+            <h3>📊 Comparação Rápida</h3>
+            <table class="compare-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>GitHub Pages</th>
+                  <th>Vercel</th>
+                  <th>Netlify</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Preço</td>
+                  <td>Gratuito</td>
+                  <td>Gratuito*</td>
+                  <td>Gratuito*</td>
+                </tr>
+                <tr>
+                  <td>SSR/SSG</td>
+                  <td>❌</td>
+                  <td>✅</td>
+                  <td>✅</td>
+                </tr>
+                <tr>
+                  <td>Functions</td>
+                  <td>❌</td>
+                  <td>✅</td>
+                  <td>✅</td>
+                </tr>
+                <tr>
+                  <td>Preview</td>
+                  <td>❌</td>
+                  <td>✅</td>
+                  <td>✅</td>
+                </tr>
+                <tr>
+                  <td>Forms</td>
+                  <td>❌</td>
+                  <td>❌</td>
+                  <td>✅</td>
+                </tr>
+                <tr>
+                  <td>Analytics</td>
+                  <td>❌</td>
+                  <td>✅</td>
+                  <td>✅</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="note">* Planos gratuitos com limites generosos</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Responsivo -->
+    <section id="responsivo" class="section topic-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge responsive-badge">📱 Responsivo</span>
+          <h2 class="section-title">Design Responsivo Avançado</h2>
+          <p class="section-description">
+            Técnicas modernas para sites que funcionam em qualquer dispositivo.
+          </p>
+        </div>
+
+        <div class="topic-grid">
+          <!-- Breakpoints -->
+          <div class="topic-card">
+            <h3>📐 Breakpoints Modernos</h3>
+            <div class="code-example">
+              <pre><code>/* Mobile First - Comece pelo menor */
+.container { 
+  width: 100%;
+  padding: 1rem;
+}
+
+/* Small devices (phones, 576px+) */
+@media (min-width: 576px) {
+  .container { max-width: 540px; }
+}
+
+/* Medium devices (tablets, 768px+) */
+@media (min-width: 768px) {
+  .container { max-width: 720px; }
+}
+
+/* Large devices (desktops, 992px+) */
+@media (min-width: 992px) {
+  .container { max-width: 960px; }
+}
+
+/* X-Large devices (large desktops, 1200px+) */
+@media (min-width: 1200px) {
+  .container { max-width: 1140px; }
+}
+
+/* XX-Large devices (1400px+) */
+@media (min-width: 1400px) {
+  .container { max-width: 1320px; }
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Container Queries -->
+          <div class="topic-card">
+            <h3>📦 Container Queries (Novo!)</h3>
+            <div class="code-example">
+              <pre><code>/* Container Queries - responsivo baseado no container */
+.card-container {
+  container-type: inline-size;
+  container-name: card;
+}
+
+/* Estilo baseado no tamanho do container */
+@container card (min-width: 400px) {
+  .card {
+    display: flex;
+    gap: 1rem;
+  }
+  .card-image {
+    width: 150px;
+  }
+}
+
+@container card (min-width: 600px) {
+  .card {
+    flex-direction: row;
+  }
+  .card-image {
+    width: 200px;
+  }
+}
+
+/* Shorthand */
+.sidebar {
+  container: sidebar / inline-size;
+}
+
+@container sidebar (width > 300px) {
+  /* estilos */
+}</code></pre>
+            </div>
+            <p class="tip">
+              Container Queries permitem componentes verdadeiramente
+              responsivos!
+            </p>
+          </div>
+
+          <!-- Fluid Typography -->
+          <div class="topic-card">
+            <h3>🔤 Tipografia Fluida</h3>
+            <div class="code-example">
+              <pre><code>/* Clamp - tamanho fluido com limites */
+h1 {
+  /* min: 2rem, preferred: 5vw, max: 4rem */
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
+
+/* Spacing fluido */
+.section {
+  padding: clamp(2rem, 5vw, 6rem);
+}
+
+/* Combinando com variáveis CSS */
+:root {
+  --fs-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --fs-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+  --fs-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --fs-lg: clamp(1.125rem, 1rem + 0.6vw, 1.25rem);
+  --fs-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --fs-2xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --fs-3xl: clamp(2rem, 1.7rem + 1.5vw, 3rem);
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Grid Responsivo -->
+          <div class="topic-card">
+            <h3>🔲 Grid Auto-Responsivo</h3>
+            <div class="code-example">
+              <pre><code>/* Grid que se adapta automaticamente */
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit, 
+    minmax(min(250px, 100%), 1fr)
+  );
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+/* Cards responsivos sem media queries */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(300px, 1fr)
+  );
+  gap: 1.5rem;
+}
+
+/* Sidebar + Content responsivo */
+.layout {
+  display: grid;
+  grid-template-columns: 
+    fit-content(250px) minmax(0, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Aspect Ratio -->
+          <div class="topic-card">
+            <h3>📐 Aspect Ratio</h3>
+            <div class="code-example">
+              <pre><code>/* Aspect ratio nativo */
+.video-container {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+.square {
+  aspect-ratio: 1;  /* ou 1/1 */
+}
+
+.portrait {
+  aspect-ratio: 3 / 4;
+}
+
+/* Com object-fit para imagens */
+.image-card {
+  aspect-ratio: 4 / 3;
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* preenche */
+  /* object-fit: contain;  mantém proporção */
+  object-position: center;  /* posição do crop */
+}
+
+/* Fallback para browsers antigos */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+.video-wrapper iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Media Queries Modernas -->
+          <div class="topic-card">
+            <h3>🆕 Media Queries Modernas</h3>
+            <div class="code-example">
+              <pre><code>/* Range syntax (novo!) */
+@media (width >= 768px) {
+  /* tablet e maior */
+}
+
+@media (400px <= width <= 800px) {
+  /* entre 400 e 800px */
+}
+
+/* Preferências do usuário */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --text: #fff;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  :root {
+    --border-color: #000;
+  }
+}
+
+/* Orientação */
+@media (orientation: landscape) {
+  .hero { height: 100vh; }
+}
+
+/* Hover capability */
+@media (hover: hover) {
+  .card:hover { transform: scale(1.05); }
+}
+
+@media (hover: none) {
+  /* dispositivos touch */
+  .card { /* sem efeito hover */ }
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </main>
+
+
+    <!-- Footer -->

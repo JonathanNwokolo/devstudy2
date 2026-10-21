@@ -1,0 +1,1419 @@
+---
+title: "Vue.js - DevStudy"
+description: "Aprenda Vue.js: diretivas, reatividade, componentes e a Composition API do framework progressivo mais amigável para iniciantes."
+permalink: "vuejs.html"
+styles: ["vuejs.css","conteudos.css"]
+footer: {"variant":"colunas","tagline":"Aprenda desenvolvimento web de forma prática e gratuita.","sections":[{"title":"Links Rápidos","links":[{"href":"index.html","label":"Início"},{"href":"javascript.html","label":"JavaScript"},{"href":"react.html","label":"React"},{"href":"git.html","label":"Git"}]},{"title":"Recursos","links":[{"href":"https://vuejs.org","label":"Documentação Vue.js","external":true},{"href":"https://vuejs.org/tutorial/","label":"Tutorial Oficial","external":true},{"href":"https://nuxt.com","label":"Nuxt.js","external":true}]}],"bottom":"Feito com 💚 Vue.js."}
+---
+    <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="hero vue-hero">
+      <div class="hero-content">
+        <div class="hero-badge">💚 Framework Progressivo</div>
+        <h1 class="hero-title">
+          Aprenda <span class="highlight-vue">Vue.js</span>
+        </h1>
+        <p class="hero-description">
+          O framework progressivo para construção de interfaces de usuário.
+          Vue.js é projetado para ser adotável de forma incremental e se integra
+          facilmente com outras bibliotecas.
+        </p>
+        <div class="hero-buttons">
+          <a href="#fundamentos" class="btn btn-primary btn-vue"
+            >Começar Agora</a
+          >
+          <a href="react.html" class="btn btn-secondary">⚛️ Ver React</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">30+</span>
+            <span class="stat-label">Conceitos</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">20+</span>
+            <span class="stat-label">Exemplos</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Componentes</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="code-window vue-window">
+          <div class="code-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="file-name">App.vue</span>
+          </div>
+          <pre
+            class="code-content"
+          ><code><span class="vue-tag">&lt;template&gt;</span>
+  <span class="vue-tag">&lt;div&gt;</span>
+    <span class="vue-tag">&lt;h1&gt;</span>{{ <span class="vue-var">titulo</span> }}<span class="vue-tag">&lt;/h1&gt;</span>
+    <span class="vue-tag">&lt;button</span> <span class="vue-attr">@click</span>=<span class="vue-string">"incrementar"</span><span class="vue-tag">&gt;</span>
+      Contador: {{ <span class="vue-var">count</span> }}
+    <span class="vue-tag">&lt;/button&gt;</span>
+  <span class="vue-tag">&lt;/div&gt;</span>
+<span class="vue-tag">&lt;/template&gt;</span>
+
+<span class="vue-tag">&lt;script&gt;</span>
+<span class="vue-keyword">export default</span> {
+  <span class="vue-func">data</span>() {
+    <span class="vue-keyword">return</span> {
+      <span class="vue-var">titulo</span>: <span class="vue-string">'Olá Vue!'</span>,
+      <span class="vue-var">count</span>: <span class="vue-number">0</span>
+    }
+  },
+  <span class="vue-attr">methods</span>: {
+    <span class="vue-func">incrementar</span>() {
+      <span class="vue-keyword">this</span>.<span class="vue-var">count</span>++
+    }
+  }
+}
+<span class="vue-tag">&lt;/script&gt;</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: O que é Vue.js -->
+    <section id="intro" class="section vue-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge vue-badge">Vue.js</span>
+          <h2 class="section-title">O Framework Progressivo</h2>
+          <p class="section-description">
+            Vue.js é um framework JavaScript progressivo para construir
+            interfaces de usuário, focado em ser acessível, versátil e
+            performático.
+          </p>
+        </div>
+
+        <!-- Cards informativos -->
+        <div class="info-cards-grid">
+          <div class="info-card">
+            <div class="info-icon">🎯</div>
+            <div class="info-content">
+              <h3>Fácil de Aprender</h3>
+              <p>
+                Vue.js tem uma curva de aprendizado suave. Se você conhece HTML,
+                CSS e JavaScript, já está pronto para começar!
+              </p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">🔧</div>
+            <div class="info-content">
+              <h3>Versátil</h3>
+              <p>
+                Pode ser integrado incrementalmente em projetos existentes ou
+                usado como um framework completo para SPAs.
+              </p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">⚡</div>
+            <div class="info-content">
+              <h3>Reatividade Poderosa</h3>
+              <p>
+                Sistema de reatividade refinado que rastreia dependências
+                automaticamente e atualiza o DOM de forma eficiente.
+              </p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">📦</div>
+            <div class="info-content">
+              <h3>Single File Components</h3>
+              <p>
+                Arquivos .vue encapsulam template, lógica e estilos em um único
+                lugar, facilitando a organização.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Fundamentos -->
+    <section id="fundamentos" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge vue-badge">Fundamentos</span>
+          <h2 class="section-title">Conceitos Essenciais do Vue.js</h2>
+          <p class="section-description">
+            Domine os conceitos fundamentais para começar a desenvolver com
+            Vue.js.
+          </p>
+        </div>
+
+        <div class="concepts-grid">
+          <!-- Templates -->
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">📝</span>
+              <h3>Templates Declarativos</h3>
+            </div>
+            <p>
+              Vue.js usa templates baseados em HTML que são compilados em
+              funções de renderização otimizadas do Virtual DOM.
+            </p>
+            <div class="code-example">
+              <pre><code><span class="vue-tag">&lt;template&gt;</span>
+  <span class="vue-tag">&lt;div&gt;</span>
+    <span class="vue-tag">&lt;p&gt;</span>{{ <span class="vue-var">mensagem</span> }}<span class="vue-tag">&lt;/p&gt;</span>
+    <span class="vue-tag">&lt;p&gt;</span>{{ <span class="vue-var">mensagem</span>.<span class="vue-method">toUpperCase</span>() }}<span class="vue-tag">&lt;/p&gt;</span>
+  <span class="vue-tag">&lt;/div&gt;</span>
+<span class="vue-tag">&lt;/template&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <!-- Data e Reatividade -->
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">🔄</span>
+              <h3>Data e Reatividade</h3>
+            </div>
+            <p>
+              A função data() retorna um objeto reativo. Quando os dados mudam,
+              a view é atualizada automaticamente.
+            </p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">export default</span> {
+  <span class="vue-func">data</span>() {
+    <span class="vue-keyword">return</span> {
+      <span class="vue-var">mensagem</span>: <span class="vue-string">'Olá Vue!'</span>,
+      <span class="vue-var">contador</span>: <span class="vue-number">0</span>,
+      <span class="vue-var">itens</span>: [<span class="vue-string">'A'</span>, <span class="vue-string">'B'</span>, <span class="vue-string">'C'</span>]
+    }
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Diretivas -->
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">🎯</span>
+              <h3>Diretivas</h3>
+            </div>
+            <p>
+              Diretivas são atributos especiais com o prefixo v- que aplicam
+              comportamento reativo ao DOM.
+            </p>
+            <div class="code-example">
+              <pre><code><span class="vue-comment">&lt;!-- v-if: renderização condicional --&gt;</span>
+<span class="vue-tag">&lt;p</span> <span class="vue-attr">v-if</span>=<span class="vue-string">"mostrar"</span><span class="vue-tag">&gt;</span>Visível<span class="vue-tag">&lt;/p&gt;</span>
+
+<span class="vue-comment">&lt;!-- v-for: renderização de listas --&gt;</span>
+<span class="vue-tag">&lt;li</span> <span class="vue-attr">v-for</span>=<span class="vue-string">"item in itens"</span> <span class="vue-attr">:key</span>=<span class="vue-string">"item"</span><span class="vue-tag">&gt;</span>
+  {{ <span class="vue-var">item</span> }}
+<span class="vue-tag">&lt;/li&gt;</span>
+
+<span class="vue-comment">&lt;!-- v-model: two-way binding --&gt;</span>
+<span class="vue-tag">&lt;input</span> <span class="vue-attr">v-model</span>=<span class="vue-string">"mensagem"</span> <span class="vue-tag">/&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <!-- Methods -->
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">⚙️</span>
+              <h3>Methods</h3>
+            </div>
+            <p>
+              Métodos são funções definidas no componente que podem ser chamadas
+              em eventos ou em outros métodos.
+            </p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">export default</span> {
+  <span class="vue-func">data</span>() {
+    <span class="vue-keyword">return</span> { <span class="vue-var">count</span>: <span class="vue-number">0</span> }
+  },
+  <span class="vue-attr">methods</span>: {
+    <span class="vue-func">incrementar</span>() {
+      <span class="vue-keyword">this</span>.<span class="vue-var">count</span>++
+    },
+    <span class="vue-func">resetar</span>() {
+      <span class="vue-keyword">this</span>.<span class="vue-var">count</span> = <span class="vue-number">0</span>
+    }
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Computed Properties -->
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">🧮</span>
+              <h3>Computed Properties</h3>
+            </div>
+            <p>
+              Propriedades computadas são valores derivados que são cacheados e
+              recalculados apenas quando suas dependências mudam.
+            </p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">export default</span> {
+  <span class="vue-func">data</span>() {
+    <span class="vue-keyword">return</span> {
+      <span class="vue-var">nome</span>: <span class="vue-string">'João'</span>,
+      <span class="vue-var">sobrenome</span>: <span class="vue-string">'Silva'</span>
+    }
+  },
+  <span class="vue-attr">computed</span>: {
+    <span class="vue-func">nomeCompleto</span>() {
+      <span class="vue-keyword">return</span> <span class="vue-string">`${<span class="vue-keyword">this</span>.<span class="vue-var">nome</span>} ${<span class="vue-keyword">this</span>.<span class="vue-var">sobrenome</span>}`</span>
+    }
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Event Handling -->
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">👆</span>
+              <h3>Manipulação de Eventos</h3>
+            </div>
+            <p>
+              Use a diretiva v-on (ou @) para escutar eventos do DOM e executar
+              JavaScript quando eles ocorrem.
+            </p>
+            <div class="code-example">
+              <pre><code><span class="vue-tag">&lt;template&gt;</span>
+  <span class="vue-comment">&lt;!-- Sintaxe longa --&gt;</span>
+  <span class="vue-tag">&lt;button</span> <span class="vue-attr">v-on:click</span>=<span class="vue-string">"incrementar"</span><span class="vue-tag">&gt;</span>+1<span class="vue-tag">&lt;/button&gt;</span>
+  
+  <span class="vue-comment">&lt;!-- Sintaxe curta (recomendada) --&gt;</span>
+  <span class="vue-tag">&lt;button</span> <span class="vue-attr">@click</span>=<span class="vue-string">"incrementar"</span><span class="vue-tag">&gt;</span>+1<span class="vue-tag">&lt;/button&gt;</span>
+  
+  <span class="vue-comment">&lt;!-- Com modificadores --&gt;</span>
+  <span class="vue-tag">&lt;form</span> <span class="vue-attr">@submit.prevent</span>=<span class="vue-string">"onSubmit"</span><span class="vue-tag">&gt;</span>
+    ...
+  <span class="vue-tag">&lt;/form&gt;</span>
+<span class="vue-tag">&lt;/template&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Composition API -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge vue-badge">Vue 3</span>
+          <h2 class="section-title">Composition API</h2>
+          <p class="section-description">
+            A Composition API do Vue 3 oferece uma forma mais flexível de
+            organizar a lógica dos componentes.
+          </p>
+        </div>
+
+        <div class="two-column-grid">
+          <div class="feature-card">
+            <h3>📦 Setup Function</h3>
+            <p>
+              A função setup() é o ponto de entrada para usar a Composition API.
+            </p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">import</span> { <span class="vue-var">ref</span> } <span class="vue-keyword">from</span> <span class="vue-string">'vue'</span>
+
+<span class="vue-keyword">export default</span> {
+  <span class="vue-func">setup</span>() {
+    <span class="vue-keyword">const</span> <span class="vue-var">count</span> = <span class="vue-func">ref</span>(<span class="vue-number">0</span>)
+    
+    <span class="vue-keyword">return</span> { <span class="vue-var">count</span> }
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>🔗 ref e reactive</h3>
+            <p>
+              ref() cria uma referência reativa, reactive() torna objetos
+              reativos.
+            </p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">import</span> { <span class="vue-var">ref</span>, <span class="vue-var">reactive</span> } <span class="vue-keyword">from</span> <span class="vue-string">'vue'</span>
+
+<span class="vue-keyword">const</span> <span class="vue-var">count</span> = <span class="vue-func">ref</span>(<span class="vue-number">0</span>)
+<span class="vue-keyword">const</span> <span class="vue-var">state</span> = <span class="vue-func">reactive</span>({
+  <span class="vue-var">nome</span>: <span class="vue-string">'Vue'</span>
+})</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>🧮 computed</h3>
+            <p>
+              Cria valores computados reativos baseados em outras referências.
+            </p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">import</span> { <span class="vue-var">ref</span>, <span class="vue-var">computed</span> } <span class="vue-keyword">from</span> <span class="vue-string">'vue'</span>
+
+<span class="vue-keyword">const</span> <span class="vue-var">count</span> = <span class="vue-func">ref</span>(<span class="vue-number">0</span>)
+<span class="vue-keyword">const</span> <span class="vue-var">dobro</span> = <span class="vue-func">computed</span>(() =&gt; 
+  <span class="vue-var">count</span>.<span class="vue-var">value</span> * <span class="vue-number">2</span>
+)</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>👀 watch e watchEffect</h3>
+            <p>
+              Observa mudanças em dados reativos e executa efeitos colaterais.
+            </p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">import</span> { <span class="vue-var">watch</span>, <span class="vue-var">ref</span> } <span class="vue-keyword">from</span> <span class="vue-string">'vue'</span>
+
+<span class="vue-keyword">const</span> <span class="vue-var">count</span> = <span class="vue-func">ref</span>(<span class="vue-number">0</span>)
+<span class="vue-func">watch</span>(<span class="vue-var">count</span>, (<span class="vue-param">newVal</span>) =&gt; {
+  <span class="vue-method">console</span>.<span class="vue-method">log</span>(<span class="vue-var">newVal</span>)
+})</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>🪝 Lifecycle Hooks</h3>
+            <p>Hooks de ciclo de vida para a Composition API.</p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">import</span> { <span class="vue-var">onMounted</span>, <span class="vue-var">onUnmounted</span> } <span class="vue-keyword">from</span> <span class="vue-string">'vue'</span>
+
+<span class="vue-func">onMounted</span>(() =&gt; {
+  <span class="vue-method">console</span>.<span class="vue-method">log</span>(<span class="vue-string">'Montado!'</span>)
+})</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>📦 Composables</h3>
+            <p>
+              Funções reutilizáveis que encapsulam lógica com estado reativo.
+            </p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">function</span> <span class="vue-func">useMouse</span>() {
+  <span class="vue-keyword">const</span> <span class="vue-var">x</span> = <span class="vue-func">ref</span>(<span class="vue-number">0</span>)
+  <span class="vue-keyword">const</span> <span class="vue-var">y</span> = <span class="vue-func">ref</span>(<span class="vue-number">0</span>)
+  <span class="vue-comment">// lógica...</span>
+  <span class="vue-keyword">return</span> { <span class="vue-var">x</span>, <span class="vue-var">y</span> }
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Lifecycle Hooks -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge vue-badge">Ciclo de Vida</span>
+          <h2 class="section-title">Lifecycle Hooks</h2>
+          <p class="section-description">
+            Hooks de ciclo de vida permitem executar código em diferentes
+            estágios do componente.
+          </p>
+        </div>
+
+        <div class="concepts-grid">
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">🎬</span>
+              <h3>Options API - Lifecycle</h3>
+            </div>
+            <p>Hooks de ciclo de vida na Options API.</p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">export default</span> {
+  <span class="vue-func">data</span>() {
+    <span class="vue-keyword">return</span> { <span class="vue-var">mensagem</span>: <span class="vue-string">'Olá'</span> }
+  },
+  
+  <span class="vue-comment">// Antes de criar</span>
+  <span class="vue-func">beforeCreate</span>() {
+    <span class="vue-method">console</span>.<span class="vue-method">log</span>(<span class="vue-string">'Antes de criar'</span>);
+  },
+  
+  <span class="vue-comment">// Depois de criar</span>
+  <span class="vue-func">created</span>() {
+    <span class="vue-method">console</span>.<span class="vue-method">log</span>(<span class="vue-string">'Criado!'</span>);
+    <span class="vue-comment">// Ideal para fazer requisições</span>
+  },
+  
+  <span class="vue-comment">// Depois de montar no DOM</span>
+  <span class="vue-func">mounted</span>() {
+    <span class="vue-method">console</span>.<span class="vue-method">log</span>(<span class="vue-string">'Montado!'</span>);
+    <span class="vue-comment">// DOM está disponível</span>
+  },
+  
+  <span class="vue-comment">// Antes de desmontar</span>
+  <span class="vue-func">beforeUnmount</span>() {
+    <span class="vue-method">console</span>.<span class="vue-method">log</span>(<span class="vue-string">'Desmontando...'</span>);
+    <span class="vue-comment">// Limpar timers, listeners</span>
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">⚡</span>
+              <h3>Composition API - Lifecycle</h3>
+            </div>
+            <p>Hooks de ciclo de vida na Composition API.</p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">import</span> { 
+  <span class="vue-var">onBeforeMount</span>,
+  <span class="vue-var">onMounted</span>,
+  <span class="vue-var">onBeforeUpdate</span>,
+  <span class="vue-var">onUpdated</span>,
+  <span class="vue-var">onBeforeUnmount</span>,
+  <span class="vue-var">onUnmounted</span>
+} <span class="vue-keyword">from</span> <span class="vue-string">'vue'</span>
+
+<span class="vue-keyword">export default</span> {
+  <span class="vue-func">setup</span>() {
+    <span class="vue-func">onMounted</span>(() =&gt; {
+      <span class="vue-method">console</span>.<span class="vue-method">log</span>(<span class="vue-string">'Componente montado'</span>);
+    });
+    
+    <span class="vue-func">onUpdated</span>(() =&gt; {
+      <span class="vue-method">console</span>.<span class="vue-method">log</span>(<span class="vue-string">'Componente atualizado'</span>);
+    });
+    
+    <span class="vue-func">onUnmounted</span>(() =&gt; {
+      <span class="vue-method">console</span>.<span class="vue-method">log</span>(<span class="vue-string">'Componente desmontado'</span>);
+    });
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">🔄</span>
+              <h3>Exemplo Prático</h3>
+            </div>
+            <p>Usando lifecycle hooks para gerenciar recursos.</p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">import</span> { <span class="vue-var">onMounted</span>, <span class="vue-var">onUnmounted</span>, <span class="vue-var">ref</span> } <span class="vue-keyword">from</span> <span class="vue-string">'vue'</span>
+
+<span class="vue-keyword">export default</span> {
+  <span class="vue-func">setup</span>() {
+    <span class="vue-keyword">const</span> <span class="vue-var">timer</span> = <span class="vue-func">ref</span>(<span class="vue-number">0</span>);
+    <span class="vue-keyword">let</span> <span class="vue-var">interval</span>;
+    
+    <span class="vue-func">onMounted</span>(() =&gt; {
+      <span class="vue-var">interval</span> = <span class="vue-func">setInterval</span>(() =&gt; {
+        <span class="vue-var">timer</span>.<span class="vue-var">value</span>++;
+      }, <span class="vue-number">1000</span>);
+    });
+    
+    <span class="vue-func">onUnmounted</span>(() =&gt; {
+      <span class="vue-func">clearInterval</span>(<span class="vue-var">interval</span>);
+    });
+    
+    <span class="vue-keyword">return</span> { <span class="vue-var">timer</span> };
+  }
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Componentes Avançados -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge vue-badge">Componentes</span>
+          <h2 class="section-title">Comunicação entre Componentes</h2>
+          <p class="section-description">
+            Props, emits, slots e provide/inject para comunicação entre
+            componentes.
+          </p>
+        </div>
+
+        <div class="two-column-grid">
+          <div class="feature-card">
+            <h3>📤 Props e Emits</h3>
+            <p>Comunicação pai → filho (props) e filho → pai (emits).</p>
+            <div class="code-example">
+              <pre><code><span class="vue-comment">&lt;!-- Componente Filho --&gt;</span>
+<span class="vue-tag">&lt;script&gt;</span>
+<span class="vue-keyword">export default</span> {
+  <span class="vue-attr">props</span>: {
+    <span class="vue-var">titulo</span>: <span class="vue-var">String</span>,
+    <span class="vue-var">ativo</span>: <span class="vue-var">Boolean</span>
+  },
+  <span class="vue-attr">emits</span>: [<span class="vue-string">'atualizar'</span>],
+  <span class="vue-attr">methods</span>: {
+    <span class="vue-func">handleClick</span>() {
+      <span class="vue-keyword">this</span>.<span class="vue-method">$emit</span>(<span class="vue-string">'atualizar'</span>, <span class="vue-string">'dados'</span>);
+    }
+  }
+}
+<span class="vue-tag">&lt;/script&gt;</span>
+
+<span class="vue-comment">&lt;!-- Componente Pai --&gt;</span>
+<span class="vue-tag">&lt;Filho</span> 
+  <span class="vue-attr">:titulo</span>=<span class="vue-string">"meuTitulo"</span>
+  <span class="vue-attr">@atualizar</span>=<span class="vue-string">"handleUpdate"</span>
+<span class="vue-tag">/&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>🎰 Slots</h3>
+            <p>Passe conteúdo para componentes filhos.</p>
+            <div class="code-example">
+              <pre><code><span class="vue-comment">&lt;!-- Componente Card --&gt;</span>
+<span class="vue-tag">&lt;template&gt;</span>
+  <span class="vue-tag">&lt;div</span> <span class="vue-attr">class</span>=<span class="vue-string">"card"</span><span class="vue-tag">&gt;</span>
+    <span class="vue-tag">&lt;header&gt;</span>
+      <span class="vue-tag">&lt;slot</span> <span class="vue-attr">name</span>=<span class="vue-string">"header"</span><span class="vue-tag">&gt;&lt;/slot&gt;</span>
+    <span class="vue-tag">&lt;/header&gt;</span>
+    <span class="vue-tag">&lt;main&gt;</span>
+      <span class="vue-tag">&lt;slot&gt;&lt;/slot&gt;</span> <span class="vue-comment">&lt;!-- default slot --&gt;</span>
+    <span class="vue-tag">&lt;/main&gt;</span>
+  <span class="vue-tag">&lt;/div&gt;</span>
+<span class="vue-tag">&lt;/template&gt;</span>
+
+<span class="vue-comment">&lt;!-- Uso --&gt;</span>
+<span class="vue-tag">&lt;Card&gt;</span>
+  <span class="vue-tag">&lt;template</span> <span class="vue-attr">#header</span><span class="vue-tag">&gt;</span>
+    <span class="vue-tag">&lt;h1&gt;</span>Título<span class="vue-tag">&lt;/h1&gt;</span>
+  <span class="vue-tag">&lt;/template&gt;</span>
+  <span class="vue-tag">&lt;p&gt;</span>Conteúdo do card<span class="vue-tag">&lt;/p&gt;</span>
+<span class="vue-tag">&lt;/Card&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>💉 Provide / Inject</h3>
+            <p>Compartilhe dados entre componentes sem prop drilling.</p>
+            <div class="code-example">
+              <pre><code><span class="vue-comment">// Componente Pai</span>
+<span class="vue-keyword">import</span> { <span class="vue-var">provide</span>, <span class="vue-var">ref</span> } <span class="vue-keyword">from</span> <span class="vue-string">'vue'</span>
+
+<span class="vue-func">setup</span>() {
+  <span class="vue-keyword">const</span> <span class="vue-var">tema</span> = <span class="vue-func">ref</span>(<span class="vue-string">'dark'</span>);
+  <span class="vue-func">provide</span>(<span class="vue-string">'tema'</span>, <span class="vue-var">tema</span>);
+}
+
+<span class="vue-comment">// Componente Filho (qualquer nível)</span>
+<span class="vue-keyword">import</span> { <span class="vue-var">inject</span> } <span class="vue-keyword">from</span> <span class="vue-string">'vue'</span>
+
+<span class="vue-func">setup</span>() {
+  <span class="vue-keyword">const</span> <span class="vue-var">tema</span> = <span class="vue-func">inject</span>(<span class="vue-string">'tema'</span>);
+  <span class="vue-keyword">return</span> { <span class="vue-var">tema</span> };
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>🎭 Scoped Slots</h3>
+            <p>Slots com acesso aos dados do componente filho.</p>
+            <div class="code-example">
+              <pre><code><span class="vue-comment">&lt;!-- Componente Lista --&gt;</span>
+<span class="vue-tag">&lt;template&gt;</span>
+  <span class="vue-tag">&lt;div</span> <span class="vue-attr">v-for</span>=<span class="vue-string">"item in items"</span><span class="vue-tag">&gt;</span>
+    <span class="vue-tag">&lt;slot</span> <span class="vue-attr">:item</span>=<span class="vue-string">"item"</span><span class="vue-tag">&gt;&lt;/slot&gt;</span>
+  <span class="vue-tag">&lt;/div&gt;</span>
+<span class="vue-tag">&lt;/template&gt;</span>
+
+<span class="vue-comment">&lt;!-- Uso --&gt;</span>
+<span class="vue-tag">&lt;Lista</span> <span class="vue-attr">:items</span>=<span class="vue-string">"produtos"</span><span class="vue-tag">&gt;</span>
+  <span class="vue-tag">&lt;template</span> <span class="vue-attr">#default</span>=<span class="vue-string">"{item}"</span><span class="vue-tag">&gt;</span>
+    <span class="vue-tag">&lt;h3&gt;</span>{{ <span class="vue-var">item</span>.<span class="vue-var">nome</span> }}<span class="vue-tag">&lt;/h3&gt;</span>
+    <span class="vue-tag">&lt;p&gt;</span>{{ <span class="vue-var">item</span>.<span class="vue-var">preco</span> }}<span class="vue-tag">&lt;/p&gt;</span>
+  <span class="vue-tag">&lt;/template&gt;</span>
+<span class="vue-tag">&lt;/Lista&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Vue Router -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge vue-badge">Roteamento</span>
+          <h2 class="section-title">Vue Router</h2>
+          <p class="section-description">
+            Adicione navegação e rotas à sua aplicação Vue.js.
+          </p>
+        </div>
+
+        <div class="concepts-grid">
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">🛣️</span>
+              <h3>Configuração de Rotas</h3>
+            </div>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">import</span> { <span class="vue-var">createRouter</span>, <span class="vue-var">createWebHistory</span> } <span class="vue-keyword">from</span> <span class="vue-string">'vue-router'</span>
+<span class="vue-keyword">import</span> <span class="vue-var">Home</span> <span class="vue-keyword">from</span> <span class="vue-string">'./views/Home.vue'</span>
+<span class="vue-keyword">import</span> <span class="vue-var">About</span> <span class="vue-keyword">from</span> <span class="vue-string">'./views/About.vue'</span>
+
+<span class="vue-keyword">const</span> <span class="vue-var">routes</span> = [
+  { <span class="vue-var">path</span>: <span class="vue-string">'/'</span>, <span class="vue-var">component</span>: <span class="vue-var">Home</span> },
+  { <span class="vue-var">path</span>: <span class="vue-string">'/sobre'</span>, <span class="vue-var">component</span>: <span class="vue-var">About</span> },
+  { <span class="vue-var">path</span>: <span class="vue-string">'/usuario/:id'</span>, <span class="vue-var">component</span>: <span class="vue-var">Usuario</span> }
+];
+
+<span class="vue-keyword">const</span> <span class="vue-var">router</span> = <span class="vue-func">createRouter</span>({
+  <span class="vue-var">history</span>: <span class="vue-func">createWebHistory</span>(),
+  <span class="vue-var">routes</span>
+});
+
+<span class="vue-keyword">export default</span> <span class="vue-var">router</span>;</code></pre>
+            </div>
+          </div>
+
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">🔗</span>
+              <h3>Navegação</h3>
+            </div>
+            <div class="code-example">
+              <pre><code><span class="vue-tag">&lt;template&gt;</span>
+  <span class="vue-tag">&lt;nav&gt;</span>
+    <span class="vue-comment">&lt;!-- router-link --&gt;</span>
+    <span class="vue-tag">&lt;router-link</span> <span class="vue-attr">to</span>=<span class="vue-string">"/"</span><span class="vue-tag">&gt;</span>Home<span class="vue-tag">&lt;/router-link&gt;</span>
+    <span class="vue-tag">&lt;router-link</span> <span class="vue-attr">to</span>=<span class="vue-string">"/sobre"</span><span class="vue-tag">&gt;</span>Sobre<span class="vue-tag">&lt;/router-link&gt;</span>
+  <span class="vue-tag">&lt;/nav&gt;</span>
+  
+  <span class="vue-comment">&lt;!-- Renderiza o componente da rota --&gt;</span>
+  <span class="vue-tag">&lt;router-view&gt;&lt;/router-view&gt;</span>
+<span class="vue-tag">&lt;/template&gt;</span>
+
+<span class="vue-tag">&lt;script&gt;</span>
+<span class="vue-keyword">import</span> { <span class="vue-var">useRouter</span> } <span class="vue-keyword">from</span> <span class="vue-string">'vue-router'</span>
+
+<span class="vue-func">setup</span>() {
+  <span class="vue-keyword">const</span> <span class="vue-var">router</span> = <span class="vue-func">useRouter</span>();
+  
+  <span class="vue-keyword">const</span> <span class="vue-func">irParaPerfil</span> = () =&gt; {
+    <span class="vue-var">router</span>.<span class="vue-method">push</span>(<span class="vue-string">'/perfil'</span>);
+  };
+}
+<span class="vue-tag">&lt;/script&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">🎯</span>
+              <h3>Parâmetros de Rota</h3>
+            </div>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">import</span> { <span class="vue-var">useRoute</span> } <span class="vue-keyword">from</span> <span class="vue-string">'vue-router'</span>
+
+<span class="vue-func">setup</span>() {
+  <span class="vue-keyword">const</span> <span class="vue-var">route</span> = <span class="vue-func">useRoute</span>();
+  
+  <span class="vue-comment">// Parâmetros da URL: /usuario/123</span>
+  <span class="vue-keyword">const</span> <span class="vue-var">userId</span> = <span class="vue-var">route</span>.<span class="vue-var">params</span>.<span class="vue-var">id</span>;
+  
+  <span class="vue-comment">// Query params: ?nome=joao</span>
+  <span class="vue-keyword">const</span> <span class="vue-var">nome</span> = <span class="vue-var">route</span>.<span class="vue-var">query</span>.<span class="vue-var">nome</span>;
+  
+  <span class="vue-keyword">return</span> { <span class="vue-var">userId</span>, <span class="vue-var">nome</span> };
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Pinia -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge vue-badge">Estado Global</span>
+          <h2 class="section-title">Pinia - Gerenciamento de Estado</h2>
+          <p class="section-description">
+            Pinia é a solução oficial de gerenciamento de estado para Vue 3.
+          </p>
+        </div>
+
+        <div class="two-column-grid">
+          <div class="feature-card">
+            <h3>🍍 Criar Store</h3>
+            <p>Defina stores com state, getters e actions.</p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">import</span> { <span class="vue-var">defineStore</span> } <span class="vue-keyword">from</span> <span class="vue-string">'pinia'</span>
+
+<span class="vue-keyword">export const</span> <span class="vue-var">useUserStore</span> = <span class="vue-func">defineStore</span>(<span class="vue-string">'user'</span>, {
+  <span class="vue-func">state</span>: () =&gt; ({
+    <span class="vue-var">nome</span>: <span class="vue-string">''</span>,
+    <span class="vue-var">email</span>: <span class="vue-string">''</span>,
+    <span class="vue-var">logado</span>: <span class="vue-keyword">false</span>
+  }),
+  
+  <span class="vue-attr">getters</span>: {
+    <span class="vue-func">nomeCompleto</span>(<span class="vue-param">state</span>) {
+      <span class="vue-keyword">return</span> <span class="vue-string">`Sr. ${<span class="vue-var">state</span>.<span class="vue-var">nome</span>}`</span>;
+    }
+  },
+  
+  <span class="vue-attr">actions</span>: {
+    <span class="vue-keyword">async</span> <span class="vue-func">login</span>(<span class="vue-param">email, senha</span>) {
+      <span class="vue-comment">// lógica de login</span>
+      <span class="vue-keyword">this</span>.<span class="vue-var">logado</span> = <span class="vue-keyword">true</span>;
+    }
+  }
+});</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>🎯 Usar Store</h3>
+            <p>Acesse o estado da store em componentes.</p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">import</span> { <span class="vue-var">useUserStore</span> } <span class="vue-keyword">from</span> <span class="vue-string">'./stores/user'</span>
+
+<span class="vue-func">setup</span>() {
+  <span class="vue-keyword">const</span> <span class="vue-var">userStore</span> = <span class="vue-func">useUserStore</span>();
+  
+  <span class="vue-comment">// Acessar state</span>
+  <span class="vue-method">console</span>.<span class="vue-method">log</span>(<span class="vue-var">userStore</span>.<span class="vue-var">nome</span>);
+  
+  <span class="vue-comment">// Acessar getters</span>
+  <span class="vue-method">console</span>.<span class="vue-method">log</span>(<span class="vue-var">userStore</span>.<span class="vue-var">nomeCompleto</span>);
+  
+  <span class="vue-comment">// Chamar actions</span>
+  <span class="vue-var">userStore</span>.<span class="vue-method">login</span>(<span class="vue-string">'user@email.com'</span>, <span class="vue-string">'123'</span>);
+  
+  <span class="vue-keyword">return</span> { <span class="vue-var">userStore</span> };
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>🔄 Store com Composition API</h3>
+            <p>Sintaxe alternativa usando setup().</p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">import</span> { <span class="vue-var">defineStore</span> } <span class="vue-keyword">from</span> <span class="vue-string">'pinia'</span>
+<span class="vue-keyword">import</span> { <span class="vue-var">ref</span>, <span class="vue-var">computed</span> } <span class="vue-keyword">from</span> <span class="vue-string">'vue'</span>
+
+<span class="vue-keyword">export const</span> <span class="vue-var">useCounterStore</span> = <span class="vue-func">defineStore</span>(<span class="vue-string">'counter'</span>, () =&gt; {
+  <span class="vue-keyword">const</span> <span class="vue-var">count</span> = <span class="vue-func">ref</span>(<span class="vue-number">0</span>);
+  
+  <span class="vue-keyword">const</span> <span class="vue-var">dobro</span> = <span class="vue-func">computed</span>(() =&gt; <span class="vue-var">count</span>.<span class="vue-var">value</span> * <span class="vue-number">2</span>);
+  
+  <span class="vue-keyword">function</span> <span class="vue-func">incrementar</span>() {
+    <span class="vue-var">count</span>.<span class="vue-var">value</span>++;
+  }
+  
+  <span class="vue-keyword">return</span> { <span class="vue-var">count</span>, <span class="vue-var">dobro</span>, <span class="vue-var">incrementar</span> };
+});</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>📦 Persistência</h3>
+            <p>Persista o estado da store no localStorage.</p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">import</span> { <span class="vue-var">defineStore</span> } <span class="vue-keyword">from</span> <span class="vue-string">'pinia'</span>
+
+<span class="vue-keyword">export const</span> <span class="vue-var">useCartStore</span> = <span class="vue-func">defineStore</span>(<span class="vue-string">'cart'</span>, {
+  <span class="vue-func">state</span>: () =&gt; ({
+    <span class="vue-var">items</span>: []
+  }),
+  
+  <span class="vue-attr">persist</span>: <span class="vue-keyword">true</span> <span class="vue-comment">// Com plugin pinia-plugin-persistedstate</span>
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Formulários -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge vue-badge">Forms</span>
+          <h2 class="section-title">Trabalhando com Formulários</h2>
+          <p class="section-description">
+            Two-way binding, validação e manipulação de formulários no Vue.
+          </p>
+        </div>
+
+        <div class="concepts-grid">
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">🔗</span>
+              <h3>v-model - Two-Way Binding</h3>
+            </div>
+            <div class="code-example">
+              <pre><code><span class="vue-tag">&lt;template&gt;</span>
+  <span class="vue-tag">&lt;form</span> <span class="vue-attr">@submit.prevent</span>=<span class="vue-string">"handleSubmit"</span><span class="vue-tag">&gt;</span>
+    <span class="vue-comment">&lt;!-- Input text --&gt;</span>
+    <span class="vue-tag">&lt;input</span> <span class="vue-attr">v-model</span>=<span class="vue-string">"nome"</span> <span class="vue-attr">placeholder</span>=<span class="vue-string">"Nome"</span> <span class="vue-tag">/&gt;</span>
+    
+    <span class="vue-comment">&lt;!-- Checkbox --&gt;</span>
+    <span class="vue-tag">&lt;input</span> <span class="vue-attr">type</span>=<span class="vue-string">"checkbox"</span> <span class="vue-attr">v-model</span>=<span class="vue-string">"aceito"</span> <span class="vue-tag">/&gt;</span>
+    
+    <span class="vue-comment">&lt;!-- Select --&gt;</span>
+    <span class="vue-tag">&lt;select</span> <span class="vue-attr">v-model</span>=<span class="vue-string">"pais"</span><span class="vue-tag">&gt;</span>
+      <span class="vue-tag">&lt;option&gt;</span>Brasil<span class="vue-tag">&lt;/option&gt;</span>
+      <span class="vue-tag">&lt;option&gt;</span>Portugal<span class="vue-tag">&lt;/option&gt;</span>
+    <span class="vue-tag">&lt;/select&gt;</span>
+    
+    <span class="vue-tag">&lt;button&gt;</span>Enviar<span class="vue-tag">&lt;/button&gt;</span>
+  <span class="vue-tag">&lt;/form&gt;</span>
+<span class="vue-tag">&lt;/template&gt;</span>
+
+<span class="vue-tag">&lt;script&gt;</span>
+<span class="vue-keyword">export default</span> {
+  <span class="vue-func">data</span>() {
+    <span class="vue-keyword">return</span> {
+      <span class="vue-var">nome</span>: <span class="vue-string">''</span>,
+      <span class="vue-var">aceito</span>: <span class="vue-keyword">false</span>,
+      <span class="vue-var">pais</span>: <span class="vue-string">'Brasil'</span>
+    }
+  }
+}
+<span class="vue-tag">&lt;/script&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">⚙️</span>
+              <h3>Modificadores v-model</h3>
+            </div>
+            <div class="code-example">
+              <pre><code><span class="vue-tag">&lt;template&gt;</span>
+  <span class="vue-comment">&lt;!-- .lazy - atualiza no blur --&gt;</span>
+  <span class="vue-tag">&lt;input</span> <span class="vue-attr">v-model.lazy</span>=<span class="vue-string">"mensagem"</span> <span class="vue-tag">/&gt;</span>
+  
+  <span class="vue-comment">&lt;!-- .number - converte para número --&gt;</span>
+  <span class="vue-tag">&lt;input</span> <span class="vue-attr">v-model.number</span>=<span class="vue-string">"idade"</span> <span class="vue-attr">type</span>=<span class="vue-string">"number"</span> <span class="vue-tag">/&gt;</span>
+  
+  <span class="vue-comment">&lt;!-- .trim - remove espaços --&gt;</span>
+  <span class="vue-tag">&lt;input</span> <span class="vue-attr">v-model.trim</span>=<span class="vue-string">"nome"</span> <span class="vue-tag">/&gt;</span>
+<span class="vue-tag">&lt;/template&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">✅</span>
+              <h3>Validação de Formulário</h3>
+            </div>
+            <div class="code-example">
+              <pre><code><span class="vue-tag">&lt;script</span> <span class="vue-attr">setup</span><span class="vue-tag">&gt;</span>
+<span class="vue-keyword">import</span> { <span class="vue-var">ref</span>, <span class="vue-var">computed</span> } <span class="vue-keyword">from</span> <span class="vue-string">'vue'</span>
+
+<span class="vue-keyword">const</span> <span class="vue-var">email</span> = <span class="vue-func">ref</span>(<span class="vue-string">''</span>);
+<span class="vue-keyword">const</span> <span class="vue-var">senha</span> = <span class="vue-func">ref</span>(<span class="vue-string">''</span>);
+
+<span class="vue-keyword">const</span> <span class="vue-var">emailValido</span> = <span class="vue-func">computed</span>(() =&gt; {
+  <span class="vue-keyword">const</span> <span class="vue-var">regex</span> = <span class="vue-string">/^[^\s@]+@[^\s@]+\.[^\s@]+$/</span>;
+  <span class="vue-keyword">return</span> <span class="vue-var">regex</span>.<span class="vue-method">test</span>(<span class="vue-var">email</span>.<span class="vue-var">value</span>);
+});
+
+<span class="vue-keyword">const</span> <span class="vue-var">senhaSegura</span> = <span class="vue-func">computed</span>(() =&gt; {
+  <span class="vue-keyword">return</span> <span class="vue-var">senha</span>.<span class="vue-var">value</span>.<span class="vue-var">length</span> &gt;= <span class="vue-number">8</span>;
+});
+
+<span class="vue-keyword">const</span> <span class="vue-var">formValido</span> = <span class="vue-func">computed</span>(() =&gt; {
+  <span class="vue-keyword">return</span> <span class="vue-var">emailValido</span>.<span class="vue-var">value</span> &amp;&amp; <span class="vue-var">senhaSegura</span>.<span class="vue-var">value</span>;
+});
+<span class="vue-tag">&lt;/script&gt;</span>
+
+<span class="vue-tag">&lt;template&gt;</span>
+  <span class="vue-tag">&lt;input</span> <span class="vue-attr">v-model</span>=<span class="vue-string">"email"</span> <span class="vue-tag">/&gt;</span>
+  <span class="vue-tag">&lt;span</span> <span class="vue-attr">v-if</span>=<span class="vue-string">"!emailValido"</span><span class="vue-tag">&gt;</span>Email inválido<span class="vue-tag">&lt;/span&gt;</span>
+  
+  <span class="vue-tag">&lt;button</span> <span class="vue-attr">:disabled</span>=<span class="vue-string">"!formValido"</span><span class="vue-tag">&gt;</span>Enviar<span class="vue-tag">&lt;/button&gt;</span>
+<span class="vue-tag">&lt;/template&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Diretivas Avançadas -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge vue-badge">Diretivas</span>
+          <h2 class="section-title">Diretivas Personalizadas</h2>
+          <p class="section-description">
+            Crie diretivas customizadas para manipular o DOM diretamente.
+          </p>
+        </div>
+
+        <div class="two-column-grid">
+          <div class="feature-card">
+            <h3>🎯 Diretiva Global</h3>
+            <div class="code-example">
+              <pre><code><span class="vue-comment">// main.js</span>
+<span class="vue-keyword">const</span> <span class="vue-var">app</span> = <span class="vue-func">createApp</span>(<span class="vue-var">App</span>);
+
+<span class="vue-var">app</span>.<span class="vue-method">directive</span>(<span class="vue-string">'focus'</span>, {
+  <span class="vue-func">mounted</span>(<span class="vue-param">el</span>) {
+    <span class="vue-var">el</span>.<span class="vue-method">focus</span>();
+  }
+});
+
+<span class="vue-comment">// Uso</span>
+<span class="vue-tag">&lt;input</span> <span class="vue-attr">v-focus</span> <span class="vue-tag">/&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>📱 Diretiva Local</h3>
+            <div class="code-example">
+              <pre><code><span class="vue-tag">&lt;script&gt;</span>
+<span class="vue-keyword">export default</span> {
+  <span class="vue-attr">directives</span>: {
+    <span class="vue-attr">cor</span>: {
+      <span class="vue-func">mounted</span>(<span class="vue-param">el, binding</span>) {
+        <span class="vue-var">el</span>.<span class="vue-var">style</span>.<span class="vue-var">color</span> = <span class="vue-var">binding</span>.<span class="vue-var">value</span>;
+      },
+      <span class="vue-func">updated</span>(<span class="vue-param">el, binding</span>) {
+        <span class="vue-var">el</span>.<span class="vue-var">style</span>.<span class="vue-var">color</span> = <span class="vue-var">binding</span>.<span class="vue-var">value</span>;
+      }
+    }
+  }
+}
+<span class="vue-tag">&lt;/script&gt;</span>
+
+<span class="vue-comment">&lt;!-- Uso --&gt;</span>
+<span class="vue-tag">&lt;p</span> <span class="vue-attr">v-cor</span>=<span class="vue-string">"'red'"</span><span class="vue-tag">&gt;</span>Texto vermelho<span class="vue-tag">&lt;/p&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>👁️ Diretiva de Visibilidade</h3>
+            <div class="code-example">
+              <pre><code><span class="vue-var">app</span>.<span class="vue-method">directive</span>(<span class="vue-string">'visible'</span>, {
+  <span class="vue-func">beforeMount</span>(<span class="vue-param">el, binding</span>) {
+    <span class="vue-var">el</span>.<span class="vue-var">style</span>.<span class="vue-var">display</span> = <span class="vue-var">binding</span>.<span class="vue-var">value</span> ? <span class="vue-string">''</span> : <span class="vue-string">'none'</span>;
+  },
+  <span class="vue-func">updated</span>(<span class="vue-param">el, binding</span>) {
+    <span class="vue-var">el</span>.<span class="vue-var">style</span>.<span class="vue-var">display</span> = <span class="vue-var">binding</span>.<span class="vue-var">value</span> ? <span class="vue-string">''</span> : <span class="vue-string">'none'</span>;
+  }
+});
+
+<span class="vue-comment">&lt;!-- Uso --&gt;</span>
+<span class="vue-tag">&lt;div</span> <span class="vue-attr">v-visible</span>=<span class="vue-string">"mostrar"</span><span class="vue-tag">&gt;</span>Conteúdo<span class="vue-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>🖱️ Diretiva de Click Outside</h3>
+            <div class="code-example">
+              <pre><code><span class="vue-var">app</span>.<span class="vue-method">directive</span>(<span class="vue-string">'click-outside'</span>, {
+  <span class="vue-func">mounted</span>(<span class="vue-param">el, binding</span>) {
+    <span class="vue-var">el</span>.<span class="vue-var">clickOutsideEvent</span> = <span class="vue-keyword">function</span>(<span class="vue-param">event</span>) {
+      <span class="vue-keyword">if</span> (!(<span class="vue-var">el</span> === <span class="vue-var">event</span>.<span class="vue-var">target</span> || <span class="vue-var">el</span>.<span class="vue-method">contains</span>(<span class="vue-var">event</span>.<span class="vue-var">target</span>))) {
+        <span class="vue-var">binding</span>.<span class="vue-method">value</span>(<span class="vue-var">event</span>);
+      }
+    };
+    <span class="vue-var">document</span>.<span class="vue-method">addEventListener</span>(<span class="vue-string">'click'</span>, <span class="vue-var">el</span>.<span class="vue-var">clickOutsideEvent</span>);
+  },
+  <span class="vue-func">unmounted</span>(<span class="vue-param">el</span>) {
+    <span class="vue-var">document</span>.<span class="vue-method">removeEventListener</span>(<span class="vue-string">'click'</span>, <span class="vue-var">el</span>.<span class="vue-var">clickOutsideEvent</span>);
+  }
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Boas Práticas -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge vue-badge">Dicas</span>
+          <h2 class="section-title">Boas Práticas Vue.js</h2>
+          <p class="section-description">
+            Convenções e padrões recomendados pela comunidade Vue.
+          </p>
+        </div>
+
+        <div class="info-cards-grid">
+          <div class="info-card">
+            <div class="info-icon">📁</div>
+            <div class="info-content">
+              <h3>Estrutura de Projeto</h3>
+              <p>
+                Organize arquivos por funcionalidade e mantenha componentes .vue
+                coesos.
+              </p>
+              <div class="code-example">
+                <pre><code>src/
+  components/
+    UserList.vue
+    UserCard.vue
+  views/
+    Home.vue
+    About.vue
+  composables/
+    useUser.js
+  stores/
+    user.js
+  router/
+    index.js</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">🏷️</div>
+            <div class="info-content">
+              <h3>Nomenclatura de Componentes</h3>
+              <p>Use PascalCase para componentes e kebab-case em templates.</p>
+              <div class="code-example">
+                <pre><code><span class="vue-comment">// ✅ Bom</span>
+<span class="vue-comment">// UserProfile.vue</span>
+<span class="vue-tag">&lt;user-profile</span> <span class="vue-tag">/&gt;</span>
+<span class="vue-tag">&lt;UserProfile</span> <span class="vue-tag">/&gt;</span>
+
+<span class="vue-comment">// ❌ Evite</span>
+<span class="vue-comment">// userprofile.vue</span>
+<span class="vue-comment">// User_Profile.vue</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">🎯</div>
+            <div class="info-content">
+              <h3>Prop Validation</h3>
+              <p>Sempre valide props com tipos e required.</p>
+              <div class="code-example">
+                <pre><code><span class="vue-comment">// ✅ Bom</span>
+<span class="vue-attr">props</span>: {
+  <span class="vue-var">titulo</span>: {
+    <span class="vue-var">type</span>: <span class="vue-var">String</span>,
+    <span class="vue-var">required</span>: <span class="vue-keyword">true</span>
+  },
+  <span class="vue-var">idade</span>: {
+    <span class="vue-var">type</span>: <span class="vue-var">Number</span>,
+    <span class="vue-var">default</span>: <span class="vue-number">0</span>,
+    <span class="vue-func">validator</span>(<span class="vue-param">value</span>) {
+      <span class="vue-keyword">return</span> <span class="vue-var">value</span> &gt;= <span class="vue-number">0</span>;
+    }
+  }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">🔑</div>
+            <div class="info-content">
+              <h3>Keys em v-for</h3>
+              <p>Sempre use :key com valores únicos em v-for.</p>
+              <div class="code-example">
+                <pre><code><span class="vue-comment">&lt;!-- ✅ Bom --&gt;</span>
+<span class="vue-tag">&lt;div</span> 
+  <span class="vue-attr">v-for</span>=<span class="vue-string">"item in items"</span>
+  <span class="vue-attr">:key</span>=<span class="vue-string">"item.id"</span>
+<span class="vue-tag">&gt;</span>
+  {{ <span class="vue-var">item</span>.<span class="vue-var">nome</span> }}
+<span class="vue-tag">&lt;/div&gt;</span>
+
+<span class="vue-comment">&lt;!-- ❌ Evite --&gt;</span>
+<span class="vue-tag">&lt;div</span> <span class="vue-attr">v-for</span>=<span class="vue-string">"(item, index) in items"</span> <span class="vue-attr">:key</span>=<span class="vue-string">"index"</span><span class="vue-tag">&gt;</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">⚡</div>
+            <div class="info-content">
+              <h3>Computed vs Methods</h3>
+              <p>Use computed para valores derivados, methods para ações.</p>
+              <div class="code-example">
+                <pre><code><span class="vue-comment">// ✅ Use computed para cálculos</span>
+<span class="vue-attr">computed</span>: {
+  <span class="vue-func">total</span>() {
+    <span class="vue-keyword">return</span> <span class="vue-keyword">this</span>.<span class="vue-var">preco</span> * <span class="vue-keyword">this</span>.<span class="vue-var">quantidade</span>;
+  }
+}
+
+<span class="vue-comment">// ✅ Use methods para ações</span>
+<span class="vue-attr">methods</span>: {
+  <span class="vue-func">adicionarCarrinho</span>() {
+    <span class="vue-comment">// ação</span>
+  }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">🧩</div>
+            <div class="info-content">
+              <h3>Componentes Pequenos</h3>
+              <p>
+                Divida componentes grandes em componentes menores e focados.
+              </p>
+              <div class="code-example">
+                <pre><code><span class="vue-comment">&lt;!-- Ao invés de --&gt;</span>
+<span class="vue-tag">&lt;template&gt;</span>
+  <span class="vue-tag">&lt;div&gt;</span>
+    <span class="vue-comment">&lt;!-- 500 linhas de código --&gt;</span>
+  <span class="vue-tag">&lt;/div&gt;</span>
+<span class="vue-tag">&lt;/template&gt;</span>
+
+<span class="vue-comment">&lt;!-- Divida em --&gt;</span>
+<span class="vue-tag">&lt;Header</span> <span class="vue-tag">/&gt;</span>
+<span class="vue-tag">&lt;MainContent</span> <span class="vue-tag">/&gt;</span>
+<span class="vue-tag">&lt;Footer</span> <span class="vue-tag">/&gt;</span></code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Ecossistema -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge vue-badge">Ferramentas</span>
+          <h2 class="section-title">Ecossistema Vue.js</h2>
+          <p class="section-description">
+            Bibliotecas e ferramentas que complementam o Vue.js.
+          </p>
+        </div>
+
+        <div class="two-column-grid">
+          <div class="feature-card">
+            <h3>🚀 Nuxt.js</h3>
+            <p>Framework Vue com SSR, SSG e recursos avançados.</p>
+            <ul style="list-style: none; padding: 0; margin-top: 1rem">
+              <li style="padding: 0.5rem 0">✓ Server Side Rendering</li>
+              <li style="padding: 0.5rem 0">✓ Static Site Generation</li>
+              <li style="padding: 0.5rem 0">✓ File-based Routing</li>
+              <li style="padding: 0.5rem 0">✓ Auto-imports</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h3>🎨 Vuetify</h3>
+            <p>Biblioteca de componentes Material Design para Vue.</p>
+            <ul style="list-style: none; padding: 0; margin-top: 1rem">
+              <li style="padding: 0.5rem 0">✓ 100+ Componentes</li>
+              <li style="padding: 0.5rem 0">✓ Responsivo</li>
+              <li style="padding: 0.5rem 0">✓ Material Design</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h3>⚡ Vite</h3>
+            <p>Build tool extremamente rápido para Vue.</p>
+            <div class="code-example">
+              <pre><code><span class="vue-comment"># Criar projeto Vue com Vite</span>
+npm create vite@latest my-vue-app -- --template vue</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>🎭 Vue Use</h3>
+            <p>Coleção de composables essenciais para Vue.</p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">import</span> { <span class="vue-var">useMouse</span>, <span class="vue-var">useLocalStorage</span> } <span class="vue-keyword">from</span> <span class="vue-string">'@vueuse/core'</span>
+
+<span class="vue-keyword">const</span> { <span class="vue-var">x</span>, <span class="vue-var">y</span> } = <span class="vue-func">useMouse</span>();
+<span class="vue-keyword">const</span> <span class="vue-var">name</span> = <span class="vue-func">useLocalStorage</span>(<span class="vue-string">'name'</span>, <span class="vue-string">''</span>);</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>🧪 Vitest</h3>
+            <p>Framework de testes rápido e moderno para Vue.</p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">import</span> { <span class="vue-var">describe</span>, <span class="vue-var">it</span>, <span class="vue-var">expect</span> } <span class="vue-keyword">from</span> <span class="vue-string">'vitest'</span>
+
+<span class="vue-func">describe</span>(<span class="vue-string">'Componente'</span>, () =&gt; {
+  <span class="vue-func">it</span>(<span class="vue-string">'funciona'</span>, () =&gt; {
+    <span class="vue-func">expect</span>(<span class="vue-keyword">true</span>).<span class="vue-method">toBe</span>(<span class="vue-keyword">true</span>);
+  });
+});</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>🎨 Element Plus</h3>
+            <p>Biblioteca de componentes UI para Vue 3.</p>
+            <ul style="list-style: none; padding: 0; margin-top: 1rem">
+              <li style="padding: 0.5rem 0">✓ Rich Components</li>
+              <li style="padding: 0.5rem 0">✓ TypeScript Support</li>
+              <li style="padding: 0.5rem 0">✓ Customizável</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h3>📱 Quasar</h3>
+            <p>Framework Vue para web, mobile e desktop.</p>
+            <ul style="list-style: none; padding: 0; margin-top: 1rem">
+              <li style="padding: 0.5rem 0">✓ PWA Support</li>
+              <li style="padding: 0.5rem 0">
+                ✓ Mobile Apps (Cordova/Capacitor)
+              </li>
+              <li style="padding: 0.5rem 0">✓ Desktop Apps (Electron)</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h3>🔄 VueQuery</h3>
+            <p>Gerenciamento de estado para dados assíncronos.</p>
+            <div class="code-example">
+              <pre><code><span class="vue-keyword">const</span> { <span class="vue-var">data</span>, <span class="vue-var">isLoading</span> } = <span class="vue-func">useQuery</span>({
+  <span class="vue-var">queryKey</span>: [<span class="vue-string">'todos'</span>],
+  <span class="vue-var">queryFn</span>: <span class="vue-var">fetchTodos</span>
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Recursos -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge vue-badge">Aprenda Mais</span>
+          <h2 class="section-title">Recursos e Documentação</h2>
+          <p class="section-description">
+            Links úteis para continuar sua jornada com Vue.js.
+          </p>
+        </div>
+
+        <div class="info-cards-grid">
+          <div class="info-card">
+            <div class="info-icon">📚</div>
+            <div class="info-content">
+              <h3>Documentação Oficial</h3>
+              <ul style="list-style: none; padding: 0">
+                <li style="padding: 0.5rem 0">
+                  <a
+                    href="https://vuejs.org"
+                    target="_blank"
+                    class="study-resource-link"
+                  >
+                    → Vue.js Docs</a
+                  >
+                </li>
+                <li style="padding: 0.5rem 0">
+                  <a
+                    href="https://vuejs.org/tutorial/"
+                    target="_blank"
+                    class="study-resource-link"
+                  >
+                    → Tutorial Interativo</a
+                  >
+                </li>
+                <li style="padding: 0.5rem 0">
+                  <a
+                    href="https://router.vuejs.org"
+                    target="_blank"
+                    class="study-resource-link"
+                  >
+                    → Vue Router</a
+                  >
+                </li>
+                <li style="padding: 0.5rem 0">
+                  <a
+                    href="https://pinia.vuejs.org"
+                    target="_blank"
+                    class="study-resource-link"
+                  >
+                    → Pinia</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">🎓</div>
+            <div class="info-content">
+              <h3>Cursos e Tutoriais</h3>
+              <ul style="list-style: none; padding: 0">
+                <li style="padding: 0.5rem 0">
+                  → Vue Mastery - Cursos Oficiais
+                </li>
+                <li style="padding: 0.5rem 0">→ Vue School</li>
+                <li style="padding: 0.5rem 0">→ freeCodeCamp - Vue Course</li>
+                <li style="padding: 0.5rem 0">→ Udemy - Vue Courses</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">🛠️</div>
+            <div class="info-content">
+              <h3>Ferramentas de Dev</h3>
+              <ul style="list-style: none; padding: 0">
+                <li style="padding: 0.5rem 0">
+                  → Vue DevTools (Browser Extension)
+                </li>
+                <li style="padding: 0.5rem 0">→ Vite - Build Tool</li>
+                <li style="padding: 0.5rem 0">→ Vue CLI</li>
+                <li style="padding: 0.5rem 0">→ Volar - VS Code Extension</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">👥</div>
+            <div class="info-content">
+              <h3>Comunidade</h3>
+              <ul style="list-style: none; padding: 0">
+                <li style="padding: 0.5rem 0">→ Discord Vue Land</li>
+                <li style="padding: 0.5rem 0">→ Reddit r/vuejs</li>
+                <li style="padding: 0.5rem 0">→ Vue Forum</li>
+                <li style="padding: 0.5rem 0">→ Stack Overflow</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">📖</div>
+            <div class="info-content">
+              <h3>Style Guides</h3>
+              <ul style="list-style: none; padding: 0">
+                <li style="padding: 0.5rem 0">
+                  → Vue.js Style Guide (Oficial)
+                </li>
+                <li style="padding: 0.5rem 0">→ Vue Patterns</li>
+                <li style="padding: 0.5rem 0">→ Best Practices</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">🎯</div>
+            <div class="info-content">
+              <h3>Exemplos e Inspiração</h3>
+              <ul style="list-style: none; padding: 0">
+                <li style="padding: 0.5rem 0">→ Vue Examples</li>
+                <li style="padding: 0.5rem 0">→ Awesome Vue</li>
+                <li style="padding: 0.5rem 0">→ Made with Vue.js</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </main>
+
+
+    <!-- Footer -->

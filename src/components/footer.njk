@@ -1,0 +1,56 @@
+{#- Rodapé único. A variante (e os dados da variante "colunas") vêm do front matter da página: `footer`. -#}
+{%- set f = footer -%}
+<footer class="footer">
+      <div class="container">
+{%- if f.variant == "simples" %}
+        <p>Feito com 💜 para estudantes, por estudantes. — DevStudy</p>
+{%- elif f.variant == "logo" %}
+        <div class="footer-content">
+          <div class="footer-logo">
+            <span class="logo-icon">&#60;/&#62;</span>
+            <span>DevStudy</span>
+          </div>
+          <p>Feito com 💜 para estudantes de desenvolvimento web</p>
+          <p class="footer-date">2026 - Aprendizado Contínuo</p>
+        </div>
+{%- elif f.variant == "marca" %}
+        <div class="footer-content">
+          <div class="footer-brand">
+            <span class="logo-icon">&#60;/&#62;</span>
+            <span class="logo-text">DevStudy</span>
+          </div>
+          <p>Aprenda desenvolvimento web de forma interativa e divertida.</p>
+          <div class="footer-links">
+            <a href="index.html">HTML</a>
+            <a href="css.html">CSS</a>
+            <a href="javascript.html">JavaScript</a>
+            <a href="git.html">Git</a>
+            <a href="http.html">HTTP</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 DevStudy. Feito com ❤️ para estudantes.</p>
+        </div>
+{%- elif f.variant == "colunas" %}
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>DevStudy</h3>
+            <p>{{ f.tagline }}</p>
+          </div>
+{%- for section in f.sections %}
+          <div class="footer-section">
+            <h4>{{ section.title }}</h4>
+            <ul>
+{%- for link in section.links %}
+              <li><a href="{{ link.href }}"{% if link.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ link.label }}</a></li>
+{%- endfor %}
+            </ul>
+          </div>
+{%- endfor %}
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 DevStudy. {{ f.bottom }}</p>
+        </div>
+{%- endif %}
+      </div>
+    </footer>

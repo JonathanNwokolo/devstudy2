@@ -1,0 +1,494 @@
+---
+title: "SQL & MySQL - DevStudy"
+description: "SQL e MySQL para iniciantes: CREATE TABLE, SELECT, INSERT, UPDATE, DELETE, JOIN, GROUP BY, índices, transações e diferenças entre MySQL e PostgreSQL."
+permalink: "sql.html"
+styles: ["conteudos.css","sql-simulator.css"]
+scripts: ["sql-simulator.js"]
+footer: {"variant":"simples"}
+---
+    <main id="main-content">
+      <section class="page-hero">
+        <div class="container">
+          <div class="hero-badge">🗄️ A língua dos bancos de dados</div>
+          <h1><span class="accent-sql">SQL &amp; MySQL</span></h1>
+          <p class="hero-description">
+            SQL é a linguagem que você usa para conversar com bancos de dados
+            relacionais. Aprenda uma vez e use no MySQL, PostgreSQL, SQLite e
+            SQL Server — mudam só alguns detalhes.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="info-card">
+            <div class="info-icon">🗄️</div>
+            <div>
+              <h3>O que é SQL?</h3>
+              <p>
+                <strong>SQL</strong> (Structured Query Language) é a linguagem
+                padrão para criar, consultar e alterar dados em bancos
+                <strong>relacionais</strong>. O banco guarda os dados em
+                <strong>tabelas</strong> (colunas + linhas) e o SQL é o que você
+                escreve para pedir ou modificar esses dados.
+              </p>
+            </div>
+          </div>
+
+          <div class="callout callout-info">
+            <span class="callout-icon">🐬</span>
+            <div class="callout-body">
+              <strong>SQL x MySQL x PostgreSQL</strong>
+              <strong>SQL</strong> é a <em>linguagem</em>. <strong>MySQL</strong>
+              e <strong>PostgreSQL</strong> são <em>programas</em> (sistemas
+              gerenciadores de banco de dados) que entendem SQL. O MySQL é muito
+              popular em sites e WordPress; o PostgreSQL é mais completo e
+              rigoroso. Veja a página de <a href="postgresql.html">PostgreSQL</a>.
+            </div>
+          </div>
+
+          <!-- Categorias -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🧭</span> As 4 famílias de comandos</h3>
+            <table class="ref-table">
+              <thead>
+                <tr><th>Família</th><th>Para quê</th><th>Comandos</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>DDL</td><td>Definir a estrutura</td><td><code>CREATE</code>, <code>ALTER</code>, <code>DROP</code></td></tr>
+                <tr><td>DML</td><td>Manipular dados</td><td><code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></td></tr>
+                <tr><td>DQL</td><td>Consultar dados</td><td><code>SELECT</code></td></tr>
+                <tr><td>DCL / TCL</td><td>Permissões e transações</td><td><code>GRANT</code>, <code>REVOKE</code>, <code>COMMIT</code>, <code>ROLLBACK</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Conectar MySQL -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🔌</span> Começando com o MySQL</h3>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">Terminal</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code class="language-bash"># Conectar ao MySQL
+mysql -u root -p
+
+# Dentro do cliente mysql:
+SHOW DATABASES;          # lista os bancos
+CREATE DATABASE loja;
+USE loja;                # seleciona o banco
+SHOW TABLES;             # lista as tabelas
+DESCRIBE usuarios;       # mostra as colunas da tabela</code></pre>
+            </div>
+            <div class="callout callout-tip">
+              <span class="callout-icon">💡</span>
+              <div class="callout-body">
+                <strong>Ferramentas visuais</strong>
+                <strong>MySQL Workbench</strong>, <strong>DBeaver</strong> e
+                <strong>phpMyAdmin</strong> permitem explorar tabelas sem o
+                terminal. No PostgreSQL os comandos equivalentes são
+                <code>\l</code>, <code>\c</code>, <code>\dt</code> e
+                <code>\d tabela</code>.
+              </div>
+            </div>
+          </div>
+
+          <!-- CREATE TABLE -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🏗️</span> CREATE TABLE</h3>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">MySQL</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code class="language-sql">CREATE TABLE usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,   -- MySQL: AUTO_INCREMENT
+  nome VARCHAR(100) NOT NULL,
+  email VARCHAR(150) UNIQUE,
+  ativo BOOLEAN DEFAULT TRUE,
+  criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE pedidos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  total DECIMAL(10,2),
+  usuario_id INT,
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);</code></pre>
+            </div>
+            <table class="ref-table">
+              <thead>
+                <tr><th>Tipo</th><th>Guarda</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>INT</code></td><td>Números inteiros</td></tr>
+                <tr><td><code>DECIMAL(10,2)</code></td><td>Números exatos (dinheiro)</td></tr>
+                <tr><td><code>VARCHAR(n)</code></td><td>Texto até n caracteres</td></tr>
+                <tr><td><code>TEXT</code></td><td>Texto longo</td></tr>
+                <tr><td><code>BOOLEAN</code></td><td>Verdadeiro / falso</td></tr>
+                <tr><td><code>DATE</code> / <code>DATETIME</code></td><td>Data / data e hora</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- CRUD -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">✏️</span> INSERT, SELECT, UPDATE &amp; DELETE</h3>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">SQL</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code class="language-sql">-- Criar
+INSERT INTO usuarios (nome, email) VALUES ('Ana', 'ana@email.com');
+
+-- Ler
+SELECT nome, email FROM usuarios WHERE ativo = TRUE ORDER BY nome LIMIT 10;
+
+-- Atualizar (SEMPRE com WHERE!)
+UPDATE usuarios SET email = 'novo@email.com' WHERE id = 1;
+
+-- Apagar (SEMPRE com WHERE!)
+DELETE FROM usuarios WHERE id = 1;</code></pre>
+            </div>
+            <div class="callout callout-danger">
+              <span class="callout-icon">⚠️</span>
+              <div class="callout-body">
+                <strong>O erro clássico</strong>
+                <code>UPDATE</code> ou <code>DELETE</code> sem <code>WHERE</code>
+                afeta <em>todas</em> as linhas. Teste primeiro com um
+                <code>SELECT</code> usando o mesmo <code>WHERE</code>.
+              </div>
+            </div>
+          </div>
+
+          <!-- Filtros -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🔍</span> Filtros do WHERE</h3>
+            <table class="ref-table">
+              <thead>
+                <tr><th>Operador</th><th>Exemplo</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>=</code>, <code>&lt;&gt;</code>, <code>&gt;</code>, <code>&lt;</code></td><td><code>idade &gt;= 18</code></td></tr>
+                <tr><td><code>AND</code> / <code>OR</code> / <code>NOT</code></td><td><code>ativo = 1 AND idade &gt; 18</code></td></tr>
+                <tr><td><code>IN</code></td><td><code>cidade IN ('SP', 'RJ')</code></td></tr>
+                <tr><td><code>BETWEEN</code></td><td><code>preco BETWEEN 10 AND 50</code></td></tr>
+                <tr><td><code>LIKE</code></td><td><code>nome LIKE 'A%'</code> (começa com A)</td></tr>
+                <tr><td><code>IS NULL</code></td><td><code>telefone IS NULL</code></td></tr>
+              </tbody>
+            </table>
+            <div class="callout callout-warning">
+              <span class="callout-icon">⚠️</span>
+              <div class="callout-body">
+                <strong>NULL não é igual a nada</strong>
+                <code>coluna = NULL</code> nunca funciona. Use
+                <code>IS NULL</code> ou <code>IS NOT NULL</code>.
+              </div>
+            </div>
+          </div>
+
+          <!-- JOIN -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🔗</span> JOIN — juntando tabelas</h3>
+
+            <!-- Visualizador Interativo SQL JOINs -->
+            <div class="sql-joins-card" id="sqlSimulator" aria-label="Visualizador Interativo de SQL JOINs">
+              <div class="sql-header">
+                <div class="sql-title-group">
+                  <h3><span>📊</span> Visualizador Interativo: SQL JOINs em Ação</h3>
+                  <p class="sql-subtitle">Clique nos botões abaixo para ver como as tabelas <code>usuarios</code> e <code>pedidos</code> se combinam visualmente.</p>
+                </div>
+                <div class="sql-tabs-bar">
+                  <button type="button" class="sql-tab-btn active" data-join="INNER">INNER JOIN</button>
+                  <button type="button" class="sql-tab-btn" data-join="LEFT">LEFT JOIN</button>
+                  <button type="button" class="sql-tab-btn" data-join="RIGHT">RIGHT JOIN</button>
+                  <button type="button" class="sql-tab-btn" data-join="FULL">FULL OUTER JOIN</button>
+                </div>
+              </div>
+
+              <div class="sql-stage">
+                <!-- Tabelas Origem e Venn -->
+                <div class="sql-sources-row">
+                  <!-- Tabela A -->
+                  <div class="sql-table-box">
+                    <div class="sql-table-title">Tabela: usuarios (A)</div>
+                    <table class="sql-mini-table">
+                      <thead><tr><th>id</th><th>nome</th></tr></thead>
+                      <tbody id="sqlUsersTbody"></tbody>
+                    </table>
+                  </div>
+
+                  <!-- Diagrama de Venn -->
+                  <div class="sql-venn-container">
+                    <svg class="sql-venn-svg" viewBox="0 0 160 100">
+                      <!-- Circle A -->
+                      <circle id="vennCircleA" cx="60" cy="50" r="38" fill="#10b981" opacity="0.65" />
+                      <!-- Circle B -->
+                      <circle id="vennCircleB" cx="100" cy="50" r="38" fill="#10b981" opacity="0.65" />
+                      <!-- Intersection path -->
+                      <path id="vennIntersection" d="M 80 18 A 38 38 0 0 1 80 82 A 38 38 0 0 1 80 18 Z" fill="#10b981" />
+                    </svg>
+                    <span class="sql-venn-label">Diagrama de Venn</span>
+                  </div>
+
+                  <!-- Tabela B -->
+                  <div class="sql-table-box">
+                    <div class="sql-table-title">Tabela: pedidos (B)</div>
+                    <table class="sql-mini-table">
+                      <thead><tr><th>id</th><th>usuario_id</th><th>valor</th></tr></thead>
+                      <tbody id="sqlOrdersTbody"></tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Query gerada -->
+                <div class="sql-query-display" id="sqlQueryCode"></div>
+
+                <!-- Tabela Resultado -->
+                <div class="sql-result-box">
+                  <div class="sql-result-header">
+                    <span>Resultado da Consulta</span>
+                    <span id="sqlResultCount" style="font-size:0.75rem; font-weight:600;"></span>
+                  </div>
+                  <table class="sql-mini-table">
+                    <thead><tr><th>u.id</th><th>u.nome</th><th>p.id (pedido_id)</th><th>p.valor</th></tr></thead>
+                    <tbody id="sqlResultsTbody"></tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="sql-footer">
+                <div style="font-size: 1.4rem;">💡</div>
+                <div id="sqlExplanation"></div>
+              </div>
+            </div>
+
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">SQL</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code class="language-sql">-- Só quem tem pedido
+SELECT u.nome, p.total
+FROM usuarios u
+INNER JOIN pedidos p ON p.usuario_id = u.id;
+
+-- Todos os usuários, com ou sem pedido
+SELECT u.nome, p.total
+FROM usuarios u
+LEFT JOIN pedidos p ON p.usuario_id = u.id;</code></pre>
+            </div>
+            <p class="topic-description">
+              <code>INNER JOIN</code> traz só o que casa nas duas tabelas;
+              <code>LEFT JOIN</code> traz tudo da esquerda e <code>NULL</code>
+              onde não há par. Mais detalhes na página de
+              <a href="postgresql.html">PostgreSQL</a>.
+            </p>
+          </div>
+
+          <!-- Agregação -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">📊</span> Funções de agregação &amp; GROUP BY</h3>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">SQL</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code class="language-sql">SELECT usuario_id,
+       COUNT(*)   AS qtd_pedidos,
+       SUM(total) AS gasto_total,
+       AVG(total) AS ticket_medio
+FROM pedidos
+GROUP BY usuario_id
+HAVING SUM(total) &gt; 100
+ORDER BY gasto_total DESC;</code></pre>
+            </div>
+            <div class="callout callout-info">
+              <span class="callout-icon">🧠</span>
+              <div class="callout-body">
+                <strong>Ordem de escrita</strong>
+                <code>SELECT</code> → <code>FROM</code> → <code>JOIN</code> →
+                <code>WHERE</code> → <code>GROUP BY</code> → <code>HAVING</code>
+                → <code>ORDER BY</code> → <code>LIMIT</code>.
+              </div>
+            </div>
+          </div>
+
+          <!-- Subqueries -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🪆</span> Subconsultas</h3>
+            <p class="topic-description">
+              Uma consulta dentro de outra — útil quando a resposta de uma
+              depende do resultado da outra.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">SQL</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code class="language-sql">-- Usuários que fizeram ao menos um pedido
+SELECT nome FROM usuarios
+WHERE id IN (SELECT usuario_id FROM pedidos);
+
+-- Pedidos acima da média
+SELECT * FROM pedidos
+WHERE total &gt; (SELECT AVG(total) FROM pedidos);</code></pre>
+            </div>
+          </div>
+
+          <!-- ALTER / DROP -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🛠️</span> ALTER, DROP &amp; TRUNCATE</h3>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">SQL</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code class="language-sql">-- Adicionar coluna
+ALTER TABLE usuarios ADD COLUMN telefone VARCHAR(20);
+
+-- Remover coluna
+ALTER TABLE usuarios DROP COLUMN telefone;
+
+-- Esvaziar a tabela (mantém a estrutura)
+TRUNCATE TABLE pedidos;
+
+-- Apagar a tabela inteira
+DROP TABLE pedidos;</code></pre>
+            </div>
+            <div class="callout callout-danger">
+              <span class="callout-icon">🚨</span>
+              <div class="callout-body">
+                <strong>Sem volta</strong>
+                <code>DROP</code> e <code>TRUNCATE</code> não pedem confirmação
+                e não passam pelo <code>WHERE</code>. Faça backup antes de rodar
+                em produção.
+              </div>
+            </div>
+          </div>
+
+          <!-- Índices -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">⚡</span> Índices — deixando consultas rápidas</h3>
+            <p class="topic-description">
+              Um índice funciona como o índice de um livro: o banco acha a linha
+              sem ler a tabela inteira.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">SQL</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code class="language-sql">CREATE INDEX idx_usuarios_email ON usuarios(email);
+
+-- Ver como o banco executa a consulta
+EXPLAIN SELECT * FROM usuarios WHERE email = 'ana@email.com';</code></pre>
+            </div>
+            <div class="callout callout-tip">
+              <span class="callout-icon">💡</span>
+              <div class="callout-body">
+                <strong>Onde indexar</strong>
+                Colunas usadas em <code>WHERE</code>, <code>JOIN</code> e
+                <code>ORDER BY</code>. Índices demais deixam <code>INSERT</code>
+                e <code>UPDATE</code> mais lentos.
+              </div>
+            </div>
+          </div>
+
+          <!-- Transações -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🔒</span> Transações</h3>
+            <p class="topic-description">
+              Agrupam vários comandos: ou todos funcionam, ou nenhum. Clássico
+              exemplo: transferência bancária.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">SQL</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code class="language-sql">START TRANSACTION;   -- no PostgreSQL também vale BEGIN
+
+UPDATE contas SET saldo = saldo - 100 WHERE id = 1;
+UPDATE contas SET saldo = saldo + 100 WHERE id = 2;
+
+COMMIT;      -- confirma tudo
+-- ROLLBACK; -- ou desfaz tudo se algo deu errado</code></pre>
+            </div>
+          </div>
+
+          <!-- MySQL x Postgres -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">⚖️</span> MySQL x PostgreSQL — as diferenças</h3>
+            <table class="ref-table">
+              <thead>
+                <tr><th>Item</th><th>MySQL</th><th>PostgreSQL</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>ID automático</td><td><code>AUTO_INCREMENT</code></td><td><code>SERIAL</code> / <code>IDENTITY</code></td></tr>
+                <tr><td>Aspas em nomes</td><td>crase <code>`nome`</code></td><td>aspas duplas <code>"nome"</code></td></tr>
+                <tr><td>Texto em <code>LIKE</code></td><td>ignora maiúsculas por padrão</td><td>diferencia (use <code>ILIKE</code>)</td></tr>
+                <tr><td>Retornar linha criada</td><td>não tem (<code>LAST_INSERT_ID()</code>)</td><td><code>RETURNING</code></td></tr>
+                <tr><td>JSON</td><td><code>JSON</code></td><td><code>JSONB</code> (indexável)</td></tr>
+                <tr><td>Listar tabelas</td><td><code>SHOW TABLES</code></td><td><code>\dt</code></td></tr>
+                <tr><td>Foco</td><td>Simplicidade e velocidade em leitura</td><td>Recursos avançados e padrões SQL</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Segurança -->
+          <div class="callout callout-danger">
+            <span class="callout-icon">🛡️</span>
+            <div class="callout-body">
+              <strong>SQL Injection</strong>
+              Nunca monte SQL concatenando texto do usuário:
+              <code>"... WHERE email = '" + email + "'"</code>. Use sempre
+              <strong>consultas parametrizadas</strong> (<code>?</code> no MySQL,
+              <code>$1</code> no PostgreSQL) ou um ORM como Prisma.
+            </div>
+          </div>
+
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🟢</span> Usando no Node.js</h3>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code class="language-javascript">// MySQL com mysql2
+const mysql = require('mysql2/promise');
+const db = await mysql.createConnection({
+  host: 'localhost', user: 'root', database: 'loja',
+});
+
+// O "?" é preenchido com segurança — evita SQL Injection
+const [linhas] = await db.execute(
+  'SELECT * FROM usuarios WHERE email = ?',
+  [email]
+);</code></pre>
+            </div>
+          </div>
+
+          <h2 class="section-title" style="margin-top: 3rem">Continue aprendendo</h2>
+          <div class="related-grid">
+            <a class="related-card" href="postgresql.html">
+              <span class="emoji">🐘</span>
+              <h4>PostgreSQL</h4>
+              <p>JSONB, RETURNING e mais recursos avançados.</p>
+            </a>
+            <a class="related-card" href="backend.html">
+              <span class="emoji">🟢</span>
+              <h4>Backend</h4>
+              <p>Conecte o banco a uma API Node.js.</p>
+            </a>
+            <a class="related-card" href="glossario.html">
+              <span class="emoji">📖</span>
+              <h4>Glossário</h4>
+              <p>CRUD, REST, endpoint e mais termos.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>

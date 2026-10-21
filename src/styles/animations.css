@@ -1,0 +1,607 @@
+/* ==========================================
+   Animations & Micro-interactions
+   Professional UX Enhancements
+   ========================================== */
+
+/* ==========================================
+   Smooth Animations
+   ========================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+/* ==========================================
+   Page Load Animations
+   ========================================== */
+.hero-content > * {
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.hero-badge {
+  animation-delay: 0.1s;
+}
+
+.hero-title {
+  animation-delay: 0.2s;
+}
+
+.hero-description {
+  animation-delay: 0.3s;
+}
+
+.hero-buttons {
+  animation-delay: 0.4s;
+}
+
+.hero-stats {
+  animation-delay: 0.5s;
+}
+
+.hero-visual {
+  animation: fadeInRight 0.8s ease-out 0.3s backwards;
+}
+
+/* ==========================================
+   Scroll Reveal Animations
+   ========================================== */
+.section-header {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.topic-card,
+.info-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.topic-card.reveal,
+.info-card.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger animation for multiple cards */
+.topic-card:nth-child(1) { transition-delay: 0.1s; }
+.topic-card:nth-child(2) { transition-delay: 0.2s; }
+.topic-card:nth-child(3) { transition-delay: 0.3s; }
+.topic-card:nth-child(4) { transition-delay: 0.4s; }
+.topic-card:nth-child(5) { transition-delay: 0.5s; }
+
+/* ==========================================
+   Button Interactions
+   ========================================== */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   Card Hover Effects
+   ========================================== */
+.topic-card,
+.info-card,
+.ref-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.topic-card:hover,
+.info-card:hover,
+.ref-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.topic-card:hover .topic-icon,
+.info-icon {
+  animation: bounce 0.6s ease-in-out;
+}
+
+/* ==========================================
+   Link Underline Animation
+   ========================================== */
+a:not(.btn):not(.nav-link) {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+a:not(.btn):not(.nav-link)::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+a:not(.btn):not(.nav-link):hover::after {
+  width: 100%;
+}
+
+/* ==========================================
+   Code Block Animations
+   ========================================== */
+.code-example {
+  transition: all 0.3s ease;
+}
+
+.code-example:hover {
+  transform: scale(1.01);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.copy-btn {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.copy-btn::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  font-size: 1.2rem;
+  color: #48bb78;
+  transition: transform 0.3s ease;
+}
+
+.copy-btn.copied::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.copy-btn.copied {
+  background: #48bb78;
+  color: white;
+}
+
+/* ==========================================
+   Loading States
+   ========================================== */
+.loading {
+  position: relative;
+  pointer-events: none;
+  color: transparent !important;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #667eea;
+  border-radius: 50%;
+  animation: rotate 1s linear infinite;
+}
+
+/* Skeleton loading */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+/* ==========================================
+   Form Input Animations
+   ========================================== */
+input,
+textarea,
+select {
+  transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+input:valid {
+  border-color: #48bb78;
+}
+
+input:invalid:not(:placeholder-shown) {
+  border-color: #f56565;
+  animation: shake 0.5s;
+}
+
+/* ==========================================
+   Tooltip Animations
+   ========================================== */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-5px);
+  padding: 0.5rem 1rem;
+  background: #2d3748;
+  color: white;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+[data-tooltip]::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #2d3748;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+[data-tooltip]:hover::before,
+[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+/* ==========================================
+   Progress Bar Animations
+   ========================================== */
+.progress-bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+/* ==========================================
+   Badge Pulse
+   ========================================== */
+.badge-new,
+.notification-badge {
+  animation: pulse 2s infinite;
+}
+
+/* ==========================================
+   Floating Elements
+   ========================================== */
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ==========================================
+   Scroll Indicator
+   ========================================== */
+.scroll-indicator {
+  animation: bounce 2s infinite;
+}
+
+/* ==========================================
+   Attention Seekers
+   ========================================== */
+.attention {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.wiggle {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* ==========================================
+   Stagger Delays for Lists
+   ========================================== */
+.stagger-item {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-item:nth-child(5) { animation-delay: 0.5s; }
+.stagger-item:nth-child(6) { animation-delay: 0.6s; }
+.stagger-item:nth-child(7) { animation-delay: 0.7s; }
+.stagger-item:nth-child(8) { animation-delay: 0.8s; }
+
+/* ==========================================
+   Focus Trap Indicator
+   ========================================== */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 3px solid #667eea;
+  outline-offset: 2px;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ==========================================
+   Success/Error States
+   ========================================== */
+.success-state {
+  animation: scaleIn 0.3s ease-out;
+  border-color: #48bb78;
+  background: rgba(72, 187, 120, 0.1);
+}
+
+.error-state {
+  animation: shake 0.5s ease-out;
+  border-color: #f56565;
+  background: rgba(245, 101, 101, 0.1);
+}
+
+/* ==========================================
+   Modal Animations
+   ========================================== */
+.modal-enter {
+  animation: scaleIn 0.3s ease-out;
+}
+
+.modal-leave {
+  animation: scaleIn 0.3s ease-in reverse;
+}
+
+/* ==========================================
+   Theme Transition
+   ========================================== */
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* ==========================================
+   Performance Optimizations
+   ========================================== */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Use GPU acceleration for animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* ==========================================
+   Reduced Motion Support
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-content > *,
+  .topic-card,
+  .info-card {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Demo boxes always animate — they exist to show animations */
+  .anim-box.bounce {
+    animation: demo-bounce 0.8s ease-in-out infinite !important;
+    animation-duration: 0.8s !important;
+    animation-iteration-count: infinite !important;
+  }
+  .anim-box.pulse {
+    animation: demo-pulse 1.2s ease-in-out infinite !important;
+    animation-duration: 1.2s !important;
+    animation-iteration-count: infinite !important;
+  }
+  .anim-box.spin {
+    animation: demo-spin 1.5s linear infinite !important;
+    animation-duration: 1.5s !important;
+    animation-iteration-count: infinite !important;
+  }
+  .anim-box.shake {
+    animation: demo-shake 0.6s ease-in-out infinite !important;
+    animation-duration: 0.6s !important;
+    animation-iteration-count: infinite !important;
+  }
+}

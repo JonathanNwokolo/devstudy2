@@ -1,0 +1,1773 @@
+---
+title: "Erros Comuns - DevStudy"
+description: "Aprenda a identificar e corrigir os erros mais comuns em HTML, CSS, JavaScript, React e Git. Economize horas de frustração!"
+permalink: "erros-comuns.html"
+keywords: "erros javascript, erros css, erros html, debugging, troubleshooting, react errors"
+styles: ["erros-comuns.css","enhancements.css","conteudos.css"]
+scripts: ["erros-comuns.js"]
+footer: {"variant":"colunas","tagline":"Aprenda desenvolvimento web de forma prática e gratuita.","sections":[{"title":"Links Rápidos","links":[{"href":"index.html","label":"Início"},{"href":"cheatsheets.html","label":"Cheat Sheets"},{"href":"topicos.html","label":"Tópicos Avançados"},{"href":"git.html","label":"Git"}]},{"title":"Recursos","links":[{"href":"https://developer.mozilla.org","label":"MDN Web Docs","external":true},{"href":"https://stackoverflow.com","label":"Stack Overflow","external":true}]}],"bottom":"Bugs são features não documentadas. 🐛"}
+---
+    <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="hero erros-hero">
+      <div class="hero-content">
+        <div class="hero-badge">🐛 Debugging & Troubleshooting</div>
+        <h1 class="hero-title">
+          <span class="highlight-erros">Erros Comuns</span> e Como Evitá-los
+        </h1>
+        <p class="hero-description">
+          Aprenda a identificar, entender e corrigir os erros mais frequentes
+          que todo desenvolvedor enfrenta. Economize horas de frustração!
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">40+</span>
+            <span class="stat-label">Erros Documentados</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="code-window erros-window">
+          <div class="code-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="file-name">console.log</span>
+          </div>
+          <pre
+            class="code-content"
+          ><code><span class="error-line">❌ Uncaught TypeError: Cannot read 
+   property 'map' of undefined</span>
+
+<span class="success-line">✅ Solução: Verificar se o array 
+   existe antes de usar .map()</span>
+
+<span class="code-fix">const items = data?.items || [];
+items.map(item => ...)</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navegação por Categoria -->
+    <section class="section">
+      <div class="container">
+        <div class="category-nav">
+          <button class="category-btn active" data-category="all">
+            📚 Todos
+          </button>
+          <button class="category-btn" data-category="html">🏷️ HTML</button>
+          <button class="category-btn" data-category="css">🎨 CSS</button>
+          <button class="category-btn" data-category="js">⚡ JavaScript</button>
+          <button class="category-btn" data-category="react">⚛️ React</button>
+          <button class="category-btn" data-category="git">📦 Git</button>
+          <button class="category-btn" data-category="debug">
+            🔧 Debugging
+          </button>
+        </div>
+
+        <!-- Barra de Busca -->
+        <div class="search-container">
+          <div class="search-wrapper">
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <input 
+              type="text" 
+              id="searchInput" 
+              placeholder="Buscar erros... (Ctrl+K)"
+              autocomplete="off"
+            />
+            <button id="searchBtn">Buscar</button>
+          </div>
+          <p class="search-hint">Dica: Pressione <kbd>Ctrl</kbd> + <kbd>K</kbd> para focar na busca</p>
+        </div>
+
+        <!-- Progress Tracker -->
+        <div class="progress-tracker">
+          <div class="progress-header">
+            <h3>📊 Seu Progresso</h3>
+            <span id="progressText">0/0 erros vistos (0%)</span>
+          </div>
+          <div class="progress-bar-container">
+            <div id="progressBar" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Erros HTML -->
+    <section
+      id="html-errors"
+      class="section erros-section"
+      data-category="html"
+    >
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge html-badge">HTML</span>
+          <h2 class="section-title">Top 10 Erros em HTML</h2>
+          <p class="section-description">
+            Erros de marcação que afetam acessibilidade, SEO e funcionamento.
+          </p>
+        </div>
+
+        <div class="erros-grid">
+          <!-- Erro 1 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">01</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">Tags não fechadas corretamente</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Errado</span>
+              <pre><code>&lt;div&gt;
+  &lt;p&gt;Texto aqui
+  &lt;span&gt;Mais texto&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Correto</span>
+              <pre><code>&lt;div&gt;
+  &lt;p&gt;Texto aqui&lt;/p&gt;
+  &lt;span&gt;Mais texto&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Use extensões como "Auto Close Tag" no VS Code para evitar esse
+                erro.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro 2 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">02</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">Esquecer atributo alt em imagens</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Errado</span>
+              <pre><code>&lt;img src="foto.jpg"&gt;</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Correto</span>
+              <pre><code>&lt;img src="foto.jpg" alt="Descrição da imagem"&gt;</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Essencial para acessibilidade e SEO. Leitores de tela dependem
+                do alt.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro 3 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">03</span>
+              <span class="erro-severity medium">Média Frequência</span>
+            </div>
+            <h3 class="erro-title">Usar múltiplos IDs iguais</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Errado</span>
+              <pre><code>&lt;div id="main"&gt;Conteúdo 1&lt;/div&gt;
+&lt;div id="main"&gt;Conteúdo 2&lt;/div&gt;</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Correto</span>
+              <pre><code>&lt;div id="main-1"&gt;Conteúdo 1&lt;/div&gt;
+&lt;div id="main-2"&gt;Conteúdo 2&lt;/div&gt;
+&lt;!-- Ou use classes --&gt;
+&lt;div class="main"&gt;Conteúdo&lt;/div&gt;</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                IDs devem ser únicos na página. Para elementos repetidos, use
+                classes.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro 4 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">04</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">Estrutura semântica incorreta</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Errado</span>
+              <pre><code>&lt;div class="header"&gt;...&lt;/div&gt;
+&lt;div class="navigation"&gt;...&lt;/div&gt;
+&lt;div class="content"&gt;...&lt;/div&gt;</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Correto</span>
+              <pre><code>&lt;header&gt;...&lt;/header&gt;
+&lt;nav&gt;...&lt;/nav&gt;
+&lt;main&gt;...&lt;/main&gt;
+&lt;footer&gt;...&lt;/footer&gt;</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Tags semânticas melhoram SEO, acessibilidade e manutenção do
+                código.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro 5 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">05</span>
+              <span class="erro-severity medium">Média Frequência</span>
+            </div>
+            <h3 class="erro-title">Pular níveis de heading</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Errado</span>
+              <pre><code>&lt;h1&gt;Título Principal&lt;/h1&gt;
+&lt;h4&gt;Subtítulo&lt;/h4&gt;  &lt;!-- Pulou h2, h3 --&gt;</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Correto</span>
+              <pre><code>&lt;h1&gt;Título Principal&lt;/h1&gt;
+&lt;h2&gt;Subtítulo&lt;/h2&gt;
+&lt;h3&gt;Sub-subtítulo&lt;/h3&gt;</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Headings criam hierarquia. Não pule níveis - use CSS para
+                estilizar tamanhos.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro 6 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">06</span>
+              <span class="erro-severity low">Baixa mas Importante</span>
+            </div>
+            <h3 class="erro-title">Links sem href ou com href="#"</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Errado</span>
+              <pre><code>&lt;a onclick="doSomething()"&gt;Clique&lt;/a&gt;
+&lt;a href="#"&gt;Link fake&lt;/a&gt;</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Correto</span>
+              <pre><code>&lt;a href="/pagina"&gt;Link real&lt;/a&gt;
+&lt;button onclick="doSomething()"&gt;Ação&lt;/button&gt;</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Use &lt;a&gt; para navegação, &lt;button&gt; para ações.
+                Acessibilidade importa!
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro 7 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">07</span>
+              <span class="erro-severity medium">Média Frequência</span>
+            </div>
+            <h3 class="erro-title">Formulários sem labels</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Errado</span>
+              <pre><code>&lt;input type="text" placeholder="Nome"&gt;</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Correto</span>
+              <pre><code>&lt;label for="nome"&gt;Nome:&lt;/label&gt;
+&lt;input type="text" id="nome" name="nome"&gt;</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Labels associados melhoram UX (clique no label foca no input) e
+                acessibilidade.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro 8 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">08</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">Inline styles excessivos</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Errado</span>
+              <pre><code>&lt;p style="color: red; font-size: 16px; 
+   margin: 10px; padding: 5px;"&gt;Texto&lt;/p&gt;</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Correto</span>
+              <pre><code>&lt;!-- HTML --&gt;
+&lt;p class="destaque"&gt;Texto&lt;/p&gt;
+
+/* CSS */
+.destaque {
+  color: red;
+  font-size: 16px;
+}</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Separe estrutura (HTML) de apresentação (CSS). Facilita
+                manutenção.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro 9 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">09</span>
+              <span class="erro-severity low">Baixa Frequência</span>
+            </div>
+            <h3 class="erro-title">Tabelas para layout</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Errado (anos 2000)</span>
+              <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Menu&lt;/td&gt;
+    &lt;td&gt;Conteúdo&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Correto (moderno)</span>
+              <pre><code>&lt;div class="layout"&gt;
+  &lt;aside&gt;Menu&lt;/aside&gt;
+  &lt;main&gt;Conteúdo&lt;/main&gt;
+&lt;/div&gt;
+/* CSS: display: flex ou grid */</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Tabelas são para dados tabulares. Use Flexbox ou Grid para
+                layouts.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro 10 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">10</span>
+              <span class="erro-severity medium">Média Frequência</span>
+            </div>
+            <h3 class="erro-title">Esquecer meta viewport</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Errado</span>
+              <pre><code>&lt;head&gt;
+  &lt;title&gt;Meu Site&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Correto</span>
+              <pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" 
+    content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Meu Site&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Essencial para sites responsivos. Sem isso, mobile mostra versão
+                desktop minúscula.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Erros CSS -->
+    <section
+      id="css-errors"
+      class="section erros-section bg-alt"
+      data-category="css"
+    >
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge css-badge">CSS</span>
+          <h2 class="section-title">Top 10 Erros em CSS</h2>
+          <p class="section-description">
+            Problemas de estilização que causam layouts quebrados e bugs
+            visuais.
+          </p>
+        </div>
+
+        <div class="erros-grid">
+          <!-- Erro CSS 1 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">01</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">Esquecer box-sizing: border-box</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Problema</span>
+              <pre><code>.box {
+  width: 100px;
+  padding: 20px;
+  border: 5px solid;
+}
+/* Largura real: 150px! */</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Solução</span>
+              <pre><code>*, *::before, *::after {
+  box-sizing: border-box;
+}
+.box {
+  width: 100px; /* Largura real: 100px */
+}</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Adicione isso no início de todo CSS. Padding e border ficam
+                dentro do width.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro CSS 2 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">02</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">Usar height: 100% sem contexto</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Não funciona</span>
+              <pre><code>.container {
+  height: 100%; /* Não faz nada! */
+}</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Funciona</span>
+              <pre><code>html, body {
+  height: 100%;
+}
+.container {
+  height: 100%; /* Agora sim! */
+}
+/* Ou use: */
+.container {
+  min-height: 100vh;
+}</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                % é relativo ao pai. Se o pai não tem altura definida, não
+                funciona. Use vh.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro CSS 3 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">03</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">Centralizar verticalmente incorretamente</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Tentativas frustradas</span>
+              <pre><code>.box {
+  vertical-align: middle; /* Não funciona */
+  margin: auto; /* Só horizontal */
+}</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Soluções modernas</span>
+              <pre><code>/* Flexbox */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Grid */
+.container {
+  display: grid;
+  place-items: center;
+}</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Flexbox e Grid resolvem centralização de forma simples e
+                consistente.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro CSS 4 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">04</span>
+              <span class="erro-severity medium">Média Frequência</span>
+            </div>
+            <h3 class="erro-title">Especificidade muito alta</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Difícil de sobrescrever</span>
+              <pre><code>body div.container #main .content p.text {
+  color: red;
+}
+/* Especificidade: 0,1,2,4 */</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Simples e reutilizável</span>
+              <pre><code>.text-red {
+  color: red;
+}
+/* Especificidade: 0,0,1,0 */</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Mantenha especificidade baixa. Evite IDs no CSS. Use classes bem
+                nomeadas.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro CSS 5 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">05</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">Usar !important desnecessariamente</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Guerra de !important</span>
+              <pre><code>.button {
+  color: red !important;
+}
+.button-blue {
+  color: blue !important; /* Quem ganha? */
+}</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Solução limpa</span>
+              <pre><code>.button {
+  color: red;
+}
+.button.button-blue {
+  color: blue; /* Maior especificidade */
+}</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                !important é último recurso. Resolva problemas com
+                especificidade adequada.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro CSS 6 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">06</span>
+              <span class="erro-severity medium">Média Frequência</span>
+            </div>
+            <h3 class="erro-title">Z-index sem position</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Não funciona</span>
+              <pre><code>.element {
+  z-index: 9999; /* Ignorado! */
+}</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Funciona</span>
+              <pre><code>.element {
+  position: relative; /* Necessário! */
+  z-index: 10;
+}</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                z-index só funciona em elementos posicionados (relative,
+                absolute, fixed, sticky).
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro CSS 7 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">07</span>
+              <span class="erro-severity medium">Média Frequência</span>
+            </div>
+            <h3 class="erro-title">Margin collapse inesperado</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Comportamento confuso</span>
+              <pre><code>.box1 { margin-bottom: 20px; }
+.box2 { margin-top: 30px; }
+/* Espaço total: 30px (não 50px!) */</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Evitar collapse</span>
+              <pre><code>/* Use padding no container */
+.container { padding: 1px; }
+
+/* Ou Flexbox/Grid */
+.container { display: flex; flex-direction: column; }
+
+/* Ou gap */
+.container { display: flex; gap: 30px; }</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Margins verticais colapsam. Flexbox e Grid não têm esse
+                comportamento.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro CSS 8 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">08</span>
+              <span class="erro-severity low">Baixa mas Importante</span>
+            </div>
+            <h3 class="erro-title">Não usar unidades relativas</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Problema de acessibilidade</span>
+              <pre><code>body {
+  font-size: 16px; /* Fixo */
+}
+h1 {
+  font-size: 32px; /* Fixo */
+}</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Acessível e responsivo</span>
+              <pre><code>:root {
+  font-size: 16px; /* Base */
+}
+body {
+  font-size: 1rem;
+}
+h1 {
+  font-size: 2rem; /* Escala com preferência do usuário */
+}</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                rem e em respeitam configurações de acessibilidade do usuário.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro CSS 9 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">09</span>
+              <span class="erro-severity medium">Média Frequência</span>
+            </div>
+            <h3 class="erro-title">Overflow hidden escondendo conteúdo</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Conteúdo cortado</span>
+              <pre><code>.card {
+  overflow: hidden;
+  /* Box-shadow, tooltips, dropdowns 
+     podem ser cortados! */
+}</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Uso consciente</span>
+              <pre><code>/* Use apenas quando necessário */
+.card {
+  overflow: visible; /* Padrão */
+}
+.card-image {
+  overflow: hidden; /* Só na imagem */
+  border-radius: 8px;
+}</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                overflow: hidden afeta todos os filhos. Aplique apenas onde
+                necessário.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro CSS 10 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">10</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">Não testar em diferentes browsers</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Funciona só no Chrome</span>
+              <pre><code>.element {
+  backdrop-filter: blur(10px);
+  /* Sem fallback para Firefox antigo */
+}</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Com fallback</span>
+              <pre><code>.element {
+  background: rgba(255,255,255,0.9);
+}
+@supports (backdrop-filter: blur(10px)) {
+  .element {
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(10px);
+  }
+}</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Use caniuse.com para verificar suporte. Sempre forneça
+                fallbacks.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Erros JavaScript -->
+    <section id="js-errors" class="section erros-section" data-category="js">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge js-badge">JavaScript</span>
+          <h2 class="section-title">Top 15 Erros em JavaScript</h2>
+          <p class="section-description">
+            Os bugs mais comuns que todo desenvolvedor JavaScript enfrenta.
+          </p>
+        </div>
+
+        <div class="erros-grid">
+          <!-- Erro JS 1 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">01</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">Cannot read property of undefined/null</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Erro comum</span>
+              <pre><code>const user = null;
+console.log(user.name); 
+// TypeError: Cannot read property 'name' of null</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Verificação segura</span>
+              <pre><code>// Optional chaining (ES2020)
+console.log(user?.name); // undefined
+
+// Ou verificação tradicional
+if (user && user.name) {
+  console.log(user.name);
+}
+
+// Com valor padrão
+const name = user?.name || 'Anônimo';</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Use optional chaining (?.) e nullish coalescing (??) para código
+                seguro.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro JS 2 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">02</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">Comparação com == ao invés de ===</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Comparação solta</span>
+              <pre><code>0 == ""      // true (WAT?)
+0 == false   // true
+null == undefined // true
+"1" == 1     // true</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Comparação estrita</span>
+              <pre><code>0 === ""      // false
+0 === false   // false
+null === undefined // false
+"1" === 1     // false
+
+// Sempre use === e !==</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                === compara valor E tipo. == faz coerção de tipo e causa bugs
+                sutis.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro JS 3 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">03</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">var vs let/const e hoisting</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Problemas com var</span>
+              <pre><code>console.log(x); // undefined (não erro!)
+var x = 5;
+
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 100);
+}
+// Output: 3, 3, 3 (não 0, 1, 2!)</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Usar let e const</span>
+              <pre><code>console.log(x); // ReferenceError
+let x = 5;
+
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 100);
+}
+// Output: 0, 1, 2 ✓
+
+// Use const para valores que não mudam
+const PI = 3.14159;</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Nunca use var. Use const por padrão, let quando precisar
+                reatribuir.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro JS 4 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">04</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">this em callbacks e arrow functions</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ this perdido</span>
+              <pre><code>const obj = {
+  name: 'João',
+  greet: function() {
+    setTimeout(function() {
+      console.log(this.name); // undefined!
+    }, 100);
+  }
+};</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Arrow function preserva this</span>
+              <pre><code>const obj = {
+  name: 'João',
+  greet: function() {
+    setTimeout(() => {
+      console.log(this.name); // 'João' ✓
+    }, 100);
+  }
+};
+
+// Ou bind explícito
+setTimeout(function() {
+  console.log(this.name);
+}.bind(this), 100);</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Arrow functions herdam this do escopo pai. Funções normais têm
+                seu próprio this.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro JS 5 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">05</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">Esquecer await em funções async</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Promise não resolvida</span>
+              <pre><code>async function getData() {
+  const response = fetch('/api/data');
+  const data = response.json(); // Erro!
+  console.log(data); // Pending Promise
+}</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Com await</span>
+              <pre><code>async function getData() {
+  const response = await fetch('/api/data');
+  const data = await response.json();
+  console.log(data); // Dados reais ✓
+}
+
+// Com error handling
+async function getDataSafe() {
+  try {
+    const response = await fetch('/api/data');
+    if (!response.ok) throw new Error('HTTP error');
+    return await response.json();
+  } catch (error) {
+    console.error('Erro:', error);
+  }
+}</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Sempre use await com operações assíncronas. Envolva em try/catch
+                para erros.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro JS 6 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">06</span>
+              <span class="erro-severity medium">Média Frequência</span>
+            </div>
+            <h3 class="erro-title">Mutar arrays/objetos diretamente</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Mutação direta (perigoso)</span>
+              <pre><code>const original = [1, 2, 3];
+const copy = original;
+copy.push(4);
+console.log(original); // [1, 2, 3, 4] - modificado!</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Criar cópias</span>
+              <pre><code>const original = [1, 2, 3];
+
+// Spread operator
+const copy = [...original, 4];
+
+// Para objetos
+const obj = { a: 1, b: 2 };
+const objCopy = { ...obj, c: 3 };
+
+// Deep copy (objetos aninhados)
+const deepCopy = JSON.parse(JSON.stringify(obj));</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Imutabilidade evita bugs. Sempre crie novas cópias ao modificar
+                dados.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro JS 7 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">07</span>
+              <span class="erro-severity medium">Média Frequência</span>
+            </div>
+            <h3 class="erro-title">forEach não funciona com async/await</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Não espera as promises</span>
+              <pre><code>const ids = [1, 2, 3];
+ids.forEach(async (id) => {
+  const data = await fetchUser(id);
+  console.log(data);
+});
+console.log('Fim'); // Executa antes dos logs!</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Usar for...of ou Promise.all</span>
+              <pre><code>// Sequencial
+for (const id of ids) {
+  const data = await fetchUser(id);
+  console.log(data);
+}
+console.log('Fim'); // Executa por último ✓
+
+// Paralelo (mais rápido)
+const results = await Promise.all(
+  ids.map(id => fetchUser(id))
+);
+console.log(results);</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                forEach ignora o retorno. Use for...of para sequencial,
+                Promise.all para paralelo.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro JS 8 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">08</span>
+              <span class="erro-severity medium">Média Frequência</span>
+            </div>
+            <h3 class="erro-title">Não tratar erros de Promise</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Erro silenciado</span>
+              <pre><code>fetch('/api/data')
+  .then(res => res.json())
+  .then(data => console.log(data));
+// Se der erro, nada acontece!</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Com catch</span>
+              <pre><code>fetch('/api/data')
+  .then(res => {
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return res.json();
+  })
+  .then(data => console.log(data))
+  .catch(error => {
+    console.error('Erro:', error);
+    // Mostrar mensagem pro usuário
+  })
+  .finally(() => {
+    // Esconder loading
+  });</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Sempre adicione .catch() ou try/catch. Erros silenciosos são
+                difíceis de debuggar.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro JS 9 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">09</span>
+              <span class="erro-severity medium">Média Frequência</span>
+            </div>
+            <h3 class="erro-title">Confundir map, filter, reduce</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Uso incorreto</span>
+              <pre><code>// Usar map para filtrar (retorna undefineds)
+const adults = users.map(u => {
+  if (u.age >= 18) return u;
+}); // [User, undefined, User, undefined]
+
+// Usar forEach quando precisa do retorno
+const doubled = [];
+[1,2,3].forEach(n => doubled.push(n * 2));</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label"
+                >✅ Método correto para cada caso</span
+              >
+              <pre><code>// filter: retorna subset
+const adults = users.filter(u => u.age >= 18);
+
+// map: transforma cada elemento
+const doubled = [1,2,3].map(n => n * 2);
+
+// reduce: acumula em um valor
+const sum = [1,2,3].reduce((acc, n) => acc + n, 0);
+
+// find: retorna primeiro match
+const admin = users.find(u => u.role === 'admin');</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                map = transformar, filter = filtrar, reduce = acumular, find =
+                buscar um.
+              </p>
+            </div>
+          </div>
+
+          <!-- Erro JS 10 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">10</span>
+              <span class="erro-severity low">Baixa mas Crítica</span>
+            </div>
+            <h3 class="erro-title">Truthy/Falsy confusão</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Verificação incorreta</span>
+              <pre><code>const count = 0;
+if (count) {
+  console.log('Tem items'); // Não executa!
+}
+// 0 é falsy, mas pode ser valor válido
+
+const text = "";
+if (!text) {
+  console.log('Vazio'); // String vazia é falsy
+}</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Verificação explícita</span>
+              <pre><code>const count = 0;
+if (count !== undefined && count !== null) {
+  console.log('Count definido:', count);
+}
+
+// Ou nullish coalescing
+const value = count ?? 'default'; // 0 (não 'default')
+
+// Valores falsy: false, 0, "", null, undefined, NaN
+// Valores truthy: todo o resto, incluindo [], {}</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Use ?? para null/undefined, || pode substituir 0 e ""
+                indesejavelmente.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Debugging -->
+    <section
+      id="debug-section"
+      class="section erros-section bg-alt"
+      data-category="debug"
+    >
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge debug-badge">🔧 Debug</span>
+          <h2 class="section-title">Técnicas de Debugging</h2>
+          <p class="section-description">
+            Aprenda a debugar código de forma eficiente e profissional.
+          </p>
+        </div>
+
+        <div class="debug-grid">
+          <!-- Console Methods -->
+          <div class="debug-card">
+            <h3>📝 Console além do .log()</h3>
+            <div class="code-example">
+              <pre><code>// Agrupar logs relacionados
+console.group('Dados do Usuário');
+console.log('Nome:', user.name);
+console.log('Email:', user.email);
+console.groupEnd();
+
+// Tabela para arrays/objetos
+console.table(users);
+
+// Tempo de execução
+console.time('fetch');
+await fetch('/api');
+console.timeEnd('fetch'); // fetch: 234ms
+
+// Warning e Error (diferentes cores)
+console.warn('Atenção: valor depreciado');
+console.error('Erro crítico!');
+
+// Condicional
+console.assert(x > 0, 'x deve ser positivo');
+
+// Stack trace
+console.trace('Como chegamos aqui?');
+
+// Contar ocorrências
+console.count('render'); // render: 1, 2, 3...
+
+// Limpar console
+console.clear();</code></pre>
+            </div>
+          </div>
+
+          <!-- Breakpoints -->
+          <div class="debug-card">
+            <h3>🔴 Breakpoints no DevTools</h3>
+            <ul class="debug-list">
+              <li>
+                <strong>Line Breakpoint:</strong> Clique no número da linha
+              </li>
+              <li>
+                <strong>Conditional:</strong> Clique direito → "Add conditional
+                breakpoint"
+              </li>
+              <li><strong>Logpoint:</strong> Loga sem pausar a execução</li>
+              <li>
+                <strong>debugger;</strong> Pausa quando DevTools está aberto
+              </li>
+              <li>
+                <strong>DOM Breakpoint:</strong> Pausa quando elemento muda
+              </li>
+              <li>
+                <strong>XHR Breakpoint:</strong> Pausa em requisições
+                específicas
+              </li>
+              <li>
+                <strong>Event Listener:</strong> Pausa em eventos (click, etc)
+              </li>
+            </ul>
+            <div class="code-example">
+              <pre><code>// Breakpoint no código
+function processData(data) {
+  debugger; // Pausa aqui
+  return data.map(item => item * 2);
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Network Tab -->
+          <div class="debug-card">
+            <h3>🌐 Debugging de Rede</h3>
+            <ul class="debug-list">
+              <li>
+                <strong>Status Code:</strong> 2xx ✓, 4xx erro cliente, 5xx erro
+                servidor
+              </li>
+              <li><strong>Preview:</strong> Visualiza resposta formatada</li>
+              <li><strong>Headers:</strong> Verifica tokens, content-type</li>
+              <li><strong>Timing:</strong> Identifica gargalos</li>
+              <li><strong>Throttling:</strong> Simula conexões lentas</li>
+            </ul>
+            <div class="code-example">
+              <pre><code>// Log detalhado de requisições
+const response = await fetch('/api/data');
+console.log('Status:', response.status);
+console.log('Headers:', Object.fromEntries(response.headers));
+console.log('URL:', response.url);</code></pre>
+            </div>
+          </div>
+
+          <!-- Error Reading -->
+          <div class="debug-card full-width">
+            <h3>📖 Como Ler Mensagens de Erro</h3>
+            <div class="error-anatomy">
+              <pre
+                class="error-message"
+              ><code><span class="error-type">TypeError</span>: <span class="error-desc">Cannot read property 'map' of undefined</span>
+    at <span class="error-func">processUsers</span> <span class="error-file">(src/utils.js:15:23)</span>
+    at <span class="error-func">App.render</span> <span class="error-file">(src/App.js:42:10)</span>
+    at <span class="error-func">renderWithHooks</span> <span class="error-file">(react-dom.js:1234:5)</span></code></pre>
+              <div class="error-explanation">
+                <div class="explanation-item">
+                  <span class="label">1. Tipo do Erro:</span>
+                  <span
+                    >TypeError - tentou usar um método em tipo incorreto</span
+                  >
+                </div>
+                <div class="explanation-item">
+                  <span class="label">2. Descrição:</span>
+                  <span
+                    >Tentou usar .map() em undefined (array não existe)</span
+                  >
+                </div>
+                <div class="explanation-item">
+                  <span class="label">3. Local:</span>
+                  <span
+                    >utils.js, linha 15, coluna 23 - função processUsers</span
+                  >
+                </div>
+                <div class="explanation-item">
+                  <span class="label">4. Stack Trace:</span>
+                  <span
+                    >Sequência de chamadas que levou ao erro (de baixo pra
+                    cima)</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Common Error Types -->
+          <div class="debug-card full-width">
+            <h3>⚠️ Tipos Comuns de Erro</h3>
+            <div class="error-types-grid">
+              <div class="error-type-card">
+                <h4>SyntaxError</h4>
+                <p>Erro de sintaxe - código mal escrito</p>
+                <code>Unexpected token, Missing semicolon</code>
+              </div>
+              <div class="error-type-card">
+                <h4>ReferenceError</h4>
+                <p>Variável não existe ou não está no escopo</p>
+                <code>x is not defined</code>
+              </div>
+              <div class="error-type-card">
+                <h4>TypeError</h4>
+                <p>Operação em tipo errado</p>
+                <code>undefined is not a function</code>
+              </div>
+              <div class="error-type-card">
+                <h4>RangeError</h4>
+                <p>Valor fora do range permitido</p>
+                <code>Maximum call stack exceeded</code>
+              </div>
+              <div class="error-type-card">
+                <h4>NetworkError</h4>
+                <p>Problema de conexão ou CORS</p>
+                <code>Failed to fetch, CORS policy</code>
+              </div>
+              <div class="error-type-card">
+                <h4>URIError</h4>
+                <p>Problema com encode/decode URI</p>
+                <code>malformed URI sequence</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Erros React -->
+    <section
+      id="react-errors"
+      class="section erros-section"
+      data-category="react"
+    >
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge react-badge">React</span>
+          <h2 class="section-title">Erros Comuns em React</h2>
+          <p class="section-description">
+            Bugs específicos do React que pegam iniciantes e veteranos.
+          </p>
+        </div>
+
+        <div class="erros-grid">
+          <!-- React Erro 1 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">01</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">Esquecer key em listas</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Warning no console</span>
+              <pre><code>{items.map(item => (
+  &lt;Item name={item.name} /&gt;
+))}
+// Warning: Each child should have a unique "key" prop</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Com key único</span>
+              <pre><code>{items.map(item => (
+  &lt;Item key={item.id} name={item.name} /&gt;
+))}
+
+// ⚠️ Evite usar index como key se a ordem pode mudar
+{items.map((item, index) => (
+  &lt;Item key={index} /&gt; // Ruim se lista é reordenada
+))}</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Keys ajudam React a identificar mudanças. Use ID único, não
+                índice.
+              </p>
+            </div>
+          </div>
+
+          <!-- React Erro 2 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">02</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">Mutar estado diretamente</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Mutação direta</span>
+              <pre><code>const [items, setItems] = useState([1, 2, 3]);
+
+// ❌ Não causa re-render!
+items.push(4);
+setItems(items);
+
+// ❌ Objeto
+const [user, setUser] = useState({name: 'João'});
+user.name = 'Maria';
+setUser(user);</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Criar novo estado</span>
+              <pre><code>// ✅ Array - spread operator
+setItems([...items, 4]);
+
+// ✅ Remover item
+setItems(items.filter(item => item !== 2));
+
+// ✅ Objeto
+setUser({...user, name: 'Maria'});
+
+// ✅ Com callback (prevState)
+setItems(prev => [...prev, newItem]);</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                React compara referências. Sempre crie novos objetos/arrays para
+                atualizar estado.
+              </p>
+            </div>
+          </div>
+
+          <!-- React Erro 3 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">03</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">useEffect com dependências erradas</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label"
+                >❌ Loop infinito ou efeito não executa</span
+              >
+              <pre><code>// Loop infinito!
+useEffect(() => {
+  setCount(count + 1);
+}); // Sem array de dependências
+
+// Não atualiza quando deveria
+useEffect(() => {
+  fetchUser(userId);
+}, []); // userId não está nas deps</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Dependências corretas</span>
+              <pre><code>// Executa apenas uma vez
+useEffect(() => {
+  fetchInitialData();
+}, []);
+
+// Executa quando userId muda
+useEffect(() => {
+  fetchUser(userId);
+}, [userId]);
+
+// Com cleanup
+useEffect(() => {
+  const subscription = subscribe();
+  return () => subscription.unsubscribe();
+}, []);</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Inclua todas variáveis usadas no effect. Use
+                eslint-plugin-react-hooks.
+              </p>
+            </div>
+          </div>
+
+          <!-- React Erro 4 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">04</span>
+              <span class="erro-severity medium">Média Frequência</span>
+            </div>
+            <h3 class="erro-title">Estado não atualiza imediatamente</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Expectativa errada</span>
+              <pre><code>const [count, setCount] = useState(0);
+
+const handleClick = () => {
+  setCount(count + 1);
+  console.log(count); // Ainda 0!
+  
+  setCount(count + 1);
+  setCount(count + 1);
+  // count ainda é 1, não 3!
+};</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Usar callback</span>
+              <pre><code>const handleClick = () => {
+  setCount(prev => prev + 1);
+  setCount(prev => prev + 1);
+  setCount(prev => prev + 1);
+  // Agora count será 3!
+};
+
+// Para usar valor atualizado
+useEffect(() => {
+  console.log('Count atualizado:', count);
+}, [count]);</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                setState é assíncrono. Use callback prev => para atualizações
+                sequenciais.
+              </p>
+            </div>
+          </div>
+
+          <!-- React Erro 5 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">05</span>
+              <span class="erro-severity medium">Média Frequência</span>
+            </div>
+            <h3 class="erro-title">Renderizar condicionalmente errado</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Renderiza 0</span>
+              <pre><code>{count && &lt;Message /&gt;}
+// Se count é 0, renderiza "0" na tela!
+
+{items.length && &lt;List items={items} /&gt;}
+// Se length é 0, renderiza "0"</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Conversão explícita</span>
+              <pre><code>// Usar comparação booleana
+{count > 0 && &lt;Message /&gt;}
+
+// Ou ternário
+{count ? &lt;Message /&gt; : null}
+
+// Ou Boolean()
+{Boolean(items.length) && &lt;List /&gt;}
+
+// Double negation
+{!!items.length && &lt;List /&gt;}</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                0 e "" são falsy mas o React os renderiza. Force boolean com
+                comparação ou !!.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Erros Git -->
+    <section
+      id="git-errors"
+      class="section erros-section bg-alt"
+      data-category="git"
+    >
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge git-badge">Git</span>
+          <h2 class="section-title">Erros Comuns em Git</h2>
+          <p class="section-description">
+            Problemas de versionamento que todos enfrentam e como resolver.
+          </p>
+        </div>
+
+        <div class="erros-grid">
+          <!-- Git Erro 1 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">01</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">Commit na branch errada</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Situação</span>
+              <pre><code># Você commitou na main ao invés da feature
+git log --oneline
+abc1234 feat: nova funcionalidade  # Ops!</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Solução</span>
+              <pre><code># 1. Crie a branch do commit atual
+git branch feature-nova
+
+# 2. Reset main para antes do commit
+git reset --hard HEAD~1
+
+# 3. Mude para a branch correta
+git checkout feature-nova
+
+# Alternativa: cherry-pick
+git checkout feature
+git cherry-pick abc1234
+git checkout main
+git reset --hard HEAD~1</code></pre>
+            </div>
+          </div>
+
+          <!-- Git Erro 2 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">02</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">Desfazer último commit</h3>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Opções</span>
+              <pre><code># Manter alterações staged
+git reset --soft HEAD~1
+
+# Manter alterações unstaged
+git reset HEAD~1
+
+# Descartar tudo (CUIDADO!)
+git reset --hard HEAD~1
+
+# Já fez push? Use revert (não reescreve histórico)
+git revert HEAD
+
+# Editar mensagem do commit
+git commit --amend -m "Nova mensagem"
+
+# Adicionar arquivo esquecido
+git add arquivo.js
+git commit --amend --no-edit</code></pre>
+            </div>
+          </div>
+
+          <!-- Git Erro 3 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">03</span>
+              <span class="erro-severity high">Alta Frequência</span>
+            </div>
+            <h3 class="erro-title">Conflitos de merge</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Arquivo com conflito</span>
+              <pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+const url = '/api/v2/users';
+=======
+const url = '/api/v1/users';
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-branch</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Resolver</span>
+              <pre><code># 1. Edite o arquivo, mantendo o código desejado
+const url = '/api/v2/users';
+
+# 2. Remova os marcadores de conflito
+
+# 3. Adicione o arquivo resolvido
+git add arquivo.js
+
+# 4. Continue o merge
+git commit -m "Merge: resolve conflitos"
+
+# Abortar merge se der errado
+git merge --abort</code></pre>
+            </div>
+            <div class="erro-dica">
+              <span class="dica-icon">💡</span>
+              <p>
+                Use VS Code ou GitKraken para visualizar conflitos mais
+                facilmente.
+              </p>
+            </div>
+          </div>
+
+          <!-- Git Erro 4 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">04</span>
+              <span class="erro-severity medium">Média Frequência</span>
+            </div>
+            <h3 class="erro-title">Push rejeitado</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Erro</span>
+              <pre><code>git push origin main
+! [rejected] main -> main (non-fast-forward)
+error: failed to push some refs</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Soluções</span>
+              <pre><code># Opção 1: Pull e merge
+git pull origin main
+# Resolva conflitos se houver
+git push origin main
+
+# Opção 2: Pull com rebase (histórico limpo)
+git pull --rebase origin main
+git push origin main
+
+# Opção 3: Force push (CUIDADO - apenas para sua branch)
+git push --force-with-lease origin feature-branch
+# Nunca force push em main/develop!</code></pre>
+            </div>
+          </div>
+
+          <!-- Git Erro 5 -->
+          <div class="erro-card">
+            <div class="erro-header">
+              <span class="erro-numero">05</span>
+              <span class="erro-severity medium">Média Frequência</span>
+            </div>
+            <h3 class="erro-title">Arquivo sensível commitado</h3>
+            <div class="erro-exemplo wrong">
+              <span class="exemplo-label">❌ Problema</span>
+              <pre><code># Commitou .env com senhas por acidente
+git log --all --full-history -- .env
+# Mostra que .env está no histórico</code></pre>
+            </div>
+            <div class="erro-exemplo correct">
+              <span class="exemplo-label">✅ Remover do histórico</span>
+              <pre><code># 1. Adicione ao .gitignore
+echo ".env" >> .gitignore
+
+# 2. Remova do cache (arquivo fica local)
+git rm --cached .env
+git commit -m "Remove .env do tracking"
+
+# 3. Para remover do histórico completo:
+git filter-branch --force --index-filter \
+  "git rm --cached --ignore-unmatch .env" \
+  --prune-empty --tag-name-filter cat -- --all
+
+# 4. Force push (coordene com time!)
+git push origin --force --all
+
+# ⚠️ TROQUE TODAS AS SENHAS EXPOSTAS!</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    </main>
+
+
+    <!-- Footer -->

@@ -1,0 +1,347 @@
+---
+title: "Backend com Node.js - DevStudy"
+description: "Introdução ao backend com Node.js: o que é, npm, criar um servidor HTTP, API REST com Express e boas práticas para iniciantes."
+permalink: "backend.html"
+styles: ["conteudos.css","middleware-simulator.css"]
+scripts: ["middleware-simulator.js"]
+footer: {"variant":"simples"}
+---
+    <main id="main-content">
+      <section class="page-hero">
+        <div class="container">
+          <div class="hero-badge">🟢 O outro lado da aplicação</div>
+          <h1><span class="accent-terminal">Backend</span> com Node.js</h1>
+          <p class="hero-description">
+            O back-end é a parte que o usuário não vê: a lógica, o servidor e o
+            banco de dados. Com Node.js você usa o mesmo JavaScript do front
+            para construir APIs.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="info-card">
+            <div class="info-icon">🟢</div>
+            <div>
+              <h3>O que é Node.js?</h3>
+              <p>
+                É um ambiente que roda JavaScript fora do navegador — no
+                servidor, no seu computador. Com ele você cria APIs, lê
+                arquivos, acessa bancos de dados e muito mais.
+              </p>
+            </div>
+          </div>
+
+          <div class="callout callout-info">
+            <span class="callout-icon">▶️</span>
+            <div class="callout-body">
+              <strong>Rodando seu primeiro arquivo</strong>
+              Salve um <code>app.js</code> e rode no terminal com
+              <code>node app.js</code>. Precisa do
+              <a href="terminal.html">terminal e npm</a> instalados.
+            </div>
+          </div>
+
+          <!-- Server puro -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🖥️</span> Um servidor HTTP do zero</h3>
+            <p class="topic-description">
+              Sem bibliotecas, só com o módulo nativo <code>http</code>.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">JavaScript (Node)</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>const http = require("http");
+
+const servidor = http.createServer((req, res) =&gt; {
+  res.writeHead(200, { "Content-Type": "application/json" });
+  res.end(JSON.stringify({ mensagem: "Olá do servidor!" }));
+});
+
+servidor.listen(3000, () =&gt; {
+  console.log("Rodando em http://localhost:3000");
+});</code></pre>
+            </div>
+          </div>
+
+          <!-- Express -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🚂</span> API REST com Express</h3>
+            <p class="topic-description">
+              Express é o framework mais popular para Node. Instale com
+              <code>npm install express</code>.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">JavaScript (Node)</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>const express = require("express");
+const app = express();
+app.use(express.json()); // entende JSON no corpo das requisições
+
+let tarefas = [{ id: 1, texto: "Estudar Node" }];
+
+// GET — listar
+app.get("/tarefas", (req, res) =&gt; res.json(tarefas));
+
+// POST — criar
+app.post("/tarefas", (req, res) =&gt; {
+  const nova = { id: Date.now(), texto: req.body.texto };
+  tarefas.push(nova);
+  res.status(201).json(nova);
+});
+
+app.listen(3000, () =&gt; console.log("API no ar! 🚀"));</code></pre>
+            </div>
+            <div class="callout callout-tip">
+              <span class="callout-icon">🔗</span>
+              <div class="callout-body">
+                <strong>Conecte os pontos</strong>
+                Essa API responde aos verbos HTTP (<a href="http.html">GET/POST</a>)
+                e pode ser consumida pelo <a href="apis.html">fetch</a> no
+                front-end. É o ciclo completo!
+              </div>
+            </div>
+          </div>
+
+          <!-- Rotas completas REST -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🔀</span> CRUD completo: rotas com parâmetro</h3>
+            <p class="topic-description">
+              O <code>:id</code> na rota vira <code>req.params.id</code>. Assim
+              você lê, atualiza ou apaga um item específico.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">JavaScript (Node)</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>// GET um item — /tarefas/3
+app.get("/tarefas/:id", (req, res) =&gt; {
+  const tarefa = tarefas.find(t =&gt; t.id == req.params.id);
+  if (!tarefa) return res.status(404).json({ erro: "Não encontrada" });
+  res.json(tarefa);
+});
+
+// PUT — atualizar
+app.put("/tarefas/:id", (req, res) =&gt; {
+  const tarefa = tarefas.find(t =&gt; t.id == req.params.id);
+  if (!tarefa) return res.status(404).json({ erro: "Não encontrada" });
+  tarefa.texto = req.body.texto;
+  res.json(tarefa);
+});
+
+// DELETE — remover
+app.delete("/tarefas/:id", (req, res) =&gt; {
+  tarefas = tarefas.filter(t =&gt; t.id != req.params.id);
+  res.status(204).end(); // 204 = sucesso, sem corpo
+});</code></pre>
+            </div>
+            <div class="callout callout-info">
+              <span class="callout-icon">📡</span>
+              <div class="callout-body">
+                <strong>O que é REST?</strong>
+                É um estilo de API onde cada <em>recurso</em> (ex: tarefas) tem
+                uma URL e você usa os verbos HTTP para agir sobre ele:
+                GET (ler), POST (criar), PUT/PATCH (atualizar), DELETE (apagar).
+              </div>
+            </div>
+          </div>
+
+          <!-- Middleware -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🧩</span> Middleware na prática</h3>
+            <p class="topic-description">
+              Uma função que roda <em>entre</em> a requisição e a resposta. Use
+              <code>next()</code> para passar adiante na esteira.
+            </p>
+
+            <!-- Simulador Visual Interativo da Esteira de Middlewares -->
+            <div class="middleware-simulator-card" id="middlewareSimulator" aria-label="Simulador Visual da Esteira de Middlewares">
+              <div class="mw-header">
+                <div class="mw-title-group">
+                  <h3><span>⚙️</span> Simulador Visual: A Esteira de Middlewares do Express</h3>
+                  <p class="mw-subtitle">Veja como cada middleware inspeciona a requisição e decide se chama <code>next()</code> ou interrompe o fluxo.</p>
+                </div>
+                <div class="mw-controls">
+                  <span style="font-size:0.8rem; font-weight:700; color:#64748b;">Simular com:</span>
+                  <button type="button" class="mw-toggle-btn active" id="mwBtnValidToken">
+                    <span>🔑</span> Com Token Válido
+                  </button>
+                  <button type="button" class="mw-toggle-btn" id="mwBtnInvalidToken">
+                    <span>🚫</span> Sem Token (Anônimo)
+                  </button>
+                  <button type="button" class="mw-btn-run" id="mwBtnRun">
+                    <span>▶️</span> Simular Passagem
+                  </button>
+                </div>
+              </div>
+
+              <div class="mw-stage">
+                <div class="mw-pipeline-track" tabindex="0" aria-label="Etapas do fluxo de middleware">
+                  <!-- Portão 1: Cliente -->
+                  <div class="mw-gate" id="mwGateClient">
+                    <div class="mw-gate-icon">💻</div>
+                    <div class="mw-gate-name">Cliente</div>
+                    <span class="mw-gate-status">Pronto</span>
+                  </div>
+
+                  <span class="mw-arrow-separator">➔</span>
+
+                  <!-- Portão 2: Logger -->
+                  <div class="mw-gate" id="mwGateLogger">
+                    <div class="mw-gate-icon">📝</div>
+                    <div class="mw-gate-name">Logger</div>
+                    <span class="mw-gate-status">Aguardando</span>
+                  </div>
+
+                  <span class="mw-arrow-separator">➔</span>
+
+                  <!-- Portão 3: Auth -->
+                  <div class="mw-gate" id="mwGateAuth">
+                    <div class="mw-gate-icon">🛡️</div>
+                    <div class="mw-gate-name">Auth / Token</div>
+                    <span class="mw-gate-status">Aguardando</span>
+                  </div>
+
+                  <span class="mw-arrow-separator">➔</span>
+
+                  <!-- Portão 4: Rate Limit -->
+                  <div class="mw-gate" id="mwGateRate">
+                    <div class="mw-gate-icon">⏱️</div>
+                    <div class="mw-gate-name">Rate Limiter</div>
+                    <span class="mw-gate-status">Aguardando</span>
+                  </div>
+
+                  <span class="mw-arrow-separator">➔</span>
+
+                  <!-- Portão 5: Rota / Controller -->
+                  <div class="mw-gate" id="mwGateRoute">
+                    <div class="mw-gate-icon">🎯</div>
+                    <div class="mw-gate-name">Rota VIP (Controller)</div>
+                    <span class="mw-gate-status">Aguardando</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mw-footer">
+                <div class="mw-terminal-log" id="mwTermLog">&gt; Pronto para enviar requisição: GET /api/v1/painel-vip</div>
+                <div class="mw-didactic-text" id="mwExplanation">
+                  Clique em <strong>"▶️ Simular Passagem"</strong> para ver a requisição passar pelos middlewares do Express!
+                </div>
+              </div>
+            </div>
+
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">JavaScript (Node)</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>// Roda em TODA requisição (log simples)
+app.use((req, res, next) =&gt; {
+  console.log(`${req.method} ${req.url}`);
+  next(); // sem isso, a requisição "trava" aqui
+});
+
+// Middleware só em uma rota (ex: checar token)
+function autenticar(req, res, next) {
+  if (!req.headers.authorization)
+    return res.status(401).json({ erro: "Sem token" });
+  next();
+}
+
+app.get("/perfil", autenticar, (req, res) =&gt; {
+  res.json({ nome: "Ana" });
+});</code></pre>
+            </div>
+          </div>
+
+          <!-- async/await no backend -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">⏳</span> Rotas assíncronas (banco de dados)</h3>
+            <p class="topic-description">
+              Acessar banco demora, então usamos <code>async/await</code> com
+              <code>try/catch</code> para tratar erros.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">JavaScript (Node)</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>app.get("/usuarios", async (req, res) =&gt; {
+  try {
+    const usuarios = await db.query("SELECT * FROM usuarios");
+    res.json(usuarios);
+  } catch (erro) {
+    res.status(500).json({ erro: "Falha no banco" });
+  }
+});</code></pre>
+            </div>
+            <div class="callout callout-tip">
+              <span class="callout-icon">🔢</span>
+              <div class="callout-body">
+                <strong>Status codes que você vai usar</strong>
+                <code>200</code> OK · <code>201</code> Criado ·
+                <code>204</code> Sem conteúdo · <code>400</code> Erro do cliente ·
+                <code>401</code> Não autenticado · <code>404</code> Não encontrado ·
+                <code>500</code> Erro do servidor. Veja todos em
+                <a href="http.html">HTTP</a>.
+              </div>
+            </div>
+          </div>
+
+          <!-- Conceitos -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🧱</span> Conceitos que você vai ouvir</h3>
+            <table class="ref-table">
+              <thead>
+                <tr><th>Termo</th><th>O que é</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>rota</code></td><td>Caminho que a API responde (ex: <code>/usuarios</code>)</td></tr>
+                <tr><td><code>middleware</code></td><td>Função que roda entre a requisição e a resposta</td></tr>
+                <tr><td><code>req / res</code></td><td>Objetos de requisição (entrada) e resposta (saída)</td></tr>
+                <tr><td><code>.env</code></td><td>Arquivo com segredos (senhas, chaves) — fora do Git</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout callout-danger">
+            <span class="callout-icon">🔒</span>
+            <div class="callout-body">
+              <strong>Nunca exponha segredos</strong>
+              Senhas e chaves de API ficam em variáveis de ambiente
+              (<code>.env</code>) e nunca no código enviado ao Git.
+            </div>
+          </div>
+
+          <h2 class="section-title" style="margin-top: 3rem">Próximos passos</h2>
+          <div class="related-grid">
+            <a class="related-card" href="sql.html">
+              <span class="emoji">🐬</span>
+              <h4>SQL &amp; MySQL</h4>
+              <p>Aprenda a linguagem dos bancos de dados.</p>
+            </a>
+            <a class="related-card" href="postgresql.html">
+              <span class="emoji">🐘</span>
+              <h4>PostgreSQL</h4>
+              <p>Guarde os dados da sua API de verdade.</p>
+            </a>
+            <a class="related-card" href="apis.html">
+              <span class="emoji">🌐</span>
+              <h4>Consumir APIs</h4>
+              <p>Veja o lado do front com fetch.</p>
+            </a>
+            <a class="related-card" href="typescript.html">
+              <span class="emoji">🔷</span>
+              <h4>TypeScript</h4>
+              <p>Node + TS é combinação de mercado.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>

@@ -1,0 +1,990 @@
+---
+title: "Git & GitHub - DevStudy"
+description: "Aprenda Git e GitHub: comandos essenciais, branches, merge, rebase, resolução de conflitos e boas práticas de versionamento."
+permalink: "git.html"
+styles: ["git.css","conteudos.css","git-simulator.css"]
+scripts: ["git-simulator.js","git.js"]
+footer: {"variant":"marca"}
+---
+    <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="git-hero">
+      <div class="container">
+        <div class="hero-badge">🔀 Controle de Versão</div>
+        <h1>Git & <span class="highlight-git">GitHub</span></h1>
+        <p class="hero-description">
+          Aprenda a controlar versões do seu código, trabalhar em equipe e
+          contribuir para projetos open source com Git e GitHub.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">20+</span>
+            <span class="stat-label">Comandos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- O que é Git -->
+    <section class="content-section" id="intro">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="title-icon">📖</span>
+          O que é Git?
+        </h2>
+
+        <div class="intro-grid">
+          <div class="intro-card">
+            <div class="intro-icon">🔄</div>
+            <h3>Controle de Versão</h3>
+            <p>
+              Git é um sistema de controle de versão distribuído criado por
+              <strong>Linus Torvalds</strong> em 2005. Ele rastreia mudanças no
+              código, permitindo voltar a versões anteriores.
+            </p>
+          </div>
+
+          <div class="intro-card">
+            <div class="intro-icon">👥</div>
+            <h3>Trabalho em Equipe</h3>
+            <p>
+              Permite que múltiplos desenvolvedores trabalhem no mesmo projeto
+              simultaneamente, sem conflitos, através de branches e merges.
+            </p>
+          </div>
+
+          <div class="intro-card">
+            <div class="intro-icon">🌐</div>
+            <h3>GitHub</h3>
+            <p>
+              GitHub é uma plataforma de hospedagem de código que usa Git.
+              Oferece colaboração, issues, pull requests e muito mais.
+            </p>
+          </div>
+
+          <div class="intro-card">
+            <div class="intro-icon">📦</div>
+            <h3>Repositório</h3>
+            <p>
+              Um repositório (repo) é uma pasta onde o Git rastreia todas as
+              mudanças. Pode ser local (no seu PC) ou remoto (GitHub).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instalação -->
+    <section class="content-section alt-bg" id="install">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="title-icon">⬇️</span>
+          Instalação do Git
+        </h2>
+
+        <div class="install-tabs">
+          <button class="install-tab active" data-os="windows">
+            🪟 Windows
+          </button>
+          <button class="install-tab" data-os="mac">🍎 macOS</button>
+          <button class="install-tab" data-os="linux">🐧 Linux</button>
+        </div>
+
+        <div class="install-content active" id="windows">
+          <div class="install-steps">
+            <div class="step">
+              <span class="step-number">1</span>
+              <div class="step-content">
+                <h4>Baixe o instalador</h4>
+                <p>
+                  Acesse
+                  <a href="https://git-scm.com/download/win" target="_blank"
+                    >git-scm.com</a
+                  >
+                  e baixe a versão para Windows.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">2</span>
+              <div class="step-content">
+                <h4>Execute o instalador</h4>
+                <p>
+                  Aceite as configurações padrão (recomendado para iniciantes).
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">3</span>
+              <div class="step-content">
+                <h4>Verifique a instalação</h4>
+                <div class="code-block">
+                  <code>git --version</code>
+                  <button class="copy-btn" onclick="copyCode(this)">📋</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="install-content" id="mac">
+          <div class="install-steps">
+            <div class="step">
+              <span class="step-number">1</span>
+              <div class="step-content">
+                <h4>Via Homebrew (recomendado)</h4>
+                <div class="code-block">
+                  <code>brew install git</code>
+                  <button class="copy-btn" onclick="copyCode(this)">📋</button>
+                </div>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">2</span>
+              <div class="step-content">
+                <h4>Ou via Xcode Command Line Tools</h4>
+                <div class="code-block">
+                  <code>xcode-select --install</code>
+                  <button class="copy-btn" onclick="copyCode(this)">📋</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="install-content" id="linux">
+          <div class="install-steps">
+            <div class="step">
+              <span class="step-number">1</span>
+              <div class="step-content">
+                <h4>Ubuntu/Debian</h4>
+                <div class="code-block">
+                  <code>sudo apt-get install git</code>
+                  <button class="copy-btn" onclick="copyCode(this)">📋</button>
+                </div>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">2</span>
+              <div class="step-content">
+                <h4>Fedora</h4>
+                <div class="code-block">
+                  <code>sudo dnf install git</code>
+                  <button class="copy-btn" onclick="copyCode(this)">📋</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Configuração Inicial -->
+    <section class="content-section" id="config">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="title-icon">⚙️</span>
+          Configuração Inicial
+        </h2>
+
+        <p class="section-description">
+          Antes de começar a usar o Git, configure seu nome e email. Essas
+          informações aparecerão em cada commit que você fizer.
+        </p>
+
+        <div class="config-commands">
+          <div class="command-card">
+            <h4>Configurar seu nome</h4>
+            <div class="code-block">
+              <code>git config --global user.name "Seu Nome"</code>
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+
+          <div class="command-card">
+            <h4>Configurar seu email</h4>
+            <div class="code-block">
+              <code>git config --global user.email "seu@email.com"</code>
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+
+          <div class="command-card">
+            <h4>Ver configurações</h4>
+            <div class="code-block">
+              <code>git config --list</code>
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+
+          <div class="command-card">
+            <h4>Definir editor padrão (VS Code)</h4>
+            <div class="code-block">
+              <code>git config --global core.editor "code --wait"</code>
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comandos Básicos -->
+    <section class="content-section alt-bg" id="basics">
+      <div class="container">
+        <p class="section-description">
+          Aprenda o ciclo de vida do Git visualizando onde seus arquivos e commits estão em tempo real.
+        </p>
+
+        <!-- Simulador Visual Interativo Git -->
+        <div class="git-simulator-card" id="gitSimulator" aria-label="Simulador Visual das 4 Áreas do Git">
+          <div class="git-sim-header">
+            <div class="git-sim-title-row">
+              <div class="git-sim-title-group">
+                <h3><span>🌿</span> Simulador Visual: As 4 Áreas do Git &amp; Branches</h3>
+                <p class="git-sim-subtitle">Veja arquivos se moverem do seu computador até o GitHub passo a passo.</p>
+              </div>
+              <div class="git-sim-actions">
+                <button type="button" class="git-cmd-btn btn-add" id="gitBtnAdd">
+                  <span>➕</span> git add .
+                </button>
+                <button type="button" class="git-cmd-btn btn-commit" id="gitBtnCommit">
+                  <span>📦</span> git commit
+                </button>
+                <button type="button" class="git-cmd-btn btn-push" id="gitBtnPush">
+                  <span>🚀</span> git push
+                </button>
+                <button type="button" class="git-cmd-btn btn-branch" id="gitBtnBranch">
+                  <span>🌿</span> git checkout -b feature
+                </button>
+                <button type="button" class="git-cmd-btn btn-reset" id="gitBtnReset" title="Reiniciar simulação">
+                  <span>🔄</span> Reset
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="git-sim-stage">
+            <div class="git-areas-grid">
+              <!-- Area 1: Working Directory -->
+              <div class="git-area-box" id="gitWorkingBox">
+                <div class="git-area-header">
+                  <span class="git-area-title">📂 Working Dir</span>
+                  <span class="git-area-tag">Local</span>
+                </div>
+                <div class="git-files-container" id="gitWorkingFiles">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+
+              <!-- Area 2: Staging Area -->
+              <div class="git-area-box" id="gitStagingBox">
+                <div class="git-area-header">
+                  <span class="git-area-title">📋 Staging Area</span>
+                  <span class="git-area-tag">Index</span>
+                </div>
+                <div class="git-files-container" id="gitStagingFiles">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+
+              <!-- Area 3: Local Repository -->
+              <div class="git-area-box" id="gitLocalBox">
+                <div class="git-area-header">
+                  <span class="git-area-title">📦 Local Repo</span>
+                  <span class="git-area-tag">.git</span>
+                </div>
+                <div class="git-commits-stream" id="gitLocalCommits">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+
+              <!-- Area 4: Remote Repository -->
+              <div class="git-area-box" id="gitRemoteBox">
+                <div class="git-area-header">
+                  <span class="git-area-title">☁️ Remote Repo</span>
+                  <span class="git-area-tag">GitHub</span>
+                </div>
+                <div class="git-commits-stream" id="gitRemoteCommits">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="git-sim-footer">
+            <div class="git-terminal" id="gitTerminalOutput">
+              <div class="git-term-line"><span class="git-term-prompt">$</span> git status</div>
+              <div class="git-term-line git-term-out">On branch main - 2 files modified, 1 untracked.</div>
+            </div>
+            <div class="git-sim-explanation" id="gitExplanation">
+              💡 Clique em <strong>git add .</strong> para mover as alterações locais para a <em>Staging Area</em> (o palco de preparação)!
+            </div>
+          </div>
+        </div>
+
+        <div class="commands-grid">
+          <!-- Init -->
+          <div class="command-detail">
+            <div class="command-header">
+              <span class="command-name">git init</span>
+              <span class="command-badge">Inicializar</span>
+            </div>
+            <p class="command-desc">
+              Cria um novo repositório Git na pasta atual.
+            </p>
+            <div class="code-block">
+              <code>git init</code>
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+            <div class="command-tip">
+              💡 Isso cria uma pasta oculta <code>.git</code> que contém todo o
+              histórico.
+            </div>
+          </div>
+
+          <!-- Clone -->
+          <div class="command-detail">
+            <div class="command-header">
+              <span class="command-name">git clone</span>
+              <span class="command-badge">Clonar</span>
+            </div>
+            <p class="command-desc">
+              Copia um repositório remoto para sua máquina.
+            </p>
+            <div class="code-block">
+              <code>git clone https://github.com/usuario/repo.git</code>
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+            <div class="command-tip">💡 Você pode clonar via HTTPS ou SSH.</div>
+          </div>
+
+          <!-- Status -->
+          <div class="command-detail">
+            <div class="command-header">
+              <span class="command-name">git status</span>
+              <span class="command-badge">Verificar</span>
+            </div>
+            <p class="command-desc">Mostra o estado atual do repositório.</p>
+            <div class="code-block">
+              <code>git status</code>
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+            <div class="command-tip">
+              💡 Use frequentemente para ver arquivos modificados, staged e
+              untracked.
+            </div>
+          </div>
+
+          <!-- Add -->
+          <div class="command-detail">
+            <div class="command-header">
+              <span class="command-name">git add</span>
+              <span class="command-badge">Adicionar</span>
+            </div>
+            <p class="command-desc">Adiciona arquivos à área de staging.</p>
+            <div class="code-block">
+              <code
+                ># Adicionar um arquivo específico git add arquivo.txt #
+                Adicionar todos os arquivos git add . # Adicionar por padrão git
+                add *.js</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+
+          <!-- Commit -->
+          <div class="command-detail">
+            <div class="command-header">
+              <span class="command-name">git commit</span>
+              <span class="command-badge">Salvar</span>
+            </div>
+            <p class="command-desc">
+              Salva as alterações em um ponto na história.
+            </p>
+            <div class="code-block">
+              <code
+                ># Commit com mensagem git commit -m "Mensagem descritiva" #
+                Adicionar e commitar juntos git commit -am "Mensagem"</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+            <div class="command-tip">
+              💡 Escreva mensagens claras e descritivas!
+            </div>
+          </div>
+
+          <!-- Push -->
+          <div class="command-detail">
+            <div class="command-header">
+              <span class="command-name">git push</span>
+              <span class="command-badge">Enviar</span>
+            </div>
+            <p class="command-desc">
+              Envia commits locais para o repositório remoto.
+            </p>
+            <div class="code-block">
+              <code
+                ># Push para origin main git push origin main # Push com
+                upstream (primeira vez) git push -u origin main</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+
+          <!-- Pull -->
+          <div class="command-detail">
+            <div class="command-header">
+              <span class="command-name">git pull</span>
+              <span class="command-badge">Baixar</span>
+            </div>
+            <p class="command-desc">
+              Baixa e integra mudanças do repositório remoto.
+            </p>
+            <div class="code-block">
+              <code>git pull origin main</code>
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+            <div class="command-tip">
+              💡 Equivale a <code>git fetch</code> + <code>git merge</code>.
+            </div>
+          </div>
+
+          <!-- Log -->
+          <div class="command-detail">
+            <div class="command-header">
+              <span class="command-name">git log</span>
+              <span class="command-badge">Histórico</span>
+            </div>
+            <p class="command-desc">Mostra o histórico de commits.</p>
+            <div class="code-block">
+              <code
+                ># Log completo git log # Log resumido git log --oneline # Log
+                com gráfico git log --oneline --graph --all</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Branches -->
+    <section class="content-section" id="branches">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="title-icon">🌿</span>
+          Trabalhando com Branches
+        </h2>
+
+        <p class="section-description">
+          Branches permitem desenvolver features, corrigir bugs ou experimentar
+          ideias em isolamento, sem afetar a branch principal.
+        </p>
+
+        <div class="branch-visual">
+          <div class="branch-diagram">
+            <div class="branch-line main">
+              <span class="branch-label">main</span>
+              <div class="commits">
+                <div class="commit" data-tooltip="Commit inicial">●</div>
+                <div class="commit" data-tooltip="Feature A">●</div>
+                <div class="commit" data-tooltip="Merge feature-b">●</div>
+                <div class="commit" data-tooltip="Último commit">●</div>
+              </div>
+            </div>
+            <div class="branch-line feature">
+              <span class="branch-label">feature-b</span>
+              <div class="commits">
+                <div class="commit" data-tooltip="Início feature">●</div>
+                <div class="commit" data-tooltip="WIP">●</div>
+                <div class="commit" data-tooltip="Finalizado">●</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="commands-grid">
+          <div class="command-detail">
+            <div class="command-header">
+              <span class="command-name">git branch</span>
+              <span class="command-badge">Criar/Listar</span>
+            </div>
+            <div class="code-block">
+              <code
+                ># Listar branches git branch # Criar nova branch git branch
+                nome-da-branch # Deletar branch git branch -d
+                nome-da-branch</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+
+          <div class="command-detail">
+            <div class="command-header">
+              <span class="command-name">git checkout / git switch</span>
+              <span class="command-badge">Mudar</span>
+            </div>
+            <div class="code-block">
+              <code
+                ># Mudar para branch existente git checkout nome-da-branch git
+                switch nome-da-branch # Criar e mudar git checkout -b
+                nova-branch git switch -c nova-branch</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+
+          <div class="command-detail">
+            <div class="command-header">
+              <span class="command-name">git merge</span>
+              <span class="command-badge">Mesclar</span>
+            </div>
+            <div class="code-block">
+              <code
+                ># Primeiro, vá para a branch de destino git checkout main #
+                Depois, faça o merge git merge nome-da-feature</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+
+          <div class="command-detail">
+            <div class="command-header">
+              <span class="command-name">git rebase</span>
+              <span class="command-badge">Rebase</span>
+            </div>
+            <div class="code-block">
+              <code
+                ># Rebase da branch atual na main git rebase main # Rebase
+                interativo git rebase -i HEAD~3</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+            <div class="command-tip">
+              ⚠️ Cuidado: não faça rebase em branches públicas!
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Desfazendo Mudanças -->
+    <section class="content-section alt-bg" id="undo">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="title-icon">↩️</span>
+          Desfazendo Mudanças
+        </h2>
+
+        <div class="undo-scenarios">
+          <div class="scenario-card">
+            <div class="scenario-icon">📝</div>
+            <h3>Arquivo modificado (não staged)</h3>
+            <p>
+              Descartar mudanças em um arquivo que ainda não foi adicionado ao
+              stage.
+            </p>
+            <div class="code-block">
+              <code
+                >git checkout -- arquivo.txt # ou git restore arquivo.txt</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+
+          <div class="scenario-card">
+            <div class="scenario-icon">📦</div>
+            <h3>Arquivo no stage (não commitado)</h3>
+            <p>Remover arquivo da área de staging, mantendo as mudanças.</p>
+            <div class="code-block">
+              <code
+                >git reset HEAD arquivo.txt # ou git restore --staged
+                arquivo.txt</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+
+          <div class="scenario-card">
+            <div class="scenario-icon">💾</div>
+            <h3>Último commit (local)</h3>
+            <p>Modificar o último commit (mensagem ou arquivos).</p>
+            <div class="code-block">
+              <code
+                ># Mudar mensagem do último commit git commit --amend -m "Nova
+                mensagem" # Adicionar arquivos ao último commit git add
+                arquivo.txt git commit --amend --no-edit</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+
+          <div class="scenario-card">
+            <div class="scenario-icon">🔄</div>
+            <h3>Reverter commit (público)</h3>
+            <p>Criar um novo commit que desfaz um commit específico.</p>
+            <div class="code-block">
+              <code>git revert &lt;hash-do-commit&gt;</code>
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+
+          <div class="scenario-card">
+            <div class="scenario-icon">⏪</div>
+            <h3>Reset para commit anterior</h3>
+            <p>Voltar o repositório para um estado anterior.</p>
+            <div class="code-block">
+              <code
+                ># Soft: mantém mudanças no stage git reset --soft HEAD~1 #
+                Mixed: mantém mudanças, remove do stage git reset --mixed HEAD~1
+                # Hard: descarta todas as mudanças git reset --hard HEAD~1</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+            <div class="command-tip">
+              ⚠️ <code>--hard</code> é perigoso! Use com cuidado.
+            </div>
+          </div>
+
+          <div class="scenario-card">
+            <div class="scenario-icon">🗑️</div>
+            <h3>Stash (guardar temporariamente)</h3>
+            <p>
+              Salvar mudanças temporariamente para trabalhar em outra coisa.
+            </p>
+            <div class="code-block">
+              <code
+                ># Guardar mudanças git stash # Listar stashes git stash list #
+                Recuperar último stash git stash pop # Recuperar stash
+                específico git stash apply stash@{0}</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trabalhando com Remotos -->
+    <section class="content-section" id="remotes">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="title-icon">🌐</span>
+          Repositórios Remotos
+        </h2>
+
+        <div class="commands-grid">
+          <div class="command-detail">
+            <div class="command-header">
+              <span class="command-name">git remote</span>
+              <span class="command-badge">Gerenciar</span>
+            </div>
+            <div class="code-block">
+              <code
+                ># Listar remotos git remote -v # Adicionar remoto git remote
+                add origin https://github.com/user/repo.git # Remover remoto git
+                remote remove origin # Renomear remoto git remote rename origin
+                upstream</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+
+          <div class="command-detail">
+            <div class="command-header">
+              <span class="command-name">git fetch</span>
+              <span class="command-badge">Baixar</span>
+            </div>
+            <p class="command-desc">Baixa mudanças do remoto sem mesclar.</p>
+            <div class="code-block">
+              <code
+                ># Baixar de todos os remotos git fetch --all # Baixar de origin
+                git fetch origin</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+
+          <div class="command-detail">
+            <div class="command-header">
+              <span class="command-name">Fork & Pull Request</span>
+              <span class="command-badge">Contribuir</span>
+            </div>
+            <div class="code-block">
+              <code
+                ># 1. Fork o repositório no GitHub # 2. Clone seu fork git clone
+                https://github.com/SEU-USER/repo.git # 3. Adicione o original
+                como upstream git remote add upstream
+                https://github.com/ORIGINAL/repo.git # 4. Crie uma branch git
+                checkout -b minha-feature # 5. Faça mudanças e commit git commit
+                -m "Minha contribuição" # 6. Push para seu fork git push origin
+                minha-feature # 7. Abra um Pull Request no GitHub</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Git Ignore -->
+    <section class="content-section alt-bg" id="gitignore">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="title-icon">🙈</span>
+          .gitignore
+        </h2>
+
+        <p class="section-description">
+          O arquivo <code>.gitignore</code> especifica quais arquivos e pastas o
+          Git deve ignorar. Coloque-o na raiz do projeto.
+        </p>
+
+        <div class="gitignore-examples">
+          <div class="gitignore-card">
+            <h4>📁 Exemplo para Node.js</h4>
+            <div class="code-block">
+              <code
+                ># Dependências node_modules/ # Logs logs/ *.log npm-debug.log*
+                # Ambiente .env .env.local # Build dist/ build/ # Sistema
+                .DS_Store Thumbs.db # IDE .vscode/ .idea/</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+
+          <div class="gitignore-card">
+            <h4>📁 Exemplo para Python</h4>
+            <div class="code-block">
+              <code
+                ># Byte-compiled __pycache__/ *.py[cod] *$py.class # Virtual
+                environments venv/ env/ .venv/ # IDEs .idea/ .vscode/ *.swp
+                *.swo # Testes .pytest_cache/ .coverage htmlcov/ # Distribuição
+                dist/ build/ *.egg-info/</code
+              >
+              <button class="copy-btn" onclick="copyCode(this)">📋</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <p>
+            Visite
+            <a href="https://gitignore.io" target="_blank">gitignore.io</a>
+            para gerar .gitignore para qualquer linguagem/framework!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Boas Práticas -->
+    <section class="content-section" id="practices">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="title-icon">✨</span>
+          Boas Práticas
+        </h2>
+
+        <div class="practices-grid">
+          <div class="practice-card">
+            <div class="practice-icon">📝</div>
+            <h3>Mensagens de Commit</h3>
+            <ul>
+              <li>Use verbos no imperativo: "Add", "Fix", "Update"</li>
+              <li>Seja claro e conciso</li>
+              <li>Limite a 50-72 caracteres na primeira linha</li>
+              <li>Explique o "porquê" no corpo do commit</li>
+            </ul>
+            <div class="code-block example">
+              <code
+                >✅ feat: add user authentication ✅ fix: resolve login redirect
+                issue ✅ docs: update README with install guide ❌ fixed stuff
+                ❌ changes ❌ asdfgh</code
+              >
+            </div>
+          </div>
+
+          <div class="practice-card">
+            <div class="practice-icon">🌿</div>
+            <h3>Estratégia de Branches</h3>
+            <ul>
+              <li><code>main</code> - código em produção</li>
+              <li><code>develop</code> - desenvolvimento ativo</li>
+              <li><code>feature/*</code> - novas funcionalidades</li>
+              <li><code>bugfix/*</code> - correções de bugs</li>
+              <li><code>hotfix/*</code> - correções urgentes</li>
+            </ul>
+          </div>
+
+          <div class="practice-card">
+            <div class="practice-icon">🔄</div>
+            <h3>Workflow Recomendado</h3>
+            <ol>
+              <li>Pull as últimas mudanças</li>
+              <li>Crie uma branch para sua feature</li>
+              <li>Faça commits pequenos e frequentes</li>
+              <li>Push e abra um Pull Request</li>
+              <li>Code review e merge</li>
+            </ol>
+          </div>
+
+          <div class="practice-card">
+            <div class="practice-icon">⚠️</div>
+            <h3>O que Evitar</h3>
+            <ul>
+              <li>Nunca commitar secrets ou senhas</li>
+              <li>Evite commits gigantes</li>
+              <li>Não faça <code>--force</code> em branches públicas</li>
+              <li>Não ignore conflitos de merge</li>
+              <li>Evite rebase em branches compartilhadas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cheat Sheet -->
+    <section class="content-section alt-bg" id="cheatsheet">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="title-icon">📋</span>
+          Cheat Sheet
+        </h2>
+
+        <div class="cheatsheet-grid">
+          <div class="cheatsheet-category">
+            <h3>🚀 Começando</h3>
+            <table>
+              <tr>
+                <td><code>git init</code></td>
+                <td>Criar repositório</td>
+              </tr>
+              <tr>
+                <td><code>git clone &lt;url&gt;</code></td>
+                <td>Clonar repositório</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="cheatsheet-category">
+            <h3>📝 Básicos</h3>
+            <table>
+              <tr>
+                <td><code>git status</code></td>
+                <td>Ver estado</td>
+              </tr>
+              <tr>
+                <td><code>git add .</code></td>
+                <td>Adicionar tudo</td>
+              </tr>
+              <tr>
+                <td><code>git commit -m ""</code></td>
+                <td>Commitar</td>
+              </tr>
+              <tr>
+                <td><code>git push</code></td>
+                <td>Enviar</td>
+              </tr>
+              <tr>
+                <td><code>git pull</code></td>
+                <td>Baixar e mesclar</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="cheatsheet-category">
+            <h3>🌿 Branches</h3>
+            <table>
+              <tr>
+                <td><code>git branch</code></td>
+                <td>Listar branches</td>
+              </tr>
+              <tr>
+                <td><code>git branch &lt;nome&gt;</code></td>
+                <td>Criar branch</td>
+              </tr>
+              <tr>
+                <td><code>git checkout &lt;nome&gt;</code></td>
+                <td>Mudar branch</td>
+              </tr>
+              <tr>
+                <td><code>git merge &lt;nome&gt;</code></td>
+                <td>Mesclar branch</td>
+              </tr>
+              <tr>
+                <td><code>git branch -d &lt;nome&gt;</code></td>
+                <td>Deletar branch</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="cheatsheet-category">
+            <h3>↩️ Desfazer</h3>
+            <table>
+              <tr>
+                <td><code>git restore &lt;file&gt;</code></td>
+                <td>Descartar mudanças</td>
+              </tr>
+              <tr>
+                <td><code>git reset HEAD~1</code></td>
+                <td>Desfazer commit</td>
+              </tr>
+              <tr>
+                <td><code>git revert &lt;hash&gt;</code></td>
+                <td>Reverter commit</td>
+              </tr>
+              <tr>
+                <td><code>git stash</code></td>
+                <td>Guardar mudanças</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="cheatsheet-category">
+            <h3>📊 Histórico</h3>
+            <table>
+              <tr>
+                <td><code>git log</code></td>
+                <td>Ver histórico</td>
+              </tr>
+              <tr>
+                <td><code>git log --oneline</code></td>
+                <td>Log resumido</td>
+              </tr>
+              <tr>
+                <td><code>git diff</code></td>
+                <td>Ver diferenças</td>
+              </tr>
+              <tr>
+                <td><code>git show &lt;hash&gt;</code></td>
+                <td>Ver commit</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="cheatsheet-category">
+            <h3>🌐 Remotos</h3>
+            <table>
+              <tr>
+                <td><code>git remote -v</code></td>
+                <td>Listar remotos</td>
+              </tr>
+              <tr>
+                <td><code>git fetch</code></td>
+                <td>Baixar mudanças</td>
+              </tr>
+              <tr>
+                <td><code>git push -u origin main</code></td>
+                <td>Primeiro push</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    </main>
+
+
+    <!-- Footer -->

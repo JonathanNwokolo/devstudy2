@@ -1,0 +1,256 @@
+/* =============================================
+   REACT VIRTUAL DOM & STATE SIMULATOR
+   DevStudy - Guia Didático Interativo
+   ============================================= */
+
+.react-simulator-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 30px 0 40px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .react-simulator-card {
+  background: #181c2e;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.rsim-header {
+  padding: 24px 28px 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
+}
+
+[data-theme="dark"] .rsim-header {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, rgba(30, 35, 58, 0.6) 0%, rgba(24, 28, 46, 0.2) 100%);
+}
+
+.rsim-title-group h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 6px 0;
+}
+
+[data-theme="dark"] .rsim-title-group h3 {
+  color: #f8fafc;
+}
+
+.rsim-subtitle {
+  font-size: 0.92rem;
+  color: #64748b;
+  margin: 0 0 16px 0;
+}
+
+[data-theme="dark"] .rsim-subtitle {
+  color: #94a3b8;
+}
+
+.rsim-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.rsim-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.rsim-btn-inc {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+
+.rsim-btn-dec {
+  background: #f1f5f9;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #334155;
+}
+[data-theme="dark"] .rsim-btn-dec {
+  background: #252a42;
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+}
+
+.rsim-btn-reset {
+  background: transparent;
+  color: #dc2626;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+[data-theme="dark"] .rsim-btn-reset {
+  color: #f87171;
+}
+
+.rsim-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Stage */
+.rsim-stage {
+  padding: 26px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  background: #fbfcfe;
+}
+
+[data-theme="dark"] .rsim-stage {
+  background: #141727;
+}
+
+@media (max-width: 800px) {
+  .rsim-stage {
+    grid-template-columns: 1fr;
+  }
+}
+
+.rsim-pane {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+}
+
+[data-theme="dark"] .rsim-pane {
+  background: #1f243b;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.rsim-pane-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+[data-theme="dark"] .rsim-pane-title {
+  color: #94a3b8;
+}
+
+/* Component Tree representation */
+.rsim-tree-node {
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  color: #334155;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .rsim-tree-node {
+  background: #181c2e;
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+}
+
+.rsim-tree-node.node-diff {
+  background: rgba(245, 158, 11, 0.15) !important;
+  border-color: #f59e0b !important;
+  color: #d97706 !important;
+  animation: pulseDiff 0.5s ease;
+}
+[data-theme="dark"] .rsim-tree-node.node-diff {
+  color: #fbbf24 !important;
+}
+
+.rsim-tree-node.node-real-dom-update {
+  background: rgba(16, 185, 129, 0.15) !important;
+  border-color: #10b981 !important;
+  color: #047857 !important;
+  animation: pulseDom 0.5s ease;
+}
+[data-theme="dark"] .rsim-tree-node.node-real-dom-update {
+  color: #34d399 !important;
+}
+
+@keyframes pulseDiff {
+  0% { transform: scale(0.97); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+@keyframes pulseDom {
+  0% { transform: scale(0.97); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.rsim-indent-1 { margin-left: 16px; }
+.rsim-indent-2 { margin-left: 32px; }
+
+/* Real DOM Preview Component */
+.rsim-rendered-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+[data-theme="dark"] .rsim-rendered-card {
+  background: #141727;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.rsim-state-badge {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0284c7;
+  display: block;
+  margin: 8px 0;
+}
+
+[data-theme="dark"] .rsim-state-badge {
+  color: #38bdf8;
+}
+
+/* Footer */
+.rsim-footer {
+  padding: 16px 24px;
+  background: #f8fafc;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 0.88rem;
+  color: #334155;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+[data-theme="dark"] .rsim-footer {
+  background: #181c2e;
+  border-top-color: rgba(255, 255, 255, 0.06);
+  color: #cbd5e1;
+}

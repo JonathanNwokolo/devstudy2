@@ -1,0 +1,1467 @@
+---
+title: "Cheat Sheets - DevStudy"
+description: "Referências rápidas de HTML, CSS, JavaScript e Git. Cheat sheets completos para consulta diária de desenvolvedores."
+permalink: "cheatsheets.html"
+keywords: "html cheat sheet, css cheat sheet, javascript cheat sheet, git commands, referência rápida"
+styles: ["cheatsheets.css","enhancements.css","conteudos.css"]
+footer: {"variant":"colunas","tagline":"Aprenda desenvolvimento web de forma prática.","sections":[{"title":"Links Rápidos","links":[{"href":"index.html","label":"Início"},{"href":"erros-comuns.html","label":"Erros Comuns"},{"href":"topicos.html","label":"Tópicos Avançados"}]}],"bottom":"Consulte, copie, use! 📋"}
+---
+    <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="hero cheat-hero">
+      <div class="hero-content">
+        <div class="hero-badge">📋 Referência Rápida</div>
+        <h1 class="hero-title">
+          <span class="highlight-cheat">Cheat Sheets</span> para Desenvolvedores
+        </h1>
+        <p class="hero-description">
+          Referências rápidas e completas para consulta diária. Tenha todos os
+          comandos e sintaxes importantes sempre à mão.
+        </p>
+        <div class="hero-actions">
+          <a href="#html-cheat" class="btn btn-primary">HTML</a>
+          <a href="#css-cheat" class="btn btn-secondary">CSS</a>
+          <a href="#js-cheat" class="btn btn-secondary">JavaScript</a>
+          <a href="#git-cheat" class="btn btn-secondary">Git</a>
+          <button class="btn btn-secondary" onclick="window.print()" title="Imprimir ou salvar como PDF">
+            🖨️ Imprimir
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Barra de Busca -->
+    <section class="section">
+      <div class="container">
+        <div class="search-container">
+          <div class="search-wrapper">
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <input 
+              type="text" 
+              id="searchInput" 
+              placeholder="Buscar comandos, métodos, propriedades... (Ctrl+K)"
+              autocomplete="off"
+            />
+            <button id="searchBtn">Buscar</button>
+          </div>
+          <p class="search-hint">Dica: Use <kbd>Ctrl</kbd> + <kbd>K</kbd> para buscar rapidamente</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HTML Cheat Sheet -->
+    <section id="html-cheat" class="section cheat-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge html-badge">🏷️ HTML5</span>
+          <h2 class="section-title">HTML Cheat Sheet</h2>
+          <p class="section-description">
+            Tags essenciais para estruturação de páginas web.
+          </p>
+        </div>
+
+        <div class="cheat-grid">
+          <!-- Estrutura Básica -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">📄 Estrutura Básica</h3>
+            <div class="cheat-content">
+              <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" 
+    content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Título da Página&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Conteúdo aqui --&gt;
+  &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+          </div>
+
+          <!-- Tags Semânticas -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">🏗️ Tags Semânticas</h3>
+            <table class="cheat-table">
+              <tr>
+                <td><code>&lt;header&gt;</code></td>
+                <td>Cabeçalho da página/seção</td>
+              </tr>
+              <tr>
+                <td><code>&lt;nav&gt;</code></td>
+                <td>Navegação principal</td>
+              </tr>
+              <tr>
+                <td><code>&lt;main&gt;</code></td>
+                <td>Conteúdo principal (único)</td>
+              </tr>
+              <tr>
+                <td><code>&lt;section&gt;</code></td>
+                <td>Seção temática</td>
+              </tr>
+              <tr>
+                <td><code>&lt;article&gt;</code></td>
+                <td>Conteúdo independente</td>
+              </tr>
+              <tr>
+                <td><code>&lt;aside&gt;</code></td>
+                <td>Conteúdo lateral</td>
+              </tr>
+              <tr>
+                <td><code>&lt;footer&gt;</code></td>
+                <td>Rodapé</td>
+              </tr>
+              <tr>
+                <td><code>&lt;figure&gt;</code></td>
+                <td>Figura com legenda</td>
+              </tr>
+              <tr>
+                <td><code>&lt;figcaption&gt;</code></td>
+                <td>Legenda da figura</td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- Headings e Texto -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">📝 Texto</h3>
+            <table class="cheat-table">
+              <tr>
+                <td><code>&lt;h1&gt;-&lt;h6&gt;</code></td>
+                <td>Títulos (hierarquia)</td>
+              </tr>
+              <tr>
+                <td><code>&lt;p&gt;</code></td>
+                <td>Parágrafo</td>
+              </tr>
+              <tr>
+                <td><code>&lt;span&gt;</code></td>
+                <td>Texto inline</td>
+              </tr>
+              <tr>
+                <td><code>&lt;strong&gt;</code></td>
+                <td>Texto importante (negrito)</td>
+              </tr>
+              <tr>
+                <td><code>&lt;em&gt;</code></td>
+                <td>Ênfase (itálico)</td>
+              </tr>
+              <tr>
+                <td><code>&lt;mark&gt;</code></td>
+                <td>Texto destacado</td>
+              </tr>
+              <tr>
+                <td><code>&lt;small&gt;</code></td>
+                <td>Texto pequeno</td>
+              </tr>
+              <tr>
+                <td><code>&lt;del&gt;</code></td>
+                <td>Texto removido</td>
+              </tr>
+              <tr>
+                <td><code>&lt;ins&gt;</code></td>
+                <td>Texto inserido</td>
+              </tr>
+              <tr>
+                <td><code>&lt;sub&gt;</code></td>
+                <td>Subscrito</td>
+              </tr>
+              <tr>
+                <td><code>&lt;sup&gt;</code></td>
+                <td>Sobrescrito</td>
+              </tr>
+              <tr>
+                <td><code>&lt;br&gt;</code></td>
+                <td>Quebra de linha</td>
+              </tr>
+              <tr>
+                <td><code>&lt;hr&gt;</code></td>
+                <td>Linha horizontal</td>
+              </tr>
+              <tr>
+                <td><code>&lt;blockquote&gt;</code></td>
+                <td>Citação em bloco</td>
+              </tr>
+              <tr>
+                <td><code>&lt;code&gt;</code></td>
+                <td>Código inline</td>
+              </tr>
+              <tr>
+                <td><code>&lt;pre&gt;</code></td>
+                <td>Texto pré-formatado</td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- Links e Imagens -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">🔗 Links e Mídia</h3>
+            <div class="cheat-content">
+              <pre><code>&lt;!-- Link --&gt;
+&lt;a href="url" target="_blank"&gt;Texto&lt;/a&gt;
+
+&lt;!-- Imagem --&gt;
+&lt;img src="imagem.jpg" alt="Descrição" 
+     width="300" height="200" loading="lazy"&gt;
+
+&lt;!-- Vídeo --&gt;
+&lt;video controls width="640"&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
+
+&lt;!-- Áudio --&gt;
+&lt;audio controls&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;
+
+&lt;!-- iFrame --&gt;
+&lt;iframe src="url" width="560" height="315"&gt;
+&lt;/iframe&gt;</code></pre>
+            </div>
+          </div>
+
+          <!-- Listas -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">📋 Listas</h3>
+            <div class="cheat-content">
+              <pre><code>&lt;!-- Lista não ordenada --&gt;
+&lt;ul&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Lista ordenada --&gt;
+&lt;ol&gt;
+  &lt;li&gt;Primeiro&lt;/li&gt;
+  &lt;li&gt;Segundo&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Lista de definição --&gt;
+&lt;dl&gt;
+  &lt;dt&gt;Termo&lt;/dt&gt;
+  &lt;dd&gt;Definição&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+            </div>
+          </div>
+
+          <!-- Formulários -->
+          <div class="cheat-card wide">
+            <h3 class="cheat-card-title">📝 Formulários</h3>
+            <div class="cheat-content">
+              <pre><code>&lt;form action="/submit" method="POST"&gt;
+  &lt;!-- Texto --&gt;
+  &lt;label for="nome"&gt;Nome:&lt;/label&gt;
+  &lt;input type="text" id="nome" name="nome" placeholder="Seu nome" required&gt;
+
+  &lt;!-- Email --&gt;
+  &lt;input type="email" name="email" placeholder="email@exemplo.com"&gt;
+
+  &lt;!-- Senha --&gt;
+  &lt;input type="password" name="senha" minlength="8"&gt;
+
+  &lt;!-- Número --&gt;
+  &lt;input type="number" name="idade" min="0" max="120"&gt;
+
+  &lt;!-- Data --&gt;
+  &lt;input type="date" name="nascimento"&gt;
+
+  &lt;!-- Checkbox --&gt;
+  &lt;input type="checkbox" id="termos" name="termos"&gt;
+  &lt;label for="termos"&gt;Aceito os termos&lt;/label&gt;
+
+  &lt;!-- Radio --&gt;
+  &lt;input type="radio" id="m" name="genero" value="m"&gt;
+  &lt;label for="m"&gt;Masculino&lt;/label&gt;
+  &lt;input type="radio" id="f" name="genero" value="f"&gt;
+  &lt;label for="f"&gt;Feminino&lt;/label&gt;
+
+  &lt;!-- Select --&gt;
+  &lt;select name="pais"&gt;
+    &lt;option value=""&gt;Selecione&lt;/option&gt;
+    &lt;option value="br"&gt;Brasil&lt;/option&gt;
+    &lt;option value="pt"&gt;Portugal&lt;/option&gt;
+  &lt;/select&gt;
+
+  &lt;!-- Textarea --&gt;
+  &lt;textarea name="mensagem" rows="4" cols="50"&gt;&lt;/textarea&gt;
+
+  &lt;!-- Botões --&gt;
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+  &lt;button type="reset"&gt;Limpar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            </div>
+          </div>
+
+          <!-- Tabelas -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">📊 Tabelas</h3>
+            <div class="cheat-content">
+              <pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Nome&lt;/th&gt;
+      &lt;th&gt;Idade&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;João&lt;/td&gt;
+      &lt;td&gt;25&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan="2"&gt;Linha mesclada&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Total&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+          </div>
+
+          <!-- Meta Tags -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">🏷️ Meta Tags Essenciais</h3>
+            <div class="cheat-content">
+              <pre><code>&lt;!-- Charset e Viewport --&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" 
+  content="width=device-width, initial-scale=1.0"&gt;
+
+&lt;!-- SEO --&gt;
+&lt;meta name="description" content="Descrição"&gt;
+&lt;meta name="keywords" content="palavra,chave"&gt;
+&lt;meta name="author" content="Autor"&gt;
+
+&lt;!-- Open Graph (Facebook/LinkedIn) --&gt;
+&lt;meta property="og:title" content="Título"&gt;
+&lt;meta property="og:description" content="Desc"&gt;
+&lt;meta property="og:image" content="imagem.jpg"&gt;
+&lt;meta property="og:url" content="url"&gt;
+
+&lt;!-- Twitter --&gt;
+&lt;meta name="twitter:card" content="summary"&gt;
+&lt;meta name="twitter:title" content="Título"&gt;
+
+&lt;!-- Favicon --&gt;
+&lt;link rel="icon" href="favicon.ico"&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CSS Cheat Sheet -->
+    <section id="css-cheat" class="section cheat-section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge css-badge">🎨 CSS3</span>
+          <h2 class="section-title">CSS Cheat Sheet</h2>
+          <p class="section-description">
+            Propriedades essenciais para estilização.
+          </p>
+        </div>
+
+        <div class="cheat-grid">
+          <!-- Seletores -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">🎯 Seletores</h3>
+            <table class="cheat-table">
+              <tr>
+                <td><code>*</code></td>
+                <td>Universal (todos)</td>
+              </tr>
+              <tr>
+                <td><code>element</code></td>
+                <td>Tag HTML</td>
+              </tr>
+              <tr>
+                <td><code>.class</code></td>
+                <td>Classe</td>
+              </tr>
+              <tr>
+                <td><code>#id</code></td>
+                <td>ID</td>
+              </tr>
+              <tr>
+                <td><code>[attr]</code></td>
+                <td>Atributo existe</td>
+              </tr>
+              <tr>
+                <td><code>[attr="val"]</code></td>
+                <td>Atributo igual</td>
+              </tr>
+              <tr>
+                <td><code>[attr^="val"]</code></td>
+                <td>Começa com</td>
+              </tr>
+              <tr>
+                <td><code>[attr$="val"]</code></td>
+                <td>Termina com</td>
+              </tr>
+              <tr>
+                <td><code>[attr*="val"]</code></td>
+                <td>Contém</td>
+              </tr>
+              <tr>
+                <td><code>A B</code></td>
+                <td>Descendente</td>
+              </tr>
+              <tr>
+                <td><code>A > B</code></td>
+                <td>Filho direto</td>
+              </tr>
+              <tr>
+                <td><code>A + B</code></td>
+                <td>Irmão adjacente</td>
+              </tr>
+              <tr>
+                <td><code>A ~ B</code></td>
+                <td>Irmãos gerais</td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- Pseudo-classes -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">✨ Pseudo-classes</h3>
+            <table class="cheat-table">
+              <tr>
+                <td><code>:hover</code></td>
+                <td>Mouse sobre</td>
+              </tr>
+              <tr>
+                <td><code>:active</code></td>
+                <td>Clicando</td>
+              </tr>
+              <tr>
+                <td><code>:focus</code></td>
+                <td>Focado</td>
+              </tr>
+              <tr>
+                <td><code>:visited</code></td>
+                <td>Link visitado</td>
+              </tr>
+              <tr>
+                <td><code>:first-child</code></td>
+                <td>Primeiro filho</td>
+              </tr>
+              <tr>
+                <td><code>:last-child</code></td>
+                <td>Último filho</td>
+              </tr>
+              <tr>
+                <td><code>:nth-child(n)</code></td>
+                <td>N-ésimo filho</td>
+              </tr>
+              <tr>
+                <td><code>:nth-child(odd)</code></td>
+                <td>Filhos ímpares</td>
+              </tr>
+              <tr>
+                <td><code>:nth-child(even)</code></td>
+                <td>Filhos pares</td>
+              </tr>
+              <tr>
+                <td><code>:not(selector)</code></td>
+                <td>Negação</td>
+              </tr>
+              <tr>
+                <td><code>:empty</code></td>
+                <td>Sem filhos</td>
+              </tr>
+              <tr>
+                <td><code>:checked</code></td>
+                <td>Input marcado</td>
+              </tr>
+              <tr>
+                <td><code>:disabled</code></td>
+                <td>Input desabilitado</td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- Pseudo-elementos -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">🔮 Pseudo-elementos</h3>
+            <div class="cheat-content">
+              <pre><code>/* Antes do conteúdo */
+.element::before {
+  content: "→ ";
+}
+
+/* Depois do conteúdo */
+.element::after {
+  content: " ←";
+}
+
+/* Primeira linha/letra */
+p::first-line { font-weight: bold; }
+p::first-letter { font-size: 2em; }
+
+/* Texto selecionado */
+::selection {
+  background: yellow;
+  color: black;
+}
+
+/* Placeholder de input */
+input::placeholder {
+  color: gray;
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Box Model -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">📦 Box Model</h3>
+            <div class="cheat-content">
+              <pre><code>/* Box sizing (sempre usar!) */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Dimensões */
+width: 100px | 50% | auto;
+max-width: 1200px;
+min-width: 300px;
+height: 100vh | auto;
+
+/* Margin (externa) */
+margin: 10px;            /* todos */
+margin: 10px 20px;       /* vertical horizontal */
+margin: 10px 20px 30px 40px; /* top right bottom left */
+margin: 0 auto;          /* centralizar */
+
+/* Padding (interna) */
+padding: 20px;
+padding: 10px 20px;
+
+/* Border */
+border: 1px solid #000;
+border-radius: 8px;
+border-radius: 50%;      /* círculo */
+
+/* Outline (não ocupa espaço) */
+outline: 2px solid blue;</code></pre>
+            </div>
+          </div>
+
+          <!-- Flexbox -->
+          <div class="cheat-card wide">
+            <h3 class="cheat-card-title">📐 Flexbox</h3>
+            <div class="cheat-content">
+              <pre><code>.container {
+  display: flex;
+  
+  /* Direção */
+  flex-direction: row | row-reverse | column | column-reverse;
+  
+  /* Quebra de linha */
+  flex-wrap: nowrap | wrap | wrap-reverse;
+  
+  /* Alinhamento horizontal */
+  justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;
+  
+  /* Alinhamento vertical */
+  align-items: stretch | flex-start | flex-end | center | baseline;
+  
+  /* Linhas múltiplas */
+  align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+  
+  /* Espaçamento */
+  gap: 20px;
+  row-gap: 10px;
+  column-gap: 20px;
+}
+
+.item {
+  /* Crescimento */
+  flex-grow: 1;           /* cresce para preencher */
+  flex-shrink: 0;         /* não encolhe */
+  flex-basis: 200px;      /* tamanho base */
+  
+  /* Shorthand */
+  flex: 1;                /* grow: 1, shrink: 1, basis: 0 */
+  flex: 0 0 auto;         /* não cresce, não encolhe */
+  
+  /* Alinhamento individual */
+  align-self: flex-start | flex-end | center | stretch;
+  
+  /* Ordem */
+  order: -1 | 0 | 1;
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Grid -->
+          <div class="cheat-card wide">
+            <h3 class="cheat-card-title">🔲 CSS Grid</h3>
+            <div class="cheat-content">
+              <pre><code>.container {
+  display: grid;
+  
+  /* Colunas e linhas */
+  grid-template-columns: 200px 1fr 1fr;          /* px e frações */
+  grid-template-columns: repeat(3, 1fr);         /* 3 colunas iguais */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* responsivo! */
+  grid-template-rows: 100px auto 100px;
+  
+  /* Espaçamento */
+  gap: 20px;
+  
+  /* Alinhamento */
+  justify-items: start | end | center | stretch;  /* horizontal dos items */
+  align-items: start | end | center | stretch;    /* vertical dos items */
+  place-items: center;                            /* ambos */
+  
+  justify-content: start | end | center | space-between; /* grid no container */
+  align-content: start | end | center | space-between;
+}
+
+.item {
+  /* Posicionamento */
+  grid-column: 1 / 3;         /* da coluna 1 até 3 */
+  grid-column: span 2;        /* ocupa 2 colunas */
+  grid-row: 1 / 3;
+  
+  /* Shorthand */
+  grid-area: 1 / 1 / 3 / 3;   /* row-start / col-start / row-end / col-end */
+  
+  /* Alinhamento individual */
+  justify-self: start | end | center;
+  align-self: start | end | center;
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Cores e Backgrounds -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">🎨 Cores e Fundos</h3>
+            <div class="cheat-content">
+              <pre><code>/* Cores */
+color: red;
+color: #ff0000;
+color: #f00;
+color: rgb(255, 0, 0);
+color: rgba(255, 0, 0, 0.5);
+color: hsl(0, 100%, 50%);
+
+/* Background */
+background-color: #f0f0f0;
+background-image: url('img.jpg');
+background-size: cover | contain | 100%;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed | scroll;
+
+/* Gradientes */
+background: linear-gradient(to right, red, blue);
+background: linear-gradient(45deg, red, blue);
+background: radial-gradient(circle, red, blue);
+
+/* Múltiplos backgrounds */
+background: 
+  url('top.png') top no-repeat,
+  url('bottom.png') bottom no-repeat,
+  linear-gradient(#fff, #f0f0f0);</code></pre>
+            </div>
+          </div>
+
+          <!-- Tipografia -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">🔤 Tipografia</h3>
+            <div class="cheat-content">
+              <pre><code>/* Fonte */
+font-family: 'Inter', sans-serif;
+font-size: 16px | 1rem | 1.5em;
+font-weight: 400 | normal | bold | 700;
+font-style: normal | italic;
+line-height: 1.5;
+letter-spacing: 0.5px;
+word-spacing: 2px;
+
+/* Alinhamento */
+text-align: left | center | right | justify;
+text-indent: 2em;
+
+/* Decoração */
+text-decoration: none | underline | line-through;
+text-transform: uppercase | lowercase | capitalize;
+
+/* Overflow */
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+
+/* Multi-line ellipsis */
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow: hidden;</code></pre>
+            </div>
+          </div>
+
+          <!-- Transições e Animações -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">✨ Transições e Animações</h3>
+            <div class="cheat-content">
+              <pre><code>/* Transição */
+transition: all 0.3s ease;
+transition: transform 0.3s, opacity 0.3s;
+transition-timing-function: 
+  ease | linear | ease-in | ease-out | 
+  ease-in-out | cubic-bezier(0.4, 0, 0.2, 1);
+
+/* Transformações */
+transform: translateX(100px);
+transform: translateY(-50%);
+transform: translate(50%, 50%);
+transform: scale(1.5);
+transform: rotate(45deg);
+transform: skew(10deg);
+transform: matrix(...);
+
+/* Animação */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.element {
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: 0.2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Media Queries -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">📱 Media Queries</h3>
+            <div class="cheat-content">
+              <pre><code>/* Mobile First */
+.container { width: 100%; }
+
+/* Tablet */
+@media (min-width: 768px) {
+  .container { width: 750px; }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .container { width: 960px; }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .container { width: 1140px; }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  body { 
+    background: #1a1a1a;
+    color: #fff;
+  }
+}
+
+/* Print */
+@media print {
+  .no-print { display: none; }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; }
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Variáveis CSS -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">🔧 CSS Variables</h3>
+            <div class="cheat-content">
+              <pre><code>:root {
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --spacing: 1rem;
+  --radius: 8px;
+  --shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.button {
+  background: var(--primary);
+  padding: var(--spacing);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Com fallback */
+color: var(--undefined, #000);
+
+/* Tema escuro */
+[data-theme="dark"] {
+  --primary: #0d6efd;
+  --background: #1a1a1a;
+}
+
+/* Variável com calc */
+padding: calc(var(--spacing) * 2);</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JavaScript Cheat Sheet -->
+    <section id="js-cheat" class="section cheat-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge js-badge">⚡ JavaScript</span>
+          <h2 class="section-title">JavaScript Cheat Sheet</h2>
+          <p class="section-description">
+            Sintaxe essencial e métodos mais usados.
+          </p>
+        </div>
+
+        <div class="cheat-grid">
+          <!-- Variáveis e Tipos -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">📦 Variáveis e Tipos</h3>
+            <div class="cheat-content">
+              <pre><code>// Declaração
+const PI = 3.14;      // constante
+let count = 0;        // pode mudar
+// var (evitar!)
+
+// Tipos primitivos
+let str = "texto";    // String
+let num = 42;         // Number
+let bool = true;      // Boolean
+let nul = null;       // Null
+let undef;            // Undefined
+let sym = Symbol();   // Symbol
+let big = 9007199254740991n; // BigInt
+
+// Objetos
+let obj = { key: "value" };
+let arr = [1, 2, 3];
+let fn = () => {};
+
+// Type checking
+typeof "hello"  // "string"
+Array.isArray([]) // true
+obj instanceof Object // true</code></pre>
+            </div>
+          </div>
+
+          <!-- Strings -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">📝 Strings</h3>
+            <div class="cheat-content">
+              <pre><code>const str = "Hello World";
+
+str.length           // 11
+str.toUpperCase()    // "HELLO WORLD"
+str.toLowerCase()    // "hello world"
+str.trim()           // remove espaços
+str.split(" ")       // ["Hello", "World"]
+str.includes("World")// true
+str.startsWith("He") // true
+str.endsWith("ld")   // true
+str.indexOf("o")     // 4
+str.lastIndexOf("o") // 7
+str.slice(0, 5)      // "Hello"
+str.substring(6)     // "World"
+str.replace("World", "JS") // "Hello JS"
+str.replaceAll("l", "L")   // "HeLLo WorLd"
+str.charAt(0)        // "H"
+str.charCodeAt(0)    // 72
+str.repeat(2)        // "Hello WorldHello World"
+str.padStart(15, "-")// "----Hello World"
+str.padEnd(15, "-")  // "Hello World----"
+
+// Template literals
+const name = "Dev";
+`Olá, ${name}!`      // "Olá, Dev!"
+`Multi
+linha`</code></pre>
+            </div>
+          </div>
+
+          <!-- Arrays -->
+          <div class="cheat-card wide">
+            <h3 class="cheat-card-title">📚 Arrays</h3>
+            <div class="cheat-content">
+              <pre><code>const arr = [1, 2, 3, 4, 5];
+
+// Acesso e info
+arr[0]                    // 1
+arr.length                // 5
+arr.at(-1)                // 5 (último)
+
+// Adicionar/Remover
+arr.push(6)               // adiciona no fim → [1,2,3,4,5,6]
+arr.pop()                 // remove do fim → [1,2,3,4,5]
+arr.unshift(0)            // adiciona no início → [0,1,2,3,4,5]
+arr.shift()               // remove do início → [1,2,3,4,5]
+arr.splice(2, 1)          // remove 1 item no índice 2
+arr.splice(2, 0, 'new')   // insere 'new' no índice 2
+
+// Busca
+arr.indexOf(3)            // 2
+arr.includes(3)           // true
+arr.find(x => x > 3)      // 4 (primeiro match)
+arr.findIndex(x => x > 3) // 3 (índice do primeiro match)
+
+// Transformação (retornam NOVO array)
+arr.map(x => x * 2)           // [2, 4, 6, 8, 10]
+arr.filter(x => x > 2)        // [3, 4, 5]
+arr.reduce((acc, x) => acc + x, 0) // 15
+
+// Iteração
+arr.forEach(x => console.log(x))
+arr.every(x => x > 0)         // true (todos passam)
+arr.some(x => x > 4)          // true (algum passa)
+
+// Ordenação
+arr.sort((a, b) => a - b)     // crescente
+arr.sort((a, b) => b - a)     // decrescente
+arr.reverse()                 // inverte
+
+// Outros
+arr.join(", ")                // "1, 2, 3, 4, 5"
+arr.concat([6, 7])            // [1, 2, 3, 4, 5, 6, 7]
+arr.slice(1, 3)               // [2, 3]
+arr.flat()                    // achata arrays aninhados
+[...arr]                      // cópia do array
+[...new Set(arr)]             // remove duplicados</code></pre>
+            </div>
+          </div>
+
+          <!-- Objetos -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">🔑 Objetos</h3>
+            <div class="cheat-content">
+              <pre><code>const obj = { 
+  name: "João", 
+  age: 25,
+  greet() { return `Olá!`; }
+};
+
+// Acesso
+obj.name              // "João"
+obj["name"]           // "João"
+obj.greet()           // "Olá!"
+
+// Modificar
+obj.name = "Maria";
+obj.email = "a@b.com"; // adiciona
+delete obj.age;        // remove
+
+// Métodos úteis
+Object.keys(obj)      // ["name", "age"]
+Object.values(obj)    // ["João", 25]
+Object.entries(obj)   // [["name","João"],["age",25]]
+Object.assign({}, obj, {x: 1}) // merge
+
+// Spread (cópia)
+const copy = { ...obj };
+const merged = { ...obj, city: "SP" };
+
+// Destructuring
+const { name, age } = obj;
+const { name: n } = obj;  // renomear
+
+// Optional chaining
+obj?.address?.city    // undefined (não erro)
+
+// Nullish coalescing
+obj.phone ?? "N/A"    // "N/A" se null/undefined</code></pre>
+            </div>
+          </div>
+
+          <!-- Funções -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">⚡ Funções</h3>
+            <div class="cheat-content">
+              <pre><code>// Declaração
+function soma(a, b) {
+  return a + b;
+}
+
+// Expressão
+const soma = function(a, b) {
+  return a + b;
+};
+
+// Arrow function
+const soma = (a, b) => a + b;
+const dobro = x => x * 2;
+const log = () => console.log("Hi");
+
+// Parâmetros
+function greet(name = "Anônimo") {
+  return `Olá, ${name}!`;
+}
+
+// Rest parameters
+function sum(...nums) {
+  return nums.reduce((a, b) => a + b, 0);
+}
+sum(1, 2, 3, 4); // 10
+
+// Spread arguments
+const nums = [1, 2, 3];
+Math.max(...nums); // 3
+
+// Destructuring params
+function user({ name, age }) {
+  return `${name} tem ${age} anos`;
+}
+user({ name: "Ana", age: 20 });
+
+// IIFE
+(function() {
+  console.log("Executa imediatamente");
+})();</code></pre>
+            </div>
+          </div>
+
+          <!-- Async/Await -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">⏳ Async/Await</h3>
+            <div class="cheat-content">
+              <pre><code>// Promise
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => resolve("OK!"), 1000);
+});
+
+promise
+  .then(data => console.log(data))
+  .catch(err => console.error(err))
+  .finally(() => console.log("Fim"));
+
+// Async/Await
+async function fetchData() {
+  try {
+    const res = await fetch('/api/data');
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Paralelo
+const [users, posts] = await Promise.all([
+  fetch('/users').then(r => r.json()),
+  fetch('/posts').then(r => r.json())
+]);
+
+// Promise.race (primeiro a resolver)
+const fastest = await Promise.race([
+  fetch('/api1'),
+  fetch('/api2')
+]);</code></pre>
+            </div>
+          </div>
+
+          <!-- DOM -->
+          <div class="cheat-card wide">
+            <h3 class="cheat-card-title">🌐 DOM Manipulation</h3>
+            <div class="cheat-content">
+              <pre><code>// Seleção
+document.getElementById("id")
+document.querySelector(".class")        // primeiro match
+document.querySelectorAll("div")        // NodeList
+document.getElementsByClassName("class") // HTMLCollection
+document.getElementsByTagName("p")
+
+// Criação
+const div = document.createElement("div");
+div.textContent = "Texto";
+div.innerHTML = "&lt;span&gt;HTML&lt;/span&gt;";
+document.body.appendChild(div);
+
+// Modificação
+el.classList.add("active");
+el.classList.remove("active");
+el.classList.toggle("active");
+el.classList.contains("active");
+el.setAttribute("data-id", "123");
+el.getAttribute("data-id");
+el.style.color = "red";
+el.style.cssText = "color: red; font-size: 16px;";
+
+// Eventos
+el.addEventListener("click", (e) => {
+  e.preventDefault();   // previne comportamento padrão
+  e.stopPropagation(); // para propagação
+  e.target;            // elemento clicado
+  e.currentTarget;     // elemento com o listener
+});
+
+el.removeEventListener("click", handler);
+
+// Navegação DOM
+el.parentElement      // pai
+el.children           // filhos
+el.firstElementChild  // primeiro filho
+el.lastElementChild   // último filho
+el.nextElementSibling // próximo irmão
+el.previousElementSibling // irmão anterior
+
+// Remoção
+el.remove();
+parent.removeChild(child);</code></pre>
+            </div>
+          </div>
+
+          <!-- ES6+ Features -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">🚀 ES6+ Features</h3>
+            <div class="cheat-content">
+              <pre><code>// Destructuring
+const [a, b, ...rest] = [1, 2, 3, 4];
+const { x, y } = { x: 1, y: 2 };
+
+// Spread
+const arr2 = [...arr1, 4, 5];
+const obj2 = { ...obj1, key: "val" };
+
+// Classes
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+  speak() {
+    return `${this.name} faz som`;
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    return `${this.name} late`;
+  }
+}
+
+// Modules
+export const pi = 3.14;
+export default function() {}
+import { pi } from './math.js';
+import fn from './fn.js';
+
+// Map & Set
+const map = new Map();
+map.set("key", "value");
+map.get("key");
+map.has("key");
+
+const set = new Set([1, 1, 2, 2, 3]);
+// Set { 1, 2, 3 }
+
+// Symbol
+const id = Symbol("id");
+const obj = { [id]: 123 };</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Git Cheat Sheet -->
+    <section id="git-cheat" class="section cheat-section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge git-badge">📦 Git</span>
+          <h2 class="section-title">Git Cheat Sheet</h2>
+          <p class="section-description">
+            Comandos essenciais para controle de versão.
+          </p>
+        </div>
+
+        <div class="cheat-grid">
+          <!-- Configuração -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">⚙️ Configuração</h3>
+            <div class="cheat-content">
+              <pre><code># Configurar nome e email
+git config --global user.name "Seu Nome"
+git config --global user.email "email@exemplo.com"
+
+# Ver configurações
+git config --list
+
+# Editor padrão
+git config --global core.editor "code --wait"
+
+# Alias úteis
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.st status
+git config --global alias.cm "commit -m"
+git config --global alias.lg "log --oneline --graph"</code></pre>
+            </div>
+          </div>
+
+          <!-- Básico -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">🚀 Início</h3>
+            <div class="cheat-content">
+              <pre><code># Criar repositório
+git init
+
+# Clonar repositório
+git clone &lt;url&gt;
+git clone &lt;url&gt; nome-pasta
+
+# Status
+git status
+git status -s    # resumido
+
+# Adicionar arquivos
+git add arquivo.js
+git add .        # todos
+git add -A       # todos (incluindo deletados)
+git add *.js     # padrão
+
+# Commit
+git commit -m "mensagem"
+git commit -am "mensagem"  # add + commit
+
+# Ver histórico
+git log
+git log --oneline
+git log --oneline --graph --all
+git log -p       # com diff
+git log -n 5     # últimos 5</code></pre>
+            </div>
+          </div>
+
+          <!-- Branches -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">🌿 Branches</h3>
+            <div class="cheat-content">
+              <pre><code># Listar branches
+git branch       # locais
+git branch -r    # remotas
+git branch -a    # todas
+
+# Criar branch
+git branch nome-branch
+git checkout -b nome-branch  # criar e mudar
+git switch -c nome-branch    # novo modo
+
+# Mudar de branch
+git checkout nome-branch
+git switch nome-branch
+
+# Renomear
+git branch -m novo-nome
+git branch -m antigo novo
+
+# Deletar
+git branch -d nome    # seguro
+git branch -D nome    # forçado
+
+# Merge
+git merge nome-branch
+git merge --no-ff nome  # sempre criar commit</code></pre>
+            </div>
+          </div>
+
+          <!-- Remoto -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">☁️ Remoto</h3>
+            <div class="cheat-content">
+              <pre><code># Ver remotos
+git remote -v
+
+# Adicionar remoto
+git remote add origin &lt;url&gt;
+
+# Mudar URL
+git remote set-url origin &lt;nova-url&gt;
+
+# Push (enviar)
+git push origin main
+git push -u origin main  # setar upstream
+git push --all           # todas branches
+git push --force-with-lease  # forçado seguro
+
+# Pull (baixar e merge)
+git pull origin main
+git pull --rebase    # rebase ao invés de merge
+
+# Fetch (só baixar)
+git fetch origin
+git fetch --all
+
+# Deletar branch remota
+git push origin --delete nome-branch</code></pre>
+            </div>
+          </div>
+
+          <!-- Desfazer -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">↩️ Desfazer</h3>
+            <div class="cheat-content">
+              <pre><code># Descartar mudanças locais
+git checkout -- arquivo.js
+git restore arquivo.js
+
+# Unstage (remove do staging)
+git reset HEAD arquivo.js
+git restore --staged arquivo.js
+
+# Desfazer último commit
+git reset --soft HEAD~1  # mantém staged
+git reset HEAD~1         # mantém unstaged
+git reset --hard HEAD~1  # PERDE tudo
+
+# Editar último commit
+git commit --amend -m "nova mensagem"
+git commit --amend --no-edit  # adicionar arquivo
+
+# Reverter commit (cria novo)
+git revert &lt;commit-hash&gt;
+
+# Recuperar branch deletada
+git reflog
+git checkout -b nome &lt;hash&gt;</code></pre>
+            </div>
+          </div>
+
+          <!-- Stash -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">📦 Stash</h3>
+            <div class="cheat-content">
+              <pre><code># Guardar mudanças
+git stash
+git stash save "descrição"
+git stash -u   # incluir untracked
+
+# Listar stashes
+git stash list
+
+# Aplicar stash
+git stash pop      # aplica e remove
+git stash apply    # aplica e mantém
+git stash pop stash@{2}  # específico
+
+# Ver conteúdo
+git stash show
+git stash show -p  # com diff
+
+# Deletar
+git stash drop stash@{0}
+git stash clear    # todos</code></pre>
+            </div>
+          </div>
+
+          <!-- Diff e Compare -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">🔍 Diff & Compare</h3>
+            <div class="cheat-content">
+              <pre><code># Ver diferenças
+git diff                 # working vs staging
+git diff --staged        # staging vs último commit
+git diff HEAD            # working vs último commit
+git diff commit1 commit2 # entre commits
+git diff branch1 branch2 # entre branches
+
+# Mostrar arquivo específico
+git diff arquivo.js
+
+# Ver último commit
+git show
+git show &lt;commit-hash&gt;
+
+# Blame (quem alterou)
+git blame arquivo.js
+git blame -L 10,20 arquivo.js  # linhas 10-20
+
+# Buscar
+git log --grep="bugfix"
+git log -S "funcaoX"     # busca no código</code></pre>
+            </div>
+          </div>
+
+          <!-- Tags -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">🏷️ Tags</h3>
+            <div class="cheat-content">
+              <pre><code># Listar tags
+git tag
+git tag -l "v1.*"
+
+# Criar tag
+git tag v1.0.0           # leve
+git tag -a v1.0.0 -m "Release 1.0"  # anotada
+
+# Tag em commit específico
+git tag v1.0.0 &lt;commit-hash&gt;
+
+# Push tags
+git push origin v1.0.0
+git push origin --tags
+
+# Deletar tag
+git tag -d v1.0.0        # local
+git push origin :refs/tags/v1.0.0  # remota
+
+# Checkout tag
+git checkout v1.0.0</code></pre>
+            </div>
+          </div>
+
+          <!-- Rebase -->
+          <div class="cheat-card">
+            <h3 class="cheat-card-title">🔄 Rebase</h3>
+            <div class="cheat-content">
+              <pre><code># Rebase simples
+git checkout feature
+git rebase main
+
+# Rebase interativo
+git rebase -i HEAD~3
+
+# Comandos no rebase interativo:
+# pick   = usar commit
+# reword = editar mensagem
+# edit   = pausar para editar
+# squash = juntar com anterior
+# fixup  = squash sem mensagem
+# drop   = remover commit
+
+# Continuar após resolver conflito
+git rebase --continue
+
+# Abortar rebase
+git rebase --abort
+
+# Squash: juntar últimos N commits
+git rebase -i HEAD~N
+# marque todos exceto primeiro como "squash"</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </main>
+
+
+    <!-- Footer -->

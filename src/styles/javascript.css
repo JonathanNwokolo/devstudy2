@@ -1,0 +1,609 @@
+﻿/* ==========================================
+   JavaScript Page - Specific Styles
+   ========================================== */
+
+/* JavaScript Color Theme */
+.js-hero {
+    background: linear-gradient(135deg, #f7df1e 0%, #d4a800 100%);
+}
+
+.highlight-js {
+    background: linear-gradient(135deg, #1a1a1a, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.js-badge,
+.section-badge.js-badge {
+    background: rgba(247, 223, 30, 0.2);
+    color: #1a1a1a;
+    border-color: #f7df1e;
+}
+
+.btn-js {
+    background: linear-gradient(135deg, #1a1a1a, #333);
+    color: #f7df1e;
+}
+
+.btn-js:hover {
+    background: linear-gradient(135deg, #333, #1a1a1a);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.js-window {
+    background: #1a1a1a;
+}
+
+.js-window .code-content {
+    color: #f7df1e;
+}
+
+/* JS Syntax Highlighting */
+.js-keyword { color: #c792ea; }
+.js-var { color: #82aaff; }
+.js-string { color: #c3e88d; }
+.js-func { color: #82aaff; }
+.js-method { color: #89ddff; }
+.js-param { color: #f78c6c; }
+.js-comment { color: #546e7a; font-style: italic; }
+.js-interp { color: #f78c6c; }
+
+/* Info Cards Grid */
+.info-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.info-card {
+    background: #ffffff;
+    border: 1px solid #edf2f7;
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    transition: 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border-color: #667eea;
+}
+
+.info-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.info-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #1a202c;
+}
+
+.info-content p {
+    color: #4a5568;
+    line-height: 1.7;
+}
+
+/* Comparison Table */
+.comparison-table {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.comparison-item {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid #edf2f7;
+    transition: 0.3s ease;
+}
+
+.comparison-item:hover {
+    border-color: #667eea;
+}
+
+.comparison-item.deprecated {
+    opacity: 0.7;
+}
+
+.comparison-header {
+    padding: 1rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.comparison-header.var-let {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.comparison-header.var-const {
+    background: linear-gradient(135deg, #48bb78, #38a169);
+    color: white;
+}
+
+.comparison-header.var-var {
+    background: linear-gradient(135deg, #fc8181, #f56565);
+    color: white;
+}
+
+.comparison-content {
+    padding: 1.5rem;
+    background: #f7fafc;
+}
+
+.comparison-content p {
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+}
+
+.comparison-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Types Grid */
+.types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.type-card {
+    background: #f7fafc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+}
+
+.type-card:hover {
+    border-color: #667eea;
+    transform: translateY(-3px);
+}
+
+.type-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #667eea;
+    margin-bottom: 0.25rem;
+}
+
+.type-desc {
+    font-size: 0.85rem;
+    color: #718096;
+    margin-bottom: 0.5rem;
+}
+
+.type-card code {
+    font-size: 0.8rem;
+    background: #edf2f7;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* Operators Section */
+.operators-section {
+    margin-bottom: 2rem;
+}
+
+.operators-section h4 {
+    font-size: 1.1rem;
+    color: #1a202c;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #edf2f7;
+}
+
+.operators-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.5rem;
+}
+
+.operator-item {
+    background: #f7fafc;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+.operator-item code {
+    color: #667eea;
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+
+.operator-item.highlight-op {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    border: 2px solid #667eea;
+}
+
+/* Methods Table */
+.methods-table {
+    margin-top: 2rem;
+    overflow-x: auto;
+}
+
+.methods-table h4 {
+    margin-bottom: 1rem;
+}
+
+.methods-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #f7fafc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.methods-table th,
+.methods-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.methods-table th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: 600;
+}
+
+.methods-table tr:hover {
+    background: #edf2f7;
+}
+
+.methods-table code {
+    background: rgba(102, 126, 234, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #667eea;
+}
+
+/* Loops Comparison */
+.loops-comparison {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.loop-type {
+    background: #f7fafc;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+}
+
+.loop-type:hover {
+    border-color: #667eea;
+}
+
+.loop-type h4 {
+    font-size: 1.3rem;
+    color: #667eea;
+    margin-bottom: 0.25rem;
+}
+
+.loop-type > p {
+    color: #718096;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.loop-type pre {
+    background: #edf2f7;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    overflow-x: auto;
+}
+
+/* Methods Visual */
+.methods-visual {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.method-card {
+    background: #f7fafc;
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+}
+
+.method-card:hover {
+    border-color: #667eea;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.method-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #667eea;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    margin-bottom: 0.25rem;
+}
+
+.method-desc {
+    color: #718096;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.method-card code {
+    display: block;
+    background: #edf2f7;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    word-break: break-all;
+}
+
+.method-result {
+    color: #48bb78;
+    font-weight: 600;
+    font-family: 'Fira Code', 'Consolas', monospace;
+}
+
+/* Live Demo */
+.live-demo {
+    margin-top: 2rem;
+    background: #f7fafc;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 2px dashed #667eea;
+}
+
+.live-demo h4 {
+    margin-bottom: 1.5rem;
+    color: #1a202c;
+}
+
+.demo-area {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+.demo-input {
+    flex: 1;
+    min-width: 200px;
+    border: 2px solid #edf2f7 !important;
+    background: #ffffff;
+    color: #1a202c;
+    transition: 0.3s ease;
+}
+
+.demo-input:focus {
+    border-color: #667eea !important;
+    outline: none;
+}
+
+/* Tips Grid */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.tip-card {
+    background: #ffffff;
+    border: 1px solid #edf2f7;
+    border-radius: 16px;
+    padding: 2rem;
+    transition: 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border-color: #667eea;
+}
+
+.tip-number {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #edf2f7;
+    opacity: 0.5;
+}
+
+.tip-card h4 {
+    font-size: 1.2rem;
+    color: #1a202c;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.tip-card p {
+    color: #4a5568;
+    position: relative;
+}
+
+.tip-card code {
+    background: rgba(102, 126, 234, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #667eea;
+}
+
+/* Precedence Table */
+.precedence-table {
+    margin: 2rem 0;
+    overflow-x: auto;
+}
+
+.precedence-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.precedence-table th,
+.precedence-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.precedence-table th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.precedence-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.precedence-table tbody tr:hover {
+    background: #f7fafc;
+}
+
+.precedence-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.precedence-table td:first-child {
+    font-weight: 600;
+    color: #667eea;
+}
+
+.precedence-table code {
+    background: rgba(102, 126, 234, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: #667eea;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.precedence-table .precedence-high {
+    background: rgba(72, 187, 120, 0.05);
+    border-left: 3px solid #48bb78;
+}
+
+.precedence-table .precedence-high td:first-child {
+    color: #48bb78;
+    font-weight: 700;
+}
+
+.precedence-table .precedence-low {
+    background: rgba(237, 137, 54, 0.05);
+    border-left: 3px solid #ed8936;
+}
+
+.precedence-table .precedence-low td:first-child {
+    color: #ed8936;
+    font-weight: 700;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 4rem 2rem;
+    text-align: center;
+    color: white;
+}
+
+.cta-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.btn-lg {
+    padding: 1.5rem 3rem;
+    font-size: 1.1rem;
+}
+
+/* Alt Section */
+.alt-section {
+    background: #f7fafc;
+}
+
+/* Tip Box */
+.tip-box {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    border-left: 4px solid #667eea;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.tip-icon {
+    font-size: 1.5rem;
+}
+
+.tip-content {
+    color: #4a5568;
+}
+
+.tip-content strong {
+    color: #1a202c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .comparison-table {
+        grid-template-columns: 1fr;
+    }
+    
+    .loops-comparison {
+        grid-template-columns: 1fr;
+    }
+    
+    .demo-area {
+        flex-direction: column;
+    }
+    
+    .demo-input {
+        width: 100%;
+    }
+    
+    .methods-table {
+        font-size: 0.9rem;
+    }
+    
+    .methods-table th,
+    .methods-table td {
+        padding: 0.5rem;
+    }
+}

@@ -1,0 +1,1276 @@
+---
+title: "React - DevStudy"
+description: "Aprenda React: componentes, props, estado, hooks e como construir interfaces modernas com a biblioteca mais popular do front-end."
+permalink: "react.html"
+styles: ["react.css","conteudos.css","react-simulator.css"]
+scripts: ["react-simulator.js"]
+footer: {"variant":"colunas","tagline":"Aprenda desenvolvimento web de forma prática e gratuita.","sections":[{"title":"Links Rápidos","links":[{"href":"index.html","label":"Início"},{"href":"javascript.html","label":"JavaScript"},{"href":"vuejs.html","label":"Vue.js"},{"href":"git.html","label":"Git"}]},{"title":"Recursos","links":[{"href":"https://react.dev","label":"Documentação React","external":true},{"href":"https://react.dev/learn","label":"Tutorial Oficial","external":true},{"href":"https://nextjs.org","label":"Next.js","external":true}]}],"bottom":"Feito com ⚛️ React."}
+---
+    <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="hero react-hero">
+      <div class="hero-content">
+        <div class="hero-badge">⚛️ Biblioteca JavaScript</div>
+        <h1 class="hero-title">
+          Aprenda <span class="highlight-react">React</span>
+        </h1>
+        <p class="hero-description">
+          Uma biblioteca JavaScript para criar interfaces de usuário reativas e
+          componentes reutilizáveis. Desenvolvida pelo Facebook e usada por
+          milhões de desenvolvedores.
+        </p>
+        <div class="hero-buttons">
+          <a href="#fundamentos" class="btn btn-primary btn-react"
+            >Começar Agora</a
+          >
+          <a href="vuejs.html" class="btn btn-secondary">💚 Ver Vue.js</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">35+</span>
+            <span class="stat-label">Conceitos</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">25+</span>
+            <span class="stat-label">Exemplos</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">12+</span>
+            <span class="stat-label">Componentes</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="code-window react-window">
+          <div class="code-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="file-name">App.jsx</span>
+          </div>
+          <pre
+            class="code-content"
+          ><code><span class="react-keyword">import</span> <span class="react-var">React</span> <span class="react-keyword">from</span> <span class="react-string">'react'</span>;
+
+<span class="react-keyword">function</span> <span class="react-func">App</span>() {
+  <span class="react-keyword">const</span> [<span class="react-var">count</span>, <span class="react-var">setCount</span>] = <span class="react-func">useState</span>(<span class="react-number">0</span>);
+  
+  <span class="react-keyword">return</span> (
+    <span class="react-tag">&lt;div&gt;</span>
+      <span class="react-tag">&lt;h1&gt;</span>Contador: {<span class="react-var">count</span>}<span class="react-tag">&lt;/h1&gt;</span>
+      <span class="react-tag">&lt;button</span> <span class="react-attr">onClick</span>=<span class="react-interp">{() =&gt; setCount(count + 1)}</span><span class="react-tag">&gt;</span>
+        Incrementar
+      <span class="react-tag">&lt;/button&gt;</span>
+    <span class="react-tag">&lt;/div&gt;</span>
+  );
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: O que é React -->
+    <section id="intro" class="section react-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge react-badge">React</span>
+          <h2 class="section-title">A Biblioteca UI Mais Popular</h2>
+          <p class="section-description">
+            React é uma biblioteca JavaScript para construção de interfaces de
+            usuário, focada em componentes reutilizáveis e programação
+            declarativa.
+          </p>
+        </div>
+
+        <!-- Cards informativos -->
+        <div class="info-cards-grid">
+          <div class="info-card">
+            <div class="info-icon">🧩</div>
+            <div class="info-content">
+              <h3>Baseado em Componentes</h3>
+              <p>
+                Crie componentes encapsulados que gerenciam seu próprio estado e
+                os combine para construir UIs complexas.
+              </p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">⚡</div>
+            <div class="info-content">
+              <h3>Virtual DOM</h3>
+              <p>
+                React utiliza um DOM virtual para otimizar atualizações,
+                renderizando apenas o que mudou para máxima performance.
+              </p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">🔄</div>
+            <div class="info-content">
+              <h3>Reatividade</h3>
+              <p>
+                Com Hooks como useState e useEffect, React facilita o
+                gerenciamento de estado e efeitos colaterais.
+              </p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">🌐</div>
+            <div class="info-content">
+              <h3>Ecossistema Rico</h3>
+              <p>
+                Ampla comunidade, ferramentas como Next.js, React Native, e
+                milhares de bibliotecas compatíveis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Fundamentos -->
+    <section id="fundamentos" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge react-badge">Fundamentos</span>
+          <h2 class="section-title">Conceitos Essenciais do React</h2>
+          <p class="section-description">
+            Domine os conceitos fundamentais para começar a desenvolver com
+            React.
+          </p>
+        </div>
+
+        <div class="concepts-grid">
+          <!-- JSX -->
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">📝</span>
+              <h3>JSX - JavaScript + XML</h3>
+            </div>
+            <p>
+              JSX é uma extensão de sintaxe que permite escrever HTML dentro do
+              JavaScript, tornando o código mais legível e expressivo.
+            </p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">const</span> <span class="react-var">elemento</span> = <span class="react-tag">&lt;h1&gt;</span>Olá, Mundo!<span class="react-tag">&lt;/h1&gt;</span>;
+
+<span class="react-comment">// Com expressões JavaScript</span>
+<span class="react-keyword">const</span> <span class="react-var">nome</span> = <span class="react-string">"React"</span>;
+<span class="react-keyword">const</span> <span class="react-var">saudacao</span> = <span class="react-tag">&lt;h1&gt;</span>Olá, {<span class="react-var">nome</span>}!<span class="react-tag">&lt;/h1&gt;</span>;</code></pre>
+            </div>
+          </div>
+
+          <!-- Componentes -->
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">🧩</span>
+              <h3>Componentes</h3>
+            </div>
+            <p>
+              Componentes são blocos de construção reutilizáveis. Podem ser
+              funções ou classes que retornam elementos React.
+            </p>
+            <div class="code-example">
+              <pre><code><span class="react-comment">// Componente Funcional</span>
+<span class="react-keyword">function</span> <span class="react-func">Botao</span>(<span class="react-param">{texto}</span>) {
+  <span class="react-keyword">return</span> <span class="react-tag">&lt;button&gt;</span>{<span class="react-var">texto</span>}<span class="react-tag">&lt;/button&gt;</span>;
+}
+
+<span class="react-comment">// Uso</span>
+<span class="react-tag">&lt;Botao</span> <span class="react-attr">texto</span>=<span class="react-string">"Clique aqui"</span> <span class="react-tag">/&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <!-- Props -->
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">📦</span>
+              <h3>Props (Propriedades)</h3>
+            </div>
+            <p>
+              Props são argumentos passados para componentes, permitindo a
+              comunicação entre componentes pai e filho.
+            </p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">function</span> <span class="react-func">Cartao</span>(<span class="react-param">{titulo, descricao}</span>) {
+  <span class="react-keyword">return</span> (
+    <span class="react-tag">&lt;div&gt;</span>
+      <span class="react-tag">&lt;h2&gt;</span>{<span class="react-var">titulo</span>}<span class="react-tag">&lt;/h2&gt;</span>
+      <span class="react-tag">&lt;p&gt;</span>{<span class="react-var">descricao</span>}<span class="react-tag">&lt;/p&gt;</span>
+    <span class="react-tag">&lt;/div&gt;</span>
+  );
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Estado (State) -->
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">🔄</span>
+              <h3>Estado (State) &amp; Virtual DOM</h3>
+            </div>
+            <p>
+              O estado permite que componentes mantenham e atualizem dados que
+              mudam ao longo do tempo com o Hook <code>useState</code>. O React usa o <strong>Virtual DOM</strong> para descobrir o que mudou e atualizar apenas aquele elemento na tela.
+            </p>
+
+            <!-- Simulador Visual Interativo React -->
+            <div class="react-simulator-card" id="reactSimulator" aria-label="Simulador de Virtual DOM e Estado">
+              <div class="rsim-header">
+                <div class="rsim-title-group">
+                  <h3><span>⚛️</span> Simulador Visual: Virtual DOM Diffing em Ação</h3>
+                  <p class="rsim-subtitle">Clique no botão para alterar o estado e observe como o React atualiza apenas o nó modificado no DOM real.</p>
+                </div>
+                <div class="rsim-controls">
+                  <button type="button" class="rsim-btn rsim-btn-inc" id="rsimBtnInc">
+                    <span>➕</span> setCount(count + 1)
+                  </button>
+                  <button type="button" class="rsim-btn rsim-btn-dec" id="rsimBtnDec">
+                    <span>➖</span> setCount(count - 1)
+                  </button>
+                  <button type="button" class="rsim-btn rsim-btn-reset" id="rsimBtnReset">
+                    <span>🔄</span> Reset
+                  </button>
+                </div>
+              </div>
+
+              <div class="rsim-stage">
+                <!-- Coluna 1: Árvore do Virtual DOM -->
+                <div class="rsim-pane">
+                  <div class="rsim-pane-title">
+                    <span>🌳 Árvore Virtual DOM (Na Memória)</span>
+                    <span id="rsimDiffStatus" class="rsim-status">Sem alterações</span>
+                  </div>
+
+                  <div class="rsim-tree-node">
+                    &lt;App /&gt;
+                  </div>
+                  <div class="rsim-tree-node rsim-indent-1">
+                    &lt;Header title="DevStudy" /&gt; <span class="rsim-static-note">(estático)</span>
+                  </div>
+                  <div class="rsim-tree-node rsim-indent-1" id="rsimNodeCounter">
+                    &lt;Contador /&gt;
+                  </div>
+                  <div class="rsim-tree-node rsim-indent-2" id="rsimNodeText">
+                    &lt;p&gt;Cliques: <strong>0</strong>&lt;/p&gt;
+                  </div>
+                  <div class="rsim-tree-node rsim-indent-1">
+                    &lt;Footer /&gt; <span class="rsim-static-note">(estático)</span>
+                  </div>
+                </div>
+
+                <!-- Coluna 2: DOM Real Renderizado -->
+                <div class="rsim-pane">
+                  <div class="rsim-pane-title">
+                    <span>🖥️ DOM Real (Navegador)</span>
+                    <span class="rsim-reconciliation-label">Reconciliação Eficiente</span>
+                  </div>
+
+                  <div class="rsim-rendered-card">
+                    <div class="rsim-rendered-label">Resultado Visual do Componente:</div>
+                    <span class="rsim-state-badge" id="rsimRealDomNumber">0</span>
+                    <div class="rsim-rendered-note">Apenas o número acima é repintado no DOM real pelo React!</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rsim-footer">
+                <div style="font-size: 1.4rem;">💡</div>
+                <div id="rsimExplanation">
+                  Clique em <strong>setCount(count + 1)</strong> acima para ver o processo de <em>Diffing</em> em ação na árvore do Virtual DOM!
+                </div>
+              </div>
+            </div>
+
+            <div class="code-example">
+              <pre><code><span class="react-keyword">import</span> { <span class="react-var">useState</span> } <span class="react-keyword">from</span> <span class="react-string">'react'</span>;
+
+<span class="react-keyword">function</span> <span class="react-func">Contador</span>() {
+  <span class="react-keyword">const</span> [<span class="react-var">count</span>, <span class="react-var">setCount</span>] = <span class="react-func">useState</span>(<span class="react-number">0</span>);
+  
+  <span class="react-keyword">return</span> (
+    <span class="react-tag">&lt;button</span> <span class="react-attr">onClick</span>=<span class="react-interp">{() =&gt; setCount(count + 1)}</span><span class="react-tag">&gt;</span>
+      Cliques: {<span class="react-var">count</span>}
+    <span class="react-tag">&lt;/button&gt;</span>
+  );
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Eventos -->
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">👆</span>
+              <h3>Manipulação de Eventos</h3>
+            </div>
+            <p>
+              React usa camelCase para eventos e passa funções diretamente,
+              proporcionando uma forma consistente de lidar com interações.
+            </p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">function</span> <span class="react-func">Formulario</span>() {
+  <span class="react-keyword">const</span> <span class="react-func">handleSubmit</span> = (<span class="react-param">e</span>) =&gt; {
+    <span class="react-var">e</span>.<span class="react-method">preventDefault</span>();
+    <span class="react-method">console</span>.<span class="react-method">log</span>(<span class="react-string">'Enviado!'</span>);
+  };
+  
+  <span class="react-keyword">return</span> (
+    <span class="react-tag">&lt;form</span> <span class="react-attr">onSubmit</span>=<span class="react-interp">{handleSubmit}</span><span class="react-tag">&gt;</span>
+      <span class="react-tag">&lt;button</span> <span class="react-attr">type</span>=<span class="react-string">"submit"</span><span class="react-tag">&gt;</span>Enviar<span class="react-tag">&lt;/button&gt;</span>
+    <span class="react-tag">&lt;/form&gt;</span>
+  );
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- useEffect -->
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">⚙️</span>
+              <h3>useEffect - Efeitos Colaterais</h3>
+            </div>
+            <p>
+              O Hook useEffect permite executar código após a renderização,
+              ideal para requisições, timers e manipulação do DOM.
+            </p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">import</span> { <span class="react-var">useEffect</span>, <span class="react-var">useState</span> } <span class="react-keyword">from</span> <span class="react-string">'react'</span>;
+
+<span class="react-keyword">function</span> <span class="react-func">Dados</span>() {
+  <span class="react-keyword">const</span> [<span class="react-var">data</span>, <span class="react-var">setData</span>] = <span class="react-func">useState</span>(<span class="react-keyword">null</span>);
+  
+  <span class="react-func">useEffect</span>(() =&gt; {
+    <span class="react-func">fetch</span>(<span class="react-string">'/api/data'</span>)
+      .<span class="react-method">then</span>(<span class="react-param">res</span> =&gt; <span class="react-var">res</span>.<span class="react-method">json</span>())
+      .<span class="react-method">then</span>(<span class="react-var">setData</span>);
+  }, []); <span class="react-comment">// Array vazio: executa apenas uma vez</span>
+  
+  <span class="react-keyword">return</span> <span class="react-tag">&lt;div&gt;</span>{<span class="react-var">data</span>}<span class="react-tag">&lt;/div&gt;</span>;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Hooks Importantes -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge react-badge">Hooks</span>
+          <h2 class="section-title">Hooks Essenciais do React</h2>
+          <p class="section-description">
+            Hooks permitem usar estado e outras funcionalidades do React em
+            componentes funcionais.
+          </p>
+        </div>
+
+        <div class="two-column-grid">
+          <div class="feature-card">
+            <h3>🪝 useState</h3>
+            <p>Adiciona estado local a um componente funcional.</p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">const</span> [<span class="react-var">nome</span>, <span class="react-var">setNome</span>] = <span class="react-func">useState</span>(<span class="react-string">''</span>);</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>⚙️ useEffect</h3>
+            <p>Executa efeitos colaterais após renderização.</p>
+            <div class="code-example">
+              <pre><code><span class="react-func">useEffect</span>(() =&gt; {
+  <span class="react-comment">// código do efeito</span>
+}, [<span class="react-var">dependencia</span>]);</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>📦 useContext</h3>
+            <p>Consome valores de um Context sem nested components.</p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">const</span> <span class="react-var">tema</span> = <span class="react-func">useContext</span>(<span class="react-var">TemaContext</span>);</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>🔗 useRef</h3>
+            <p>Cria uma referência mutável que persiste entre renderizações.</p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">const</span> <span class="react-var">inputRef</span> = <span class="react-func">useRef</span>(<span class="react-keyword">null</span>);</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>🧮 useMemo</h3>
+            <p>Memoriza valores calculados para otimizar performance.</p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">const</span> <span class="react-var">valor</span> = <span class="react-func">useMemo</span>(() =&gt; 
+  <span class="react-func">calcular</span>(<span class="react-var">a</span>, <span class="react-var">b</span>), [<span class="react-var">a</span>, <span class="react-var">b</span>]);</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>⚡ useCallback</h3>
+            <p>Memoriza funções para evitar recriações desnecessárias.</p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">const</span> <span class="react-var">handleClick</span> = <span class="react-func">useCallback</span>(() =&gt; {
+  <span class="react-comment">// função</span>
+}, [<span class="react-var">dep</span>]);</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Context API -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge react-badge">Gerenciamento de Estado</span>
+          <h2 class="section-title">Context API</h2>
+          <p class="section-description">
+            Compartilhe dados entre componentes sem prop drilling. Ideal para
+            temas, autenticação e configurações globais.
+          </p>
+        </div>
+
+        <div class="concepts-grid">
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">🎨</span>
+              <h3>Criando um Context</h3>
+            </div>
+            <p>
+              Use createContext() para criar um contexto que pode ser
+              compartilhado.
+            </p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">import</span> { <span class="react-var">createContext</span> } <span class="react-keyword">from</span> <span class="react-string">'react'</span>;
+
+<span class="react-comment">// Criar o contexto</span>
+<span class="react-keyword">export const</span> <span class="react-var">TemaContext</span> = <span class="react-func">createContext</span>(<span class="react-keyword">null</span>);
+
+<span class="react-comment">// Provider Component</span>
+<span class="react-keyword">export function</span> <span class="react-func">TemaProvider</span>(<span class="react-param">{children}</span>) {
+  <span class="react-keyword">const</span> [<span class="react-var">tema</span>, <span class="react-var">setTema</span>] = <span class="react-func">useState</span>(<span class="react-string">'light'</span>);
+  
+  <span class="react-keyword">return</span> (
+    <span class="react-tag">&lt;TemaContext.Provider</span> <span class="react-attr">value</span>=<span class="react-interp">{{tema, setTema}}</span><span class="react-tag">&gt;</span>
+      {<span class="react-var">children</span>}
+    <span class="react-tag">&lt;/TemaContext.Provider&gt;</span>
+  );
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">🔌</span>
+              <h3>Consumindo Context</h3>
+            </div>
+            <p>Use o hook useContext para acessar valores do contexto.</p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">import</span> { <span class="react-var">useContext</span> } <span class="react-keyword">from</span> <span class="react-string">'react'</span>;
+<span class="react-keyword">import</span> { <span class="react-var">TemaContext</span> } <span class="react-keyword">from</span> <span class="react-string">'./TemaContext'</span>;
+
+<span class="react-keyword">function</span> <span class="react-func">Botao</span>() {
+  <span class="react-keyword">const</span> { <span class="react-var">tema</span>, <span class="react-var">setTema</span> } = <span class="react-func">useContext</span>(<span class="react-var">TemaContext</span>);
+  
+  <span class="react-keyword">return</span> (
+    <span class="react-tag">&lt;button</span> <span class="react-attr">className</span>=<span class="react-interp">{tema}</span><span class="react-tag">&gt;</span>
+      Tema Atual: {<span class="react-var">tema</span>}
+    <span class="react-tag">&lt;/button&gt;</span>
+  );
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">🎯</span>
+              <h3>Custom Hook para Context</h3>
+            </div>
+            <p>Crie hooks customizados para facilitar o uso do contexto.</p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">export function</span> <span class="react-func">useTema</span>() {
+  <span class="react-keyword">const</span> <span class="react-var">context</span> = <span class="react-func">useContext</span>(<span class="react-var">TemaContext</span>);
+  
+  <span class="react-keyword">if</span> (!<span class="react-var">context</span>) {
+    <span class="react-keyword">throw new</span> <span class="react-func">Error</span>(<span class="react-string">'useTema deve ser usado dentro de TemaProvider'</span>);
+  }
+  
+  <span class="react-keyword">return</span> <span class="react-var">context</span>;
+}
+
+<span class="react-comment">// Uso simplificado</span>
+<span class="react-keyword">const</span> { <span class="react-var">tema</span>, <span class="react-var">setTema</span> } = <span class="react-func">useTema</span>();</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Custom Hooks -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge react-badge">Reutilização</span>
+          <h2 class="section-title">Custom Hooks</h2>
+          <p class="section-description">
+            Crie seus próprios hooks para extrair lógica reutilizável de
+            componentes.
+          </p>
+        </div>
+
+        <div class="two-column-grid">
+          <div class="feature-card">
+            <h3>🔄 useFetch - Requisições HTTP</h3>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">function</span> <span class="react-func">useFetch</span>(<span class="react-param">url</span>) {
+  <span class="react-keyword">const</span> [<span class="react-var">data</span>, <span class="react-var">setData</span>] = <span class="react-func">useState</span>(<span class="react-keyword">null</span>);
+  <span class="react-keyword">const</span> [<span class="react-var">loading</span>, <span class="react-var">setLoading</span>] = <span class="react-func">useState</span>(<span class="react-keyword">true</span>);
+  <span class="react-keyword">const</span> [<span class="react-var">error</span>, <span class="react-var">setError</span>] = <span class="react-func">useState</span>(<span class="react-keyword">null</span>);
+  
+  <span class="react-func">useEffect</span>(() =&gt; {
+    <span class="react-func">fetch</span>(<span class="react-var">url</span>)
+      .<span class="react-method">then</span>(<span class="react-param">res</span> =&gt; <span class="react-var">res</span>.<span class="react-method">json</span>())
+      .<span class="react-method">then</span>(<span class="react-var">setData</span>)
+      .<span class="react-method">catch</span>(<span class="react-var">setError</span>)
+      .<span class="react-method">finally</span>(() =&gt; <span class="react-func">setLoading</span>(<span class="react-keyword">false</span>));
+  }, [<span class="react-var">url</span>]);
+  
+  <span class="react-keyword">return</span> { <span class="react-var">data</span>, <span class="react-var">loading</span>, <span class="react-var">error</span> };
+}
+
+<span class="react-comment">// Uso</span>
+<span class="react-keyword">const</span> { <span class="react-var">data</span>, <span class="react-var">loading</span> } = <span class="react-func">useFetch</span>(<span class="react-string">'/api/users'</span>);</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>💾 useLocalStorage</h3>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">function</span> <span class="react-func">useLocalStorage</span>(<span class="react-param">key, defaultValue</span>) {
+  <span class="react-keyword">const</span> [<span class="react-var">value</span>, <span class="react-var">setValue</span>] = <span class="react-func">useState</span>(() =&gt; {
+    <span class="react-keyword">const</span> <span class="react-var">saved</span> = <span class="react-var">localStorage</span>.<span class="react-method">getItem</span>(<span class="react-var">key</span>);
+    <span class="react-keyword">return</span> <span class="react-var">saved</span> ? <span class="react-var">JSON</span>.<span class="react-method">parse</span>(<span class="react-var">saved</span>) : <span class="react-var">defaultValue</span>;
+  });
+  
+  <span class="react-func">useEffect</span>(() =&gt; {
+    <span class="react-var">localStorage</span>.<span class="react-method">setItem</span>(<span class="react-var">key</span>, <span class="react-var">JSON</span>.<span class="react-method">stringify</span>(<span class="react-var">value</span>));
+  }, [<span class="react-var">key</span>, <span class="react-var">value</span>]);
+  
+  <span class="react-keyword">return</span> [<span class="react-var">value</span>, <span class="react-var">setValue</span>];
+}
+
+<span class="react-comment">// Uso</span>
+<span class="react-keyword">const</span> [<span class="react-var">nome</span>, <span class="react-var">setNome</span>] = <span class="react-func">useLocalStorage</span>(<span class="react-string">'nome'</span>, <span class="react-string">''</span>);</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>🖱️ useDebounce</h3>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">function</span> <span class="react-func">useDebounce</span>(<span class="react-param">value, delay</span>) {
+  <span class="react-keyword">const</span> [<span class="react-var">debouncedValue</span>, <span class="react-var">setDebouncedValue</span>] = <span class="react-func">useState</span>(<span class="react-var">value</span>);
+  
+  <span class="react-func">useEffect</span>(() =&gt; {
+    <span class="react-keyword">const</span> <span class="react-var">timer</span> = <span class="react-func">setTimeout</span>(() =&gt; {
+      <span class="react-func">setDebouncedValue</span>(<span class="react-var">value</span>);
+    }, <span class="react-var">delay</span>);
+    
+    <span class="react-keyword">return</span> () =&gt; <span class="react-func">clearTimeout</span>(<span class="react-var">timer</span>);
+  }, [<span class="react-var">value</span>, <span class="react-var">delay</span>]);
+  
+  <span class="react-keyword">return</span> <span class="react-var">debouncedValue</span>;
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>📐 useWindowSize</h3>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">function</span> <span class="react-func">useWindowSize</span>() {
+  <span class="react-keyword">const</span> [<span class="react-var">size</span>, <span class="react-var">setSize</span>] = <span class="react-func">useState</span>({
+    <span class="react-var">width</span>: <span class="react-var">window</span>.<span class="react-var">innerWidth</span>,
+    <span class="react-var">height</span>: <span class="react-var">window</span>.<span class="react-var">innerHeight</span>
+  });
+  
+  <span class="react-func">useEffect</span>(() =&gt; {
+    <span class="react-keyword">const</span> <span class="react-func">handleResize</span> = () =&gt; {
+      <span class="react-func">setSize</span>({
+        <span class="react-var">width</span>: <span class="react-var">window</span>.<span class="react-var">innerWidth</span>,
+        <span class="react-var">height</span>: <span class="react-var">window</span>.<span class="react-var">innerHeight</span>
+      });
+    };
+    
+    <span class="react-var">window</span>.<span class="react-method">addEventListener</span>(<span class="react-string">'resize'</span>, <span class="react-var">handleResize</span>);
+    <span class="react-keyword">return</span> () =&gt; <span class="react-var">window</span>.<span class="react-method">removeEventListener</span>(<span class="react-string">'resize'</span>, <span class="react-var">handleResize</span>);
+  }, []);
+  
+  <span class="react-keyword">return</span> <span class="react-var">size</span>;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Formulários -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge react-badge">Entrada de Dados</span>
+          <h2 class="section-title">Trabalhando com Formulários</h2>
+          <p class="section-description">
+            Aprenda a criar formulários controlados, validação e manipulação de
+            dados.
+          </p>
+        </div>
+
+        <div class="concepts-grid">
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">📝</span>
+              <h3>Componentes Controlados</h3>
+            </div>
+            <p>Inputs controlados pelo React através do estado.</p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">function</span> <span class="react-func">Formulario</span>() {
+  <span class="react-keyword">const</span> [<span class="react-var">nome</span>, <span class="react-var">setNome</span>] = <span class="react-func">useState</span>(<span class="react-string">''</span>);
+  <span class="react-keyword">const</span> [<span class="react-var">email</span>, <span class="react-var">setEmail</span>] = <span class="react-func">useState</span>(<span class="react-string">''</span>);
+  
+  <span class="react-keyword">const</span> <span class="react-func">handleSubmit</span> = (<span class="react-param">e</span>) =&gt; {
+    <span class="react-var">e</span>.<span class="react-method">preventDefault</span>();
+    <span class="react-method">console</span>.<span class="react-method">log</span>({ <span class="react-var">nome</span>, <span class="react-var">email</span> });
+  };
+  
+  <span class="react-keyword">return</span> (
+    <span class="react-tag">&lt;form</span> <span class="react-attr">onSubmit</span>=<span class="react-interp">{handleSubmit}</span><span class="react-tag">&gt;</span>
+      <span class="react-tag">&lt;input</span>
+        <span class="react-attr">value</span>=<span class="react-interp">{nome}</span>
+        <span class="react-attr">onChange</span>=<span class="react-interp">{(e) =&gt; setNome(e.target.value)}</span>
+      <span class="react-tag">/&gt;</span>
+      <span class="react-tag">&lt;button</span> <span class="react-attr">type</span>=<span class="react-string">"submit"</span><span class="react-tag">&gt;</span>Enviar<span class="react-tag">&lt;/button&gt;</span>
+    <span class="react-tag">&lt;/form&gt;</span>
+  );
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">✅</span>
+              <h3>Validação de Formulário</h3>
+            </div>
+            <p>Implemente validação customizada para seus formulários.</p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">function</span> <span class="react-func">FormularioValidado</span>() {
+  <span class="react-keyword">const</span> [<span class="react-var">email</span>, <span class="react-var">setEmail</span>] = <span class="react-func">useState</span>(<span class="react-string">''</span>);
+  <span class="react-keyword">const</span> [<span class="react-var">erro</span>, <span class="react-var">setErro</span>] = <span class="react-func">useState</span>(<span class="react-string">''</span>);
+  
+  <span class="react-keyword">const</span> <span class="react-func">validarEmail</span> = (<span class="react-param">email</span>) =&gt; {
+    <span class="react-keyword">const</span> <span class="react-var">regex</span> = <span class="react-string">/^[^\s@]+@[^\s@]+\.[^\s@]+$/</span>;
+    <span class="react-keyword">return</span> <span class="react-var">regex</span>.<span class="react-method">test</span>(<span class="react-var">email</span>);
+  };
+  
+  <span class="react-keyword">const</span> <span class="react-func">handleSubmit</span> = (<span class="react-param">e</span>) =&gt; {
+    <span class="react-var">e</span>.<span class="react-method">preventDefault</span>();
+    
+    <span class="react-keyword">if</span> (!<span class="react-func">validarEmail</span>(<span class="react-var">email</span>)) {
+      <span class="react-func">setErro</span>(<span class="react-string">'Email inválido'</span>);
+      <span class="react-keyword">return</span>;
+    }
+    
+    <span class="react-func">setErro</span>(<span class="react-string">''</span>);
+    <span class="react-comment">// Enviar formulário</span>
+  };
+  
+  <span class="react-keyword">return</span> (
+    <span class="react-tag">&lt;form</span> <span class="react-attr">onSubmit</span>=<span class="react-interp">{handleSubmit}</span><span class="react-tag">&gt;</span>
+      <span class="react-tag">&lt;input</span> <span class="react-attr">value</span>=<span class="react-interp">{email}</span> <span class="react-attr">onChange</span>=<span class="react-interp">{(e) =&gt; setEmail(e.target.value)}</span> <span class="react-tag">/&gt;</span>
+      {<span class="react-var">erro</span> &amp;&amp; <span class="react-tag">&lt;span&gt;</span>{<span class="react-var">erro</span>}<span class="react-tag">&lt;/span&gt;</span>}
+      <span class="react-tag">&lt;button&gt;</span>Enviar<span class="react-tag">&lt;/button&gt;</span>
+    <span class="react-tag">&lt;/form&gt;</span>
+  );
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">🎛️</span>
+              <h3>Múltiplos Inputs</h3>
+            </div>
+            <p>Gerencie vários campos com um único estado.</p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">function</span> <span class="react-func">FormularioCompleto</span>() {
+  <span class="react-keyword">const</span> [<span class="react-var">formData</span>, <span class="react-var">setFormData</span>] = <span class="react-func">useState</span>({
+    <span class="react-var">nome</span>: <span class="react-string">''</span>,
+    <span class="react-var">email</span>: <span class="react-string">''</span>,
+    <span class="react-var">idade</span>: <span class="react-string">''</span>
+  });
+  
+  <span class="react-keyword">const</span> <span class="react-func">handleChange</span> = (<span class="react-param">e</span>) =&gt; {
+    <span class="react-keyword">const</span> { <span class="react-var">name</span>, <span class="react-var">value</span> } = <span class="react-var">e</span>.<span class="react-var">target</span>;
+    <span class="react-func">setFormData</span>(<span class="react-param">prev</span> =&gt; ({
+      ...<span class="react-var">prev</span>,
+      [<span class="react-var">name</span>]: <span class="react-var">value</span>
+    }));
+  };
+  
+  <span class="react-keyword">return</span> (
+    <span class="react-tag">&lt;form&gt;</span>
+      <span class="react-tag">&lt;input</span> <span class="react-attr">name</span>=<span class="react-string">"nome"</span> <span class="react-attr">value</span>=<span class="react-interp">{formData.nome}</span> <span class="react-attr">onChange</span>=<span class="react-interp">{handleChange}</span> <span class="react-tag">/&gt;</span>
+      <span class="react-tag">&lt;input</span> <span class="react-attr">name</span>=<span class="react-string">"email"</span> <span class="react-attr">value</span>=<span class="react-interp">{formData.email}</span> <span class="react-attr">onChange</span>=<span class="react-interp">{handleChange}</span> <span class="react-tag">/&gt;</span>
+      <span class="react-tag">&lt;input</span> <span class="react-attr">name</span>=<span class="react-string">"idade"</span> <span class="react-attr">value</span>=<span class="react-interp">{formData.idade}</span> <span class="react-attr">onChange</span>=<span class="react-interp">{handleChange}</span> <span class="react-tag">/&gt;</span>
+    <span class="react-tag">&lt;/form&gt;</span>
+  );
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Performance -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge react-badge">Otimização</span>
+          <h2 class="section-title">Otimização de Performance</h2>
+          <p class="section-description">
+            Técnicas para melhorar o desempenho de aplicações React.
+          </p>
+        </div>
+
+        <div class="two-column-grid">
+          <div class="feature-card">
+            <h3>⚡ React.memo</h3>
+            <p>Evita re-renderizações desnecessárias de componentes.</p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">const</span> <span class="react-var">ListaItem</span> = <span class="react-var">React</span>.<span class="react-func">memo</span>((<span class="react-param">{item}</span>) =&gt; {
+  <span class="react-method">console</span>.<span class="react-method">log</span>(<span class="react-string">'Renderizando item'</span>);
+  <span class="react-keyword">return</span> <span class="react-tag">&lt;li&gt;</span>{<span class="react-var">item</span>.<span class="react-var">nome</span>}<span class="react-tag">&lt;/li&gt;</span>;
+});
+
+<span class="react-comment">// Com comparação customizada</span>
+<span class="react-keyword">const</span> <span class="react-var">ListaItemCustom</span> = <span class="react-var">React</span>.<span class="react-func">memo</span>(
+  <span class="react-var">Item</span>,
+  (<span class="react-param">prevProps, nextProps</span>) =&gt; {
+    <span class="react-keyword">return</span> <span class="react-var">prevProps</span>.<span class="react-var">id</span> === <span class="react-var">nextProps</span>.<span class="react-var">id</span>;
+  }
+);</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>🧮 useMemo para Cálculos</h3>
+            <p>Memoriza resultados de cálculos custosos.</p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">function</span> <span class="react-func">Lista</span>(<span class="react-param">{itens, filtro}</span>) {
+  <span class="react-keyword">const</span> <span class="react-var">itensFiltrados</span> = <span class="react-func">useMemo</span>(() =&gt; {
+    <span class="react-method">console</span>.<span class="react-method">log</span>(<span class="react-string">'Calculando filtro...'</span>);
+    <span class="react-keyword">return</span> <span class="react-var">itens</span>.<span class="react-method">filter</span>(<span class="react-param">item</span> =&gt; 
+      <span class="react-var">item</span>.<span class="react-method">includes</span>(<span class="react-var">filtro</span>)
+    );
+  }, [<span class="react-var">itens</span>, <span class="react-var">filtro</span>]); <span class="react-comment">// Só recalcula se itens ou filtro mudarem</span>
+  
+  <span class="react-keyword">return</span> (
+    <span class="react-tag">&lt;ul&gt;</span>
+      {<span class="react-var">itensFiltrados</span>.<span class="react-method">map</span>(<span class="react-param">item</span> =&gt; <span class="react-tag">&lt;li&gt;</span>{<span class="react-var">item</span>}<span class="react-tag">&lt;/li&gt;</span>)}
+    <span class="react-tag">&lt;/ul&gt;</span>
+  );
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>⚡ useCallback para Funções</h3>
+            <p>Evita recriação de funções em cada renderização.</p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">function</span> <span class="react-func">TodoList</span>() {
+  <span class="react-keyword">const</span> [<span class="react-var">todos</span>, <span class="react-var">setTodos</span>] = <span class="react-func">useState</span>([]);
+  
+  <span class="react-comment">// Função memorizada</span>
+  <span class="react-keyword">const</span> <span class="react-var">addTodo</span> = <span class="react-func">useCallback</span>((<span class="react-param">text</span>) =&gt; {
+    <span class="react-func">setTodos</span>(<span class="react-param">prev</span> =&gt; [...<span class="react-var">prev</span>, <span class="react-var">text</span>]);
+  }, []); <span class="react-comment">// Array vazio = função nunca muda</span>
+  
+  <span class="react-keyword">return</span> <span class="react-tag">&lt;TodoForm</span> <span class="react-attr">onAdd</span>=<span class="react-interp">{addTodo}</span> <span class="react-tag">/&gt;</span>;
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>📦 Code Splitting</h3>
+            <p>Carregue componentes sob demanda com React.lazy.</p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">import</span> { <span class="react-var">lazy</span>, <span class="react-var">Suspense</span> } <span class="react-keyword">from</span> <span class="react-string">'react'</span>;
+
+<span class="react-comment">// Carregamento preguiçoso</span>
+<span class="react-keyword">const</span> <span class="react-var">PesadoComponent</span> = <span class="react-func">lazy</span>(() =&gt; 
+  <span class="react-keyword">import</span>(<span class="react-string">'./PesadoComponent'</span>)
+);
+
+<span class="react-keyword">function</span> <span class="react-func">App</span>() {
+  <span class="react-keyword">return</span> (
+    <span class="react-tag">&lt;Suspense</span> <span class="react-attr">fallback</span>=<span class="react-interp">{&lt;div&gt;Carregando...&lt;/div&gt;}</span><span class="react-tag">&gt;</span>
+      <span class="react-tag">&lt;PesadoComponent</span> <span class="react-tag">/&gt;</span>
+    <span class="react-tag">&lt;/Suspense&gt;</span>
+  );
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: React Router -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge react-badge">Navegação</span>
+          <h2 class="section-title">React Router</h2>
+          <p class="section-description">
+            Adicione roteamento e navegação à sua aplicação React.
+          </p>
+        </div>
+
+        <div class="concepts-grid">
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">🛣️</span>
+              <h3>Configuração Básica</h3>
+            </div>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">import</span> { <span class="react-var">BrowserRouter</span>, <span class="react-var">Routes</span>, <span class="react-var">Route</span> } <span class="react-keyword">from</span> <span class="react-string">'react-router-dom'</span>;
+
+<span class="react-keyword">function</span> <span class="react-func">App</span>() {
+  <span class="react-keyword">return</span> (
+    <span class="react-tag">&lt;BrowserRouter&gt;</span>
+      <span class="react-tag">&lt;Routes&gt;</span>
+        <span class="react-tag">&lt;Route</span> <span class="react-attr">path</span>=<span class="react-string">"/"</span> <span class="react-attr">element</span>=<span class="react-interp">{&lt;Home /&gt;}</span> <span class="react-tag">/&gt;</span>
+        <span class="react-tag">&lt;Route</span> <span class="react-attr">path</span>=<span class="react-string">"/sobre"</span> <span class="react-attr">element</span>=<span class="react-interp">{&lt;Sobre /&gt;}</span> <span class="react-tag">/&gt;</span>
+        <span class="react-tag">&lt;Route</span> <span class="react-attr">path</span>=<span class="react-string">"/usuario/:id"</span> <span class="react-attr">element</span>=<span class="react-interp">{&lt;Usuario /&gt;}</span> <span class="react-tag">/&gt;</span>
+      <span class="react-tag">&lt;/Routes&gt;</span>
+    <span class="react-tag">&lt;/BrowserRouter&gt;</span>
+  );
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">🔗</span>
+              <h3>Links e Navegação</h3>
+            </div>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">import</span> { <span class="react-var">Link</span>, <span class="react-var">useNavigate</span> } <span class="react-keyword">from</span> <span class="react-string">'react-router-dom'</span>;
+
+<span class="react-keyword">function</span> <span class="react-func">Menu</span>() {
+  <span class="react-keyword">const</span> <span class="react-var">navigate</span> = <span class="react-func">useNavigate</span>();
+  
+  <span class="react-keyword">return</span> (
+    <span class="react-tag">&lt;nav&gt;</span>
+      <span class="react-tag">&lt;Link</span> <span class="react-attr">to</span>=<span class="react-string">"/"</span><span class="react-tag">&gt;</span>Home<span class="react-tag">&lt;/Link&gt;</span>
+      <span class="react-tag">&lt;Link</span> <span class="react-attr">to</span>=<span class="react-string">"/sobre"</span><span class="react-tag">&gt;</span>Sobre<span class="react-tag">&lt;/Link&gt;</span>
+      <span class="react-tag">&lt;button</span> <span class="react-attr">onClick</span>=<span class="react-interp">{() =&gt; navigate('/contato')}</span><span class="react-tag">&gt;</span>
+        Contato
+      <span class="react-tag">&lt;/button&gt;</span>
+    <span class="react-tag">&lt;/nav&gt;</span>
+  );
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="concept-card">
+            <div class="concept-header">
+              <span class="concept-icon">🎯</span>
+              <h3>Parâmetros de Rota</h3>
+            </div>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">import</span> { <span class="react-var">useParams</span>, <span class="react-var">useSearchParams</span> } <span class="react-keyword">from</span> <span class="react-string">'react-router-dom'</span>;
+
+<span class="react-keyword">function</span> <span class="react-func">Usuario</span>() {
+  <span class="react-comment">// Parâmetros da URL: /usuario/123</span>
+  <span class="react-keyword">const</span> { <span class="react-var">id</span> } = <span class="react-func">useParams</span>();
+  
+  <span class="react-comment">// Query strings: ?nome=joao&idade=25</span>
+  <span class="react-keyword">const</span> [<span class="react-var">searchParams</span>] = <span class="react-func">useSearchParams</span>();
+  <span class="react-keyword">const</span> <span class="react-var">nome</span> = <span class="react-var">searchParams</span>.<span class="react-method">get</span>(<span class="react-string">'nome'</span>);
+  
+  <span class="react-keyword">return</span> <span class="react-tag">&lt;div&gt;</span>Usuário {<span class="react-var">id</span>} - {<span class="react-var">nome</span>}<span class="react-tag">&lt;/div&gt;</span>;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Boas Práticas -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge react-badge">Dicas</span>
+          <h2 class="section-title">Boas Práticas React</h2>
+          <p class="section-description">
+            Convenções e padrões recomendados pela comunidade React.
+          </p>
+        </div>
+
+        <div class="info-cards-grid">
+          <div class="info-card">
+            <div class="info-icon">📁</div>
+            <div class="info-content">
+              <h3>Estrutura de Pastas</h3>
+              <p>
+                Organize por features: cada funcionalidade em sua própria pasta
+                com componentes, hooks e testes relacionados juntos.
+              </p>
+              <div class="code-example">
+                <pre><code>src/
+  features/
+    auth/
+      Login.jsx
+      useAuth.js
+      auth.test.js
+    products/
+      ProductList.jsx
+      ProductCard.jsx
+  shared/
+    Button.jsx
+  hooks/
+  utils/</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">🎨</div>
+            <div class="info-content">
+              <h3>Nomenclatura</h3>
+              <p>
+                Componentes em PascalCase, hooks com prefixo 'use', constantes
+                em UPPER_CASE, variáveis e funções em camelCase.
+              </p>
+              <div class="code-example">
+                <pre><code><span class="react-comment">// ✅ Bom</span>
+<span class="react-keyword">function</span> <span class="react-func">UserProfile</span>() {}
+<span class="react-keyword">const</span> <span class="react-var">useUser</span> = () =&gt; {}
+<span class="react-keyword">const</span> <span class="react-var">API_URL</span> = <span class="react-string">'...'</span>;
+
+<span class="react-comment">// ❌ Evite</span>
+<span class="react-keyword">function</span> <span class="react-func">user_profile</span>() {}
+<span class="react-keyword">const</span> <span class="react-var">getUser</span> = () =&gt; {}</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">🔑</div>
+            <div class="info-content">
+              <h3>Keys em Listas</h3>
+              <p>
+                Sempre use keys únicas e estáveis em listas. Evite usar índices
+                como keys se a ordem puder mudar.
+              </p>
+              <div class="code-example">
+                <pre><code><span class="react-comment">// ✅ Bom</span>
+{<span class="react-var">items</span>.<span class="react-method">map</span>(<span class="react-param">item</span> =&gt; (
+  <span class="react-tag">&lt;Item</span> <span class="react-attr">key</span>=<span class="react-interp">{item.id}</span> <span class="react-tag">/&gt;</span>
+))}
+
+<span class="react-comment">// ❌ Evite</span>
+{<span class="react-var">items</span>.<span class="react-method">map</span>((<span class="react-param">item, index</span>) =&gt; (
+  <span class="react-tag">&lt;Item</span> <span class="react-attr">key</span>=<span class="react-interp">{index}</span> <span class="react-tag">/&gt;</span>
+))}</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">🧩</div>
+            <div class="info-content">
+              <h3>Componentes Pequenos</h3>
+              <p>
+                Mantenha componentes focados em uma única responsabilidade.
+                Divida componentes grandes em menores.
+              </p>
+              <div class="code-example">
+                <pre><code><span class="react-comment">// Ao invés de um componente grande</span>
+<span class="react-keyword">function</span> <span class="react-func">Dashboard</span>() {} <span class="react-comment">// 500 linhas</span>
+
+<span class="react-comment">// Divida em componentes menores</span>
+<span class="react-keyword">function</span> <span class="react-func">Dashboard</span>() {
+  <span class="react-keyword">return</span> (
+    <span class="react-tag">&lt;&gt;</span>
+      <span class="react-tag">&lt;Header</span> <span class="react-tag">/&gt;</span>
+      <span class="react-tag">&lt;Sidebar</span> <span class="react-tag">/&gt;</span>
+      <span class="react-tag">&lt;MainContent</span> <span class="react-tag">/&gt;</span>
+      <span class="react-tag">&lt;Footer</span> <span class="react-tag">/&gt;</span>
+    <span class="react-tag">&lt;/&gt;</span>
+  );
+}</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">⚠️</div>
+            <div class="info-content">
+              <h3>Tratamento de Erros</h3>
+              <p>
+                Use Error Boundaries para capturar erros em componentes e evitar
+                que toda a aplicação quebre.
+              </p>
+              <div class="code-example">
+                <pre><code><span class="react-keyword">class</span> <span class="react-func">ErrorBoundary</span> <span class="react-keyword">extends</span> <span class="react-var">React</span>.<span class="react-var">Component</span> {
+  <span class="react-func">componentDidCatch</span>(<span class="react-param">error</span>) {
+    <span class="react-method">console</span>.<span class="react-method">error</span>(<span class="react-var">error</span>);
+  }
+  
+  <span class="react-func">render</span>() {
+    <span class="react-keyword">if</span> (<span class="react-keyword">this</span>.<span class="react-var">state</span>.<span class="react-var">hasError</span>) {
+      <span class="react-keyword">return</span> <span class="react-tag">&lt;h1&gt;</span>Algo deu errado<span class="react-tag">&lt;/h1&gt;</span>;
+    }
+    <span class="react-keyword">return</span> <span class="react-keyword">this</span>.<span class="react-var">props</span>.<span class="react-var">children</span>;
+  }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">🔒</div>
+            <div class="info-content">
+              <h3>Props Destruct</h3>
+              <p>
+                Desestruture props para código mais limpo e saiba exatamente
+                quais props o componente recebe.
+              </p>
+              <div class="code-example">
+                <pre><code><span class="react-comment">// ✅ Bom</span>
+<span class="react-keyword">function</span> <span class="react-func">User</span>(<span class="react-param">{nome, email, idade}</span>) {
+  <span class="react-keyword">return</span> <span class="react-tag">&lt;div&gt;</span>{<span class="react-var">nome</span>}<span class="react-tag">&lt;/div&gt;</span>;
+}
+
+<span class="react-comment">// ❌ Menos claro</span>
+<span class="react-keyword">function</span> <span class="react-func">User</span>(<span class="react-param">props</span>) {
+  <span class="react-keyword">return</span> <span class="react-tag">&lt;div&gt;</span>{<span class="react-var">props</span>.<span class="react-var">nome</span>}<span class="react-tag">&lt;/div&gt;</span>;
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Ecossistema -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge react-badge">Ferramentas</span>
+          <h2 class="section-title">Ecossistema React</h2>
+          <p class="section-description">
+            Bibliotecas e ferramentas populares que complementam o React.
+          </p>
+        </div>
+
+        <div class="two-column-grid">
+          <div class="feature-card">
+            <h3>🚀 Next.js</h3>
+            <p>Framework React com SSR, SSG, roteamento e otimizações.</p>
+            <ul style="list-style: none; padding: 0; margin-top: 1rem">
+              <li style="padding: 0.5rem 0">✓ Server Side Rendering</li>
+              <li style="padding: 0.5rem 0">✓ Static Site Generation</li>
+              <li style="padding: 0.5rem 0">✓ API Routes</li>
+              <li style="padding: 0.5rem 0">✓ Image Optimization</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h3>🎨 Styled Components</h3>
+            <p>CSS-in-JS para estilizar componentes React.</p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">import</span> <span class="react-var">styled</span> <span class="react-keyword">from</span> <span class="react-string">'styled-components'</span>;
+
+<span class="react-keyword">const</span> <span class="react-var">Button</span> = <span class="react-var">styled</span>.<span class="react-var">button</span><span class="react-string">`
+  background: blue;
+  color: white;
+  padding: 10px;
+`</span>;</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>🔄 React Query</h3>
+            <p>Gerenciamento de estado para dados assíncronos.</p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">const</span> { <span class="react-var">data</span>, <span class="react-var">isLoading</span> } = <span class="react-func">useQuery</span>({
+  <span class="react-var">queryKey</span>: [<span class="react-string">'todos'</span>],
+  <span class="react-var">queryFn</span>: <span class="react-var">fetchTodos</span>
+});</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>📊 Redux Toolkit</h3>
+            <p>Gerenciamento de estado global simplificado.</p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">const</span> <span class="react-var">store</span> = <span class="react-func">configureStore</span>({
+  <span class="react-var">reducer</span>: {
+    <span class="react-var">user</span>: <span class="react-var">userReducer</span>,
+    <span class="react-var">posts</span>: <span class="react-var">postsReducer</span>
+  }
+});</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>📱 React Native</h3>
+            <p>Desenvolva apps mobile com React.</p>
+            <ul style="list-style: none; padding: 0; margin-top: 1rem">
+              <li style="padding: 0.5rem 0">✓ iOS e Android</li>
+              <li style="padding: 0.5rem 0">✓ Mesma sintaxe do React</li>
+              <li style="padding: 0.5rem 0">✓ Hot Reloading</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h3>🧪 Testing Library</h3>
+            <p>Teste componentes React focando em comportamento do usuário.</p>
+            <div class="code-example">
+              <pre><code><span class="react-func">render</span>(<span class="react-tag">&lt;Button</span> <span class="react-tag">/&gt;</span>);
+<span class="react-keyword">const</span> <span class="react-var">button</span> = <span class="react-var">screen</span>.<span class="react-method">getByRole</span>(<span class="react-string">'button'</span>);
+<span class="react-func">expect</span>(<span class="react-var">button</span>).<span class="react-method">toBeInTheDocument</span>();</code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>🎭 Framer Motion</h3>
+            <p>Biblioteca de animações para React.</p>
+            <div class="code-example">
+              <pre><code><span class="react-keyword">import</span> { <span class="react-var">motion</span> } <span class="react-keyword">from</span> <span class="react-string">'framer-motion'</span>;
+
+<span class="react-tag">&lt;motion.div</span>
+  <span class="react-attr">animate</span>=<span class="react-interp">{{x: 100}}</span>
+  <span class="react-attr">transition</span>=<span class="react-interp">{{duration: 2}}</span>
+<span class="react-tag">/&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3>🎨 Tailwind CSS</h3>
+            <p>CSS utility-first integrado com React.</p>
+            <div class="code-example">
+              <pre><code><span class="react-tag">&lt;button</span> 
+  <span class="react-attr">className</span>=<span class="react-string">"bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded"</span>
+<span class="react-tag">&gt;</span>
+  Botão
+<span class="react-tag">&lt;/button&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Recursos -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge react-badge">Aprenda Mais</span>
+          <h2 class="section-title">Recursos e Documentação</h2>
+          <p class="section-description">
+            Links úteis para continuar sua jornada com React.
+          </p>
+        </div>
+
+        <div class="info-cards-grid">
+          <div class="info-card">
+            <div class="info-icon">📚</div>
+            <div class="info-content">
+              <h3>Documentação Oficial</h3>
+              <ul style="list-style: none; padding: 0">
+                <li style="padding: 0.5rem 0">
+                  <a
+                    href="https://react.dev"
+                    target="_blank"
+                    class="study-resource-link"
+                  >
+                    → React Docs (Nova)</a
+                  >
+                </li>
+                <li style="padding: 0.5rem 0">
+                  <a
+                    href="https://react.dev/learn"
+                    target="_blank"
+                    class="study-resource-link"
+                  >
+                    → Tutorial Interativo</a
+                  >
+                </li>
+                <li style="padding: 0.5rem 0">
+                  <a
+                    href="https://react.dev/reference/react"
+                    target="_blank"
+                    class="study-resource-link"
+                  >
+                    → API Reference</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">🎓</div>
+            <div class="info-content">
+              <h3>Cursos e Tutoriais</h3>
+              <ul style="list-style: none; padding: 0">
+                <li style="padding: 0.5rem 0">
+                  → freeCodeCamp - React Completo
+                </li>
+                <li style="padding: 0.5rem 0">→ Scrimba - Interactive React</li>
+                <li style="padding: 0.5rem 0">
+                  → React Tutorial - Tic Tac Toe
+                </li>
+                <li style="padding: 0.5rem 0">→ Egghead.io - React Courses</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">🛠️</div>
+            <div class="info-content">
+              <h3>Ferramentas de Dev</h3>
+              <ul style="list-style: none; padding: 0">
+                <li style="padding: 0.5rem 0">
+                  → React Developer Tools (Browser)
+                </li>
+                <li style="padding: 0.5rem 0">→ Vite - Build Tool Rápido</li>
+                <li style="padding: 0.5rem 0">→ Create React App</li>
+                <li style="padding: 0.5rem 0">→ ESLint + Prettier</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">👥</div>
+            <div class="info-content">
+              <h3>Comunidade</h3>
+              <ul style="list-style: none; padding: 0">
+                <li style="padding: 0.5rem 0">→ Reddit r/reactjs</li>
+                <li style="padding: 0.5rem 0">→ Discord React</li>
+                <li style="padding: 0.5rem 0">→ Stack Overflow</li>
+                <li style="padding: 0.5rem 0">→ GitHub Discussions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </main>
+
+
+    <!-- Footer -->

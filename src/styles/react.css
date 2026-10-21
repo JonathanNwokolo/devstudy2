@@ -1,0 +1,163 @@
+/* ==========================================
+   React Page - Specific Styles
+   ========================================== */
+
+/* React Color Theme */
+.react-hero {
+  background: linear-gradient(135deg, #61dafb 0%, #21a1c4 100%);
+}
+
+.highlight-react {
+  background: linear-gradient(135deg, #61dafb, #21a1c4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.react-badge,
+.section-badge.react-badge {
+  background: rgba(97, 218, 251, 0.2);
+  color: #21a1c4;
+  border-color: #61dafb;
+}
+
+.btn-react {
+  background: linear-gradient(135deg, #61dafb, #21a1c4);
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.btn-react:hover {
+  background: linear-gradient(135deg, #21a1c4, #1890a8);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(97, 218, 251, 0.3);
+}
+
+.react-window {
+  background: #282c34;
+}
+
+.react-window .code-content {
+  color: #abb2bf;
+}
+
+/* React Syntax Highlighting */
+.react-keyword {
+  color: #c678dd;
+}
+.react-var {
+  color: #e06c75;
+}
+.react-string {
+  color: #98c379;
+}
+.react-func {
+  color: #61afef;
+}
+.react-method {
+  color: #56b6c2;
+}
+.react-param {
+  color: #d19a66;
+}
+.react-number {
+  color: #d19a66;
+}
+.react-comment {
+  color: #5c6370;
+  font-style: italic;
+}
+.react-tag {
+  color: #e06c75;
+}
+.react-attr {
+  color: #d19a66;
+}
+.react-interp {
+  color: #c678dd;
+}
+
+/* React Section Specific */
+.react-section {
+  position: relative;
+}
+
+.react-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #61dafb, transparent);
+}
+
+/* Code Examples in React Page */
+.react-section .code-example {
+  background: #282c34;
+  border-left: 3px solid #61dafb;
+}
+
+.react-section .code-example code {
+  color: #abb2bf;
+}
+
+/* Feature Cards */
+.react-section .feature-card {
+  border-top: 3px solid #61dafb;
+}
+
+.react-section .feature-card:hover {
+  box-shadow: 0 8px 24px rgba(97, 218, 251, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Info Cards */
+.react-section .info-card:hover {
+  border-color: #61dafb;
+}
+
+.react-section .info-icon {
+  background: linear-gradient(
+    135deg,
+    rgba(97, 218, 251, 0.2),
+    rgba(33, 161, 196, 0.1)
+  );
+}
+
+/* Concept Cards */
+.react-section .concept-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.react-section .concept-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #61dafb, #21a1c4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.react-section .concept-card:hover::before {
+  opacity: 1;
+}
+
+.react-section .concept-icon {
+  background: linear-gradient(135deg, #61dafb, #21a1c4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .react-hero .hero-title {
+    font-size: 2rem;
+  }
+
+  .react-window {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,233 @@
+---
+title: "Terminal & npm - DevStudy"
+description: "Aprenda a usar o terminal (CLI) e o npm: comandos essenciais de navegação e arquivos, package.json, instalar pacotes e rodar scripts."
+permalink: "terminal.html"
+styles: ["conteudos.css"]
+footer: {"variant":"simples"}
+---
+    <main id="main-content">
+      <section class="page-hero">
+        <div class="container">
+          <div class="hero-badge">⌨️ A base de todo dev</div>
+          <h1><span class="accent-terminal">Terminal</span> &amp; npm</h1>
+          <p class="hero-description">
+            O terminal assusta no começo, mas é uma das ferramentas mais
+            poderosas que você vai usar todo dia. Aqui estão os comandos
+            essenciais para se virar — sem decoreba.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="info-card">
+            <div class="info-icon">💬</div>
+            <div>
+              <h3>O que é o terminal (CLI)?</h3>
+              <p>
+                É uma interface de texto onde você digita comandos em vez de
+                clicar. No Windows há o PowerShell e o CMD; no Mac/Linux, o
+                Bash/Zsh. A maioria dos comandos de arquivos é parecida.
+              </p>
+            </div>
+          </div>
+
+          <!-- Navegação -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🧭</span> Navegar entre pastas</h3>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">bash</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>pwd          # mostra a pasta atual (onde estou?)
+ls           # lista arquivos e pastas (dir no CMD)
+cd projetos  # entra na pasta 'projetos'
+cd ..        # volta uma pasta
+cd ~         # vai para a pasta do usuário (home)
+clear        # limpa a tela (cls no CMD)</code></pre>
+            </div>
+          </div>
+
+          <!-- Arquivos -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">📁</span> Criar e gerenciar arquivos</h3>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">bash</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>mkdir meu-site        # cria uma pasta
+touch index.html      # cria um arquivo vazio (Linux/Mac)
+cp a.txt b.txt        # copia
+mv a.txt pasta/       # move (ou renomeia)
+rm arquivo.txt        # apaga arquivo
+rm -r pasta           # apaga pasta e tudo dentro (cuidado!)</code></pre>
+            </div>
+            <div class="callout callout-danger">
+              <span class="callout-icon">⚠️</span>
+              <div class="callout-body">
+                <strong>Cuidado com o rm</strong>
+                <code>rm -r</code> apaga sem ir para a lixeira. Confira sempre a
+                pasta antes de apertar Enter.
+              </div>
+            </div>
+          </div>
+
+          <!-- npm -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">📦</span> npm — o gerenciador de pacotes</h3>
+            <p class="topic-description">
+              O npm vem com o Node.js. Ele instala bibliotecas e roda os scripts
+              do seu projeto.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">bash</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>npm init -y               # cria o package.json
+npm install axios         # instala um pacote (vai p/ dependencies)
+npm install -D vite       # instala como dependência de DEV
+npm install               # instala tudo do package.json
+npm uninstall axios       # remove um pacote
+npm run dev               # roda o script "dev"</code></pre>
+            </div>
+          </div>
+
+          <!-- package.json -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">📄</span> O package.json</h3>
+            <p class="topic-description">
+              É a "identidade" do projeto: nome, dependências e scripts.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">json</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>{
+  "name": "meu-projeto",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}</code></pre>
+            </div>
+            <div class="callout callout-info">
+              <span class="callout-icon">📌</span>
+              <div class="callout-body">
+                <strong>node_modules e .gitignore</strong>
+                A pasta <code>node_modules</code> é enorme e nunca vai pro Git.
+                Coloque-a no <code>.gitignore</code> — quem clonar o projeto roda
+                <code>npm install</code> para recriá-la.
+              </div>
+            </div>
+          </div>
+
+          <!-- npx e versionamento -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🚀</span> npx &amp; versionamento semântico</h3>
+            <p class="topic-description">
+              <code>npx</code> roda um pacote sem instalar de forma permanente —
+              ótimo para criar projetos.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">bash</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>npx create-vite@latest meu-app   # cria projeto sem instalar nada global
+npx prettier --write .           # roda uma ferramenta pontualmente</code></pre>
+            </div>
+            <table class="ref-table">
+              <thead>
+                <tr><th>Versão</th><th>O que aceita atualizar</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>1.6.0</code></td><td>Exatamente essa versão</td></tr>
+                <tr><td><code>^1.6.0</code></td><td>Correções e novidades menores (1.x.x)</td></tr>
+                <tr><td><code>~1.6.0</code></td><td>Só correções (1.6.x)</td></tr>
+              </tbody>
+            </table>
+            <div class="callout callout-info">
+              <span class="callout-icon">🔢</span>
+              <div class="callout-body">
+                <strong>SemVer: MAIOR.MENOR.CORREÇÃO</strong>
+                <code>2.5.1</code> → muda a 1ª quebra compatibilidade, a 2ª
+                adiciona recurso, a 3ª corrige bug. Por isso o <code>^</code> é
+                seguro: não pula a versão MAIOR.
+              </div>
+            </div>
+          </div>
+
+          <!-- Variáveis de ambiente e pipes -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">🌱</span> Variáveis de ambiente &amp; encadeamento</h3>
+            <p class="topic-description">
+              Variáveis guardam config/segredos fora do código; operadores
+              combinam comandos.
+            </p>
+            <div class="code-example">
+              <div class="code-header">
+                <span class="code-label">bash</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+              </div>
+              <pre><code>echo $HOME              # lê uma variável (no Windows: $env:HOME)
+export API_KEY=abc123   # define uma variável na sessão
+
+npm run build && npm start   # roda o 2º só se o 1º der certo
+ls | grep ".js"              # "pipe": saída de um vira entrada do outro</code></pre>
+            </div>
+            <div class="callout callout-tip">
+              <span class="callout-icon">📄</span>
+              <div class="callout-body">
+                <strong>Arquivo .env</strong>
+                Na prática, segredos vão num arquivo <code>.env</code> (que entra
+                no <code>.gitignore</code>) e o projeto os lê em
+                <code>process.env</code>.
+              </div>
+            </div>
+          </div>
+
+          <!-- Atalhos -->
+          <div class="topic-card">
+            <h3 class="topic-title"><span class="topic-icon">⚡</span> Atalhos que salvam tempo</h3>
+            <table class="ref-table">
+              <thead>
+                <tr><th>Tecla</th><th>O que faz</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>Tab</code></td><td>Completa nomes de arquivos/pastas</td></tr>
+                <tr><td><code>↑ / ↓</code></td><td>Navega no histórico de comandos</td></tr>
+                <tr><td><code>Ctrl + C</code></td><td>Cancela o comando em execução</td></tr>
+                <tr><td><code>Ctrl + L</code></td><td>Limpa a tela</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="section-title" style="margin-top: 3rem">Próximos passos</h2>
+          <div class="related-grid">
+            <a class="related-card" href="git.html">
+              <span class="emoji">🔀</span>
+              <h4>Git &amp; GitHub</h4>
+              <p>Versione seu código pelo terminal.</p>
+            </a>
+            <a class="related-card" href="backend.html">
+              <span class="emoji">🟢</span>
+              <h4>Node.js</h4>
+              <p>Rode JavaScript fora do navegador.</p>
+            </a>
+            <a class="related-card" href="cheatsheets.html">
+              <span class="emoji">📋</span>
+              <h4>Cheat Sheets</h4>
+              <p>Referência rápida de comandos.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
