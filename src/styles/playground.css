@@ -308,8 +308,8 @@ body { background-image: radial-gradient(#d9d4cf 0.55px, transparent .55px); bac
 .page-study .hero-badge { border: 1px solid #191922; background: #ffe56e; color: #191922; border-radius: 99px; font: 700 .7rem "Fira Code", Consolas, monospace; }
 .page-study .section { padding-inline: clamp(2rem, 4.5vw, 5rem); }
 .page-study .container { padding-inline: 0; }
-.page-study .section-header { text-align: left; }
-.page-study .section-description { margin-left: 0; }
+.page-study .section-header { text-align: center; }
+.page-study .section-description { margin-left: auto; }
 .page-study .topic-card { box-shadow: none; border: 1.5px solid #1b1b26; }
 .page-study .topic-card:hover { box-shadow: 3px 4px 0 #1b1b26; }
 .study-rail { position: fixed; top: 109px; bottom: 0; overflow-y: auto; background: #faf9f6; z-index: 8; font-size: .78rem; }
@@ -451,8 +451,10 @@ body { font-family: "DM Sans", Inter, sans-serif; background-size: 7px 7px; }
 .page-study .study-breadcrumbs .breadcrumb-separator { margin: 0 1.25rem; color: #aea5ae; }
 .page-study .study-breadcrumbs .breadcrumb-current { color: #38323e; }
 .page-study .hero.js-hero { padding-top: 2rem; padding-bottom: 1.8rem; }
-.page-study .js-hero .hero-title { max-width: 610px; font-size: clamp(3rem, 4.2vw, 4.1rem); margin: 1.25rem 0 1.2rem; }
-.page-study .js-hero .hero-description { max-width: 720px; font-size: 1rem; line-height: 1.8; }
+.page-study .hero.js-hero { text-align: center; }
+.page-study .js-hero .hero-buttons, .page-study .js-hero .hero-stats { justify-content: center; }
+.page-study .js-hero .hero-title { max-width: 610px; font-size: clamp(3rem, 4.2vw, 4.1rem); margin: 1.25rem auto 1.2rem; }
+.page-study .js-hero .hero-description { max-width: 720px; margin-inline: auto; font-size: 1rem; line-height: 1.8; }
 .page-study .js-hero .highlight-js { background: none; color: #191922; -webkit-text-fill-color: currentColor; }
 .page-study .js-hero .hero-period { color: #6947ff; -webkit-text-fill-color: #6947ff; }
 .page-study .js-hero .hero-buttons { margin: 1.2rem 0; gap: .7rem; }
@@ -697,7 +699,7 @@ body { font-family: "DM Sans", Inter, sans-serif; background-size: 7px 7px; }
   background: transparent;
   background-image: none;
   color: var(--play-ink);
-  text-align: left;
+  text-align: center;
   border: 0;
   box-shadow: none;
   overflow: visible;
@@ -756,7 +758,7 @@ body { font-family: "DM Sans", Inter, sans-serif; background-size: 7px 7px; }
 .page-study main > :is(.git-hero, .http-hero, .page-hero, .hero:not(.js-hero)) h1 {
   display: block;
   max-width: 790px;
-  margin: 1.2rem 0 1.1rem;
+  margin: 1.2rem auto 1.1rem;
   color: var(--play-ink);
   font-family: "Space Grotesk", Inter, sans-serif;
   font-size: clamp(2.7rem, 4.4vw, 4.2rem);
@@ -786,7 +788,7 @@ body { font-family: "DM Sans", Inter, sans-serif; background-size: 7px 7px; }
 :is(.page-home, .page-study) .section-hero-description,
 .page-study main > :is(.git-hero, .http-hero, .page-hero, .hero:not(.js-hero)) .hero-description {
   max-width: 720px;
-  margin: 0 0 1.5rem;
+  margin: 0 auto 1.5rem;
   color: var(--play-muted);
   font-size: 1rem;
   line-height: 1.8;
@@ -795,7 +797,7 @@ body { font-family: "DM Sans", Inter, sans-serif; background-size: 7px 7px; }
 :is(.page-home, .page-study) .section-hero-stats,
 .page-study main > :is(.git-hero, .http-hero, .page-hero, .hero:not(.js-hero)) .hero-stats {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: baseline;
   gap: 1.2rem;
   margin: .5rem 0 0;
@@ -808,7 +810,7 @@ body { font-family: "DM Sans", Inter, sans-serif; background-size: 7px 7px; }
   gap: .35rem;
   padding: 0;
   border: 0;
-  text-align: left;
+  text-align: center;
 }
 :is(.page-home, .page-study) .section-hero .mini-stat-number,
 .page-study main > :is(.git-hero, .http-hero, .page-hero, .hero:not(.js-hero)) .stat-number {
