@@ -8,9 +8,9 @@ Site estático, em português do Brasil, para estudar desenvolvimento web: expli
 ![Licença MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-green?style=for-the-badge)
 [![CI](https://github.com/JonathanNwokolo/-DevStudy-/actions/workflows/ci.yml/badge.svg)](https://github.com/JonathanNwokolo/-DevStudy-/actions/workflows/ci.yml)
 
-**Site publicado:** <https://dev-study-rho.vercel.app/index.html>
+**Site publicado:** <https://devstudy2.vercel.app/>
 
-<img width="1550" height="899" alt="Tela inicial do DevStudy" src="https://github.com/user-attachments/assets/b4c78c67-f1a7-4245-8770-d843cc94fb90" />
+<img width="1550" alt="Tela inicial do DevStudy" src="docs/screenshot-home.png" />
 
 ## 🎯 O que é (e o que ainda não é)
 
