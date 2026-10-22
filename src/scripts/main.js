@@ -13,8 +13,6 @@ import { initMobileMenu, initDropdowns, initMegaMenu } from './features/mobile-m
 import { initScrollSpy } from './features/scrollspy.js';
 import { initStickyBreadcrumbs, initPageBreadcrumbs } from './features/breadcrumbs.js';
 import { initBookmarks } from './features/bookmarks.js';
-import { initGlobalSearch } from './features/global-search.js';
-import { initCardSearch } from './features/card-search.js';
 import { initShortcuts } from './features/shortcuts.js';
 import { initCopyButtons } from './features/copy-code.js';
 import { initColorPicker } from './features/color-picker.js';
@@ -43,9 +41,7 @@ function init() {
   initPageBreadcrumbs();
   initBookmarks();
 
-  // Busca e atalhos
-  initGlobalSearch();
-  initCardSearch();
+  // Atalhos
   initShortcuts();
 
   // Conteúdo interativo

@@ -356,28 +356,6 @@
 /* ============================================================
    GLOSSÁRIO
    ============================================================ */
-.glossary-search {
-  max-width: 560px;
-  margin: 2rem auto;
-  position: relative;
-}
-.glossary-search input {
-  width: 100%;
-  padding: 0.9rem 1.2rem;
-  border-radius: 999px;
-  border: 2px solid #e6e8f0;
-  font-size: 1rem;
-  font-family: inherit;
-}
-.glossary-search input:focus {
-  outline: none;
-  border-color: #667eea;
-}
-[data-theme="dark"] .glossary-search input {
-  background: #1c2138;
-  border-color: #2c3357;
-  color: #e6e8f0;
-}
 .glossary-filters {
   display: flex;
   flex-wrap: wrap;

@@ -7,20 +7,15 @@ const sources = Object.fromEntries(walk('src/scripts', (f) => f.endsWith('.js'))
 const all = Object.values(sources).join('\n');
 const src = (name) => sources[`src/scripts/${name}`];
 
-test('segurança: favoritos/busca não usam innerHTML com dados não confiáveis', () => {
+test('segurança: favoritos não usam innerHTML com dados não confiáveis', () => {
   const bookmarks = src('features/bookmarks.js');
-  const search = src('features/global-search.js');
   assert.doesNotMatch(bookmarks, /onclick="removeBookmark\(/, 'handler inline com id vindo do localStorage');
   assert.doesNotMatch(bookmarks, /<[^>\n]*>\s*\$\{\s*bookmark\.title\s*\}/, 'título de favorito interpolado em template HTML');
   assert.doesNotMatch(bookmarks, /data-id="\$\{\s*bookmark\.id\s*\}"/, 'id de favorito interpolado em atributo HTML');
-  assert.doesNotMatch(search, /innerHTML/, 'busca global não deve usar innerHTML');
-  assert.doesNotMatch(search, /\$\{\s*(entry|item)\.(t|d|u|title|description|icon)\s*\}/, 'item da busca interpolado em template HTML');
 });
 
-test('segurança: Toast e busca de cards não interpretam texto do usuário como HTML', () => {
+test('segurança: Toast não interpreta texto do usuário como HTML', () => {
   assert.doesNotMatch(src('core/toast.js'), /<span class="toast-message">\$\{message\}/);
-  assert.doesNotMatch(src('features/card-search.js'), /new RegExp\(`\(\$\{query\}\)`/, 'consulta usada como regex sem escape');
-  assert.doesNotMatch(src('features/card-search.js'), /title\.innerHTML\s*=/);
 });
 
 test('segurança: editor ao vivo usa srcdoc (iframe sandbox) e não document.write', () => {
@@ -45,12 +40,10 @@ test('regressão: main.js inicializa cada recurso exatamente uma vez', () => {
   }
 });
 
-test('regressão: o botão de tema e o atalho Ctrl+K têm um único dono', () => {
+test('regressão: o botão de tema tem um único dono', () => {
   const themeHandlers = Object.keys(sources).filter((f) => /getElementById\('themeToggle'\)[\s\S]*addEventListener\('click'/.test(sources[f]) && /localStorage|writeString/.test(sources[f]));
   assert.deepEqual(themeHandlers, ['src/scripts/features/theme.js']);
 
-  const keydownOwners = Object.keys(sources).filter((f) => /addEventListener\('keydown'/.test(sources[f]) && /key === 'k'/.test(sources[f]));
-  assert.deepEqual(keydownOwners, ['src/scripts/features/shortcuts.js']);
 });
 
 test('regressão: cada função global exposta em window é definida uma única vez', () => {

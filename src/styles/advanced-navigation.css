@@ -3,163 +3,6 @@
    Full Stack & UX/UI Professional Enhancements
    ========================================== */
 
-/* ==========================================
-   Search Container
-   ========================================== */
-.search-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.search-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border: none;
-  background: #f7fafc;
-  border-radius: 8px;
-  color: #4a5568;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.search-toggle:hover {
-  background: #edf2f7;
-  color: #2d3748;
-  transform: scale(1.05);
-}
-
-.search-panel {
-  position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
-  width: 500px;
-  max-width: 90vw;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-  z-index: 1001;
-}
-
-.search-panel.active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.search-box {
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid #edf2f7;
-}
-
-.search-icon {
-  position: absolute;
-  left: 1.5rem;
-  color: #a0aec0;
-  pointer-events: none;
-}
-
-#globalSearch {
-  flex: 1;
-  padding: 0.75rem 1rem 0.75rem 2.5rem;
-  border: 2px solid #edf2f7;
-  border-radius: 8px;
-  font-size: 1rem;
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-#globalSearch:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-.search-close {
-  margin-left: 0.5rem;
-  width: 32px;
-  height: 32px;
-  border: none;
-  background: #f7fafc;
-  border-radius: 6px;
-  color: #718096;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-}
-
-.search-close:hover {
-  background: #edf2f7;
-  color: #2d3748;
-}
-
-.search-results {
-  max-height: 400px;
-  overflow-y: auto;
-  padding: 0.5rem;
-}
-
-.search-result-item {
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.search-result-item:hover {
-  background: #f7fafc;
-}
-
-.search-result-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 1.2rem;
-}
-
-.search-result-content {
-  flex: 1;
-}
-
-.search-result-title {
-  font-weight: 600;
-  color: #2d3748;
-  margin-bottom: 0.25rem;
-}
-
-.search-result-description {
-  font-size: 0.875rem;
-  color: #718096;
-  line-height: 1.4;
-}
-
-.search-category {
-  font-size: 0.75rem;
-  color: #a0aec0;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem 1rem;
-}
 
 /* ==========================================
    Mega Menu
@@ -310,59 +153,11 @@
   visibility: visible;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #tableOfContents {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ==========================================
    Bookmarks Panel
@@ -716,33 +511,20 @@
 /* ==========================================
    Dark Mode Support
    ========================================== */
-[data-theme="dark"] .search-panel,
 [data-theme="dark"] .mega-menu,
 [data-theme="dark"] .panel-content,
 [data-theme="dark"] .shortcuts-content {
   background: #2d3748;
 }
 
-[data-theme="dark"] .search-toggle,
-[data-theme="dark"] .bookmark-toggle{
+[data-theme="dark"] .bookmark-toggle {
   background: #4a5568;
   color: #cbd5e0;
 }
 
-[data-theme="dark"] .search-toggle:hover,
 [data-theme="dark"] .bookmark-toggle:hover {
   background: #667eea;
   color: white;
-}
-
-[data-theme="dark"] #globalSearch {
-  background: #1a202c;
-  color: #e2e8f0;
-  border-color: #4a5568;
-}
-
-[data-theme="dark"] .search-result-item:hover{
-  background: #1a202c;
 }
 
 [data-theme="dark"] .breadcrumbs-container {
@@ -757,26 +539,9 @@
   .mega-menu {
     width: 500px;
   }
-  
-  .search-panel {
-    width: 400px;
-  }
 }
 
 @media (max-width: 768px) {
-  .search-container {
-    position: static;
-  }
-  
-  .search-panel {
-    position: fixed;
-    top: 76px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    max-width: 100%;
-    border-radius: 0;
-  }
   
   .mega-menu {
     position: fixed;
@@ -888,17 +653,3 @@
 }
 
 /* Resultado da busca global é um link (<a>): sem sublinhado e herdando a cor */
-a.search-result-item {
-  text-decoration: none;
-  color: inherit;
-}
-
-a.search-result-item:focus-visible {
-  outline: 2px solid #667eea;
-  outline-offset: -2px;
-  background: #f7fafc;
-}
-
-[data-theme="dark"] a.search-result-item:focus-visible {
-  background: #1a202c;
-}

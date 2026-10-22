@@ -46,10 +46,10 @@ test('a navegação renderizada é idêntica nas 19 páginas (exceto âncoras lo
   for (const file of pages()) assert.equal(navOf(file), reference, `${file}: navegação diverge da referência`);
 });
 
-test('header e busca global (mesmos controles) existem em todas as páginas', () => {
+test('header (mesmos controles) existem em todas as páginas', () => {
   for (const file of pages()) {
     const html = read(file);
-    for (const id of ['searchToggle', 'searchPanel', 'globalSearch', 'searchResults', 'themeToggle', 'mobileMenuBtn']) {
+    for (const id of ['themeToggle', 'mobileMenuBtn']) {
       assert.equal((html.match(new RegExp(`id="${id}"`, 'g')) || []).length, 1, `${file}: #${id} deve existir exatamente uma vez`);
     }
     assert.match(html, /<footer class="footer">/, `${file}: sem footer`);
