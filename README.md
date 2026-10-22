@@ -19,9 +19,9 @@ O DevStudy é uma **referência de estudo e leitura** com alguns recursos intera
 | Existe hoje | Ainda não existe |
 |---|---|
 | 19 páginas de conteúdo (HTML, CSS, JavaScript, TypeScript, React, Vue, Git, HTTP, Node.js, PostgreSQL/SQL, acessibilidade…) | Exercícios com correção automática |
-| — | Execução de código JavaScript do usuário |
-| Editor HTML/CSS ao vivo, playground de Flexbox e 6 simuladores explicativos | Trilha com progresso persistente |
-| Glossário, cheat sheets, erros comuns, favoritos e tema claro/escuro | Versão offline |
+| Editor HTML/CSS ao vivo, playground de Flexbox e 6 simuladores explicativos | Execução de código JavaScript do usuário |
+| Glossário (com filtro por categoria), cheat sheets, erros comuns, favoritos e tema claro/escuro | Trilha com progresso persistente |
+| Faixa animada na home com os tópicos do menu e menu mobile em gaveta | Busca no site e versão offline |
 
 O plano de evolução está em [`docs/audits/ROADMAP.md`](docs/audits/ROADMAP.md).
 

@@ -8,7 +8,6 @@ O DevStudy é um site **estático** gerado pelo [Eleventy](https://www.11ty.dev/
 
 - Cada `src/pages/*.html` vira uma página. O front matter define `title`, `description`, `permalink`, `styles` (CSS extra), `scripts` (módulos de `src/scripts/pages/`) e a variante do rodapé. O layout padrão está em `src/pages/pages.json`.
 - `src/styles` → `_site/css`, `src/scripts` → `_site/js`, `src/assets` → `_site/assets`.
-- Após o build, `scripts/build-search-index.js` gera o índice da busca global a partir das páginas publicadas.
 - As páginas são HTML puro: o conteúdo não passa por Nunjucks/Markdown (exemplos com `{{ }}` são preservados). Só o layout e os componentes usam Nunjucks.
 
 ## Layout e componentes
@@ -23,7 +22,7 @@ Estado do visitante fica apenas no `localStorage` (tema, favoritos, progresso de
 
 ## Testes
 
-- `tests/static/` — Node test runner sobre `_site/` e o código-fonte: metadados, ids, links/âncoras, arquitetura, índice de busca, regressões de segurança.
+- `tests/static/` — Node test runner sobre `_site/` e o código-fonte: metadados, ids, links/âncoras, arquitetura, regressões de segurança.
 - `tests/e2e/` — Playwright (+ axe-core) contra `scripts/serve.js` na porta 5599.
 
 ## Deploy

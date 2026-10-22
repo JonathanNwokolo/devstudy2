@@ -10,8 +10,8 @@ Como escrever e revisar conteúdo no DevStudy.
 
 ## Estrutura de uma seção
 
-1. Título (`<h2>`) com `id` estável — ele vira âncora e entrada da busca.
-2. Um parágrafo explicando a ideia (o primeiro `<p>` aparece como descrição na busca).
+1. Título (`<h2>`) com `id` estável — ele vira âncora para links e para o menu.
+2. Um parágrafo explicando a ideia.
 3. Um exemplo de código mínimo e executável, com saída esperada em comentário.
 4. Armadilhas comuns ou "quando usar / quando evitar", se houver.
 
