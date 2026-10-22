@@ -9,7 +9,7 @@ O DevStudy é um site **estático**: não tem backend, contas de usuário nem ba
 **Não abra issue pública.** Use o relato privado do GitHub:
 
 1. Acesse a aba **Security** do repositório.
-2. Clique em **Report a vulnerability** (<https://github.com/JonathanNwokolo/-DevStudy-/security/advisories/new>).
+2. Clique em **Report a vulnerability** (<https://github.com/JonathanNwokolo/devstudy2/security/advisories/new>).
 
 Inclua: página/arquivo afetado, passos para reproduzir, impacto percebido e, se possível, sugestão de correção.
 

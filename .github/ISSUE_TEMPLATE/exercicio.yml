@@ -1,0 +1,26 @@
+name: Sugestão de exercício
+description: Proponha um exercício prático para uma página do DevStudy
+labels: [exercício]
+body:
+  - type: input
+    id: pagina
+    attributes:
+      label: Página onde o exercício ficaria
+      placeholder: "javascript.html — seção Arrays"
+    validations: {required: true}
+  - type: textarea
+    id: enunciado
+    attributes:
+      label: Enunciado
+      description: O que a pessoa precisa fazer, em poucas linhas.
+    validations: {required: true}
+  - type: textarea
+    id: resposta
+    attributes:
+      label: Resposta esperada
+      description: Código ou saída que mostra que o exercício foi resolvido.
+  - type: dropdown
+    id: nivel
+    attributes:
+      label: Nível
+      options: [Iniciante, Intermediário, Avançado]

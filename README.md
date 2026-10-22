@@ -6,7 +6,7 @@ Site estático, em português do Brasil, para estudar desenvolvimento web: expli
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Licença MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-green?style=for-the-badge)
-[![CI](https://github.com/JonathanNwokolo/-DevStudy-/actions/workflows/ci.yml/badge.svg)](https://github.com/JonathanNwokolo/-DevStudy-/actions/workflows/ci.yml)
+[![CI](https://github.com/JonathanNwokolo/devstudy2/actions/workflows/ci.yml/badge.svg)](https://github.com/JonathanNwokolo/devstudy2/actions/workflows/ci.yml)
 
 **Site publicado:** <https://devstudy2.vercel.app/>
 
@@ -30,8 +30,8 @@ O plano de evolução está em [`docs/audits/ROADMAP.md`](docs/audits/ROADMAP.md
 Requisitos: **Node.js 20+** e Git.
 
 ```bash
-git clone https://github.com/JonathanNwokolo/-DevStudy-.git
-cd -DevStudy-
+git clone https://github.com/JonathanNwokolo/devstudy2.git
+cd devstudy2
 npm install
 npm run dev
 ```

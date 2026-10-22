@@ -8,6 +8,7 @@ module.exports = function (eleventyConfig) {
     'src/styles': 'css',
     'src/scripts': 'js',
     'src/assets': 'assets',
+    'src/root': '.',
   });
 
   // Depois de cada build: limpeza de arquivos que só servem ao desenvolvimento.

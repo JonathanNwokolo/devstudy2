@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title }}</title>
     <meta name="description" content="{{ description }}" />
+    {%- if base %}
+    <base href="{{ base }}" />
+    {%- endif %}
+    {%- if noindex %}
+    <meta name="robots" content="noindex" />
+    {%- else %}
+    <link rel="canonical" href="{{ site.url }}/{{ '' if permalink == 'index.html' else permalink }}" />
+    {%- endif %}
+    <meta property="og:site_name" content="DevStudy" />
+    <meta property="og:url" content="{{ site.url }}/{{ '' if permalink == 'index.html' else permalink }}" />
+    <meta property="og:image" content="{{ site.url }}/{{ site.image }}" />
+    <meta name="twitter:card" content="summary_large_image" />
     {%- if keywords %}
     <meta name="keywords" content="{{ keywords }}" />
     {%- endif %}
@@ -44,7 +56,7 @@
       <p class="rail-label">02 / RECURSOS</p>
       <a href="topicos.html">⌘ &nbsp; Explorar conteúdos</a>
       <a href="cheatsheets.html">✦ &nbsp; Ferramentas</a>
-      <div class="rail-note"><strong>✳ código aberto, mente aberta.</strong><p>Quer melhorar algum conteúdo? Contribua pelo GitHub.</p><a href="https://github.com/JonathanNwokolo/-DevStudy-" target="_blank" rel="noopener noreferrer">CONTRIBUIR ↗</a></div>
+      <div class="rail-note"><strong>✳ código aberto, mente aberta.</strong><p>Quer melhorar algum conteúdo? Contribua pelo GitHub.</p><a href="https://github.com/JonathanNwokolo/devstudy2" target="_blank" rel="noopener noreferrer">CONTRIBUIR ↗</a></div>
     </aside>
     <aside class="study-rail study-rail-right" aria-label="Nesta página"><p class="rail-label">NESTA PÁGINA</p><nav id="studyToc" aria-label="Tópicos da página"></nav><div class="rail-note rail-note-right"><strong>✳ DEV MODE: ON</strong><p>Aprender é melhor quando você experimenta.</p></div></aside>
     {%- endif %}

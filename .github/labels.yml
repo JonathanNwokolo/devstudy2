@@ -1,0 +1,7 @@
+# Rótulos usados nos templates e no CONTRIBUTING. Crie-os em Issues > Labels (ou com `gh label create`).
+- {name: "good first issue", color: "7057ff", description: "Boa primeira contribuição"}
+- {name: "help wanted", color: "008672", description: "Ajuda é bem-vinda"}
+- {name: "conteúdo", color: "1d76db", description: "Texto, exemplos e explicações"}
+- {name: "exercício", color: "fbca04", description: "Exercícios práticos"}
+- {name: "a11y", color: "0e8a16", description: "Acessibilidade"}
+- {name: "precisa-revisão-técnica", color: "d93f0b", description: "Aguardando revisão de quem conhece o assunto"}

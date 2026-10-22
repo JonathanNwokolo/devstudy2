@@ -2,7 +2,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const { ROOT, ROUTES, pages, read, readRepo, walk, stripCode } = require('./helpers');
+const { ROOT, ROUTES, ALL_PAGES, pages, read, readRepo, walk, stripCode } = require('./helpers');
 
 // Garante a arquitetura da PHASE 1A: uma fonte única para header/navegação/footer,
 // páginas sem HTML duplicado, URLs públicas preservadas e nada de arquivos soltos na raiz.
@@ -11,8 +11,8 @@ const normalize = (html) => html.replace(/<!--[\s\S]*?-->/g, '').replace(/\s+/g,
 
 test('cada rota pública tem exatamente uma fonte em src/pages com permalink idêntico', () => {
   const sources = walk('src/pages', (f) => f.endsWith('.html')).map((f) => path.basename(f));
-  assert.deepEqual(sources, [...ROUTES].sort());
-  for (const route of ROUTES) {
+  assert.deepEqual(sources, [...ALL_PAGES].sort());
+  for (const route of ALL_PAGES) {
     const fm = readRepo(`src/pages/${route}`).match(/^---\n([\s\S]*?)\n---/);
     assert.ok(fm, `${route}: sem front matter`);
     assert.match(fm[1], new RegExp(`^permalink: "${route.replace('.', '\\.')}"$`, 'm'), `${route}: permalink diferente do nome`);
@@ -22,7 +22,7 @@ test('cada rota pública tem exatamente uma fonte em src/pages com permalink id�
 });
 
 test('o código-fonte das páginas não duplica header, navegação nem footer', () => {
-  for (const route of ROUTES) {
+  for (const route of ALL_PAGES) {
     const src = readRepo(`src/pages/${route}`);
     assert.doesNotMatch(src, /<header[\s>]/, `${route}: <header> deve vir de components/header.njk`);
     assert.doesNotMatch(src, /<nav[^>]*class="navbar"/, `${route}: navegação deve vir de components/header.njk`);
@@ -32,7 +32,7 @@ test('o código-fonte das páginas não duplica header, navegação nem footer',
   }
 });
 
-test('a navegação renderizada é idêntica nas 19 páginas (exceto âncoras locais da home)', () => {
+test('a navegação renderizada é idêntica em todas as páginas (exceto âncoras locais da home)', () => {
   const navOf = (file) => {
     const m = read(file).match(/<nav class="navbar"[\s\S]*?<\/nav>/);
     assert.ok(m, `${file}: sem <nav class="navbar">`);

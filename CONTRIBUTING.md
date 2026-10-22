@@ -9,8 +9,8 @@ Ao participar, você concorda com o [Código de Conduta](CODE_OF_CONDUCT.md).
 Requisitos: **Node.js 20+** e Git.
 
 ```bash
-git clone https://github.com/<seu-usuario>/-DevStudy-.git   # seu fork
-cd -DevStudy-
+git clone https://github.com/<seu-usuario>/devstudy2.git   # seu fork
+cd devstudy2
 npm install
 npx playwright install chromium      # uma vez, para os testes de navegador
 npm run dev                          # http://localhost:5500/index.html
@@ -47,7 +47,7 @@ O CI roda os mesmos testes em todo PR.
 
 **Corrigir texto ou exemplo de código** — edite o `.html` em `src/pages/`. Mudanças pequenas e focadas são as mais fáceis de revisar. Confira com a documentação oficial (MDN, docs do framework) e cite a fonte no PR.
 
-**Criar uma página nova** — copie uma página existente em `src/pages/`, ajuste o front matter (`title`, `description`, `permalink`, `styles`, `scripts`) e adicione o link no `header.njk`. O teste de arquitetura cobre a página automaticamente.
+**Criar uma página nova** — copie uma página existente em `src/pages/`, ajuste o front matter (`title`, `description`, `permalink`, `styles`, `scripts`) e adicione o link no `header.njk`. Inclua também a página em `src/root/sitemap.xml` e na lista `ROUTES` de `tests/static/helpers.js`; o teste de arquitetura e o de SEO cobram os dois.
 
 **Fazer afirmações ou mudar números** — só afirme o que é verificável. Não adicione "N+ exercícios", "conformidade WCAG" etc. sem comprovação; os testes impedem alguns casos.
 

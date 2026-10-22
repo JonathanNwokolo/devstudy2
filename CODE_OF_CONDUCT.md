@@ -26,7 +26,7 @@ Quem mantém o projeto pode remover, editar ou rejeitar comentários, commits, i
 
 ## Como reportar
 
-Para relatar uma violação sem expor a situação publicamente, use o relato privado da aba **Security** do repositório (<https://github.com/JonathanNwokolo/-DevStudy-/security/advisories/new>) ou entre em contato com o mantenedor, [@JonathanNwokolo](https://github.com/JonathanNwokolo), pelo GitHub. Todas as denúncias serão analisadas com discrição.
+Para relatar uma violação sem expor a situação publicamente, use o relato privado da aba **Security** do repositório (<https://github.com/JonathanNwokolo/devstudy2/security/advisories/new>) ou entre em contato com o mantenedor, [@JonathanNwokolo](https://github.com/JonathanNwokolo), pelo GitHub. Todas as denúncias serão analisadas com discrição.
 
 ## Atribuição
 

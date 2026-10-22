@@ -18,6 +18,9 @@ const ROUTES = [
   'typescript.html', 'vuejs.html',
 ];
 
+/** Rotas + página de erro 404 (não entra no sitemap nem na contagem de conteúdo). */
+const ALL_PAGES = [...ROUTES, '404.html'];
+
 if (!fs.existsSync(path.join(SITE, 'index.html'))) {
   throw new Error('Pasta _site/ ausente. Execute "npm run build" antes dos testes.');
 }
@@ -71,4 +74,4 @@ function count(html, re) {
   return (stripCode(html).match(re) || []).length;
 }
 
-module.exports = { ROOT, SITE, SRC, ROUTES, pages, read, readRepo, walk, stripCode, ids, count };
+module.exports = { ROOT, SITE, SRC, ROUTES, ALL_PAGES, pages, read, readRepo, walk, stripCode, ids, count };

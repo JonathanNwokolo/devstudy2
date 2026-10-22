@@ -2,13 +2,13 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const { SITE, ROUTES, pages, read, readRepo, stripCode, ids, count } = require('./helpers');
+const { SITE, ROUTES, ALL_PAGES, pages, read, readRepo, stripCode, ids, count } = require('./helpers');
 
 const PAGES = pages();
 
-test('as 19 rotas públicas existem, com exatamente os mesmos endereços', () => {
-  assert.equal(PAGES.length, 19, `páginas: ${PAGES.join(', ')}`);
-  assert.deepEqual(PAGES, [...ROUTES].sort());
+test('as 19 rotas públicas (+ 404) existem, com exatamente os mesmos endereços', () => {
+  assert.equal(PAGES.length, 20, `páginas: ${PAGES.join(', ')}`);
+  assert.deepEqual(PAGES, [...ALL_PAGES].sort());
 });
 
 for (const file of PAGES) {
@@ -128,4 +128,15 @@ test('todo <iframe> do site declara sandbox e title', () => {
     }
   }
   assert.deepEqual(offenders, []);
+});
+
+test('SEO: sitemap lista as 19 rotas, robots aponta para ele e cada página tem canonical (exceto 404)', () => {
+  const sitemap = read('sitemap.xml');
+  const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  const expected = ROUTES.map((r) => 'https://devstudy2.vercel.app/' + (r === 'index.html' ? '' : r)).sort();
+  assert.deepEqual(locs.sort(), expected);
+  assert.match(read('robots.txt'), /Sitemap: https:\/\/devstudy2\.vercel\.app\/sitemap\.xml/);
+  for (const file of ROUTES) assert.match(read(file), /<link rel="canonical" href="https:\/\/devstudy2\.vercel\.app\/[^"]*"/, file + ': sem canonical');
+  assert.match(read('404.html'), /<meta name="robots" content="noindex"/);
+  assert.ok(fs.existsSync(path.join(SITE, 'assets', 'og-image.png')), 'og-image ausente');
 });
