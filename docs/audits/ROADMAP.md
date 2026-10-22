@@ -30,12 +30,12 @@
 - [ ] `npm run dev|build|test`; deploy Vercel documentado.
 - [ ] Prism/fontes self-host, `defer`, remover `setTimeout(…,500)`; destaque em build se viável.
 - [ ] JS em módulos ES; um dono por feature; eliminar duplicatas `script.js`/`advanced-navigation.js`.
-- [ ] Busca com índice global gerado em build.
+- [x] ~~Busca com índice global gerado em build.~~ Removida: o projeto não terá busca (decisão do mantenedor).
 - [ ] CI: html-validate, links, axe (rotas principais), Prettier.
 - [ ] CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, templates, labels.
 - [ ] `robots.txt`, `sitemap.xml`, `404.html`, `og:image`, canonical.
 
-**Aceitação:** adicionar uma página exige tocar **1** arquivo de conteúdo; busca por "git" na home retorna resultados de `git.html`; CI verde em `main` e bloqueia PR quebrado; axe sem violações críticas nas 6 páginas principais; Lighthouse (rodado pelo mantenedor, mobile) ≥ 90 em Performance e Acessibilidade na home *(meta; medir antes e depois)*.
+**Aceitação:** adicionar uma página exige tocar **1** arquivo de conteúdo; CI verde em `main` e bloqueia PR quebrado; axe sem violações críticas nas 6 páginas principais; Lighthouse (rodado pelo mantenedor, mobile) ≥ 90 em Performance e Acessibilidade na home *(meta; medir antes e depois)*.
 
 ---
 
@@ -98,5 +98,5 @@
 ## Primeiras 3 fases (resposta curta)
 
 1. **Fase 0** — correções e honestidade (1 sem).
-2. **Fase 1** — build/CI/estrutura/busca (2–3 sem).
+2. **Fase 1** — build/CI/estrutura (2–3 sem).
 3. **Fase 2** — exercícios executáveis + progresso persistente (4–6 sem).
