@@ -51,6 +51,7 @@ for (const name of ['index', 'javascript']) {
         await expect(page.locator('.study-rail-left a[aria-current="page"]')).toHaveCount(1);
       }
       await page.locator(name === 'index' ? '.adventure-card' : '.js-hero .btn').first().hover();
+      await page.waitForTimeout(600); // deixa o breadcrumb fixo terminar o fade antes de medir contraste
       await audit(page, name, theme, 'desktop', 'hover');
       await page.locator('#themeToggle').focus();
       await audit(page, name, theme, 'desktop', 'focus');

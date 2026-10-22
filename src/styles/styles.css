@@ -226,20 +226,6 @@ code {
 }
 
 /* Link Especial para Desafios */
-.nav-link.challenges-link {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white !important;
-  -webkit-text-fill-color: white;
-  border-radius: 16px;
-  padding: 0.5rem 1.5rem;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-  transition: 0.3s ease;
-}
-
-.nav-link.challenges-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-}
 
 .theme-toggle {
   background: rgba(102, 126, 234, 0.08);
@@ -2372,10 +2358,6 @@ code {
   text-transform: uppercase;
 }
 
-
-
-
-
 /* ==========================================
    Media Queries
    ========================================== */
@@ -2647,38 +2629,6 @@ code {
 }
 
 /* User Profile in Header */
-.user-profile-mini {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 16px;
-  background: #edf2f7;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.user-profile-mini:hover {
-  background: #667eea;
-  color: white;
-}
-
-.user-profile-mini .avatar {
-  font-size: 1.5rem;
-}
-
-.user-profile-mini .level-badge {
-  font-size: 0.7rem;
-  padding: 0.1rem 0.5rem;
-  background: #667eea;
-  color: white;
-  border-radius: 9999px;
-}
-
-.user-profile-mini:hover .level-badge {
-  background: white;
-  color: #667eea;
-}
 
 /* ==========================================
    Section Heroes (HTML & CSS)
@@ -2888,18 +2838,8 @@ code {
 }
 
 /* Toast slide out animation */
-.toast.slide-out {
-  animation: slideOut 0.3s ease forwards;
-}
 
 /* Fade utilities */
-.fade-in {
-  display: block;
-}
-
-.fade-out {
-  display: none;
-}
 
 /* Visibility utilities */
 .hidden {
@@ -2911,9 +2851,6 @@ code {
 }
 
 /* Body overflow control */
-body.no-scroll {
-  overflow: hidden;
-}
 
 /* Link "Pular para o conteúdo principal": oculto até receber foco pelo teclado.
    Os :not() existem só para vencer em especificidade a regra

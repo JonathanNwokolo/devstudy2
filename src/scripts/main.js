@@ -19,7 +19,6 @@ import { initColorPicker } from './features/color-picker.js';
 import { initFlexPlayground } from './features/flex-playground.js';
 import { initLiveEditor } from './features/live-editor.js';
 import { initEditorAutocomplete } from './features/editor-autocomplete.js';
-import { initTagDemo } from './features/tag-demo.js';
 import { initReveal, initStatCounters } from './features/reveal.js';
 import { initProgressTracker } from './features/progress-tracker.js';
 import { initHighlight } from './features/highlight.js';
@@ -50,7 +49,6 @@ function init() {
   initFlexPlayground();
   initLiveEditor();
   initEditorAutocomplete();
-  initTagDemo();
   initProgressTracker();
   initReveal();
   initStatCounters();

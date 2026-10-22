@@ -41,7 +41,6 @@ body { background: var(--play-bg); color: var(--play-ink); }
 .nav-link { color: #45516a; border-radius: 10px; }
 .nav-link:hover, .nav-link.active { color: var(--play-primary); background: #f0efff; }
 .nav-link.active::after { background: var(--play-primary); }
-.nav-link.challenges-link { background: var(--play-primary); border-radius: 11px; box-shadow: none; }
 .theme-toggle { border-radius: 12px; }
 
 /* A bright, asymmetric first fold with an illustrated code object. */
@@ -229,7 +228,8 @@ body { background-image: radial-gradient(#d9d4cf 0.55px, transparent .55px); bac
 .logo-text { letter-spacing: -.07em; text-transform: lowercase; }
 .logo-text::after { content: "."; color: #ff8468; }
 .nav-link.active::after { display: none; }
-.nav-link.challenges-link, .open-source-link, .page-home .btn-primary {
+.open-source-link,
+.page-home .btn-primary {
   background: #d5ff55; color: #17171f !important; border: 2px solid #191922;
   box-shadow: 4px 5px 0 #191922; -webkit-text-fill-color: currentColor;
 }
@@ -597,7 +597,6 @@ body { font-family: "DM Sans", Inter, sans-serif; background-size: 7px 7px; }
 .page-study button[data-os="windows"] { background: var(--play-demo-accent); }
 .page-study kbd { color: #595959; }
 .page-study .git-badge { color: #a52c13; }
-.page-study .el-console-empty { color: #aeb8cb; }
 
 /* Dark mode keeps the bright lesson samples, with ink on those light surfaces. */
 [data-theme="dark"].page-home :is(.html-section, .css-section, .practice-section, .reference-section) { background: #111827; }
@@ -640,7 +639,7 @@ body { font-family: "DM Sans", Inter, sans-serif; background-size: 7px 7px; }
 .page-study .git-commit-hash { color: #fff; }
 .page-study a[href$="gitignore.io"] { color: var(--play-demo-accent); }
 .page-study .cat-badge { color: #4b35a3; }
-.page-study .glossary-filter.active, .page-study .filter-btn.active { background: var(--play-demo-accent); color: #fff; }
+.page-study .glossary-filter.active { background: var(--play-demo-accent); color: #fff; }
 .page-study .git-badge { color: #a52c13; }
 [data-theme="dark"].page-study .command-name { color: #ff9d7c; }
 [data-theme="dark"].page-study .code-block code { color: #d5c7ff; }

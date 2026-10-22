@@ -45,12 +45,6 @@ table {
   max-width: 100%;
 }
 
-.table-responsive,
-.table-container,
-.cheatsheet-table,
-.error-table,
-.status-table,
-.cheat-category table,
 .header-category table,
 .content-section table {
   display: block;
@@ -59,12 +53,6 @@ table {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   margin-bottom: 1.5rem;
-}
-
-.table-responsive table,
-.table-container table {
-  width: 100%;
-  min-width: 500px; /* guarantees readable columns inside its own scrollable wrapper */
 }
 
 /* Code blocks inside pre */
@@ -368,7 +356,6 @@ pre code {
     visibility: visible;
   }
 
-
   /* Logo adjustment */
   .logo-text {
     font-size: 1.1rem;
@@ -462,39 +449,27 @@ pre code {
    ========================================= */
 @media (max-width: 768px) {
   .intro-grid,
-  .methods-grid,
-  .categories-overview,
-  .status-grid,
-  .topics-grid,
-  .cards-grid,
-  .commands-grid,
-  .concept-grid,
-  .tools-grid,
-  .practice-grid,
-  .reference-grid,
-  .tags-grid,
-  .features-grid,
-  .cheat-grid,
-  .error-grid,
-  .roadmap-grid,
-  .grid-2,
-  .grid-3,
-  .grid-4,
-  .comparison-box,
-  .sem-main-area,
-  .live-editor {
+.methods-grid,
+.categories-overview,
+.status-grid,
+.commands-grid,
+.reference-grid,
+.tags-grid,
+.cheat-grid,
+.comparison-box,
+.sem-main-area,
+.live-editor {
     grid-template-columns: 1fr !important;
     gap: 16px !important;
   }
 
   .topic-card,
-  .method-card,
-  .status-card,
-  .intro-card,
-  .command-detail,
-  .concept-card,
-  .cheat-card,
-  .error-card {
+.method-card,
+.status-card,
+.intro-card,
+.command-detail,
+.concept-card,
+.cheat-card {
     padding: 16px !important;
   }
 }

@@ -54,43 +54,8 @@
 }
 
 /* ---------- Lista de checklist / passos numerados ---------- */
-.step-list {
-  list-style: none;
-  counter-reset: step;
-  padding: 0;
-  margin: 1.5rem 0;
-}
-.step-list li {
-  position: relative;
-  padding: 0.5rem 0 0.5rem 2.6rem;
-  margin-bottom: 0.6rem;
-  line-height: 1.6;
-}
-.step-list li::before {
-  counter-increment: step;
-  content: counter(step);
-  position: absolute;
-  left: 0;
-  top: 0.35rem;
-  width: 1.7rem;
-  height: 1.7rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #06b6d4, #3b82f6);
-  color: #fff;
-  font-size: 0.85rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 /* ---------- Grid de cards de conceito ---------- */
-.concept-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-  margin: 1.5rem 0;
-}
 .concept-card {
   background: #fff;
   border: 1px solid #e6e8f0;

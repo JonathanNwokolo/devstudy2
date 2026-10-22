@@ -173,11 +173,6 @@
   border-color: rgba(255, 255, 255, 0.12);
 }
 
-.git-area-box.active-pulse {
-  border-color: #3b82f6;
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
-}
-
 .git-area-header {
   display: flex;
   align-items: center;

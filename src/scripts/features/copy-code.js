@@ -5,7 +5,8 @@ import { Toast } from '../core/toast.js';
  *  - window.copyCode(button): usado por handlers inline (onclick="copyCode(this)") em ~150 botões.
  *    Aceita tanto `.code-example` (index/css/js…) quanto `.code-block` (git/http), cujo <code>
  *    fica ao lado do botão.
- *  - initCopyButtons(): adiciona um botão "Copiar" a todo <pre><code>.
+ *  - initCopyButtons(): adiciona um botão "Copiar" aos <pre><code> que ainda não têm um (blocos com
+ *    botão no cabeçalho não duplicam; .code-window é decorativo, o da hero).
  */
 
 function copyCode(button) {
@@ -58,7 +59,8 @@ export function initCopyButtons() {
   document.querySelectorAll('pre code').forEach((codeBlock) => {
     const pre = codeBlock.parentElement;
 
-    if (pre.querySelector('.copy-btn')) return;
+    if (pre.closest('.code-window') || pre.querySelector('.copy-btn')) return;
+    if (pre.closest('.code-example, .code-block')?.querySelector('.copy-btn')) return;
 
     const button = document.createElement('button');
     button.className = 'copy-btn';

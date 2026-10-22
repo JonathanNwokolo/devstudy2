@@ -3,7 +3,6 @@
    Full Stack & UX/UI Professional Enhancements
    ========================================== */
 
-
 /* ==========================================
    Mega Menu
    ========================================== */
@@ -153,12 +152,6 @@
   visibility: visible;
 }
 
-#tableOfContents {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
 /* ==========================================
    Bookmarks Panel
    ========================================== */
@@ -248,12 +241,6 @@
   flex: 1;
   overflow-y: auto;
   padding: 1.5rem;
-}
-
-.bookmarks-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 }
 
 .bookmark-item {
@@ -594,17 +581,6 @@
   }
   to {
     transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
     opacity: 1;
   }
 }
