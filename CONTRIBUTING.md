@@ -37,8 +37,8 @@ npm test
 
 | Comando | O que faz |
 |---|---|
-| `npm run test:static` | Valida as páginas geradas: metadados, ids únicos, `<main>`/`<h1>`/`<footer>`, skip-link, links e âncoras, arquitetura, índice de busca e regressões de segurança. Rápido, sem navegador. |
-| `npm run test:e2e` | Fluxos no navegador real (Playwright): navegação, tema, favoritos, busca, editor ao vivo, segurança e axe-core. |
+| `npm run test:static` | Valida as páginas geradas: metadados, ids únicos, `<main>`/`<h1>`/`<footer>`, skip-link, links e âncoras, arquitetura e regressões de segurança. Rápido, sem navegador. |
+| `npm run test:e2e` | Fluxos no navegador real (Playwright): navegação, tema, favoritos, editor ao vivo, segurança e axe-core. |
 | `npm run metrics` | Mede peso, requisições e nós de DOM em localhost (referência, não é Lighthouse). |
 
 O CI roda os mesmos testes em todo PR.
@@ -47,7 +47,7 @@ O CI roda os mesmos testes em todo PR.
 
 **Corrigir texto ou exemplo de código** — edite o `.html` em `src/pages/`. Mudanças pequenas e focadas são as mais fáceis de revisar. Confira com a documentação oficial (MDN, docs do framework) e cite a fonte no PR.
 
-**Criar uma página nova** — copie uma página existente em `src/pages/`, ajuste o front matter (`title`, `description`, `permalink`, `styles`, `scripts`) e adicione o link no `header.njk`. O teste de arquitetura e o índice de busca cobrem a página automaticamente.
+**Criar uma página nova** — copie uma página existente em `src/pages/`, ajuste o front matter (`title`, `description`, `permalink`, `styles`, `scripts`) e adicione o link no `header.njk`. O teste de arquitetura cobre a página automaticamente.
 
 **Fazer afirmações ou mudar números** — só afirme o que é verificável. Não adicione "N+ exercícios", "conformidade WCAG" etc. sem comprovação; os testes impedem alguns casos.
 
