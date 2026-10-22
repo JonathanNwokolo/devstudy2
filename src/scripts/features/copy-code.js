@@ -52,7 +52,7 @@ export function initCopyButtons() {
   window.copyCode = copyCode;
 
   // Blocos com rolagem horizontal precisam receber foco para uso por teclado.
-  document.querySelectorAll('.code-block code, .page-study table').forEach((scrollArea) => {
+  document.querySelectorAll('.code-block code, .code-example pre, .page-study table').forEach((scrollArea) => {
     if (scrollArea.scrollWidth > scrollArea.clientWidth) scrollArea.tabIndex = 0;
   });
 

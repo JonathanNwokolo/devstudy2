@@ -1,46 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
-// Regressão: self-XSS na busca, nos favoritos e no editor ao vivo (DEVSTUDY_AUDIT A5/A6).
-// Desde a PHASE 1A a busca global é exercitada pela interface real (lupa → campo → resultados).
-
-async function openSearch(page) {
-  await page.locator('#searchToggle').click();
-  await expect(page.locator('#searchPanel')).toHaveClass(/active/);
-}
-
-test.describe('busca global (index.html)', () => {
-  test('consulta com HTML não é interpretada como marcação', async ({ page }) => {
-    await page.goto('/index.html');
-    await page.evaluate(() => { window.__pwned = false; });
-    await openSearch(page);
-    await page.fill('#globalSearch', '<img src=x onerror="window.__pwned=true">');
-    await expect(page.locator('#searchResults')).toContainText('<img src=x');
-    expect(await page.evaluate(() => window.__pwned)).toBe(false);
-    expect(await page.locator('#searchResults img').count()).toBe(0);
-  });
-
-  test('resultado com título/descrição maliciosos no índice é renderizado como texto', async ({ page }) => {
-    await page.route('**/search-index.json', (route) => route.fulfill({
-      contentType: 'application/json',
-      body: JSON.stringify([{ t: '<img src=x onerror="window.__pwned=true">', d: '<b>d</b>', u: 'index.html#home', p: '<i>página</i>' }]),
-    }));
-    await page.goto('/index.html');
-    await page.evaluate(() => { window.__pwned = false; });
-    await openSearch(page);
-    await page.fill('#globalSearch', 'img');
-    await expect(page.locator('#searchResults .search-result-item')).toHaveCount(1);
-    expect(await page.evaluate(() => window.__pwned)).toBe(false);
-    expect(await page.locator('#searchResults img, #searchResults b, #searchResults i').count()).toBe(0);
-  });
-
-  test('busca legítima retorna resultados agrupados por página', async ({ page }) => {
-    await page.goto('/index.html');
-    await openSearch(page);
-    await page.fill('#globalSearch', 'flexbox');
-    await expect(page.locator('#searchResults .search-result-item').first()).toBeVisible();
-    await expect(page.locator('#searchResults .search-category').first()).toHaveText(/\S/);
-  });
-});
+// Regressão: self-XSS nos favoritos, na busca de cards e no editor ao vivo (DEVSTUDY_AUDIT A5/A6).
+// A busca global foi removida do site (d9a9cac); não há mais testes dela.
 
 test.describe('favoritos', () => {
   test('título malicioso no localStorage não executa script', async ({ page }) => {

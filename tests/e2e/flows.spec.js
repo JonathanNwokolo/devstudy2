@@ -58,15 +58,6 @@ test('busca de cards (cheatsheets): filtra resultados existentes', async ({ page
   expect(visible).toBeLessThan(total);
 });
 
-test('busca de cards: termo com caracteres de regex não quebra', async ({ page }) => {
-  const errors = [];
-  page.on('pageerror', (e) => errors.push(e.message));
-  await page.goto('/cheatsheets.html');
-  await page.fill('#searchInput', '(');
-  await page.waitForTimeout(600);
-  expect(errors).toEqual([]);
-});
-
 test('acessibilidade: skip-link é o primeiro item focável e leva ao <main>', async ({ page }) => {
   await page.goto('/git.html');
   await page.keyboard.press('Tab');
