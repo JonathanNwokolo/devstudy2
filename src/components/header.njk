@@ -8,28 +8,6 @@
           <span class="logo-text">DevStudy</span>
         </a>
 
-        <div class="search-container">
-          <button class="search-toggle" id="searchToggle" aria-label="Abrir busca">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM18 18l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </button>
-          <div class="search-panel" id="searchPanel">
-            <div class="search-box">
-              <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM18 18l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              <input type="search" id="globalSearch" placeholder="Buscar conteúdo... (Ctrl+K)" aria-label="Campo de busca" autocomplete="off" />
-              <button class="search-close" id="searchClose" aria-label="Fechar busca">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </button>
-            </div>
-            <div class="search-results" id="searchResults"></div>
-          </div>
-        </div>
-
         <ul class="nav-links">
           <li><a href="{{ "#home" if home else "index.html" }}" class="nav-link{{ " active" if home }}">Início</a></li>
 

@@ -186,6 +186,13 @@ pre code {
     transform: translateX(-50%) rotate(-45deg);
   }
 
+  /* backdrop-filter no header cria um containing block: o drawer fixed ficaria preso a ele */
+  .header,
+  .header.scrolled {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
   /* Mobile Nav Drawer */
   .nav-links {
     position: fixed !important;
@@ -197,6 +204,8 @@ pre code {
     background: #ffffff !important;
     display: flex !important;
     flex-direction: column !important;
+    align-items: stretch !important;
+    flex-wrap: nowrap !important;
     padding: 5rem 1.25rem 2rem !important;
     gap: 0.35rem !important;
     box-shadow: -8px 0 35px rgba(0, 0, 0, 0.2) !important;
@@ -351,7 +360,7 @@ pre code {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    z-index: 1000;
+    z-index: 999; /* abaixo do header (1000), que contém o drawer */
   }
 
   .mobile-overlay.active {
@@ -359,18 +368,6 @@ pre code {
     visibility: visible;
   }
 
-  /* Search Panel in Mobile */
-  .search-panel {
-    position: fixed !important;
-    top: 65px !important;
-    left: 10px !important;
-    right: 10px !important;
-    width: calc(100vw - 20px) !important;
-    max-width: 480px !important;
-    margin: 0 auto !important;
-    border-radius: 14px !important;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
-  }
 
   /* Logo adjustment */
   .logo-text {

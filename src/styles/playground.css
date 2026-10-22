@@ -19,7 +19,7 @@ body { background: var(--play-bg); color: var(--play-ink); }
 ::selection { background: #dedbff; color: #172033; }
 .container { max-width: 1240px; }
 
-/* Header: keep the existing search, menus and theme controls. */
+/* Header: keep the existing menus and theme controls. */
 .header, .header.scrolled {
   background: rgba(255, 255, 255, .94);
   border-bottom: 1px solid var(--play-line);
@@ -42,7 +42,7 @@ body { background: var(--play-bg); color: var(--play-ink); }
 .nav-link:hover, .nav-link.active { color: var(--play-primary); background: #f0efff; }
 .nav-link.active::after { background: var(--play-primary); }
 .nav-link.challenges-link { background: var(--play-primary); border-radius: 11px; box-shadow: none; }
-.theme-toggle, .search-toggle { border-radius: 12px; }
+.theme-toggle { border-radius: 12px; }
 
 /* A bright, asymmetric first fold with an illustrated code object. */
 .page-home .hero {
@@ -224,9 +224,7 @@ body { background-image: radial-gradient(#d9d4cf 0.55px, transparent .55px); bac
 .header, .header.scrolled { background: #faf9f6; box-shadow: none; border-bottom: 1px solid #e5e1da; }
 .navbar { min-height: 75px; }
 .navbar .nav-links { order: 1; }
-.navbar .search-container { order: 2; }
 .navbar .nav-actions { order: 3; }
-.search-panel { transition: opacity .2s ease, transform .2s ease; }
 .logo-icon { width: 44px; height: 40px; background: #191922; color: #d5ff55; transform: rotate(-8deg); border-radius: 12px; box-shadow: 4px 5px 0 #d5ff55; }
 .logo-text { letter-spacing: -.07em; text-transform: lowercase; }
 .logo-text::after { content: "."; color: #ff8468; }
@@ -283,7 +281,13 @@ body { background-image: radial-gradient(#d9d4cf 0.55px, transparent .55px); bac
   padding: 1rem 0; transform: rotate(-.6deg); margin: 0 -2px;
   font: 800 .82rem "Fira Code", Consolas, monospace; letter-spacing: .12em;
 }
-.playground-ticker span { display: block; min-width: max-content; }
+.ticker-track { display: flex; width: max-content; animation: ticker-scroll 60s linear infinite; }
+.playground-ticker:hover .ticker-track { animation-play-state: paused; }
+.ticker-group { display: flex; flex-shrink: 0; align-items: center; }
+.ticker-group span { padding-right: 1.1rem; }
+.ticker-group i { font-style: normal; padding-right: 1.1rem; }
+@keyframes ticker-scroll { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none !important; } }
 .page-home .section-title { letter-spacing: -.065em; }
 .page-home .topic-card, .page-home .info-card { border: 1.5px solid #191922; box-shadow: 5px 6px 0 #191922; }
 .page-home .topic-card:nth-child(3n) { background: #f1e8ff; }
@@ -469,8 +473,8 @@ body { font-family: "DM Sans", Inter, sans-serif; background-size: 7px 7px; }
   .page-home .hero-visual { min-height: 410px; }
   .page-home .code-window { width: min(78%, 410px); }
   .page-study .study-breadcrumbs { padding-top: 135px; }
-  .page-study .hero.js-hero { padding-top: 2rem !important; text-align: left !important; }
-  .page-study .hero-description { text-align: left; }
+  .page-study .hero.js-hero { padding-top: 2rem !important; text-align: center !important; }
+  .page-study .hero-description { text-align: center; }
   .page-study .js-hero .hero-buttons { margin-left: 0 !important; flex-direction: row !important; max-width: none !important; }
   .page-study .js-hero .hero-buttons .btn { width: auto !important; }
 }
@@ -479,7 +483,6 @@ body { font-family: "DM Sans", Inter, sans-serif; background-size: 7px 7px; }
   .announcement { font-size: .54rem; line-height: 1.3; }
   .logo-text { display: inline !important; font-size: 1.15rem; }
   .navbar { gap: .35rem; }
-  .navbar .search-container { margin-left: auto; }
   .nav-actions { gap: .25rem; }
   .nav-actions .theme-toggle, .nav-actions .bookmark-toggle { width: 32px; padding: .25rem; }
   .page-home .hero { padding: 145px 1.4rem 35px !important; }
@@ -585,7 +588,8 @@ body { font-family: "DM Sans", Inter, sans-serif; background-size: 7px 7px; }
 .page-study .branch-label.main { background: var(--play-demo-accent); }
 .page-study .branch-label.feature { background: #216644; }
 .page-study .cat-badge { color: #4b35a3; }
-.page-study .glossary-filter.active, .page-study #searchBtn, .page-study button[data-os="windows"] { background: var(--play-demo-accent); }
+.page-study .glossary-filter.active,
+.page-study button[data-os="windows"] { background: var(--play-demo-accent); }
 .page-study kbd { color: #595959; }
 .page-study .git-badge { color: #a52c13; }
 .page-study .el-console-empty { color: #aeb8cb; }
@@ -855,8 +859,8 @@ body { font-family: "DM Sans", Inter, sans-serif; background-size: 7px 7px; }
 
 @media (max-width: 768px) {
   .page-study main > .css-section { padding-top: 130px; }
-  :is(.page-home, .page-study) .section-hero { padding: 0 0 1.6rem !important; text-align: left !important; flex-direction: column; align-items: flex-start; }
-  .page-study main > :is(.git-hero, .http-hero, .page-hero, .hero:not(.js-hero)) { padding: 130px 1.3rem 2rem !important; text-align: left !important; }
+  :is(.page-home, .page-study) .section-hero { padding: 0 0 1.6rem !important; text-align: center !important; flex-direction: column; align-items: center; }
+  .page-study main > :is(.git-hero, .http-hero, .page-hero, .hero:not(.js-hero)) { padding: 130px 1.3rem 2rem !important; text-align: center !important; }
   :is(.page-home, .page-study) .section-hero-title,
   .page-study main > :is(.git-hero, .http-hero, .page-hero, .hero:not(.js-hero)) h1 { font-size: clamp(2.35rem, 7vw, 3.4rem) !important; line-height: 1.06 !important; }
   :is(.page-home, .page-study) .section-hero-stats,
@@ -959,3 +963,37 @@ body { font-family: "DM Sans", Inter, sans-serif; background-size: 7px 7px; }
 [data-theme="dark"].page-study .note { color: #c6cbd8; }
 [data-theme="dark"].page-study .perf-badge { color: #ffd08a; }
 [data-theme="dark"].page-study footer a:is([href^="https://react.dev"], [href^="https://vuejs.org"]) { color: #cbbdff; }
+
+/* Topo das páginas de estudo centralizado (badge, título, descrição, botões e estatísticas). */
+.page-study main > :is(.git-hero, .http-hero, .page-hero, .hero),
+:is(.page-home, .page-study) .section-hero {
+  text-align: center;
+}
+.page-study main > :is(.git-hero, .http-hero, .page-hero) > .container,
+.page-study main > .hero .hero-content {
+  margin-inline: auto;
+}
+.page-study main > :is(.git-hero, .http-hero, .page-hero, .hero) :is(h1, .hero-title),
+:is(.page-home, .page-study) .section-hero-title,
+.page-study .js-hero .hero-title {
+  margin-inline: auto;
+}
+.page-study main > :is(.git-hero, .http-hero, .page-hero, .hero) .hero-description,
+:is(.page-home, .page-study) .section-hero-description,
+.page-study .js-hero .hero-description {
+  margin-inline: auto;
+}
+.page-study main > :is(.git-hero, .http-hero, .page-hero, .hero) :is(.hero-badge, .hero-stats, .hero-buttons, .hero-actions, .stats),
+:is(.page-home, .page-study) .section-hero :is(.section-badge, .section-hero-stats) {
+  justify-content: center;
+  margin-inline: auto;
+}
+.page-study main > :is(.git-hero, .http-hero, .page-hero, .hero) .hero-buttons,
+.page-study main > :is(.git-hero, .http-hero, .page-hero, .hero) .hero-actions {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.page-study main > :is(.git-hero, .http-hero, .page-hero, .hero) .hero-badge {
+  display: flex;
+  width: fit-content;
+}

@@ -19,7 +19,7 @@ O DevStudy é uma **referência de estudo e leitura** com alguns recursos intera
 | Existe hoje | Ainda não existe |
 |---|---|
 | 19 páginas de conteúdo (HTML, CSS, JavaScript, TypeScript, React, Vue, Git, HTTP, Node.js, PostgreSQL/SQL, acessibilidade…) | Exercícios com correção automática |
-| Busca global (`Ctrl+K`) com índice gerado no build | Execução de código JavaScript do usuário |
+| — | Execução de código JavaScript do usuário |
 | Editor HTML/CSS ao vivo, playground de Flexbox e 6 simuladores explicativos | Trilha com progresso persistente |
 | Glossário, cheat sheets, erros comuns, favoritos e tema claro/escuro | Versão offline |
 
@@ -67,7 +67,7 @@ src/
 ├── styles/       # styles.css (base/tema) + CSS por página e por simulador
 ├── scripts/      # ES Modules: main.js (ponto de entrada), core/, features/, pages/
 └── assets/       # Imagens e arquivos estáticos
-scripts/          # build-search-index.js, serve.js, metrics.js
+scripts/          # serve.js, metrics.js
 tests/            # static/ (Node test runner) e e2e/ (Playwright)
 docs/             # Arquitetura, guia de conteúdo, auditorias e roadmap
 eleventy.config.js

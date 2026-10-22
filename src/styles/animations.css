@@ -248,29 +248,6 @@
 }
 
 /* ==========================================
-   Link Underline Animation
-   ========================================== */
-a:not(.btn):not(.nav-link) {
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-a:not(.btn):not(.nav-link)::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: currentColor;
-  transition: width 0.3s ease;
-}
-
-a:not(.btn):not(.nav-link):hover::after {
-  width: 100%;
-}
-
-/* ==========================================
    Code Block Animations
    ========================================== */
 .code-example {

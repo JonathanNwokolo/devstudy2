@@ -25,7 +25,7 @@ jobs:
       - name: Build (Eleventy → _site/)
         run: npm run build
 
-      - name: Validações estáticas (rotas, arquitetura, HTML, links, busca, módulos)
+      - name: Validações estáticas (rotas, arquitetura, HTML, links, módulos)
         run: npm run test:static
 
       - name: Instalar Chromium do Playwright

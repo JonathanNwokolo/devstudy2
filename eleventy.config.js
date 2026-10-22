@@ -10,13 +10,10 @@ module.exports = function (eleventyConfig) {
     'src/assets': 'assets',
   });
 
-  // Depois de cada build: índice da busca global e limpeza de arquivos que só servem ao desenvolvimento.
+  // Depois de cada build: limpeza de arquivos que só servem ao desenvolvimento.
   eleventyConfig.on('eleventy.after', async ({ dir }) => {
     // src/scripts/package.json ({"type":"module"}) existe para o Node/testes tratarem os .js como ESM.
     fs.rmSync(path.join(dir.output, 'js', 'package.json'), { force: true });
-
-    const { buildSearchIndex } = require('./scripts/build-search-index.js');
-    buildSearchIndex(dir.output);
   });
 
   return {

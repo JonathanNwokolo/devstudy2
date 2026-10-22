@@ -13,7 +13,7 @@
     "dev": "eleventy --serve --port=5500",
     "serve": "node scripts/serve.js",
     "pretest:static": "npm run build",
-    "test:static": "node --test tests/static/html.test.js tests/static/js.test.js tests/static/architecture.test.js tests/static/search.test.js",
+    "test:static": "node --test tests/static/html.test.js tests/static/js.test.js tests/static/architecture.test.js",
     "pretest:e2e": "npm run build",
     "test:e2e": "playwright test",
     "pretest:a11y": "npm run build",
