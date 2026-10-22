@@ -66,7 +66,9 @@ src/
 ├── components/   # header (navegação), footer, quick-access, prism — escritos uma única vez
 ├── styles/       # styles.css (base/tema) + CSS por página e por simulador
 ├── scripts/      # ES Modules: main.js (ponto de entrada), core/, features/, pages/
-└── assets/       # Imagens e arquivos estáticos
+├── assets/       # Imagens e arquivos estáticos (inclui og-image.png)
+├── root/         # Copiados para a raiz do site: robots.txt, sitemap.xml
+└── _data/        # site.json (URL do site, repositório e imagem de compartilhamento)
 scripts/          # serve.js, metrics.js
 tests/            # static/ (Node test runner) e e2e/ (Playwright)
 docs/             # Arquitetura, guia de conteúdo, auditorias e roadmap
