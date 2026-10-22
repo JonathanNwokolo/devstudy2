@@ -408,7 +408,12 @@ body { font-family: "DM Sans", Inter, sans-serif; background-size: 7px 7px; }
 .adventure-art { display: grid; place-items: center; flex: 1; font-size: 4.5rem; filter: drop-shadow(4px 7px 0 #19192222); }
 .adventure-card strong { font-size: 1.35rem; letter-spacing: -.05em; }
 .adventure-card > span:not(.adventure-number):not(.adventure-art):not(.adventure-arrow) { font-size: .78rem; color: #4b4650; }
-.adventure-arrow { position: absolute; right: .8rem; bottom: .8rem; display: grid; place-items: center; width: 1.7rem; height: 1.7rem; border: 1px solid #191922; border-radius: 50%; background: white; }
+.adventure-arrow { position: absolute; top: .9rem; right: .9rem; display: inline-flex; align-items: center; gap: .35rem; padding: .2rem; border: 2px solid #191922; border-radius: 99px; background: #d5ff55; box-shadow: 3px 3px 0 #191922; color: #191922; font: 800 .62rem "JetBrains Mono", "Fira Code", monospace; letter-spacing: .08em; text-transform: uppercase; transition: transform .2s ease, box-shadow .2s ease; }
+.adventure-arrow b { max-width: 0; overflow: hidden; white-space: nowrap; font-weight: 800; opacity: 0; transition: max-width .3s ease, opacity .2s ease, padding .3s ease; }
+.adventure-arrow i { display: grid; place-items: center; width: 1.45rem; height: 1.45rem; border-radius: 50%; background: #191922; color: #d5ff55; font-style: normal; font-size: .85rem; transition: transform .3s ease; }
+.adventure-card:hover .adventure-arrow, .adventure-card:focus-visible .adventure-arrow { transform: translate(1px, 1px); box-shadow: 2px 2px 0 #191922; }
+.adventure-card:hover .adventure-arrow b, .adventure-card:focus-visible .adventure-arrow b { max-width: 4rem; opacity: 1; padding-left: .55rem; }
+.adventure-card:hover .adventure-arrow i, .adventure-card:focus-visible .adventure-arrow i { transform: rotate(45deg); }
 .adventure-more { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.8rem; color: #65636f; font-size: .82rem; }
 .adventure-more a { color: #6947ff; font-weight: 800; text-decoration: underline; text-underline-offset: .25rem; }
 .page-home .topic-card, .page-home .info-card { opacity: 1; transform: none; }
